@@ -1,0 +1,244 @@
+// Set your colors
+$primary: #7282d2;
+$secondary: #152445;
+$tertiary: #ffb661;
+$black: #414141;
+$lightgrey: #737373;
+
+// Breakpoints
+
+$small: 460px;
+$medium: 768px;
+$large: 1024px;
+$xlarge: 1200px;
+
+body {
+  color: $black;
+}
+
+a {
+  color: $primary;
+  transition: all .3s ease;
+}
+
+strong {
+  color: inherit;
+}
+
+form {
+  padding-top: 35px;
+}
+
+.button {
+  transition: all .4s ease;
+
+  .icon {
+    margin: 0;
+  }
+
+  &.is-primary {
+    background-color: $primary;
+    color: #fff;
+    border-color: $primary;
+
+    &:hover, &:focus {
+      background: transparent;
+      border-color: $primary;
+      color: $primary;
+    }
+  }
+}
+
+.input {
+  border: 1px solid lighten($lightgrey, 40%);
+  color: $primary;
+  font-size: 1em;
+  font-family: 'Poppins';
+  padding: calc(0.375em - 2px) 0.75em;
+  width: 100%;
+
+  &--inline {
+    border-radius: 3px 0 0 3px;
+
+    + .button {
+      border-radius: 0 3px 3px 0;
+    }
+  }
+
+  &--secondary {
+    border-color: #fff;
+  }
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: 'Poppins';
+  font-weight: bold;
+  margin: 0;
+}
+
+h1 {
+  font-size: 1.8em;
+
+  @media (min-width: $large) {
+    font-size: 2.4em;
+  }
+}
+
+h2 {
+  font-size: 1.6em;
+  text-decoration: underline;
+  margin-bottom: 15px;
+
+  @media (min-width: $large) {
+    font-size: 2em;
+    margin: 1em 0;
+  }
+}
+
+h3 {
+  font-size: 1.2em;
+
+  @media (min-width: $large) {
+    font-size: 1.4em;
+    margin: 1em 0;
+  }
+}
+
+h4 {
+  font-size: 1em;
+
+  @media (min-width: $large) {
+    font-size: 1.2em;
+  }
+}
+
+h5 {
+  font-size: 1em;
+}
+
+.textarea {
+  resize: none;
+}
+
+.pagination-list {
+  list-style: none !important;
+  margin-top: 0 !important;
+
+  li + li {
+    margin-top: 0;
+  }
+}
+
+@import './transitions.scss';
+
+.page {
+
+  main {
+    display: block;
+
+    > div:first-child {
+      min-height: 70vh;
+      background: #fff;
+    }
+
+    .columns {
+      flex-wrap: wrap;
+    }
+  }
+}
+
+.toggler {
+  display: none;
+}
+
+.toggler + .toggler-content {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: all .4s ease-in-out;
+}
+
+.toggler:checked + .toggler-content {
+  max-height: 1000px;
+  opacity: 1;
+}
+
+[v-cloak] {
+  display: none;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  border: 0;
+}
+
+@media (max-width: $medium) {
+  .section {
+    padding: 1.5rem 1.5rem
+  }
+}
+
+ul {
+  list-style: disc;
+}
+
+ul, ol {
+  margin-left: 35px;
+
+  li {
+    padding: 10px 0;
+  }
+}
+
+
+// Bulma overrides
+.b-checkbox.checkbox{
+
+  &:hover input[type=checkbox]:not(:disabled) + .check{
+    border-color: $primary;
+  }
+
+  input[type=checkbox]:checked + .check {
+    background-color: $primary;
+    border-color: $primary;
+  }
+}
+
+.button .icon:last-child:not(:first-child), .button .icon:first-child:not(:last-child) {
+  margin: 0;
+}
+
+.select:not(.is-multiple):not(.is-loading)::after {
+  border-color: $primary;
+}
+
+.pagination-link.is-current {
+  background-color: $primary;
+  border-color: $primary;
+}
+
+.input:focus, .taginput .taginput-container.is-focusable:focus, .textarea:focus, .select select:focus, .is-focused.input, .taginput .is-focused.taginput-container.is-focusable, .is-focused.textarea, .select select.is-focused, .input:active, .taginput .taginput-container.is-focusable:active, .textarea:active, .select select:active, .is-active.input, .taginput .is-active.taginput-container.is-focusable, .is-active.textarea, .select select.is-active {
+  border-color: $primary;
+}
+
+.button:focus {
+  outline-color: $primary;
+}
+
+.select select {
+  border-color: lighten($lightgrey, 40%);
+}
+
+.button:focus, .button.is-focused {
+  border-color: $primary;
+}
+
+.button:focus:not(:active), .button.is-focused:not(:active), .button.is-primary:focus:not(:active), .button.is-primary.is-focused:not(:active), .input:focus, .taginput .taginput-container.is-focusable:focus, .textarea:focus, .select select:focus, .is-focused.input, .taginput .is-focused.taginput-container.is-focusable, .is-focused.textarea, .select select.is-focused, .input:active, .taginput .taginput-container.is-focusable:active, .textarea:active, .select select:active, .is-active.input, .taginput .is-active.taginput-container.is-focusable, .is-active.textarea, .select select.is-active, .b-checkbox.checkbox input[type=checkbox]:focus:checked + .check {
+  box-shadow: 0 0 0 0.125em rgba(0, 128, 128, 0.25);
+}

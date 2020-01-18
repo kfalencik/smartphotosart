@@ -1,0 +1,33 @@
+{
+  "name": "iconari",
+  "version": "1.0.0",
+  "description": "Beautiful canvases for your home or office",
+  "author": "kfalencik",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate"
+  },
+  "dependencies": {
+    "@nuxtjs/sitemap": "^2.0.1",
+    "emailjs-com": "^2.4.1",
+    "firebase": "^7.6.1",
+    "js-md5": "^0.7.3",
+    "nuxt": "^2.0.0",
+    "nuxt-buefy": "^0.3.2",
+    "nuxt-compress": "^1.0.2",
+    "nuxt-jsonld": "^1.4.5",
+    "nuxt-vuex-localstorage": "^1.2.6",
+    "vue-paypal-checkout": "^3.2.0"
+  },
+  "devDependencies": {
+    "@nuxtjs/style-resources": "^1.0.0",
+    "eslint-config-prettier": "^4.1.0",
+    "eslint-plugin-prettier": "^3.0.1",
+    "node-sass": "^4.13.0",
+    "prettier": "^1.16.4",
+    "sass-loader": "^8.0.0"
+  }
+}

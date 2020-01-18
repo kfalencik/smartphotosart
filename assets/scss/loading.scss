@@ -1,0 +1,96 @@
+/****Dor Load Page***/
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes -webkit-spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+.page-loading {
+    height: 100%;
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 99991;
+    display: block;
+
+    .loader {
+      animation: 2s linear 0s normal none infinite running spin;
+      -webkit-animation: 2s linear 0s normal none infinite running spin;
+      -ms-animation: 2s linear 0s normal none infinite running spin;
+      border-color: #2688da transparent transparent;
+      border-image: none;
+      border-radius: 50%;
+      border-style: solid;
+      border-width: 3px;
+      display: block;
+      height: 100px;
+      left: 50%;
+      margin-left: -75px;
+      margin-top: -75px;
+      position: relative;
+      top: 50%;
+      width: 100px;
+      z-index: 1001;
+
+      &::before {
+        animation: 3s linear 0s normal none infinite running spin;
+        -webkit-animation: 3s linear 0s normal none infinite running spin;
+        -ms-animation: 3s linear 0s normal none infinite running spin;
+        border-color: #2688da transparent transparent;
+        border-image: none;
+        border-radius: 50%;
+        border-style: solid;
+        border-width: 3px;
+        bottom: 5px;
+        content: "";
+        left: 5px;
+        position: absolute;
+        right: 5px;
+        top: 5px;
+      }
+
+      &::after {
+        animation: 1.5s linear 0s normal none infinite running spin;
+        -webkit-animation: 1.5s linear 0s normal none infinite running spin;
+        -ms-animation: 1.5s linear 0s normal none infinite running spin;
+        border-color: #2688da transparent transparent;
+        border-image: none;
+        border-radius: 50%;
+        border-style: solid;
+        border-width: 3px;
+        bottom: 15px;
+        content: "";
+        left: 15px;
+        position: absolute;
+        right: 15px;
+        top: 15px;
+    }
+  }
+}
+
+.page-loading .loader-section.section-left {
+    left: 0;
+}
+.page-loading .loader-section {
+    background: #f5f5f5 none repeat scroll 0 0;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    transform: translateX(0px);
+    width: 51%;
+    z-index: 1000;
+}
+.page-loading .loader-section.section-right {
+    right: 0;
+}
