@@ -16,7 +16,7 @@ import Filters from '~/components/Filters';
 export default {
   head () {
     return {
-      title: 'Iconari - Shop',
+      title: 'Smart Photos Art - Shop',
     }
   },
   name: 'Shop',

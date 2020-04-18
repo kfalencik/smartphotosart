@@ -5,8 +5,8 @@
         <div class="header__left">
           <div class="header__logo">
             <router-link to="/">
-              <h1 class="sr-only">Iconari</h1>
-              <img src="~/assets/images/logo.png" alt="Iconari" />
+              <h1 class="sr-only">Smart Photos Art</h1>
+              <img src="~/assets/images/logo.png" alt="Smart Photos Art" />
             </router-link>
           </div>
         </div>
@@ -62,7 +62,7 @@
   export default{
     data() {
       return {
-        siteName: 'Iconari',
+        siteName: 'Smart Photos Art',
         navigation: false,
         searchKeyword: ''
       }

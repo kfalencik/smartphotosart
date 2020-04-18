@@ -47,7 +47,7 @@
   export default {
     head () {
       return {
-        title: 'Iconari - ' + this.product.title + ' reviews',
+        title: 'Smart Photos Art - ' + this.product.title + ' reviews',
       }
     },
     transition: 'page',

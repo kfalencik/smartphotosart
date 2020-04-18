@@ -19,7 +19,7 @@ import Cart from '~/components/Cart';
 export default {
   head () {
     return {
-      title: 'Iconari - Cart',
+      title: 'Smart Photos Art - Cart',
     }
   },
   name: 'Checkout',

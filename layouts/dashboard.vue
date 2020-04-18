@@ -4,8 +4,8 @@
       <template v-if="authorized">
         <div class="sidebar">
           <router-link to="/">
-            <h1 class="sr-only">Iconari</h1>
-            <img :src="require('@/assets/images/logo.png')" alt="Iconari" />
+            <h1 class="sr-only">Smart Photos Art</h1>
+            <img :src="require('@/assets/images/logo.png')" alt="Smart Photos Art" />
           </router-link>
 
           <nav>
@@ -53,7 +53,7 @@ import LoginForm from '~/components/LoginForm';
 export default {
   head () {
     return {
-      title: 'Iconari - Dashboard',
+      title: 'Smart Photos Art - Dashboard',
     }
   },
   components: {

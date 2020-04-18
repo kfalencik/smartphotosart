@@ -26,7 +26,7 @@ export default {
   head() {
     return {
       link: [
-        { rel: 'canonical', href: 'https://www.iconari.com' + this.$route.path },
+        { rel: 'canonical', href: 'https://www.smartphotosart.com' + this.$route.path },
       ] 
     }
   },

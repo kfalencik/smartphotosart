@@ -7,12 +7,12 @@
 			
           <p><strong>Last updated January 03, 2020  </strong></p>
 
-          <p>This Cookie Policy explains how Iconari ("<strong>Company</strong>", "<strong>we</strong>", "<strong>us</strong>", and "<strong>our</strong>") uses cookies and similar technologies to recognize you when you visit our websites at https://iconari.com, ("<strong>Websites</strong>"). It explains what these technologies are and why we use them, as well as your rights to control our use of them.  </p>
+          <p>This Cookie Policy explains how Smart Photos Art ("<strong>Company</strong>", "<strong>we</strong>", "<strong>us</strong>", and "<strong>our</strong>") uses cookies and similar technologies to recognize you when you visit our websites at https://smartphotosart.com, ("<strong>Websites</strong>"). It explains what these technologies are and why we use them, as well as your rights to control our use of them.  </p>
           <p>In some cases we may use cookies to collect personal information, or that becomes personal information if we combine it with other information.     </p>
           
           <h3>What are cookies?</h3>
           <p>Cookies are small data files that are placed on your computer or mobile device when you visit a website. Cookies are widely used by website owners in order to make their websites work, or to work more efficiently, as well as to provide reporting information. </p>
-          <p>Cookies set by the website owner (in this case, Iconari) are called "first party cookies". Cookies set by parties other than the website owner are called "third party cookies". Third party cookies enable third party features or functionality to be provided on or through the website (e.g. like advertising, interactive content and analytics). The parties that set these third party cookies can recognize your computer both when it visits the website in question and also when it visits certain other websites. </p>
+          <p>Cookies set by the website owner (in this case, Smart Photos Art) are called "first party cookies". Cookies set by parties other than the website owner are called "third party cookies". Third party cookies enable third party features or functionality to be provided on or through the website (e.g. like advertising, interactive content and analytics). The parties that set these third party cookies can recognize your computer both when it visits the website in question and also when it visits certain other websites. </p>
           
           <h3>Why do we use cookies?</h3>
           <p>We use first and third party cookies for several reasons. Some cookies are required for technical reasons in order for our Websites to operate, and we refer to these as "essential" or "strictly necessary" cookies. Other cookies also enable us to track and target the interests of our users to enhance the experience on our Online Properties. Third parties serve cookies through our Websites for advertising, analytics and other purposes. This is described in more detail below. </p>
@@ -40,9 +40,9 @@
           <p>The date at the top of this Cookie Policy indicates when it was last updated.  </p>
           
           <h3>Where can I get further information?</h3>
-          <p>If you have any questions about our use of cookies or other technologies, please email us at info@iconari.com or by post to:  </p>
+          <p>If you have any questions about our use of cookies or other technologies, please email us at info@smartphotosstudio.com or by post to:  </p>
           
-          <div>Iconari</div>
+          <div>Smart Photos Art</div>
           <div>1280 WILDWOOD LAKES BLVD</div>
           <div>Naples, FL 34104</div>
           <div>United States</div>  
@@ -56,7 +56,7 @@
 export default {
   head () {
     return {
-      title: 'Iconari - Cookie Policy',
+      title: 'Smart Photos Art - Cookie Policy',
     }
   },
 }

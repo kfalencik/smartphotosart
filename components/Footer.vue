@@ -3,7 +3,7 @@
     <div class="footer__bottom">
       <div class="section">
         <div class="footer__left">
-          Copyright @ 2020 Iconari - All rights reserved
+          Copyright @ 2020 Smart Photos Art - All rights reserved
         </div>
         <div class="sr-only">
           <a rel="noreferrer" href="https://www.facebook.com/Iconarishop/" target="_blank">Facebook</a>

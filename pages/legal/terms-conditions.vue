@@ -8,7 +8,7 @@
           <div><strong>Last Updated 03 January 2020 </strong> </div>
 
           <h3>Agreement to Terms</h3>
-          <p>1.1  These Terms and Conditions constitute a legally binding agreement made between you, whether personally or on behalf of an entity (<strong>you</strong>), and <strong>Iconari</strong>,<strong> </strong>located at<strong> 1280 WILDWOOD LAKES BLVD, </strong><strong> </strong><strong>Naples, FL </strong><strong>34104 United States </strong>(<strong>we</strong>, <strong>us</strong>), concerning your access to and use of the <strong>Iconari</strong><strong> (https://iconari.com) </strong>website as well as any related applications (the <strong>Site</strong>).  </p>
+          <p>1.1  These Terms and Conditions constitute a legally binding agreement made between you, whether personally or on behalf of an entity (<strong>you</strong>), and <strong>Smart Photos Art</strong>,<strong> </strong>located at<strong> 1280 WILDWOOD LAKES BLVD, </strong><strong> </strong><strong>Naples, FL </strong><strong>34104 United States </strong>(<strong>we</strong>, <strong>us</strong>), concerning your access to and use of the <strong>Smart Photos Art</strong><strong> (https://smartgraphicsart.com) </strong>website as well as any related applications (the <strong>Site</strong>).  </p>
           <p>The Site provides the following services: <strong>Online marketplace </strong>(<strong>Services</strong>). You agree that by accessing the Site and/or Services, you have read, understood, and agree to be bound by all of these Terms and Conditions.  </p>
           <p><strong>If you do not agree with all of these Terms and Conditions, then you are prohibited from using the Site and Services and you must discontinue use immediately</strong>. We recommend that you print a copy of these Terms and Conditions for future reference.  </p>
           <p>1.2  The supplemental policies set out in Section 1.7 below, as well as any supplemental terms and condition or documents that may be posted on the Site from time to time, are expressly incorporated by reference.  </p>
@@ -57,11 +57,11 @@
 
           <h3>Content you provide to us</h3>
           <p>3.1  There may be opportunities for you to post content to the Site or send feedback to us (<strong>User Content</strong>). You understand and agree that your User Content may be viewed by other users on the Site, and that they may be able to see who has posted that User Content.    </p>
-          <p>3.2  In posting User Content, including reviews or making contact with other users of the Site you shall comply with our Acceptable Use Policy https://iconari.com/legal/privacy-policy.    </p>
+          <p>3.2  In posting User Content, including reviews or making contact with other users of the Site you shall comply with our Acceptable Use Policy https://smartgraphicsart.com/legal/privacy-policy.    </p>
           <p>3.3  You warrant that any User Content does comply with our Acceptable Use Policy, and you will be liable to us and indemnify us for any breach of that warranty. This means you will be responsible for any loss or damage we suffer as a result of your breach of this warranty. </p>
           <p>3.4  We have the right to remove any User Content you put on the Site if, in our opinion, such User Content does not comply with the Acceptable Use Policy.  </p>
           <p>3.5  We are not responsible and accept no liability for any User Content including any such content that contains incorrect information or is defamatory or loss of User Content. We accept no obligation to screen, edit or monitor any User Content but we reserve the right to remove, screen and/or edit any User Content without notice and at any time. User Content has not been verified or approved by us and the views expressed by other users on the Site do not represent our views or values </p>
-          <p>3.6  If you wish to complain about User Content uploaded by other users please contact us at info@iconari.com.     </p>
+          <p>3.6  If you wish to complain about User Content uploaded by other users please contact us at info@smartgraphicsart.com.     </p>
 
           <h3>Our content</h3>
           <p>4.1  Unless otherwise indicated, the Site and Services including source code, databases, functionality, software, website designs, audio, video, text, photographs, and graphics on the Site (<strong>Our Content</strong>) are owned or licensed to us, and are protected by copyright and trade mark laws.   </p>
@@ -104,7 +104,7 @@
           </ul>
 
           <h3>Term and Termination</h3>
-          <p>8.1  These Terms and Conditions shall remain in full force and effect while you use the Site or Services or are otherwise a user of the Site, as applicable. You may terminate your use or participation at any time, for any reason, by following the instructions for terminating user accounts in your account settings, if available, or by contacting us at info@iconari.com.  </p>
+          <p>8.1  These Terms and Conditions shall remain in full force and effect while you use the Site or Services or are otherwise a user of the Site, as applicable. You may terminate your use or participation at any time, for any reason, by following the instructions for terminating user accounts in your account settings, if available, or by contacting us at info@smartgraphicsart.com.  </p>
           <p>8.2  Without limiting any other provision of these Terms and Conditions, we reserve the right to, in our sole discretion and without notice or liability, deny access to and use of the Site and the Services (including blocking certain IP addresses), to any person for any reason including without limitation for breach of any representation, warranty or covenant contained in these Terms and Conditions or of any applicable law or regulation.  </p>
           <p>If we determine, in our sole discretion, that your use of the Site/Services is in breach of these Terms and Conditions or of any applicable law or regulation, we may terminate your use or participation in the Site and the Services or delete any content or information that you posted at any time, without warning, in our sole discretion.  </p>
           <p>8.3  If we terminate or suspend your account for any reason set out in this Section 9, you are prohibited from registering and creating a new account under your name, a fake or borrowed name, or the name of any third party, even if you may be acting on behalf of the third party. In addition to terminating or suspending your account, we reserve the right to take appropriate legal action, including without limitation pursuing civil, criminal, and injunctive redress.   </p>
@@ -119,9 +119,9 @@
           <p>9.6  If any provision or part of a provision of these Terms and Conditions is unlawful, void or unenforceable, that provision or part of the provision is deemed severable from these Terms and Conditions and does not affect the validity and enforceability of any remaining provisions.  </p>
           <p>9.7  There is no joint venture, partnership, employment or agency relationship created between you and us as a result of these Terms and Conditions or use of the Site or Services. </p>
           <p>9.8  A person who is not a party to these Terms and Conditions shall have no right under the Contracts (Rights of Third Parties) Act 1999 to enforce any term of these Terms and Conditions. </p>
-          <p>9.9  In order to resolve a complaint regarding the Services or to receive further information regarding use of the Services, please contact us by email at info@iconari.com or by post to: </p>
+          <p>9.9  In order to resolve a complaint regarding the Services or to receive further information regarding use of the Services, please contact us by email at info@smartgraphicsstudio.com or by post to: </p>
           <div><br /> </div>
-          <div>Iconari </div>
+          <div>Smart Photos Art </div>
           <div>1280 WILDWOOD LAKES BLVD</div>
           <div>Naples, FL 34104  </div>
           <div>United States    </div>  
@@ -135,7 +135,7 @@
 export default {
   head () {
     return {
-      title: 'Iconari - Terms & Conditions',
+      title: 'Smart Photos Art - Terms & Conditions',
     }
   },
 }

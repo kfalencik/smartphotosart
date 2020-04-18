@@ -180,23 +180,23 @@ import KeyPoints from '~/components/KeyPoints';
 export default {
   head () {
     return {
-      title: 'Iconari - ' + this.product.title,
+      title: 'Smart Photos Art - ' + this.product.title,
       meta: [
-        { hid: 'ogtitle', property: 'og:title', content: 'Iconari - ' + this.product.title},
+        { hid: 'ogtitle', property: 'og:title', content: 'Smart Photos Art - ' + this.product.title},
         { hid: 'ogdesc', property: 'og:description', content: 'A beautiful canvas "' + this.product.title + '" for your wall'},
         { hid: 'ogtype', property: 'og:type', content: 'product.item'},
-        { hid: 'ogurl', property: 'og:url', content: 'https://www.iconari.com/shop/' + this.$route.params.slug},
+        { hid: 'ogurl', property: 'og:url', content: 'https://www.smartgraphicsart.com/shop/' + this.$route.params.slug},
         { hid: 'ogimage', property: 'og:image', content: require('@/assets/products/' + this.product.canvasImage)},
         { property: 'product:price:amount', content: this.priceFormatter(this.productTotal)},
         { property: 'product:price:currency', content: 'USD'},
         { property: 'product:retailer_item_id', content: this.product.id},
         { hid: 'twittercard', name: 'twitter:card', content: 'summary_large_image'},
-        { hid: 'twittertitle', name: 'twitter:title', content: 'Iconari - ' + this.product.title},
+        { hid: 'twittertitle', name: 'twitter:title', content: 'Smart Photos Art - ' + this.product.title},
         { hid: 'twitterdesc', name: 'twitter:description', content: 'A beautiful canvas "' + this.product.title + '" for your wall'},
         { hid: 'twitterimage', name: 'twitter:image', content: require('@/assets/products/' + this.product.canvasImage)},
       ],
       link: [
-        { rel: 'canonical', href: 'https://www.iconari.com/shop/' + this.$route.params.slug}
+        { rel: 'canonical', href: 'https://www.smartgraphicsart.com/shop/' + this.$route.params.slug}
       ]
     }
   },
@@ -204,7 +204,7 @@ export default {
     return {
       "@context": "https://www.schema.org",
       "@type": "product",
-      "brand": "Iconari",
+      "brand": "Smart Photos Art",
       "logo": "https://d33wubrfki0l68.cloudfront.net/c65ae7c78c877a2b79ca8c12efc08fbfdf7e6409/32cd5/_nuxt/img/7aadeb4.png",
       "name": this.product.title,
       "category": this.product.category,
