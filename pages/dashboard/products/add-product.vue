@@ -23,23 +23,23 @@
           </b-select>
         </b-field>
 
-        <b-field message="800x560 jesli poziome, 560x800 jesli pionowe, najlepiej .jpg" class="form__input" label="Zdjecie na podglad 3D">
-          <b-input placeholder="Zdjecie na podglad 3D" v-model="canvasImage" required></b-input>
+        <b-field message="890x585 jesli poziome, 585x890 jesli pionowe, najlepiej .jpg" class="form__input" label="Zdjecie na dynamiczny podglad">
+          <b-input placeholder="Zdjecie na dynamiczny podglad" v-model="canvasImage" required></b-input>
         </b-field>
 
-        <b-field message="800x560 lub 560x800, najlepiej .jpg" class="form__input" label="Zdjecie produktu">
+        <b-field message="890x585 lub 585x890, najlepiej .jpg" class="form__input" label="Zdjecie produktu">
           <b-input placeholder="Zdjecie produktu" v-model="image" required></b-input>
         </b-field>
 
-        <b-field message="800x560 lub 560x800, najlepiej .jpg" class="form__input" label="Dodatkowe zdjecie produktu (2)">
+        <b-field message="890x585 lub 585x890, najlepiej .jpg" class="form__input" label="Dodatkowe zdjecie produktu (2)">
           <b-input placeholder="Dodatkowe zdjecie produktu (2)" v-model="image2"></b-input>
         </b-field>
 
-        <b-field message="800x560 lub 560x800, najlepiej .jpg" class="form__input" label="Dodatkowe zdjecie produktu (3)">
+        <b-field message="890x585 lub 585x890, najlepiej .jpg" class="form__input" label="Dodatkowe zdjecie produktu (3)">
           <b-input placeholder="Dodatkowe zdjecie produktu (3)" v-model="image3"></b-input>
         </b-field>
 
-        <b-field message="800x560 lub 560x800, najlepiej .jpg" class="form__input" label="Dodatkowe zdjecie produktu (4)">
+        <b-field message="890x585 lub 585x890, najlepiej .jpg" class="form__input" label="Dodatkowe zdjecie produktu (4)">
           <b-input placeholder="Dodatkowe zdjecie produktu (4)" v-model="image4"></b-input>
         </b-field>
 
@@ -58,7 +58,7 @@
           </b-select>
         </b-field>
 
-        <b-field class="form__input" message="Bedzie uzyte w wyszukiwarce produktow. Najelpiej dodac ok 5-10" label="Dodaj tagi">
+        <b-field class="form__input" message="Beda uzyte w wyszukiwarce produktow. Najelpiej dodac ok 5-10" label="Dodaj tagi">
           <b-taginput
             v-model="tags"
             ellipsis

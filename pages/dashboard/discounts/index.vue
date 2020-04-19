@@ -7,10 +7,10 @@
         <b-table-column field="id" label="ID" width="40">
           {{ props.row.id }}
         </b-table-column>
-        <b-table-column field="code" label="Kod">
+        <b-table-column field="code" label="Kod promocyjny">
           {{ props.row.code }}
         </b-table-column>
-        <b-table-column field="title" label="Nazwa">
+        <b-table-column field="title" label="Opis znizki">
           {{ props.row.title }}
         </b-table-column>
         <b-table-column field="discount" label="Znizka" width="100">

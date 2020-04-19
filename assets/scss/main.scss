@@ -50,9 +50,13 @@ form {
   }
 }
 
+.help {
+  color: $lightgrey;
+}
+
 .input {
   border: 1px solid lighten($lightgrey, 40%);
-  color: $primary;
+  color: $black;
   font-size: 1em;
   font-family: 'Poppins';
   padding: calc(0.375em - 2px) 0.75em;

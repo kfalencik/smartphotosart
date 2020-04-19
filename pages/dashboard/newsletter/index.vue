@@ -4,7 +4,7 @@
     <!-- <router-link class="button is-black" to="/newsletter/send">Wyslij newsletter</router-link> -->
     <b-table :data="newsletter" :bordered="true" :striped="true" :narrowed="true" :current-page.sync="currentPage" :paginated="true" :per-page="20">
       <template slot-scope="props">
-        <b-table-column field="email" label="Email">
+        <b-table-column field="email" label="Adres email">
           {{ props.row.email }}
         </b-table-column>
         <b-table-column field="subscribed" label="Status" width="80">

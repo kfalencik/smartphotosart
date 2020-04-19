@@ -4,12 +4,13 @@
 
     <div class="content">
       <form class="form">
-        <b-field class="form__input" label="Nazwa kodu">
-          <b-input placeholder="Nazwa kodu" v-model="title" required></b-input>
+
+        <b-field message='Musi byc unikatowe. Najlepiej duze litery i cyfry. Bez spacji czy specjalnych znakow"' class="form__input" label="Kod promocyjny">
+          <b-input placeholder="Kod promocyjny" v-model="code" required></b-input>
         </b-field>
 
-        <b-field message='Musi byc unikatowe. Najlepiej duze litery i cyfry. Bez spacji czy specjalnych znakow"' class="form__input" label="Kod">
-          <b-input placeholder="Kod" v-model="code" required></b-input>
+        <b-field message='Np. "Additional 10% off"' class="form__input" label="Opis znizki">
+          <b-input placeholder="Opis znizki" v-model="title" required></b-input>
         </b-field>
 
         <b-field message='W procentach np. "20"' class="form__input" label="Znizka">
