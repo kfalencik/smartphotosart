@@ -4,7 +4,7 @@
       <div>
         <router-link to="/">
           <h1 class="sr-only">Smart Photos Art</h1>
-          <img :src="require('@/assets/images/logo.svg')" alt="Smart Photos Art" />
+          <img :src="require('@/assets/images/logo.svg')" width="150" alt="Smart Photos Art" />
         </router-link>
       </div>
       <h3>Zaloguj sie do panelu sterowania</h3>
