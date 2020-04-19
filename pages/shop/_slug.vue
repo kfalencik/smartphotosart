@@ -630,7 +630,7 @@ export default {
       position: relative;
       width: $canvasWidth;
       height: $canvasHeight;
-      box-shadow: 5px 0px 25px 3px rgba(0,0,0,0.35);
+      box-shadow: 5px 5px 10px 2px rgba(0,0,0,0.35);
       background-size: 101%;
       transform-origin: top center;
       transition: all .3s ease;
@@ -694,7 +694,7 @@ export default {
       &::after {
         content: '';
         display: block;
-        border: 1px solid lighten($lightgrey, 40%);
+        border: 1px solid $lightgrey;
         padding: 5px;
         position: absolute;
         top: 0;
