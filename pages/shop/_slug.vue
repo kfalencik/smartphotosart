@@ -15,7 +15,7 @@
           <div class="columns is-4">
             <div class="column is-two-thirds">
               <template v-if="image === 0">
-                <div v-if="product.canvasImage" class="product__dynamic-preview" :style="{ 'background-image': 'url(' + require('@/assets/images/product-background-' + canvasImage + '.jpg') + ')' }" @click="canvasImage === 3 ? canvasImage = 1 : canvasImage = canvasImage + 1" >
+                <div v-if="product.canvasImage" class="product__dynamic-preview" :style="{ 'background-image': 'url(' + require('@/assets/images/product-background-' + canvasImage + '.jpg') + ')' }" @click="canvasImage === 6 ? canvasImage = 1 : canvasImage = canvasImage + 1" >
                   <div class="product__canvas" :style="{ 'background-image': 'url(' + require('@/assets/products/' + product.canvasImage) + ')', 'transform': 'scale(' + size * zoom + ')' }" @mouseover="magnify(zoomLevel)" @mouseleave="magnify(1)">
                     <div class="product__frame" v-if="frame !== 'transparent'" :style="{'border-color': frame}"></div>
                   </div>
@@ -412,7 +412,7 @@ export default {
           self.$router.push('/shop/cart');
         }
       });
-      
+
       this.material = 0;
       this.materialOption = 0;
       this.size = 0.4;
