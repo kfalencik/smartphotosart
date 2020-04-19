@@ -200,7 +200,7 @@ export default {
       }
 
       &:nth-child(even) {
-        background: #fff;
+        background: $white;
       }
     }
 

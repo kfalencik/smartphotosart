@@ -61,7 +61,7 @@ export default {
       position: absolute;
       font-size: 1.6em;
       padding: 10px;
-      color: #fff;
+      color: $white;
       z-index: 10;
     }
 
@@ -96,9 +96,13 @@ export default {
       align-items: baseline;
       justify-content: flex-end;
       padding: 0 15px 15px;
+      
+      .price {
+        color: $black;
+      }
 
       .discount {
-        color: $lightgrey;
+        color: $primary;
         font-size: 0.8em;
         text-decoration: line-through;
         margin-right: 10px;

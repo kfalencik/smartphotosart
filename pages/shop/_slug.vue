@@ -118,7 +118,7 @@
                 </div>
 
                 <div class="product__add">
-                  <button class="button is-primary" @click="addToCart">Add to cart</button>
+                  <button class="button is-success" @click="addToCart">Add to cart</button>
                 </div>
               </div>
 
@@ -504,9 +504,9 @@ export default {
     }
 
     &__button {
-      border: 2px solid #fff;
+      border: 2px solid $white;
       transition: all .3s ease;
-      background: #fff;
+      background: $white;
       padding: 10px 20px;
       font-size: 0.8em;
       margin-right: 10px;
@@ -538,7 +538,7 @@ export default {
       &--active, &:hover, &--disabled {
         border-color: #000;
         background: #000;
-        color: #fff;
+        color: $white;
       }
     }
 

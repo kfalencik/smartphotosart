@@ -42,8 +42,8 @@ export default {
 
 <style lang="scss" scroped>
   .newsletter {
-    background: $secondary;
-    color: #fff;
+    background: $black;
+    color: $white;
     margin-top: 50px;
 
     h3 {

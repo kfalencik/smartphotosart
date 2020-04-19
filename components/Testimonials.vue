@@ -87,8 +87,8 @@ export default {
     overflow: hidden;
     position: relative;
     z-index: 10;
-    background: $secondary;
-    color: white;
+    background-color: $black;
+    color: $white;
     margin-top: 50px;
     margin-bottom: -50px;
 

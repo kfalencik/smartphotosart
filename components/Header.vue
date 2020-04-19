@@ -6,7 +6,7 @@
           <div class="header__logo">
             <router-link to="/">
               <h1 class="sr-only">Smart Photos Art</h1>
-              <img src="~/assets/images/logo.png" alt="Smart Photos Art" />
+              <img src="~/assets/images/logo.svg" alt="Smart Photos Art" />
             </router-link>
           </div>
         </div>
@@ -180,6 +180,11 @@
 
       form {
         padding-top: 0;
+
+        .is-primary {
+          background-color: $black;
+          border-color: $black;
+        }
       }
 
       @media (min-width: $medium) {
@@ -201,7 +206,6 @@
       }
 
       button {
-
         .icon {
           margin: 0 !important;
         }
@@ -228,7 +232,7 @@
       width: 100%;
       min-width: 250px;
       top: 50px;
-      background: #fff;
+      background: $white;
       border-radius: 3px;
       padding: 5px 20px 0px;
       box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.15);
@@ -270,7 +274,7 @@
           position: absolute;
           pointer-events: none;
           border-color: rgba(136, 183, 213, 0);
-          border-bottom-color: #fff;
+          border-bottom-color: $white;
           border-width: 17px;
           margin-left: -17px;
         }
@@ -309,7 +313,7 @@
 
     &__notification-indicator {
       background: $tertiary;
-      color: #fff;
+      color: $white;
       width: 15px;
       height: 15px;
       position: absolute;
@@ -342,7 +346,7 @@
 
         a {
           position: relative;
-          color: $secondary;
+          color: $black;
         }
       }
     }

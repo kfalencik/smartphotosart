@@ -237,7 +237,7 @@ export default {
                 name: "Smart Photos Art",
                 presentation: {
                     brand_name: "Smart Photos Art",
-                    logo_image: "http://localhost:3000/_nuxt/assets/images/logo.png"
+                    logo_image: "http://localhost:3000/_nuxt/assets/images/logo.svg"
                 },
                 input_fields: {
                     no_shipping: 1

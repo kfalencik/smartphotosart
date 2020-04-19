@@ -5,7 +5,7 @@
         <div class="sidebar">
           <router-link to="/">
             <h1 class="sr-only">Smart Photos Art</h1>
-            <img :src="require('@/assets/images/logo.png')" alt="Smart Photos Art" />
+            <img :src="require('@/assets/images/logo.svg')" alt="Smart Photos Art" />
           </router-link>
 
           <nav>
@@ -123,7 +123,7 @@ export default {
         font-weight: bold;
         display: block;
         padding: 15px 0;
-        border-bottom: 1px solid #fff;
+        border-bottom: 1px solid $white;
       }
     }
 

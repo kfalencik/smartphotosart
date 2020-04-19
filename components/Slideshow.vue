@@ -119,13 +119,17 @@ export default {
       height: 585px;
     }
 
+    @media (min-width: $xlarge) {
+      height: 650px;
+    }
+
     &__logo {
       position: absolute;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
       border: 5px solid #000;
-      background: #fff;
+      background: $white;
       padding: 10px 15px;
       z-index: 50;
 
@@ -196,8 +200,8 @@ export default {
     }
 
     &__nav-item {
-      background: #fff;
-      color: $primary;
+      background: $white;
+      color: $black;
       position: absolute;
       top: 50%;
       left: 20px;
@@ -217,8 +221,8 @@ export default {
       }
 
       &:hover {
-        background: $primary;
-        color: #fff;
+        background: $black;
+        color: $white;
       }
     }
 

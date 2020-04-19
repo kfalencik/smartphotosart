@@ -1,8 +1,9 @@
 // Set your colors
-$primary: #7282d2;
+$primary: #dddddd;
 $secondary: #152445;
 $tertiary: #ffb661;
 $black: #414141;
+$white: #FFFFFF;
 $lightgrey: #737373;
 
 // Breakpoints
@@ -17,7 +18,7 @@ body {
 }
 
 a {
-  color: $primary;
+  color: $lightgrey;
   transition: all .3s ease;
 }
 
@@ -38,7 +39,7 @@ form {
 
   &.is-primary {
     background-color: $primary;
-    color: #fff;
+    color: $white;
     border-color: $primary;
 
     &:hover, &:focus {
@@ -66,7 +67,7 @@ form {
   }
 
   &--secondary {
-    border-color: #fff;
+    border-color: $white;
   }
 }
 
@@ -138,7 +139,7 @@ h5 {
 
     > div:first-child {
       min-height: 70vh;
-      background: #fff;
+      background: $white;
     }
 
     .columns {
@@ -201,12 +202,12 @@ ul, ol {
 .b-checkbox.checkbox{
 
   &:hover input[type=checkbox]:not(:disabled) + .check{
-    border-color: $primary;
+    border-color: $black;
   }
 
   input[type=checkbox]:checked + .check {
-    background-color: $primary;
-    border-color: $primary;
+    background-color: $black;
+    border-color: $black;
   }
 }
 
@@ -215,20 +216,20 @@ ul, ol {
 }
 
 .select:not(.is-multiple):not(.is-loading)::after {
-  border-color: $primary;
+  border-color: $black;
 }
 
 .pagination-link.is-current {
-  background-color: $primary;
-  border-color: $primary;
+  background-color: $black;
+  border-color: $black;
 }
 
 .input:focus, .taginput .taginput-container.is-focusable:focus, .textarea:focus, .select select:focus, .is-focused.input, .taginput .is-focused.taginput-container.is-focusable, .is-focused.textarea, .select select.is-focused, .input:active, .taginput .taginput-container.is-focusable:active, .textarea:active, .select select:active, .is-active.input, .taginput .is-active.taginput-container.is-focusable, .is-active.textarea, .select select.is-active {
-  border-color: $primary;
+  border-color: $black;
 }
 
 .button:focus {
-  outline-color: $primary;
+  outline-color: $black;
 }
 
 .select select {
@@ -236,7 +237,7 @@ ul, ol {
 }
 
 .button:focus, .button.is-focused {
-  border-color: $primary;
+  border-color: $black;
 }
 
 .button:focus:not(:active), .button.is-focused:not(:active), .button.is-primary:focus:not(:active), .button.is-primary.is-focused:not(:active), .input:focus, .taginput .taginput-container.is-focusable:focus, .textarea:focus, .select select:focus, .is-focused.input, .taginput .is-focused.taginput-container.is-focusable, .is-focused.textarea, .select select.is-focused, .input:active, .taginput .taginput-container.is-focusable:active, .textarea:active, .select select:active, .is-active.input, .taginput .is-active.taginput-container.is-focusable, .is-active.textarea, .select select.is-active, .b-checkbox.checkbox input[type=checkbox]:focus:checked + .check {

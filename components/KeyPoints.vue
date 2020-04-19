@@ -2,7 +2,7 @@
   <div class="key-points">
     <div class="section">
       <div class="container">
-        <h3>Our products</h3>
+        <h3>Why us?</h3>
         <div class="columns">
 
           <div class="column">
@@ -48,8 +48,8 @@
 
 <style lang="scss" scoped>
   .key-points {
-    background: $tertiary;
-    color: $secondary;
+    background-color: $primary;
+    color: $black;
     padding-bottom: 25px;
     margin: 50px 0;
 
@@ -77,7 +77,7 @@
         min-width: 320px;
         border: 1px solid $lightgrey, 20%;
         padding: 20px;
-        background: #fff;
+        background: $white;
         margin: 10px 15px;
         text-align: center;
       }
