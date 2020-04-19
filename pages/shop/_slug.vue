@@ -29,6 +29,8 @@
                   <img :src="require('@/assets/products/' + product.image2)" v-if="product.image2 && image === 3" role="presentation" alt="" />
                   <img :src="require('@/assets/products/' + product.image3)" v-if="product.image3 && image === 4" role="presentation" alt="" />
                   <img :src="require('@/assets/products/' + product.image4)" v-if="product.image4 && image === 5" role="presentation" alt="" />
+                  <img v-if="product.landscape && image === 6" :src="require('@/assets/images/comparison_landscape.jpg')" role="presentation" alt="" />
+                  <img v-if="!product.landscape && image === 6" :src="require('@/assets/images/comparison_portrait.jpg')" role="presentation" alt="" />
                 </div>
               </template>
 
@@ -57,6 +59,11 @@
 
                 <div v-if="product.image4" class="product__thumbnails-item" @click="image = 5;" :class="{'product__thumbnails-item--active': image === 5}">
                   <img :src="require('@/assets/products/' + product.image2)" alt="Thumbnail 4" />
+                </div>
+
+                <div class="product__thumbnails-item" @click="image = 6;" :class="{'product__thumbnails-item--active': image === 6}">
+                  <img v-if="product.landscape" :src="require('@/assets/images/comparison_landscape.jpg')" role="presentation" alt="Size comparison" />
+                  <img v-else :src="require('@/assets/images/comparison_portrait.jpg')" alt="Size comparison" />
                 </div>
               </div>
             </div>
@@ -235,14 +242,14 @@ export default {
   data() {
     return {
       quantity: 1,
-      size: 0.4,
+      size: 0.7,
       material: 0,
       materialOption: 0,
       finish: 0,
       finishOption: 0,
       styles: 0,
       stylesOption: 0,
-      sizeOption: 0,
+      sizeOption: 2,
       mount: 0,
       mountOption: 0,
       frame: 'transparent',
@@ -362,8 +369,8 @@ export default {
     changeMaterial: function(material, index) {
       this.material = material;
       this.materialOption = index;
-      this.size = 0.4;
-      this.sizeOption = 0;
+      this.size = 0.7;
+      this.sizeOption = 2;
       this.finish = 0;
       this.finishOption = 0;
       this.styles = 0;
@@ -415,8 +422,8 @@ export default {
 
       this.material = 0;
       this.materialOption = 0;
-      this.size = 0.4;
-      this.sizeOption = 0;
+      this.size = 0.7;
+      this.sizeOption = 2;
       this.finish = 0;
       this.finishOption = 0;
       this.styles = 0;
@@ -440,8 +447,8 @@ export default {
   }
 
   .product {
-    $canvasWidth: 240px;
-    $canvasHeight: 340px;
+    $canvasWidth: 180px;
+    $canvasHeight: 270px;
     $canvasDepth: 6px;
 
     margin-bottom: 50px;
@@ -630,7 +637,7 @@ export default {
       position: relative;
       width: $canvasWidth;
       height: $canvasHeight;
-      box-shadow: 5px 5px 10px 2px rgba(0,0,0,0.35);
+      box-shadow: 2px 2px 6px 2px rgba(0,0,0,0.45);
       background-size: 101%;
       transform-origin: top center;
       transition: all .3s ease;
