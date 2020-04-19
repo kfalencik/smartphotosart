@@ -8,19 +8,26 @@
     </td>
 
     <td class="cart-item__extras">
-      <strong>Size: </strong> {{ prices[sizeOption].title }},
+      <strong>Material: </strong> {{ prices[materialOption].title }},
 
-      <strong>Thickness: </strong>
-      <span v-if="prices[sizeOption].thickness">{{ prices[sizeOption].thickness[thicknessOption].title }},</span>
-      <span v-else>{{ prices[0].thickness[thicknessOption].title }},</span>
+      <template v-if="prices[materialOption].finish">
+        <strong>Type: </strong>
+        <span v-if="prices[materialOption].finish">{{ prices[materialOption].finish[finishOption].title }},</span>
+      </template>
 
-      <strong>Edge: </strong>
-      <span v-if="prices[sizeOption].edge">{{ prices[sizeOption].edge[edgeOption].title }},</span>
-      <span v-else>{{ prices[0].edge[edgeOption].title }},</span>
+      <template v-if="prices[materialOption].styles">
+        <strong>Style: </strong>
+        <span >{{ prices[materialOption].styles[stylesOption].title }},</span>
+      </template>
+
+      <strong>Size: </strong>
+      <span>{{ prices[materialOption].size[sizeOption].title }},</span>
 
       <strong>Frame: </strong>
-      <span v-if="prices[sizeOption].frame">{{ prices[sizeOption].frame[frameOption].title }}</span>
-      <span v-else>{{ prices[0].frame[frameOption].title }}</span>
+      <span v-if="prices[materialOption].frame">{{ prices[materialOption].frame[frameOption].title }}</span>
+
+      <strong>Mount type: </strong>
+      <span v-if="prices[materialOption].mount">{{ prices[materialOption].mount[mountOption].title }}</span>
     </td>
 
     <td class="cart-item__quantity">
@@ -47,10 +54,12 @@ export default {
   ],
   data() {
     return {
-      sizeOption: this.extras[0],
-      thicknessOption: this.extras[1],
-      edgeOption: this.extras[2],
-      frameOption: this.extras[3]
+      materialOption: this.extras[0],
+      finishOption: this.extras[1],
+      stylesOption: this.extras[2],
+      sizeOption: this.extras[3],
+      frameOption: this.extras[4],
+      mountOption: this.extras[5]
     }
   },
   computed: {
@@ -70,18 +79,26 @@ export default {
     },
     productWithExtras() {
       let price = this.productTotal;
-      price = price + this.prices[this.sizeOption].price;
+      price = price + this.prices[this.materialOption].price;
 
-      if (this.prices[this.sizeOption].thickness) {
-        price = price + this.prices[this.sizeOption].thickness[this.thicknessOption].price;
+      if (this.prices[this.materialOption].size) {
+        price = price + this.prices[this.materialOption].size[this.sizeOption].price;
       }
 
-      if (this.prices[this.sizeOption].edge) {
-        price = price + this.prices[this.sizeOption].edge[this.edgeOption].price;
+      if (this.prices[this.materialOption].finish) {
+        price = price + this.prices[this.materialOption].finish[this.finishOption].price;
       }
 
-      if (this.prices[this.sizeOption].frame) {
-        price = price + this.prices[this.sizeOption].frame[this.frameOption].price;
+      if (this.prices[this.materialOption].styles) {
+        price = price + this.prices[this.materialOption].styles[this.stylesOption].price;
+      }
+
+      if (this.prices[this.materialOption].mount) {
+        price = price + this.prices[this.materialOption].mount[this.mountOption].price;
+      }
+
+      if (this.prices[this.materialOption].frame) {
+        price = price + this.prices[this.materialOption].frame[this.frameOption].price;
       }
 
       return price;
@@ -89,16 +106,24 @@ export default {
     extrasTotal() {
       let price = this.prices[this.sizeOption].price;
 
-      if (this.prices[this.sizeOption].thickness) {
-        price = price + this.prices[this.sizeOption].thickness[this.thicknessOption].price;
+      if (this.prices[this.materialOption].size) {
+        price = price + this.prices[this.materialOption].size[this.sizeOption].price;
       }
 
-      if (this.prices[this.sizeOption].edge) {
-        price = price + this.prices[this.sizeOption].edge[this.edgeOption].price;
+      if (this.prices[this.materialOption].finish) {
+        price = price + this.prices[this.materialOption].finish[this.finishOption].price;
       }
 
-      if (this.prices[this.sizeOption].frame) {
-        price = price + this.prices[this.sizeOption].frame[this.frameOption].price;
+      if (this.prices[this.materialOption].styles) {
+        price = price + this.prices[this.materialOption].styles[this.stylesOption].price;
+      }
+
+      if (this.prices[this.materialOption].mount) {
+        price = price + this.prices[this.materialOption].mount[this.mountOption].price;
+      }
+
+      if (this.prices[this.materialOption].frame) {
+        price = price + this.prices[this.materialOption].frame[this.frameOption].price;
       }
 
       return price;

@@ -17,11 +17,7 @@
               <template v-if="image === 0">
                 <div v-if="product.canvasImage" class="product__dynamic-preview" :style="{ 'background-image': 'url(' + require('@/assets/images/product-background-' + canvasImage + '.jpg') + ')' }" @click="canvasImage === 3 ? canvasImage = 1 : canvasImage = canvasImage + 1" >
                   <div class="product__canvas" :style="{ 'background-image': 'url(' + require('@/assets/products/' + product.canvasImage) + ')', 'transform': 'scale(' + size * zoom + ')' }" @mouseover="magnify(zoomLevel)" @mouseleave="magnify(1)">
-                    <div class="product__canvas-top" :style="{'height': thickness + 'px', 'top': thickness * -1 + 'px', 'margin-left': thickness/2 + 'px', 'background': edge}"></div>
-                    <div class="product__canvas-right" :style="{'width': thickness + 'px', 'margin-top': thickness * -1 + 'px', 'margin-left': thickness + 'px', 'background': edge}"></div>
                     <div class="product__frame" v-if="frame !== 'transparent'" :style="{'border-color': frame}"></div>
-                    <div class="product__canvas-top product__frame-top" :style="{'height': thickness + 'px', 'top': thickness * -1 + 'px', 'margin-left': thickness/2 + 'px', 'background': frame}"></div>
-                    <div class="product__canvas-right product__frame-right" :style="{'width': thickness + 'px', 'top': -1 + 'px', 'margin-left': thickness + 'px', 'background': frame}"></div>
                   </div>
                 </div>
               </template>
@@ -68,40 +64,52 @@
 
             <div class="product__details column is-one-third">
               <div class="product__options">
+
                 <div class="product__option">
-                  <h5>Canvas size</h5>
+                  <h5>Material</h5>
                   <div class="wrap">
-                    <button v-for="(option, index) in prices" :key="'size-' + index" :class="{'product__button': true, 'product__button--active': sizeOption === index}" @click="changeSize(option.action, index)">{{option.title}}</button>
+                    <button v-for="(option, index) in prices" :key="'material-' + index" :class="{'product__button': true, 'product__button--active': materialOption === index}" @click="changeMaterial(option.action, index)">{{option.title}}</button>
+                  </div>
+                </div>
+
+                <div class="product__option" v-if="prices[materialOption].finish">
+                  <h5>Type</h5>
+                  <div class="wrap">
+                    <button v-for="(option, index) in prices[materialOption].finish" :key="'finish-' + index" :class="{'product__button': true, 'product__button--active': finishOption === index}" @click="changeFinish(option.action, index)">{{option.title}}</button>
+                  </div>
+                </div>
+
+                <div class="product__option" v-if="prices[materialOption].styles">
+                  <h5>Style</h5>
+                  <div class="wrap">
+                    <button v-for="(option, index) in prices[materialOption].styles" :key="'styles-' + index" :class="{'product__button': true, 'product__button--active': stylesOption === index}" @click="changeStyles(option.action, index)">{{option.title}}</button>
                   </div>
                 </div>
 
                 <div class="product__option">
-                  <h5>Canvas thickness</h5>
-                  <div class="wrap" v-if="prices[sizeOption].thickness">
-                    <button v-for="(option, index) in prices[sizeOption].thickness" :key="'thickenss-' + index" :class="{'product__button': true, 'product__button--active': thicknessOption === index}" @click="changeThickness(option.action, index)">{{option.title}}</button>
-                  </div>
-                  <div v-else>
-                    <button class="product__button product__button--disabled" disabled>{{prices[0].thickness[0].title}}</button>
-                  </div>
-                </div>
-
-                <div class="product__option">
-                  <h5>Canvas edge</h5>
-                  <div class="wrap" v-if="prices[sizeOption].edge">
-                    <button v-for="(option, index) in prices[sizeOption].edge" :key="'thickenss-' + index" :class="{'product__button': true, 'product__button--active': edgeOption === index}" @click="changeEdge(option.action, index)">{{option.title}}</button>
-                  </div>
-                  <div v-else>
-                    <button class="product__button product__button--disabled" disabled>{{prices[0].edge[0].title}}</button>
+                  <h5>Size</h5>
+                  <div class="wrap">
+                    <button v-for="(option, index) in prices[materialOption].size" :key="'size-' + index" :class="{'product__button': true, 'product__button--active': sizeOption === index}" @click="changeSize(option.action, index)">{{option.title}}</button>
                   </div>
                 </div>
 
                 <div class="product__option">
                   <h5>Frame</h5>
-                  <div class="wrap" v-if="prices[sizeOption].frame">
-                    <button v-for="(option, index) in prices[sizeOption].frame" :key="'frame-' + index" :class="{'product__button': true, 'product__button--active': frameOption === index}" @click="changeFrame(option.action, index)">{{option.title}}</button>
+                  <div class="wrap" v-if="prices[materialOption].frame">
+                    <button v-for="(option, index) in prices[materialOption].frame" :key="'frame-' + index" :class="{'product__button': true, 'product__button--active': frameOption === index}" @click="changeFrame(option.action, index)">{{option.title}}</button>
                   </div>
                   <div v-else>
                     <button class="product__button product__button--disabled" disabled>{{prices[0].frame[0].title}}</button>
+                  </div>
+                </div>
+
+                <div class="product__option">
+                  <h5>Mounting type</h5>
+                  <div class="wrap" v-if="prices[materialOption].mount">
+                    <button v-for="(option, index) in prices[materialOption].mount" :key="'mount-' + index" :class="{'product__button': true, 'product__button--active': mountOption === index}" @click="changeMount(option.action, index)">{{option.title}}</button>
+                  </div>
+                  <div v-else>
+                    <button class="product__button product__button--disabled" disabled>{{prices[0].mount[0].title}}</button>
                   </div>
                 </div>
 
@@ -142,16 +150,12 @@
                   <h5>Extras</h5>
                   <table border="1">
                     <tbody>
-                    <tr><td>Canvas size</td><td>{{prices[sizeOption].title}}</td><td>{{ price(prices[sizeOption].price)}}</td></tr>
-                    <tr v-if="prices[sizeOption].thickness"><td>Canvas thickness</td><td>{{prices[sizeOption].thickness[thicknessOption].title}}</td><td>{{ price(prices[sizeOption].thickness[thicknessOption].price)}}</td></tr>
-                    <tr v-else><td>Canvas thickness</td><td>{{prices[0].thickness[0].title}}</td><td>{{ price(prices[0].thickness[0].price)}}</td></tr>
-
-                    <tr v-if="prices[sizeOption].edge"><td>Canvas edge</td><td>{{prices[sizeOption].edge[edgeOption].title}}</td><td>{{ price(prices[sizeOption].edge[edgeOption].price)}}</td></tr>
-                    <tr v-else><td>Canvas edge</td><td>{{prices[0].edge[0].title}}</td><td>{{ price(prices[0].edge[0].price)}}</td></tr>
-
-                    <tr v-if="prices[sizeOption].frame"><td>Frame</td><td>{{prices[sizeOption].frame[frameOption].title}}</td><td>{{ price(prices[sizeOption].frame[frameOption].price)}}</td></tr>
-                    <tr v-else><td>Frame</td><td>{{prices[0].frame[0].title}}</td><td>{{ price(prices[0].frame[0].price) }}</td></tr>
-
+                    <tr><td>Material</td><td>{{prices[materialOption].title}}</td><td>{{ price(prices[materialOption].price)}}</td></tr>
+                    <tr v-if="prices[materialOption].finish"><td>Type</td><td>{{prices[materialOption].finish[finishOption].title}}</td><td>{{ price(prices[materialOption].finish[finishOption].price)}}</td></tr>
+                    <tr v-if="prices[materialOption].styles"><td>Style</td><td>{{prices[materialOption].styles[stylesOption].title}}</td><td>{{ price(prices[materialOption].styles[stylesOption].price)}}</td></tr>
+                    <tr><td>Size</td><td>{{prices[materialOption].size[sizeOption].title}}</td><td>{{ price(prices[materialOption].size[sizeOption].price)}}</td></tr>
+                    <tr v-if="prices[materialOption].frame"><td>Frame</td><td>{{prices[materialOption].frame[frameOption].title}}</td><td>{{ price(prices[materialOption].frame[frameOption].price)}}</td></tr>
+                    <tr v-if="prices[materialOption].mount"><td>Mounting type</td><td>{{prices[materialOption].mount[mountOption].title}}</td><td>{{ price(prices[materialOption].mount[mountOption].price)}}</td></tr>
                     <tr><td><strong>Extras total</strong></td><td></td><td><strong>{{ price(extrasTotal) }}</strong></td></tr>
                     </tbody>
                   </table>
@@ -231,12 +235,16 @@ export default {
   data() {
     return {
       quantity: 1,
-      size: 0.5,
+      size: 0.4,
+      material: 0,
+      materialOption: 0,
+      finish: 0,
+      finishOption: 0,
+      styles: 0,
+      stylesOption: 0,
       sizeOption: 0,
-      thickness: 6,
-      thicknessOption: 0,
-      edge: this.background,
-      edgeOption: 0,
+      mount: 0,
+      mountOption: 0,
       frame: 'transparent',
       frameOption: 0,
       zoom: 1,
@@ -284,35 +292,51 @@ export default {
     },
     productWithExtras() {
       let price = this.productTotal;
-      price = price + this.prices[this.sizeOption].price;
+      price = price + this.prices[this.materialOption].price;
 
-      if (this.prices[this.sizeOption].thickness) {
-        price = price + this.prices[this.sizeOption].thickness[this.thicknessOption].price;
+      if (this.prices[this.materialOption].size) {
+        price = price + this.prices[this.materialOption].size[this.sizeOption].price;
       }
 
-      if (this.prices[this.sizeOption].edge) {
-        price = price + this.prices[this.sizeOption].edge[this.edgeOption].price;
+      if (this.prices[this.materialOption].finish) {
+        price = price + this.prices[this.materialOption].finish[this.finishOption].price;
       }
 
-      if (this.prices[this.sizeOption].frame) {
-        price = price + this.prices[this.sizeOption].frame[this.frameOption].price;
+      if (this.prices[this.materialOption].styles) {
+        price = price + this.prices[this.materialOption].styles[this.stylesOption].price;
+      }
+
+      if (this.prices[this.materialOption].mount) {
+        price = price + this.prices[this.materialOption].mount[this.mountOption].price;
+      }
+
+      if (this.prices[this.materialOption].frame) {
+        price = price + this.prices[this.materialOption].frame[this.frameOption].price;
       }
 
       return price;
     },
     extrasTotal() {
-      let price = this.prices[this.sizeOption].price;
+      let price = this.prices[this.materialOption].price;
 
-      if (this.prices[this.sizeOption].thickness) {
-        price = price + this.prices[this.sizeOption].thickness[this.thicknessOption].price;
+      if (this.prices[this.materialOption].size) {
+        price = price + this.prices[this.materialOption].size[this.sizeOption].price;
       }
 
-      if (this.prices[this.sizeOption].edge) {
-        price = price + this.prices[this.sizeOption].edge[this.edgeOption].price;
+      if (this.prices[this.materialOption].finish) {
+        price = price + this.prices[this.materialOption].finish[this.finishOption].price;
       }
 
-      if (this.prices[this.sizeOption].frame) {
-        price = price + this.prices[this.sizeOption].frame[this.frameOption].price;
+      if (this.prices[this.materialOption].styles) {
+        price = price + this.prices[this.materialOption].styles[this.stylesOption].price;
+      }
+
+      if (this.prices[this.materialOption].mount) {
+        price = price + this.prices[this.materialOption].mount[this.mountOption].price;
+      }
+
+      if (this.prices[this.materialOption].frame) {
+        price = price + this.prices[this.materialOption].frame[this.frameOption].price;
       }
 
       return price;
@@ -334,25 +358,30 @@ export default {
     changeSize: function(size, sizeOption) {
       this.size = size;
       this.sizeOption = sizeOption;
-      this.thickness = 6;
-      this.thicknessOption = 0;
-      this.edge = this.background;
-      this.edgeOption = 0;
-      this.frame = 'transparent';
-      this.frameOption = 0;
     },
-    changeThickness: function(thickenss, index) {
-      this.thickness = thickenss;
-      this.thicknessOption = index;
+    changeMaterial: function(material, index) {
+      this.material = material;
+      this.materialOption = index;
+      this.size = 0.4;
+      this.sizeOption = 0;
+      this.finish = 0;
+      this.finishOption = 0;
+      this.styles = 0;
+      this.stylesOption = 0;
+      this.mount = 0;
+      this.mountOption = 0;
     },
-    changeEdge: function(edge, index) {
-      if (edge === 'background') {
-        this.edge = this.background;
-      } else {
-        this.edge = edge;
-      }
-
-      this.edgeOption = index;
+    changeFinish: function(finish, index) {
+      this.finish = finish;
+      this.finishOption = index;
+    },
+    changeStyles: function(styles, index) {
+      this.styles = styles;
+      this.stylesOption = index;
+    },
+    changeMount: function(mount, index) {
+      this.mount = mount;
+      this.mountOption = index;
     },
     changeFrame: function(frame, index) {
       this.frame = frame;
@@ -372,7 +401,7 @@ export default {
     addToCart: function() {
       const self = this;
 
-      this.$store.commit('localStorage/addToCart', [this.product.id, [this.sizeOption, this.thicknessOption, this.edgeOption, this.frameOption], this.quantity]);
+      this.$store.commit('localStorage/addToCart', [this.product.id, [this.materialOption, this.finishOption, this.stylesOption, this.sizeOption, this.frameOption, this.mountOption], this.quantity]);
       this.$buefy.snackbar.open({
         duration: 5000,
         position: 'is-top',
@@ -383,14 +412,17 @@ export default {
           self.$router.push('/shop/cart');
         }
       });
-      this.size = 0.5;
+      
+      this.material = 0;
+      this.materialOption = 0;
+      this.size = 0.4;
       this.sizeOption = 0;
-      this.thickness = 6;
-      this.thicknessOption = 0;
-      this.edge = this.background;
-      this.edgeOption = 0;
-      this.frame = 'transparent';
-      this.frameOption = 0;
+      this.finish = 0;
+      this.finishOption = 0;
+      this.styles = 0;
+      this.stylesOption = 0;
+      this.mount = 0;
+      this.mountOption = 0;
       this.quantity = 1;
     }
   }
@@ -433,18 +465,17 @@ export default {
     &__options {
       padding: 0 0 15px;
       border-bottom: 1px solid lighten($lightgrey, 40%);
-      margin-bottom: 25px;
+      margin-bottom: 15px;
     }
 
     &__option {
-      margin-bottom: 35px;
+      margin-bottom: 25px;
 
       &:last-child {
         margin-bottom: 0;
       }
 
       h5 {
-        margin-bottom: 10px;
         text-decoration: underline;
       }
     }
@@ -517,11 +548,10 @@ export default {
       border: 2px solid $white;
       transition: all .3s ease;
       background: $white;
-      padding: 10px 20px;
+      padding: 6px 8px;
       font-size: 0.8em;
-      margin-right: 10px;
+      margin: 5px 10px 5px 0;
       box-shadow: 0 0 10px rgba(0,0,0,0.15);
-      margin-bottom: 10px;
       width: calc(50% - 5px);
       cursor: pointer;
 

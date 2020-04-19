@@ -82,16 +82,24 @@ export default {
         productPrice = productPrice - discount;
         productPrice = productPrice + this.prices[item.extras[0]].price;
 
-        if (this.prices[item.extras[0]].thickness) {
-          productPrice = productPrice + this.prices[item.extras[0]].thickness[item.extras[1]].price;
+        if (this.prices[item.extras[0]].finish) {
+          productPrice = productPrice + this.prices[item.extras[0]].finish[item.extras[1]].price;
         }
 
-        if (this.prices[item.extras[0]].edge) {
-          productPrice = productPrice + this.prices[item.extras[0]].edge[item.extras[2]].price;
+        if (this.prices[item.extras[0]].styles) {
+          productPrice = productPrice + this.prices[item.extras[0]].styles[item.extras[2]].price;
+        }
+
+        if (this.prices[item.extras[0]].size) {
+          productPrice = productPrice + this.prices[item.extras[0]].size[item.extras[3]].price;
         }
 
         if (this.prices[item.extras[0]].frame) {
-          productPrice = productPrice + this.prices[item.extras[0]].frame[item.extras[3]].price;
+          productPrice = productPrice + this.prices[item.extras[0]].frame[item.extras[4]].price;
+        }
+
+        if (this.prices[item.extras[0]].mount) {
+          productPrice = productPrice + this.prices[item.extras[0]].mount[item.extras[5]].price;
         }
 
         price = price + (productPrice * item.quantity);
@@ -141,24 +149,6 @@ export default {
 
       return price;
     },
-    productWithExtras(total, size, thickness, edge, frame) {
-      let price = total;
-      price = price + this.prices[size].price;
-
-      if (this.prices[size].thickness) {
-        price = price + this.prices[size].thickness[thickness].price;
-      }
-
-      if (this.prices[size].edge) {
-        price = price + this.prices[size].edge[edge].price;
-      }
-
-      if (this.prices[size].frame) {
-        price = price + this.prices[size].frame[frame].price;
-      }
-
-      return price;
-    },
     price: function(price) {
       return '$' + (Math.round(price * 100) / 100).toFixed(2)
     },
@@ -167,10 +157,8 @@ export default {
     },
     extrasFromatter: function(extras) {
       return `
-        Size: ${this.prices[extras[0]].title},
-        Thickness: ${this.prices[extras[0]].thickness ? this.prices[extras[0]].thickness[extras[1]].title: this.prices[0].thickness[extras[1]].title},
-        Edge: ${this.prices[extras[0]].edge ? this.prices[extras[0]].edge[extras[2]].title: this.prices[0].edge[extras[2]].title},
-        Frame: ${this.prices[extras[0]].frame ? this.prices[extras[0]].frame[extras[3]].title: this.prices[0].frame[extras[3]].title}
+        Material: ${this.prices[extras[0]].title},
+        Type: ${this.prices[extras[0]].finish ? this.prices[extras[0]].finish[extras[1]].title: this.prices[0].finish[extras[1]].title},
       `;
     },
     checkout: function() {

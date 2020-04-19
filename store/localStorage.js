@@ -43,6 +43,8 @@ export const mutations = {
         && item.extras[1] == cartItem.extras[1]
         && item.extras[2] == cartItem.extras[2]
         && item.extras[3] == cartItem.extras[3]
+        && item.extras[4] == cartItem.extras[4]
+        && item.extras[5] == cartItem.extras[5]
       ) {
         found = i;
       }

@@ -6,36 +6,79 @@ export default {
   },
   prices: [
     {
-      title: '12" x 20"',
-      action: 0.5,
+      title: 'Fine art paper',
       price: 0,
-      thickness: [
+      size: [
         {
-          title: 'Normal - .75"',
-          action: 6,
+          title: '8" x 12"',
+          action: 0.4,
           price: 0
         },
         {
-          title: 'Big - 1.50"',
-          action: 8,
-          price: 15
+          title: '16" x 24"',
+          action: 0.5,
+          price: 25
+        },
+        {
+          title: '24" x 36"',
+          action: 0.6,
+          price: 50
+        },
+        {
+          title: '36" x 60"',
+          action: 0.7,
+          price: 80
+        },
+        {
+          title: '40" x 60"',
+          action: 0.75,
+          price: 100
         }
       ],
-      edge: [
+      finish: [
         {
-          title: 'Folded',
-          action: 'background',
+          title: 'Matte',
           price: 0
         },
         {
-          title: 'White',
-          action: '#eee',
-          price: 5
+          title: 'Velvet',
+          price: 15
         },
         {
-          title: 'Black',
-          action: '#333',
-          price: 5
+          title: 'Satin',
+          price: 25
+        },
+        {
+          title: 'Eco paper',
+          price: 30
+        }
+      ],
+      styles: [
+        {
+          title: 'Borderless',
+          price: 0
+        },
+        {
+          title: '2" Border',
+          price: 15
+        },
+        {
+          title: 'Dibond',
+          price: 25
+        },
+        {
+          title: 'Thick gatorboard',
+          price: 30
+        }
+      ],
+      mount: [
+        {
+          title: 'Mounting hook',
+          price: 0
+        },
+        {
+          title: 'Steel line',
+          price: 10
         }
       ],
       frame: [
@@ -46,111 +89,248 @@ export default {
         },
         {
           title: 'White',
-          action: '#eee',
+          action: 'white',
           price: 15
         },
         {
           title: 'Black',
-          action: '#333',
+          action: 'black',
           price: 15
         }
       ]
     },
     {
-      title: '20" x 30"',
-      action: 0.55,
-      price: 10,
-      thickness: [
-        {
-          title: 'Normal - .75"',
-          action: 6,
-          price: 0
-        },
-        {
-          title: 'Big - 1.50"',
-          action: 8,
-          price: 15
-        }
-      ],
-      edge: [
-        {
-          title: 'Folded',
-          action: 'background',
-          price: 0
-        },
-        {
-          title: 'White',
-          action: '#eee',
-          price: 5
-        },
-        {
-          title: 'Black',
-          action: '#333',
-          price: 5
-        }
-      ],
-      frame: [
-        {
-          title: 'None',
-          action: 'transparent',
-          price: 0
-        },
-        {
-          title: 'White',
-          action: '#eee',
-          price: 30
-        },
-        {
-          title: 'Black',
-          action: '#333',
-          price: 30
-        }
-      ]
-    },
-    {
-      title: '36" x 48"',
-      action: 0.6,
+      title: 'Canvas',
       price: 50,
-      edge: [
+      size: [
         {
-          title: 'Folded',
-          action: 'background',
+          title: '8" x 12"',
+          action: 0.4,
+          price: 0
+        },
+        {
+          title: '16" x 24"',
+          action: 0.5,
+          price: 25
+        },
+        {
+          title: '24" x 36"',
+          action: 0.6,
+          price: 50
+        },
+        {
+          title: '36" x 60"',
+          action: 0.7,
+          price: 80
+        },
+        {
+          title: '40" x 60"',
+          action: 0.75,
+          price: 100
+        }
+      ],
+      finish: [
+        {
+          title: 'Gloss',
+          price: 0
+        },
+        {
+          title: 'Matte',
+          price: 15
+        },
+        {
+          title: 'Metallic',
+          price: 25
+        }
+      ],
+      styles: [
+        {
+          title: 'Artboard',
+          price: 0
+        },
+        {
+          title: 'Gatorboard',
+          price: 15
+        },
+        {
+          title: 'Thin stretched',
+          price: 25
+        },
+        {
+          title: 'Thick stretched',
+          price: 30
+        },
+        {
+          title: 'Gallery wrap',
+          price: 30
+        },
+        {
+          title: 'Thin gallery wrap',
+          price: 30
+        }
+      ],
+      mount: [
+        {
+          title: 'Mounting hook',
+          price: 0
+        },
+        {
+          title: 'Steel line',
+          price: 10
+        }
+      ],
+      frame: [
+        {
+          title: 'None',
+          action: 'transparent',
           price: 0
         },
         {
           title: 'White',
-          action: '#eee',
-          price: 5
+          action: 'white',
+          price: 15
         },
         {
           title: 'Black',
-          action: '#333',
-          price: 5
+          action: 'black',
+          price: 15
         }
       ]
     },
     {
-      title: '40" x 60"',
-      action: 0.7,
+      title: 'Acrylic',
       price: 100,
-      edge: [
+      size: [
         {
-          title: 'Folded',
-          action: 'background',
+          title: '8" x 12"',
+          action: 0.4,
+          price: 0
+        },
+        {
+          title: '16" x 24"',
+          action: 0.5,
+          price: 25
+        },
+        {
+          title: '24" x 36"',
+          action: 0.6,
+          price: 50
+        },
+        {
+          title: '36" x 60"',
+          action: 0.7,
+          price: 80
+        },
+        {
+          title: '40" x 60"',
+          action: 0.75,
+          price: 100
+        }
+      ],
+      mount: [
+        {
+          title: 'Mounting hook',
+          price: 0
+        },
+        {
+          title: 'Steel line',
+          price: 10
+        }
+      ],
+      frame: [
+        {
+          title: 'None',
+          action: 'transparent',
           price: 0
         },
         {
           title: 'White',
-          action: '#eee',
-          price: 5
+          action: 'white',
+          price: 15
         },
         {
           title: 'Black',
-          action: '#333',
-          price: 5
+          action: 'black',
+          price: 15
         }
       ]
     },
+    {
+      title: 'Metal',
+      price: 200,
+      size: [
+        {
+          title: '8" x 12"',
+          action: 0.4,
+          price: 0
+        },
+        {
+          title: '16" x 24"',
+          action: 0.5,
+          price: 25
+        },
+        {
+          title: '24" x 36"',
+          action: 0.6,
+          price: 50
+        },
+        {
+          title: '36" x 60"',
+          action: 0.7,
+          price: 80
+        },
+        {
+          title: '40" x 60"',
+          action: 0.75,
+          price: 100
+        }
+      ],
+      finish: [
+        {
+          title: 'Gloss',
+          price: 20
+        },
+        {
+          title: 'Matte',
+          price: 80
+        },
+        {
+          title: 'Silver gloss',
+          price: 180
+        },
+        {
+          title: 'Silver matte',
+          price: 200
+        }
+      ],
+      mount: [
+        {
+          title: 'Mounting hook',
+          price: 0
+        },
+        {
+          title: 'Steel line',
+          price: 10
+        }
+      ],
+      frame: [
+        {
+          title: 'None',
+          action: 'transparent',
+          price: 0
+        },
+        {
+          title: 'White',
+          action: 'white',
+          price: 15
+        },
+        {
+          title: 'Black',
+          action: 'black',
+          price: 15
+        }
+      ]
+    }
   ],
   categories: [
     {
