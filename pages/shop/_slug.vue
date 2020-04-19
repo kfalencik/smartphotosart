@@ -4,7 +4,16 @@
       <div class="section">
         <div :class="{'product container': true, 'product--landscape': product.landscape}">
           <div class="columns is-4">
-            <div class="column is-half">
+            <div class="column is-two-thirds">
+              <div class="product__title">
+                <h2>{{product.title}}</h2>
+                <Stars :product="product.id" link="true" />
+                <p>All of our prints are high-resolution images, printed with acid-free ink on best quality canvas. Please use the widget below to customize canvas size, edge colour, frame and more.</p>
+              </div>
+            </div>
+          </div>
+          <div class="columns is-4">
+            <div class="column is-two-thirds">
               <template v-if="image === 0">
                 <div v-if="product.canvasImage" class="product__dynamic-preview" :style="{ 'background-image': 'url(' + require('@/assets/images/product-background-' + canvasImage + '.jpg') + ')' }" @click="canvasImage === 3 ? canvasImage = 1 : canvasImage = canvasImage + 1" >
                   <div class="product__canvas" :style="{ 'background-image': 'url(' + require('@/assets/products/' + product.canvasImage) + ')', 'transform': 'scale(' + size * zoom + ')' }" @mouseover="magnify(zoomLevel)" @mouseleave="magnify(1)">
@@ -57,13 +66,7 @@
             </div>
 
 
-            <div class="product__details column is-half">
-              <div class="product__title">
-                <h2>{{product.title}}</h2>
-                <Stars :product="product.id" link="true" />
-                <p>All of our prints are high-resolution images, printed with acid-free ink on best quality canvas. Please use the widget below to customize canvas size, edge colour, frame and more.</p>
-              </div>
-
+            <div class="product__details column is-one-third">
               <div class="product__options">
                 <div class="product__option">
                   <h5>Canvas size</h5>
@@ -409,19 +412,26 @@ export default {
     $canvasHeight: 340px;
     $canvasDepth: 6px;
 
+    margin-bottom: 50px;
+
     h2 {
       margin-top: 0;
+      margin-bottom: 15px;
     }
 
     $root: &;
 
     &__title {
-      margin-bottom: 35px;
+      border-bottom: 1px solid lighten($lightgrey, 40%);
+      padding-bottom: 15px;
+
+      p {
+        margin-top: 10px;
+      }
     }
 
     &__options {
-      padding: 20px 0;
-      border-top: 1px solid lighten($lightgrey, 40%);
+      padding: 0 0 15px;
       border-bottom: 1px solid lighten($lightgrey, 40%);
       margin-bottom: 25px;
     }
@@ -549,7 +559,7 @@ export default {
       overflow: hidden;
 
       @media (min-width: $large) {
-        height: 600px;
+        height: 585px;
       }
 
       img {
@@ -569,7 +579,7 @@ export default {
       transform-origin: left top;
       transform: scale(0.5);
       width: 200%;
-      height: 600px;
+      height: 585px;
 
       @media (min-width: $large) {
         transform: scale(1);
