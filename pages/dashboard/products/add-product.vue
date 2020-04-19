@@ -58,7 +58,7 @@
           </b-select>
         </b-field>
 
-        <b-field class="form__input" message="Bedzie uzyte w wyszukiwarce produktow. Najelpiej dodac ok 5-10" label="Add some tags">
+        <b-field class="form__input" message="Bedzie uzyte w wyszukiwarce produktow. Najelpiej dodac ok 5-10" label="Dodaj tagi">
           <b-taginput
             v-model="tags"
             ellipsis
