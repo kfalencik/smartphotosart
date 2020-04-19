@@ -120,7 +120,7 @@ export default {
     }
 
     @media (min-width: $xlarge) {
-      height: 650px;
+      height: 700px;
     }
 
     &__logo {
@@ -142,6 +142,10 @@ export default {
       position: relative;
       height: 585px;
       width: 100%;
+
+      @media (min-width: $xlarge) {
+        height: 700px;
+      }
     }
 
     &__slide {
