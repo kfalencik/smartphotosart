@@ -312,7 +312,7 @@
     }
 
     &__notification-indicator {
-      background: $tertiary;
+      background: #48c774;
       color: $white;
       width: 15px;
       height: 15px;
