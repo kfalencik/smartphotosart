@@ -199,7 +199,7 @@ export default {
         { hid: 'ogtitle', property: 'og:title', content: 'Smart Photos Art - ' + this.product.title},
         { hid: 'ogdesc', property: 'og:description', content: 'A beautiful canvas "' + this.product.title + '" for your wall'},
         { hid: 'ogtype', property: 'og:type', content: 'product.item'},
-        { hid: 'ogurl', property: 'og:url', content: 'https://www.smartgraphicsart.com/shop/' + this.$route.params.slug},
+        { hid: 'ogurl', property: 'og:url', content: 'https://www.smartphotosart.com/shop/' + this.$route.params.slug},
         { hid: 'ogimage', property: 'og:image', content: require('@/assets/products/' + this.product.canvasImage)},
         { property: 'product:price:amount', content: this.priceFormatter(this.productTotal)},
         { property: 'product:price:currency', content: 'USD'},
@@ -210,7 +210,7 @@ export default {
         { hid: 'twitterimage', name: 'twitter:image', content: require('@/assets/products/' + this.product.canvasImage)},
       ],
       link: [
-        { rel: 'canonical', href: 'https://www.smartgraphicsart.com/shop/' + this.$route.params.slug}
+        { rel: 'canonical', href: 'https://www.smartphotosart.com/shop/' + this.$route.params.slug}
       ]
     }
   },

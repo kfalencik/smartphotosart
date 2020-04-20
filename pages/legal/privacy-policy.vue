@@ -7,7 +7,7 @@
 
           <p><strong>Last updated January 03, 2020</strong></p>
           <p> </p>
-          <p>Thank you for choosing to be part of our community at Smart Photos Studio LLC, doing business as Smart Photos Art (“ <strong> Smart Photos Art </strong> ”, “ <strong> we </strong> ”, “ <strong> us </strong> ”, or “ <strong> our </strong> ”). We are committed to protecting your personal information and your right to privacy. If you have any questions or concerns about our policy , or our practices with regards to your personal information, please contact us at info@smartphotosart.com.</p>
+          <p>Thank you for choosing to be part of our community at Smart Photos Studio LLC, doing business as Smart Photos Art (“ <strong> Smart Photos Art </strong> ”, “ <strong> we </strong> ”, “ <strong> us </strong> ”, or “ <strong> our </strong> ”). We are committed to protecting your personal information and your right to privacy. If you have any questions or concerns about our policy , or our practices with regards to your personal information, please contact us at info@smartgraphicsstudio.com.</p>
           <p>When you visit our website smartphotosart.com, and use our services, you trust us with your personal information. We take your privacy very seriously. In this privacy policy, we seek to explain to you in the clearest way possible what information we collect, how we use it and what rights you have in relation to it. We hope you take some time to read through it carefully, as it is important. If there are any terms in this privacy policy that you do not agree with, please discontinue use of our Sites and our services. </p>
           <p>This privacy policy applies to all information collected through our website (such as smartphotosart.com), and/or any related services, sales, marketing or events (we refer to them collectively in this privacy policy as the " <strong> Services </strong> ").  </p>
           <p><strong> Please read this privacy policy carefully as it will help you make informed decisions about sharing your personal information with us.   </strong>  </p>
@@ -144,14 +144,14 @@
           <p> </p>
           <h3> 9. DO WE COLLECT INFORMATION FROM MINORS?</h3>
           <p><strong> <em> In Short:  </em>   </strong> <em> We do not knowingly collect data from or market to children under 18 years of age. </em>   </p>
-          <p>We do not knowingly solicit data from or market to children under 18 years of age. By using the Services, you represent that you are at least 18 or that you are the parent or guardian of such a minor and consent to such minor dependent’s use of the Services. If we learn that personal information from users less than 18 years of age has been collected, we will deactivate the account and take reasonable measures to promptly delete such data from our records. If you become aware of any data we have collected from children under age 18, please contact us at info@smartphotosart.com.</p>
+          <p>We do not knowingly solicit data from or market to children under 18 years of age. By using the Services, you represent that you are at least 18 or that you are the parent or guardian of such a minor and consent to such minor dependent’s use of the Services. If we learn that personal information from users less than 18 years of age has been collected, we will deactivate the account and take reasonable measures to promptly delete such data from our records. If you become aware of any data we have collected from children under age 18, please contact us at info@smartgraphicsstudio.com.</p>
           <p> </p>
           <h3> 10. WHAT ARE YOUR PRIVACY RIGHTS?</h3>
           <p><strong> <em> In Short:  </em>   </strong> <em> In some regions, such as the European Economic Area, you have rights that allow you greater access to and control over your personal information. You may review, change, or terminate your account at any time. </em></p>
           <p>In some regions (like the European Economic Area), you have certain rights under applicable data protection laws. These may include the right (i) to request access and obtain a copy of your personal information, (ii) to request rectification or erasure; (iii) to restrict the processing of your personal information; and (iv) if applicable, to data portability. In certain circumstances, you may also have the right to object to the processing of your personal information. To make such a request, please use the  <a href="#contact"> contact details </a>  provided below. We will consider and act upon any request in accordance with applicable data protection laws.</p>
           <p>If we are relying on your consent to process your personal information, you have the right to withdraw your consent at any time. Please note however that this will not affect the lawfulness of the processing before its withdrawal.</p>
           <p>If you are resident in the European Economic Area and you believe we are unlawfully processing your personal information, you also have the right to complain to your local data protection supervisory authority. You can find their contact details here:  <a href="http://ec.europa.eu/justice/data-protection/bodies/authorities/index_en.htm"> http://ec.europa.eu/justice/data-protection/bodies/authorities/index_en.htm </a> .</p>
-          <p>If you have questions or comments about your privacy rights, you may email us at info@smartphotosart.com.</p>
+          <p>If you have questions or comments about your privacy rights, you may email us at info@smartgraphicsstudio.com.</p>
           
           <div><strong> Account Information </strong>   </div>
           <p>If you would at any time like to review or change the information in your account or terminate your account, you can: </p>
@@ -179,7 +179,7 @@
           <p>We may update this privacy policy from time to time. The updated version will be indicated by an updated “Revised” date and the updated version will be effective as soon as it is accessible. If we make material changes to this privacy policy, we may notify you either by prominently posting a notice of such changes or by directly sending you a notification. We encourage you to review this privacy policy frequently to be informed of how we are protecting your information.</p>
           <p> </p>
           <h3> 14. HOW CAN YOU CONTACT US ABOUT THIS POLICY?</h3>
-          <p>If you have questions or comments about this policy, you may email us at info@smartphotosstudio.com or by post to:</p>
+          <p>If you have questions or comments about this policy, you may email us at info@smartgraphicsstudio.com or by post to:</p>
           <div>Smart Photos Art </div>
           <div>1280 WILDWOOD LAKES BLVD</div>
           <div>Naples, FL 34104  </div>

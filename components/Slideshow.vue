@@ -7,6 +7,11 @@
       <b-icon icon="arrow-right" custom-size="mdi-24px"></b-icon>
     </button>
 
+    <div class="slideshow__text">
+      <h1>Smart Photos Art</h1>
+      <h2>Beautiful canvases for your home or office</h2>
+    </div>
+
     <div class="slideshow__slides">
       <div v-for="(slide, index) in slides" :key="index" :class="{'slideshow__slide': true, 'slideshow__slide--prev': index + 1 === heroPreviousSlide, 'slideshow__slide--next': index + 1 === heroNextSlide, 'slideshow__slide--active': index + 1 === heroCurrentSlide}">
           <div class="slideshow__slide-image">
@@ -127,6 +132,20 @@ export default {
 
     @media (min-width: $xlarge) {
       height: 700px;
+    }
+
+    &__text {
+      position: absolute;
+      z-index: 20;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: $white;
+      text-align: centerFsmar;
+
+      h2 {
+        text-decoration: none;
+      }
     }
 
     &__logo {

@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.smartgraphicsstudio.com/sitemap.xml
+Sitemap: https://www.smartphotosart.com/sitemap.xml
