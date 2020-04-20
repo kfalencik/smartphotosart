@@ -12,13 +12,21 @@
               </div>
             </div>
           </div>
+
           <div class="columns is-4">
             <div class="column is-two-thirds">
               <template v-if="image === 0">
-                <div v-if="product.canvasImage" class="product__dynamic-preview" :style="{ 'padding-top': product.landscape ? '65px' : '50px', 'background-image': 'url(' + require('@/assets/images/product-background-' + canvasImage + '.jpg') + ')' }" @click="canvasImage === 6 ? canvasImage = 1 : canvasImage = canvasImage + 1" >
+                <div v-if="product.canvasImage" class="product__dynamic-preview" :style="{ 'padding-top': product.landscape ? '65px' : '50px', 'background-image': 'url(' + require('@/assets/images/product-background-' + canvasImage + '.jpg') + ')' }" >
                   <div class="product__canvas" :style="{ 'background-image': 'url(' + require('@/assets/products/' + product.canvasImage) + ')', 'transform': 'scale(' + size * zoom + ')' }" @mouseover="magnify(zoomLevel)" @mouseleave="magnify(1)">
                     <div class="product__frame" v-if="frame !== 'transparent'" :style="{'border-color': frame}"></div>
                   </div>
+
+                  <button @click="canvasImage === 1 ? canvasImage = 6 : canvasImage = canvasImage - 1" class="product__nav-item" title="Previous">
+                    <b-icon icon="arrow-left" custom-size="mdi-24px"></b-icon>
+                  </button>
+                  <button @click="canvasImage === 6 ? canvasImage = 1 : canvasImage = canvasImage + 1" class="product__nav-item" title="Next">
+                    <b-icon icon="arrow-right" custom-size="mdi-24px"></b-icon>
+                  </button>
                 </div>
               </template>
 
@@ -467,6 +475,37 @@ export default {
       p {
         margin-top: 10px;
       }
+    }
+
+    &__nav-item {
+      background: $white;
+      color: $black;
+      position: absolute;
+      top: 50%;
+      left: 20px;
+      border: none;
+      width: 40px;
+      height: 40px;
+      z-index: 30;
+      transition: all .5s ease;
+      cursor: pointer;
+      opacity: 0.3;
+      display: block;
+      transform: translateY(-50%);
+
+      &:nth-child(3) {
+        left: auto;
+        right: 20px;
+      }
+
+      &:hover {
+        background: $black;
+        color: $white;
+      }
+    }
+
+    &:hover &__nav-item {
+      opacity: 1;
     }
 
     &__options {
