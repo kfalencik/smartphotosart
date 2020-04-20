@@ -242,14 +242,14 @@ export default {
   data() {
     return {
       quantity: 1,
-      size: 0.7,
+      size: 1,
       material: 0,
       materialOption: 0,
       finish: 0,
       finishOption: 0,
       styles: 0,
       stylesOption: 0,
-      sizeOption: 2,
+      sizeOption: 4,
       mount: 0,
       mountOption: 0,
       frame: 'transparent',
@@ -369,8 +369,8 @@ export default {
     changeMaterial: function(material, index) {
       this.material = material;
       this.materialOption = index;
-      this.size = 0.7;
-      this.sizeOption = 2;
+      this.size = 1;
+      this.sizeOption = 4;
       this.finish = 0;
       this.finishOption = 0;
       this.styles = 0;
@@ -422,8 +422,8 @@ export default {
 
       this.material = 0;
       this.materialOption = 0;
-      this.size = 0.7;
-      this.sizeOption = 2;
+      this.size = 1;
+      this.sizeOption = 4;
       this.finish = 0;
       this.finishOption = 0;
       this.styles = 0;
