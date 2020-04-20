@@ -726,6 +726,7 @@ export default {
       cursor: pointer;
       opacity: 0.3;
       display: block;
+      border: 1px solid $black;
       
       &:hover {
         background: $black;
