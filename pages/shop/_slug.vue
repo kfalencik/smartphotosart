@@ -826,14 +826,15 @@ export default {
       overflow: hidden;
       height: 100%;
       width: 100%;
-      border: 5px solid #000;
+      border: 10px solid #000;
       position: relative;
 
       &::after {
         content: '';
         display: block;
-        border: 1px solid $lightgrey;
-        padding: 5px;
+        border: 1px solid $primary;
+        box-shadow: inset 3px 3px 6px -4px rgba(0, 0, 0, 0.5);
+        padding: 10px;
         position: absolute;
         top: 0;
         bottom: 0;
