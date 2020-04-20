@@ -30,6 +30,9 @@
       </table>
 
       <div class="columns">
+        <div class="column is-full has-text-right">
+          <img src="/payment-methods.png" width="200" alt="" role="presentation" />
+        </div>
         <div class="column is-half pay">
           <b-field>
             <b-input name="discount" icon="ticket" placeholder="Coupon code" v-model="coupon"></b-input>

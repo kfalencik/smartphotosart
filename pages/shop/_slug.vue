@@ -15,7 +15,7 @@
           <div class="columns is-4">
             <div class="column is-two-thirds">
               <template v-if="image === 0">
-                <div v-if="product.canvasImage" class="product__dynamic-preview" :style="{ 'background-image': 'url(' + require('@/assets/images/product-background-' + canvasImage + '.jpg') + ')' }" @click="canvasImage === 6 ? canvasImage = 1 : canvasImage = canvasImage + 1" >
+                <div v-if="product.canvasImage" class="product__dynamic-preview" :style="{ 'padding-top': product.landscape ? '65px' : '50px', 'background-image': 'url(' + require('@/assets/images/product-background-' + canvasImage + '.jpg') + ')' }" @click="canvasImage === 6 ? canvasImage = 1 : canvasImage = canvasImage + 1" >
                   <div class="product__canvas" :style="{ 'background-image': 'url(' + require('@/assets/products/' + product.canvasImage) + ')', 'transform': 'scale(' + size * zoom + ')' }" @mouseover="magnify(zoomLevel)" @mouseleave="magnify(1)">
                     <div class="product__frame" v-if="frame !== 'transparent'" :style="{'border-color': frame}"></div>
                   </div>
@@ -637,7 +637,7 @@ export default {
       position: relative;
       width: $canvasWidth;
       height: $canvasHeight;
-      box-shadow: 2px 2px 6px 2px rgba(0,0,0,0.45);
+      box-shadow: 3px 3px 6px 0px rgba(0,0,0,0.45);
       background-size: 101%;
       transform-origin: top center;
       transition: all .3s ease;
