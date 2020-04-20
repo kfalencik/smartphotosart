@@ -314,8 +314,8 @@
     &__notification-indicator {
       background: #48c774;
       color: $white;
-      width: 15px;
-      height: 15px;
+      width: 16px;
+      height: 16px;
       position: absolute;
       border-radius: 100%;
       font-size: 0.6em;
