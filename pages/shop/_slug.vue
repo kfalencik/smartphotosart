@@ -3,6 +3,23 @@
     <div>
       <div class="section">
         <div :class="{'product container': true, 'product--landscape': product.landscape}">
+
+          <template v-if="overlay && image !== 0">
+            <div class="product__overlay" @click="overlay = false">
+              <img :src="require('@/assets/products/' + product.image)" v-if="image === 1" role="presentation" alt="" />
+              <img :src="require('@/assets/products/' + product.canvasImage)" v-if="image === 2" role="presentation" alt="" />
+              <img :src="require('@/assets/products/' + product.image2)" v-if="product.image2 && image === 3" role="presentation" alt="" />
+              <img :src="require('@/assets/products/' + product.image3)" v-if="product.image3 && image === 4" role="presentation" alt="" />
+              <img :src="require('@/assets/products/' + product.image4)" v-if="product.image4 && image === 5" role="presentation" alt="" />
+              <img v-if="product.landscape && image === 6" :src="require('@/assets/images/comparison_landscape.jpg')" role="presentation" alt="" />
+              <img v-if="!product.landscape && image === 6" :src="require('@/assets/images/comparison_portrait.jpg')" role="presentation" alt="" />
+
+              <button @click="overlay = false" title="Close">
+                <b-icon icon="close" custom-size="mdi-24px"></b-icon>
+              </button>
+            </div>
+          </template>
+
           <div class="columns is-4">
             <div class="column is-two-thirds">
               <div class="product__title">
@@ -39,6 +56,12 @@
                   <img :src="require('@/assets/products/' + product.image4)" v-if="product.image4 && image === 5" role="presentation" alt="" />
                   <img v-if="product.landscape && image === 6" :src="require('@/assets/images/comparison_landscape.jpg')" role="presentation" alt="" />
                   <img v-if="!product.landscape && image === 6" :src="require('@/assets/images/comparison_portrait.jpg')" role="presentation" alt="" />
+
+                  <template v-if="image !== 0">
+                    <button @click="overlay = true" class="product__image-fullscreen" title="Full screen">
+                      <b-icon icon="fullscreen" custom-size="mdi-24px"></b-icon>
+                    </button>
+                  </template>
                 </div>
               </template>
 
@@ -264,7 +287,8 @@ export default {
       frameOption: 0,
       zoom: 1,
       image: 0,
-      canvasImage: 1
+      canvasImage: 1,
+      overlay: false
     }
   },
   components: {
@@ -458,7 +482,6 @@ export default {
     $canvasWidth: 180px;
     $canvasHeight: 270px;
     $canvasDepth: 6px;
-
     margin-bottom: 50px;
 
     h2 {
@@ -474,6 +497,45 @@ export default {
 
       p {
         margin-top: 10px;
+      }
+    }
+
+    &__overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 999;
+      background: rgba(0,0,0,.75);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      img {
+        max-height: 80vh;
+        max-width: 80%;
+      }
+
+      button {
+        background: $white;
+        color: $black;
+        position: absolute;
+        top: 50px;
+        right: 50px;
+        border: none;
+        width: 40px;
+        height: 40px;
+        z-index: 30;
+        transition: all .5s ease;
+        cursor: pointer;
+        display: block;
+        transform: translateY(-50%);
+
+        &:hover {
+          background: $black;
+          color: $white;
+        }
       }
     }
 
@@ -633,6 +695,7 @@ export default {
       border: 2px solid lighten($lightgrey, 40%);
       height: 300px;
       overflow: hidden;
+      position: relative;
 
       @media (min-width: $large) {
         height: 585px;
@@ -640,9 +703,38 @@ export default {
 
       img {
         height: 100%;
-        object-fit: contain;
+        width: 100%;
+        object-fit: cover;
         display: block;
         margin: 0 auto;
+      }
+
+      &:hover {
+        .product__image-fullscreen {
+          opacity: 1;
+        }
+      }
+    }
+
+    &__image-fullscreen {
+      position: absolute;
+      z-index: 20;
+      top: 20px;
+      right: 20px;
+      background: $white;
+      color: $black;
+      border: none;
+      width: 40px;
+      height: 40px;
+      z-index: 30;
+      transition: all .5s ease;
+      cursor: pointer;
+      opacity: 0.3;
+      display: block;
+      
+      &:hover {
+        background: $black;
+        color: $white;
       }
     }
 
