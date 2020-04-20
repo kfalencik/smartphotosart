@@ -7,9 +7,17 @@
       <b-icon icon="arrow-right" custom-size="mdi-24px"></b-icon>
     </button>
 
-    <div class="slideshow__text">
-      <h1>Smart Photos Art</h1>
-      <h2>Beautiful canvases for your home or office</h2>
+    <div class="slideshow__wrapper">
+      <div class="container">
+        <div class="columns">
+          <div class="column is-full">
+            <div class="slideshow__text">
+              <h1>Smart Photos Art</h1>
+              <h2>Beautiful canvases for your home or office</h2>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 
     <div class="slideshow__slides">
@@ -134,17 +142,32 @@ export default {
       height: 700px;
     }
 
-    &__text {
+    &__wrapper {
+      max-width: 1600px;
       position: absolute;
       z-index: 20;
+      text-shadow: 0 0 10px rgba(0,0,0,0.7);
+      text-align: center;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    &__text {
       color: $white;
-      text-align: centerFsmar;
+
+      h1 {
+        text-transform: uppercase;
+        font-size: 5.5em;
+      }
 
       h2 {
         text-decoration: none;
+        margin-top: 0;
+        font-weight: normal;
       }
     }
 
@@ -218,7 +241,7 @@ export default {
         width: 100%;
         height: 100%;
         position: absolute;
-        background: rgba(0,0,0,0.3);
+        background: rgba(0,0,0,0.4);
       }
 
       img {
