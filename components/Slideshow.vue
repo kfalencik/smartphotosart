@@ -10,7 +10,13 @@
     <div class="slideshow__slides">
       <div v-for="(slide, index) in slides" :key="index" :class="{'slideshow__slide': true, 'slideshow__slide--prev': index + 1 === heroPreviousSlide, 'slideshow__slide--next': index + 1 === heroNextSlide, 'slideshow__slide--active': index + 1 === heroCurrentSlide}">
           <div class="slideshow__slide-image">
-            <img :src="require('@/assets/slideshow/' + slide)" :alt="'Slide ' + index" />
+            <picture alt="" role="presentation">
+              <source media="(max-width: 1024px)" :srcset="require('@/assets/slideshow/' + slide + '_small.jpg')" alt="" role="presentation">
+              <source media="(max-width: 1980px)" :srcset="require('@/assets/slideshow/' + slide + '.jpg')" alt="" role="presentation">
+              <source media="(max-width: 2560px)" :srcset="require('@/assets/slideshow/' + slide + '_2k.jpg')" alt="" role="presentation">
+              <source media="(min-width: 2561px)" :srcset="require('@/assets/slideshow/' + slide + '_4k.jpg')" alt="" role="presentation">
+              <img :srcset="require('@/assets/slideshow/' + slide + '.jpg')" alt="" role="presentation">
+            </picture>
           </div>
       </div>
     </div>

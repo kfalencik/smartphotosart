@@ -1,7 +1,7 @@
 export default {
   slideshow: {
     slides: [
-      '1.jpg', '2.jpg', '3.jpg', '4.jpg', '5.jpg', '6.jpg'
+      '1', '2', '3', '4', '5', '6'
     ]
   },
   prices: [
