@@ -748,6 +748,7 @@ export default {
       transform: scale(0.5);
       width: 200%;
       height: 585px;
+      transition: all 0.3s ease;
 
       @media (min-width: $large) {
         transform: scale(1);
