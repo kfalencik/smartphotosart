@@ -33,8 +33,8 @@
           <div class="columns is-4">
             <div class="column is-two-thirds">
               <template v-if="image === 0">
-                <div v-if="product.canvasImage" class="product__dynamic-preview" :style="{ 'padding-top': product.landscape ? '65px' : '50px', 'background-image': 'url(' + require('@/assets/images/product-background-' + canvasImage + '.jpg') + ')' }" >
-                  <div class="product__canvas" :style="{ 'background-image': 'url(' + require('@/assets/products/' + product.canvasImage) + ')', 'transform': 'scale(' + size * zoom + ')' }" @mouseover="magnify(zoomLevel)" @mouseleave="magnify(1)">
+                <div v-if="product.canvasImage" class="product__dynamic-preview" :style="{ 'padding-top': product.landscape ? '25px' : '50px', 'background-image': 'url(' + require('@/assets/images/product-background-' + canvasImage + '.jpg') + ')' }" >
+                  <div class="product__canvas" :style="{ 'background-image': 'url(' + require('@/assets/products/' + product.canvasImage) + ')', 'transform': 'scale(' + size * zoom + ')', width: product.landscape ? '480px' : '200px',   height: product.landscape ? '310px' : '285px' }">
                     <div class="product__frame" v-if="frame !== 'transparent'" :style="{'border-color': frame}"></div>
                   </div>
 
@@ -479,8 +479,8 @@ export default {
   }
 
   .product {
-    $canvasWidth: 180px;
-    $canvasHeight: 270px;
+    $canvasWidth: 300px;
+    $canvasHeight: 480px;
     $canvasDepth: 6px;
     margin-bottom: 50px;
 
