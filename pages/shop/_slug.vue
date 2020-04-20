@@ -549,7 +549,7 @@ export default {
       width: 40px;
       height: 40px;
       z-index: 30;
-      transition: all .5s ease;
+      transition: opacity .5s ease, background .5s ease, color .5s ease;
       cursor: pointer;
       opacity: 0.3;
       display: block;
@@ -564,10 +564,6 @@ export default {
         background: $black;
         color: $white;
       }
-    }
-
-    &:hover &__nav-item {
-      opacity: 1;
     }
 
     &__options {
@@ -703,8 +699,7 @@ export default {
 
       img {
         height: 100%;
-        width: 100%;
-        object-fit: cover;
+        object-fit: contain;
         display: block;
         margin: 0 auto;
       }
@@ -756,6 +751,10 @@ export default {
         padding-top: 100px;
         margin-bottom: 0;
         background-position: center top;
+      }
+
+      &:hover .product__nav-item {
+        opacity: 1;
       }
     }
 
