@@ -33,15 +33,15 @@
           <div class="columns is-4">
             <div class="column is-two-thirds">
               <template v-if="image === 0">
-                <div v-if="product.canvasImage" class="product__dynamic-preview" :style="{ 'padding-top': product.landscape ? '25px' : '50px', 'background-image': 'url(' + require('@/assets/images/product-background-' + canvasImage + '.jpg') + ')' }" >
-                  <div class="product__canvas" :style="{ 'background-image': 'url(' + require('@/assets/products/' + product.canvasImage) + ')', 'transform': 'scale(' + size * zoom + ')', width: product.landscape ? '480px' : '200px',   height: product.landscape ? '310px' : '285px' }">
+                <div v-if="product.canvasImage" class="product__dynamic-preview" :style="{ 'background-image': 'url(' + require('@/assets/images/product-' + orientation + '-background-' + canvasImage + '.jpg') + ')' }" >
+                  <div class="product__canvas" :style="{ 'background-image': 'url(' + require('@/assets/products/' + product.canvasImage) + ')', 'transform': 'scale(' + size * zoom + ')', width: product.landscape ? '480px' : '310px',   height: product.landscape ? '310px' : '480px' }">
                     <div class="product__frame" v-if="frame !== 'transparent'" :style="{'border-color': frame}"></div>
                   </div>
 
-                  <button @click="canvasImage === 1 ? canvasImage = 6 : canvasImage = canvasImage - 1" class="product__nav-item" title="Previous">
+                  <button @click="canvasImage === 1 ? canvasImage = 5 : canvasImage = canvasImage - 1" class="product__nav-item" title="Previous">
                     <b-icon icon="arrow-left" custom-size="mdi-24px"></b-icon>
                   </button>
-                  <button @click="canvasImage === 6 ? canvasImage = 1 : canvasImage = canvasImage + 1" class="product__nav-item" title="Next">
+                  <button @click="canvasImage === 5 ? canvasImage = 1 : canvasImage = canvasImage + 1" class="product__nav-item" title="Next">
                     <b-icon icon="arrow-right" custom-size="mdi-24px"></b-icon>
                   </button>
                 </div>
@@ -296,6 +296,13 @@ export default {
     KeyPoints
   },
   computed: {
+    orientation() {
+      if (this.product.landscape) {
+        return 'landscape';
+      } else {
+        return 'horizontal';
+      }
+    },
     slug() {
       return this.$route.params.slug;
     },
@@ -738,7 +745,7 @@ export default {
       border: 2px solid lighten($lightgrey, 40%);
       background-size: cover;
       background-position: center;
-      padding-top: 50px;
+      padding-top: 15px;
       margin-bottom: -300px;
       transform-origin: left top;
       transform: scale(0.5);
@@ -749,7 +756,6 @@ export default {
       @media (min-width: $large) {
         transform: scale(1);
         width: 100%;
-        padding-top: 100px;
         margin-bottom: 0;
         background-position: center top;
       }
@@ -771,7 +777,7 @@ export default {
       height: $canvasHeight;
       box-shadow: 3px 3px 6px 0px rgba(0,0,0,0.45);
       background-size: 101%;
-      transform-origin: top center;
+      transform-origin: center;
       transition: all .3s ease;
     }
 

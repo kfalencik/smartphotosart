@@ -7,29 +7,20 @@
       <b-icon icon="arrow-right" custom-size="mdi-24px"></b-icon>
     </button>
 
-    <div class="slideshow__wrapper">
-      <div class="container">
-        <div class="columns">
-          <div class="column is-full">
-            <div class="slideshow__text">
-              <h1>Smart Photos Art</h1>
-              <h2>Beautiful canvases for your home or office</h2>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <div class="slideshow__slides">
       <div v-for="(slide, index) in slides" :key="index" :class="{'slideshow__slide': true, 'slideshow__slide--prev': index + 1 === heroPreviousSlide, 'slideshow__slide--next': index + 1 === heroNextSlide, 'slideshow__slide--active': index + 1 === heroCurrentSlide}">
           <div class="slideshow__slide-image">
             <picture alt="" role="presentation">
-              <source media="(max-width: 1024px)" :srcset="require('@/assets/slideshow/' + slide + '_small.jpg')" alt="" role="presentation">
-              <source media="(max-width: 1980px)" :srcset="require('@/assets/slideshow/' + slide + '.jpg')" alt="" role="presentation">
-              <source media="(max-width: 2560px)" :srcset="require('@/assets/slideshow/' + slide + '_2k.jpg')" alt="" role="presentation">
-              <source media="(min-width: 2561px)" :srcset="require('@/assets/slideshow/' + slide + '_4k.jpg')" alt="" role="presentation">
-              <img :srcset="require('@/assets/slideshow/' + slide + '.jpg')" alt="" role="presentation">
+              <source media="(max-width: 1024px)" :srcset="require('@/assets/slideshow/' + parseInt(index + 1) + '_small.jpg')" alt="" role="presentation">
+              <source media="(max-width: 1980px)" :srcset="require('@/assets/slideshow/' + parseInt(index + 1) + '.jpg')" alt="" role="presentation">
+              <source media="(max-width: 2560px)" :srcset="require('@/assets/slideshow/' + parseInt(index + 1) + '_2k.jpg')" alt="" role="presentation">
+              <source media="(min-width: 2561px)" :srcset="require('@/assets/slideshow/' + parseInt(index + 1) + '_4k.jpg')" alt="" role="presentation">
+              <img :srcset="require('@/assets/slideshow/' + parseInt(index + 1) + '.jpg')" alt="" role="presentation">
             </picture>
+
+            <div class="slideshow__slide-text" :style="{top: 'calc(50% + ' + slide.top + ')', left: 'calc(50% + ' + slide.left + ')', color: slide.color, width: slide.width, textAlign: slide.align}">
+              <h2>{{slide.title}}</h2>
+            </div>
           </div>
       </div>
     </div>
@@ -142,35 +133,6 @@ export default {
       height: 700px;
     }
 
-    &__wrapper {
-      max-width: 1600px;
-      position: absolute;
-      z-index: 20;
-      text-shadow: 0 0 10px rgba(0,0,0,0.7);
-      text-align: center;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    &__text {
-      color: $white;
-
-      h1 {
-        text-transform: uppercase;
-        font-size: 5.5em;
-      }
-
-      h2 {
-        text-decoration: none;
-        margin-top: 0;
-        font-weight: normal;
-      }
-    }
-
     &__logo {
       position: absolute;
       top: 50%;
@@ -188,7 +150,7 @@ export default {
 
     &__slides {
       position: relative;
-      height: 585px;
+      height: 100%;
       width: 100%;
 
       @media (min-width: $xlarge) {
@@ -241,13 +203,47 @@ export default {
         width: 100%;
         height: 100%;
         position: absolute;
-        background: rgba(0,0,0,0.4);
+        background: rgba(0,0,0,0);
+
+        @media (max-width: 1979px) {
+          background: rgba(0,0,0,0.5);
+        }
       }
 
       img {
         height: 100%;
         width: 100%;
         object-fit: cover;
+      }
+    }
+
+    &__slide-text {
+      color: $white;
+      position: absolute;
+      z-index: 20;
+      transform: translate(-50%, -50%);
+
+      @media (max-width: 1979px) {
+        left: 50% !important;
+        top: 50% !important;
+        color: $white !important;
+        text-shadow: 0 0 5px rgba(0,0,0,0.4);
+        width: 100% !important;
+        text-align: center !important;
+      }
+
+      h2 {
+        text-decoration: none;
+        margin: 0;
+        font-weight: normal;
+        font-size: 50px;
+        text-transform: uppercase;
+        padding: 0 60px;
+
+        @media (max-width: $medium) {
+          font-size: 45px;
+          padding: 0 20px;
+        }
       }
     }
 
@@ -266,6 +262,11 @@ export default {
       opacity: 0.3;
       display: block;
       transform: translateY(-50%);
+      border: 1px solid $black;
+
+      @media (max-width: $medium) {
+        display: none;
+      } 
 
       &:nth-child(2) {
         left: auto;

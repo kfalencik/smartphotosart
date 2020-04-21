@@ -7,38 +7,38 @@
 
           <div class="column">
             <b-icon icon="shield-outline" size="is-large" />
-            <h4>Durable</h4>
-            <p>Our Canvas won't tear or rip, it's extremely durable compared to paper print.</p>
+            <h4>Art</h4>
+            <p>We believe photography is an Art and a photographer as a creator is able to change your perception of feeling, affects our emotions. Be a part of it!</p>
           </div>
 
           <div class="column">
             <b-icon icon="eye-outline" size="is-large" />
-            <h4>Unique</h4>
-            <p>The three-dimensional structure of the canvas itself naturally draws the eye.</p>
+            <h4>Inspiration</h4>
+            <p>Peter Falencik’s photography crates amazing atmosphere, inspires people to change their space around them.</p>
           </div>
 
           <div class="column">
             <b-icon icon="brush" size="is-large" />
-            <h4>Vibrant</h4>
-            <p>The colors and texturing on canvas art stand out and make for a bolder visual piece.</p>
+            <h4>Unique</h4>
+            <p>“You don’t take the photograph. You make it.”- Abel Adams The artwork we present is unique and it’s created for You</p>
           </div>
 
           <div class="column">
             <b-icon icon="texture" size="is-large" />
-            <h4>Raw</h4>
-            <p>Canvas lets you focus on the power of the image you’ve chosen, not the glossiness of paper.</p>
+            <h4>Limited Edition</h4>
+            <p>We share our unique, valuable concepts with only exceptional, small number of customers.</p>
           </div>
 
           <div class="column">
             <b-icon icon="cloud-outline" size="is-large" />
-            <h4>Light</h4>
-            <p>Never damage your walls with heavy framing that adds nothing to the art.</p>
+            <h4>Your space</h4>
+            <p>The artistic photography we offer is a reason to create and change your space.</p>
           </div>
 
           <div class="column">
             <b-icon icon="flower" size="is-large" />
             <h4>Sustainable</h4>
-            <p>Our canvas is built from US-sourced recycled material known as MDF.</p>
+            <p>Our product is always printed on the finest quality materials so you can enjoy them for decades. We are Eco too!</p>
           </div>
         </div>
       </div>

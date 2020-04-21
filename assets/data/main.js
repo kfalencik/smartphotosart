@@ -1,7 +1,54 @@
 export default {
   slideshow: {
     slides: [
-      '1', '2', '3', '4', '5', '6'
+      {
+        title: 'Vivid colors',
+        color: 'black',
+        top: '0px',
+        left: '370px',
+        width: '180px',
+        align: 'left'
+      },
+      {
+        title: 'Create your space',
+        color: 'white',
+        top: '0px',
+        left: '550px',
+        width: '200px',
+        align: 'left'
+      },
+      {
+        title: 'Unique ideas for modern look',
+        color: 'white',
+        top: '-100px',
+        left: '500px',
+        width: '300px',
+        align: 'left'
+      },
+      {
+        title: 'Reason to change your wall',
+        color: 'black',
+        top: '220px',
+        left: '0px',
+        width: '900px',
+        align: 'center'
+      },
+      {
+        title: 'Exceptional style',
+        color: 'white',
+        top: '-200px',
+        left: '450px',
+        width: '300px',
+        align: 'left'
+      },
+      {
+        title: 'Gallery quality',
+        color: 'black',
+        top: '80px',
+        left: '0px',
+        width: '600px',
+        align: 'center'
+      }
     ]
   },
   prices: [
