@@ -779,6 +779,8 @@ export default {
       background-size: 101%;
       transform-origin: center;
       transition: all .3s ease;
+      background-size: cover;
+      background-position: center;
     }
 
     &__canvas-top {
