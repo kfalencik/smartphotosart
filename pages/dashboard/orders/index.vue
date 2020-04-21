@@ -57,7 +57,7 @@ export default {
   },
   methods: {
     price: function(price) {
-      return '$' + (Math.round(price * 100) / 100).toFixed(2)
+      return '$' + (Math.floor(price * 100) / 100).toFixed(2)
     },
     status: function(status) {
       let temp = status;

@@ -153,10 +153,10 @@ export default {
       return price;
     },
     price: function(price) {
-      return '$' + (Math.round(price * 100) / 100).toFixed(2)
+      return '$' + (Math.floor(price * 100) / 100).toFixed(2)
     },
     priceFormatter: function(price) {
-      return (Math.round(price * 100) / 100).toFixed(2)
+      return (Math.floor(price * 100) / 100).toFixed(2)
     },
     extrasFromatter: function(extras) {
       return `

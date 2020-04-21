@@ -134,7 +134,7 @@ export default {
   },
   methods: {
     price: function(price) {
-      return '$' + (Math.round(price * 100) / 100).toFixed(2)
+      return '$' + (Math.floor(price * 100) / 100).toFixed(2)
     },
     removeFromCart: function(index) {
       this.$store.commit('localStorage/removeFromCart', index);
