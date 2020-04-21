@@ -181,7 +181,7 @@
           <div class="column is-narrow">
             <div class="checkout-panel checkout-panel--pay">
               <div class="header">
-                <h4>Your total - ${{priceFormatter(total)}}</h4>
+                <h4>Your total - ${{priceFormatter(total + tax)}}</h4>
                 <img src="/payment-methods.png" width="200" alt="" role="presentation" />
               </div>
 
@@ -189,7 +189,11 @@
                 <p>Your details have been now saved. Please pay by clicking on the button below or <a @click.stop="checkoutValidation = false">edit your details</a>.</p>
                 <client-only>
                   <paypal-checkout
-                    :amount="priceFormatter(total).toString()"
+                    :amount="priceFormatter(total + tax).toString()"
+                    :details="{
+                      tax: priceFormatter(tax),
+                      subtotal: priceFormatter(total).toString()
+                    }"
                     currency="USD"
                     :env="credentials.env"
                     :client="credentials"
@@ -236,6 +240,7 @@ export default {
     data() {
         return {
         loading: false,
+        tax: 0,
         credentials: {
           env: process.env.PP_ENV,
           sandbox: process.env.PP_CID,
@@ -246,6 +251,9 @@ export default {
           presentation: {
             brand_name: "Smart Photos Art",
             logo_image: "http://localhost:3000/_nuxt/assets/images/logo.svg"
+          },
+          input_fields: {
+            no_shipping: 1
           }
         },
         buttonStyle: {
@@ -254,16 +262,6 @@ export default {
           shape: 'rect',
           color: 'black',
           tagline: 'false'
-        },
-        shipping: {
-          address: {
-            address_line_1: '2211 N First Street',
-            address_line_2: 'Building 17',
-            admin_area_2: 'San Jose',
-            admin_area_1: 'CA',
-            postal_code: '95131',
-            country_code: 'US'
-          }
         },
         checkoutStep: 1,
         checkoutValidation: false,
@@ -278,15 +276,7 @@ export default {
         deliveryAddress3: '',
         deliveryCity: '',
         deliveryZipCode: '',
-        deliveryState: 'AL',
-        address: {
-          address_line_1: '123 ABC Street',
-          address_line_2: 'Apt 2',
-          admin_area_2: 'San Jose',
-          admin_area_1: 'CA',
-          postal_code: '95121',
-          country_code: 'US'
-        }
+        deliveryState: 'AL'
       }
     },
     computed: {
@@ -338,6 +328,8 @@ export default {
         if (this.discount) {
           price = price - ((price / 100) * this.discounts[this.discount].discount);
         }
+
+        this.tax = Math.floor(((price / 100) * 7).toFixed(2));
 
         return price;
       },

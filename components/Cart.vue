@@ -20,9 +20,25 @@
             <td></td>
             <td></td>
             <td></td>
+            <td>Subtotal</td>
+            <td>{{ price(total) }}</td>
+            <td></td>
+          </tr>
+          <tr class="cart__item--bold">
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>Tax (7%)</td>
+            <td>{{ price(tax) }}</td>
+            <td></td>
+          </tr>
+          <tr class="cart__item--bold">
+            <td></td>
+            <td></td>
+            <td></td>
             <td><strong>Total</strong></td>
             <td class="cart-item__price">
-              <strong>{{ price(total) }}</strong>
+              <strong>{{ price(total + tax) }}</strong>
             </td>
             <td></td>
           </tr>
@@ -56,7 +72,8 @@ export default {
   data() {
     return {
       coupon: '',
-      couponField: null
+      couponField: null,
+       tax: 0
     }
   },
   computed: {
@@ -111,6 +128,8 @@ export default {
       if (this.discount) {
         price = price - ((price / 100) * this.discounts[this.discount].discount);
       }
+
+      this.tax = Math.floor(((price / 100) * 7).toFixed(2));
 
       return price;
     }
