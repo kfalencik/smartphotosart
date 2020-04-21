@@ -202,6 +202,12 @@
                   >
                   </paypal-checkout>
                 </client-only>
+
+                <div id="paypal-button-container"></div>
+                  <script src="https://www.paypal.com/sdk/js?client-id=ARz-zZbhI3do6XeIvY0-Ft4r47YJRhr6ZpN4-WxBRW-yNPoZhBJq8LkFTMRuvB1B_yD-pS-tbike3yx_&currency=USD" data-sdk-integration-source="button-factory"></script>
+                  <script>
+                    
+                  </script>
               </div>
 
               <div v-else>
@@ -213,6 +219,7 @@
       </template>
 
       <p v-else>There are no items in your cart. Please add some items from <router-link to="/shop">our shop</router-link> first.</p>
+      
 
       <b-loading :is-full-page="true" :active.sync="loading"></b-loading>
     </div>
@@ -228,41 +235,59 @@ export default {
     },
     data() {
         return {
-            loading: false,
-            credentials: {
-                env: process.env.PP_ENV,
-                sandbox: process.env.PP_CID,
-                production: process.env.PP_CIDD
-            },
-            experienceOptions: {
-                name: "Smart Photos Art",
-                presentation: {
-                    brand_name: "Smart Photos Art",
-                    logo_image: "http://localhost:3000/_nuxt/assets/images/logo.svg"
-                }
-            },
-            buttonStyle: {
-                label: 'paypal',
-                size:  'responsive',
-                shape: 'rect',
-                color: 'black',
-                tagline: 'false'
-            },
-            checkoutStep: 1,
-            checkoutValidation: false,
-            personalTitle: 'Mr',
-            personalFirstName: '',
-            personalLastName: '',
-            personalCompanyName: '',
-            personalEmail: '',
-            personalPhone: '',
-            deliveryAddress1: '',
-            deliveryAddress2: '',
-            deliveryAddress3: '',
-            deliveryCity: '',
-            deliveryZipCode: '',
-            deliveryState: 'AL'
+        loading: false,
+        credentials: {
+          env: process.env.PP_ENV,
+          sandbox: process.env.PP_CID,
+          production: process.env.PP_CIDD
+        },
+        experienceOptions: {
+          name: "Smart Photos Art",
+          presentation: {
+            brand_name: "Smart Photos Art",
+            logo_image: "http://localhost:3000/_nuxt/assets/images/logo.svg"
+          }
+        },
+        buttonStyle: {
+          label: 'paypal',
+          size:  'responsive',
+          shape: 'rect',
+          color: 'black',
+          tagline: 'false'
+        },
+        shipping: {
+          address: {
+            address_line_1: '2211 N First Street',
+            address_line_2: 'Building 17',
+            admin_area_2: 'San Jose',
+            admin_area_1: 'CA',
+            postal_code: '95131',
+            country_code: 'US'
+          }
+        },
+        checkoutStep: 1,
+        checkoutValidation: false,
+        personalTitle: 'Mr',
+        personalFirstName: '',
+        personalLastName: '',
+        personalCompanyName: '',
+        personalEmail: '',
+        personalPhone: '',
+        deliveryAddress1: '',
+        deliveryAddress2: '',
+        deliveryAddress3: '',
+        deliveryCity: '',
+        deliveryZipCode: '',
+        deliveryState: 'AL',
+        address: {
+          address_line_1: '123 ABC Street',
+          address_line_2: 'Apt 2',
+          admin_area_2: 'San Jose',
+          admin_area_1: 'CA',
+          postal_code: '95121',
+          country_code: 'US'
         }
+      }
     },
     computed: {
       cart() {
