@@ -2,36 +2,36 @@ export default {
   slideshow: {
     slides: [
       {
+        title: 'Reason to change your wall',
+        color: 'black',
+        top: '240px',
+        left: '0px',
+        width: '1200px',
+        align: 'center'
+      },
+      {
         title: 'Vivid colors',
         color: 'black',
         top: '0px',
         left: '370px',
-        width: '180px',
+        width: '280px',
         align: 'left'
       },
       {
         title: 'Create your space',
         color: 'white',
-        top: '0px',
-        left: '550px',
+        top: '-50px',
+        left: '530px',
         width: '200px',
         align: 'left'
       },
       {
         title: 'Unique ideas for modern look',
         color: 'white',
-        top: '-100px',
-        left: '500px',
-        width: '300px',
+        top: '-80px',
+        left: '600px',
+        width: '500px',
         align: 'left'
-      },
-      {
-        title: 'Reason to change your wall',
-        color: 'black',
-        top: '220px',
-        left: '0px',
-        width: '900px',
-        align: 'center'
       },
       {
         title: 'Exceptional style',
@@ -46,7 +46,7 @@ export default {
         color: 'black',
         top: '80px',
         left: '0px',
-        width: '600px',
+        width: '900px',
         align: 'center'
       }
     ]

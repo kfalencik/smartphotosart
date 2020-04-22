@@ -236,13 +236,23 @@ export default {
         text-decoration: none;
         margin: 0;
         font-weight: normal;
-        font-size: 50px;
+        font-size: 120px;
+        line-height: 0.9;
         text-transform: uppercase;
         padding: 0 60px;
+        font-family: 'Tall Films Expanded';
+
+        @media (max-width: $small) {
+          font-size: 35px;
+        }
 
         @media (max-width: $medium) {
           font-size: 45px;
           padding: 0 20px;
+        }
+
+        @media (max-width: $xlarge) {
+          font-size: 80px;
         }
       }
     }
@@ -264,7 +274,7 @@ export default {
       transform: translateY(-50%);
       border: 1px solid $black;
 
-      @media (max-width: $medium) {
+      @media (max-width: $small) {
         display: none;
       } 
 
