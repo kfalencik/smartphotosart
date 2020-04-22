@@ -129,6 +129,10 @@ export default {
       height: 585px;
     }
 
+    @media (min-width: $large) {
+      height: 615px;
+    }
+
     @media (min-width: $xlarge) {
       height: 700px;
     }
@@ -152,6 +156,10 @@ export default {
       position: relative;
       height: 100%;
       width: 100%;
+
+      @media (min-width: $large) {
+        height: 615px;
+      }
 
       @media (min-width: $xlarge) {
         height: 700px;

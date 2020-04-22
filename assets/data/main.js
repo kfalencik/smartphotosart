@@ -21,7 +21,7 @@ export default {
         title: 'Create your space',
         color: 'white',
         top: '-50px',
-        left: '530px',
+        left: '500px',
         width: '200px',
         align: 'left'
       },
@@ -29,7 +29,7 @@ export default {
         title: 'Unique ideas for modern look',
         color: 'white',
         top: '-80px',
-        left: '600px',
+        left: '590px',
         width: '500px',
         align: 'left'
       },
@@ -37,7 +37,7 @@ export default {
         title: 'Exceptional style',
         color: 'white',
         top: '-200px',
-        left: '450px',
+        left: '420px',
         width: '300px',
         align: 'left'
       },
