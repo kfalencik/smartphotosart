@@ -27,31 +27,68 @@
                   <button v-for="(option, index) in prices" :key="'material-' + index" :class="{'product__button': true, 'product__button--active': materialOption === index}" @click="changeMaterial(option.action, index)">{{option.title}}</button>
                   <h3>{{prices[materialOption].title}}</h3>
                   <p>{{prices[materialOption].description}}</p>
+
+                  <template v-if="prices[materialOption].technical">
+                    <br />
+                    <p v-for="(item, index) in prices[materialOption].technical" :key="index">
+                      <strong>{{ item.label }}</strong>: {{ item.value }}
+                    </p>
+                  </template>
                 </template>
 
                 <template v-if="informationType === 'finish'">
                   <button v-for="(option, index) in prices[materialOption].finish" :key="'finish-' + index" :class="{'product__button': true, 'product__button--active': finishOption === index}" @click="changeFinish(option.action, index)">{{option.title}}</button>
                   <h3>{{prices[materialOption][informationType][finishOption].title}}</h3>
                   <p>{{prices[materialOption][informationType][finishOption].description}}</p>
+
+                  <template v-if="prices[materialOption][informationType][finishOption].technical">
+                    <br />
+                    <p v-for="(item, index) in prices[materialOption][informationType][finishOption].technical" :key="index">
+                      <strong>{{ item.label }}</strong>: {{ item.value }}
+                    </p>
+                  </template>
                 </template>
 
                 <template v-if="informationType === 'styles'">
                   <button v-for="(option, index) in prices[materialOption].styles" :key="'styles-' + index" :class="{'product__button': true, 'product__button--active': stylesOption === index}" @click="changeStyles(option.action, index)">{{option.title}}</button>
                   <h3>{{prices[materialOption][informationType][stylesOption].title}}</h3>
                   <p>{{prices[materialOption][informationType][stylesOption].description}}</p>
+
+                  <template v-if="prices[materialOption][informationType][stylesOption].technical">
+                    <br />
+                    <p v-for="(item, index) in prices[materialOption][informationType][stylesOption].technical" :key="index">
+                      <strong>{{ item.label }}</strong>: {{ item.value }}
+                    </p>
+                  </template>
                 </template>
 
                 <template v-if="informationType === 'frame'">
                   <button v-for="(option, index) in prices[materialOption].frame" :key="'frame-' + index" :class="{'product__button': true, 'product__button--active': frameOption === index}" @click="changeFrame(option.action, index)">{{option.title}}</button>
                   <h3>{{prices[materialOption][informationType][frameOption].title}}</h3>
                   <p>{{prices[materialOption][informationType][frameOption].description}}</p>
+
+                  <template v-if="prices[materialOption][informationType][frameOption].technical">
+                    <br />
+                    <p v-for="(item, index) in prices[materialOption][informationType][frameOption].technical" :key="index">
+                      <strong>{{ item.label }}</strong>: {{ item.value }}
+                    </p>
+                  </template>
                 </template>
 
                 <template v-if="informationType === 'mount'">
                   <button v-for="(option, index) in prices[materialOption].mount" :key="'mount-' + index" :class="{'product__button': true, 'product__button--active': mountOption === index}" @click="changeMount(option.action, index)">{{option.title}}</button>
                   <h3>{{prices[materialOption][informationType][mountOption].title}}</h3>
                   <p>{{prices[materialOption][informationType][mountOption].description}}</p>
+
+                  <template v-if="prices[materialOption][informationType][mountOption].technical">
+                    <br />
+                    <p v-for="(item, index) in prices[materialOption][informationType][mountOption].technical" :key="index">
+                      <strong>{{ item.label }}</strong>: {{ item.value }}
+                    </p>
+                  </template>
                 </template>
+
+                
 
                 <button @click="informationModal = false" class="close" title="Close">
                   <b-icon icon="close" custom-size="mdi-24px"></b-icon>
@@ -844,7 +881,7 @@ export default {
       background-size: cover;
       background-position: center;
       padding-top: 15px;
-      margin-bottom: -300px;
+      margin-bottom: -280px;
       transform-origin: left top;
       transform: scale(0.5);
       width: 200%;

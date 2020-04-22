@@ -1,5 +1,5 @@
 <template>
-  <div class="product column is-full-mobile is-half-tablet is-half-desktop is-one-third-widescreen is-one-quarter-fullhd">
+  <div class="product column is-full-mobile is-half-tablet is-half-desktop is-one-quarter-widescreen is-one-quarter-fullhd">
     <div class="card">
       <router-link :to="'/shop/' + product.slug">
         <div class="product__discount-badge" v-if="product.discount">

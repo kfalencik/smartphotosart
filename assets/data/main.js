@@ -86,44 +86,164 @@ export default {
       finish: [
         {
           title: 'Matte',
-          description: 'Fine paper blah',
+          technical: [
+            {
+              label: 'Thickness',
+              value: '9.5 Mil'
+            },
+            {
+              label: 'Weight',
+              value: '230 g/m²'
+            },
+            {
+              label: 'Max print size',
+              value: '40x96" or 96x40"'
+            },
+            {
+              label: 'Printer',
+              value: 'Canon iPF8400'
+            },
+            {
+              label: 'Inks',
+              value: 'Canon Lucia Inks'
+            },
+            {
+              label: 'Dmax & Color Gamut Level',
+              value: 'Excellent'
+            },
+            {
+              label: 'Black and White Capabilities',
+              value: 'Excellent'
+            }
+          ],
+          description: 'Matte Paper, our house stock fine art paper, also known as Moab Lasal Photo Matte, is an economical favorite for fine art reproductions and photo prints. It features a smooth surface, heavy weight (230 g, 9.5-mil), neutral white, matte paper engineered for accurate color reproduction that provides high contrast and high-resolution output. This paper is acid-free making it the perfect choice for both photography & fine art reproductions.',
           price: 0
         },
         {
           title: 'Velvet',
-          description: 'Fine paper blah',
+          technical: [
+            {
+              label: 'Thickness',
+              value: '19 mil'
+            },
+            {
+              label: 'Weight',
+              value: '255 g/m²'
+            },
+            {
+              label: 'Max print size',
+              value: '40x96" or 96x40"'
+            },
+            {
+              label: 'Printer',
+              value: 'Canon iPF8400'
+            },
+            {
+              label: 'Inks',
+              value: 'Canon Lucia Inks'
+            },
+            {
+              label: 'Dmax & Color Gamut Level',
+              value: 'Average'
+            },
+            {
+              label: 'Black and White Capabilities',
+              value: 'Excellent'
+            }
+          ],
+          description: 'Officially Moab\'s Somerset Enhanced Velvet, this paper was previously labeled by FinerWorks simply \'Fine Art Paper\'. This popular paper is also distrubuted under the brands Epson Somerset Velvet and Canon Fine Art Enhanced Velvet. This textured paper favored by artists and photographers alike is milled by the St. Cuthberts Mill in Somerset, England. It is an acid-free, 100% cotton, single-side coated paper showing a natural white finish with a slightly textured matte surface has a soft velvet-like feel. A high-quality, mould-made paper, it is ideal for digital fine art reproductions. We now print this on Canon Printers using the Canon Lucia inks due to their superior archivability and increased color range.',
           price: 15
         },
         {
           title: 'Satin',
-          description: 'Fine paper blah',
+          technical: [
+            {
+              label: 'Thickness',
+              value: '11 Mil'
+            },
+            {
+              label: 'Weight',
+              value: '300 g/m²'
+            },
+            {
+              label: 'Max print size',
+              value: '40x96" or 96x40"'
+            },
+            {
+              label: 'Printer',
+              value: 'Canon iPF8400'
+            },
+            {
+              label: 'Inks',
+              value: 'Canon Lucia Inks'
+            },
+            {
+              label: 'Dmax & Color Gamut Level',
+              value: 'Excellent'
+            },
+            {
+              label: 'Black and White Capabilities',
+              value: 'Excellent'
+            }
+          ],
+          description: 'Moab Exhibition Luster now with a gloss optimizer coating. This high quality 11 mil 300g paper answers artist’s and photographers’ requests for a high quality paper between a matte and a gloss, with excellent ink retention characteristics and a color gamut that is second to none. This paper maintains a traditional E surface finish, providing an elegant texture consistent to that of a traditional dark room print. Tip: This is our most popular paper with professional photographers however it also makes stunning art reproductions.',
           price: 25
         },
         {
           title: 'Eco paper',
-          description: 'Fine paper blah',
+          technical: [
+            {
+              label: 'Thickness',
+              value: '20 Mil'
+            },
+            {
+              label: 'Weight',
+              value: '290 g/m²'
+            },
+            {
+              label: 'Max print size',
+              value: '40x96" or 96x40"'
+            },
+            {
+              label: 'Printer',
+              value: 'Canon iPF8400'
+            },
+            {
+              label: 'Inks',
+              value: 'Canon Lucia Inks'
+            },
+            {
+              label: 'Dmax & Color Gamut Level',
+              value: 'Excellent'
+            },
+            {
+              label: 'Black and White Capabilities',
+              value: 'Excellent'
+            }
+          ],
+          description: 'Hahnemühle Hemp uses one of the oldest and most diverse natural fibers in the world and is made of 60% hemp fiber. This giclee paper’s base impresses with its bright white natural tone, and thanks to the bright white color of the hemp fibers, no optical brighteners are required. The lightly textured surface gives the paper a pleasant, silky feel. Combined with a premium matte surface, this is a truly versatile paper for your photos and fine art reproductions. Colors and details are brilliantly reproduced, the depth of the black truly stands out and contrasts are reproduced with stunning effect. The acid- and lignin-free paper meets the most exacting requirements for age resistance. Hemp was an essential part of paper production for centuries, and due to its extremely robust fibers, it has often been used for long-lasting historical documents, such as the Gutenberg Bible and the US Declaration of Independence.',
           price: 30
         }
       ],
       styles: [
         {
           title: 'Borderless',
-          description: 'Fine paper blah',
+          description: 'The image will go to the edge of the print. In order to accomplish borderless printing the image will be enlarged approximately by 1/10 to 1/8 of an inch to give the appropriate amount of bleed necessary for cutting.',
           price: 0
         },
         {
           title: '2" Border',
-          description: 'Fine paper blah',
+          description: 'An extra two inch border will go around the printed area. This means the actual sheet size of the paper will be a total of 4 inches larger than the ordered width and height of the print.',
           price: 15
         },
         {
           title: 'Dibond',
-          description: 'Fine paper blah',
+          description: 'Flush mounted (borderless) on Dibond®, a rigid, durable aluminum composite material combines two thin layers of aluminum with a solid polyethylene core.',
           price: 25
         },
         {
           title: 'Thick gatorboard',
-          description: 'Fine paper blah',
+          description: 'Flush mounted (borderless) on your choice of double thick archival white or black artboard for paper prints at an affordable price. Artboard provides a firm surface for prints intended for framing and automatically increases the perceived value and quality of the print. The print will be borderless and trimmed to be flush with the artboard. We do not offer sizes larger than 20x30. Sellers of their work that display prints on artobard may want to secure larger prints behind matting or in a transparent sleeve and secured to a corrugated sheet. When the print is properly framed, any slight warping will be corrected. Flush mounted (borderless) on Dibond®, a rigid, durable aluminum composite material combines two thin layers of aluminum with a solid polyethylene core.',
           price: 30
         }
       ],

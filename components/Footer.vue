@@ -43,7 +43,7 @@
         justify-content: center;
         align-items: center;
 
-        @media (min-width: $medium) {
+        @media (min-width: $large) {
           flex-direction: row;
           justify-content: space-between;
           align-items: center;
