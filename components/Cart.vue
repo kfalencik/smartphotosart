@@ -129,7 +129,7 @@ export default {
         price = price - ((price / 100) * this.discounts[this.discount].discount);
       }
 
-      this.tax = Math.floor(((price / 100) * 7).toFixed(2));
+      this.tax = parseFloat(((price / 100) * 7).toFixed(2));
 
       return price;
     }

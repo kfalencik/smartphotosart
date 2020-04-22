@@ -141,9 +141,9 @@ export default {
       ],
       frame: [
         {
-          title: 'None',
+          title: 'No frame',
           action: 'transparent',
-          description: 'Fine paper blah',
+          description: 'Simply without the frame',
           price: 0
         },
         {
@@ -254,9 +254,9 @@ export default {
       ],
       frame: [
         {
-          title: 'None',
+          title: 'No frame',
           action: 'transparent',
-          description: 'Fine paper blah',
+          description: 'Simply without the frame',
           price: 0
         },
         {
@@ -318,9 +318,9 @@ export default {
       ],
       frame: [
         {
-          title: 'None',
+          title: 'No frame',
           action: 'transparent',
-          description: 'Fine paper blah',
+          description: 'Simply without the frame',
           price: 0
         },
         {
@@ -404,9 +404,9 @@ export default {
       ],
       frame: [
         {
-          title: 'None',
+          title: 'No frame',
           action: 'transparent',
-          description: 'Fine paper blah',
+          description: 'Simply without the frame',
           price: 0
         },
         {

@@ -606,6 +606,10 @@ export default {
       align-items: center;
       justify-content: center;
 
+      h3 {
+        margin: 35px 0 10px;
+      }
+
       .close {
         background: $white;
         color: $black;
