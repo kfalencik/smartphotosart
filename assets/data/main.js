@@ -58,27 +58,27 @@ export default {
       price: 0,
       size: [
         {
-          title: '8" x 12"',
+          title: '8 x 12"',
           action: 0.2,
           price: 0
         },
         {
-          title: '16" x 24"',
+          title: '16 x 24"',
           action: 0.4,
           price: 25
         },
         {
-          title: '24" x 36"',
+          title: '24 x 36"',
           action: 0.7,
           price: 50
         },
         {
-          title: '36" x 60"',
+          title: '36 x 60"',
           action: 0.87,
           price: 80
         },
         {
-          title: '40" x 60"',
+          title: '40 x 60"',
           action: 1,
           price: 100
         }
@@ -166,27 +166,27 @@ export default {
       price: 50,
       size: [
         {
-          title: '8" x 12"',
+          title: '8 x 12"',
           action: 0.2,
           price: 0
         },
         {
-          title: '16" x 24"',
+          title: '16 x 24"',
           action: 0.4,
           price: 25
         },
         {
-          title: '24" x 36"',
+          title: '24 x 36"',
           action: 0.7,
           price: 50
         },
         {
-          title: '36" x 60"',
+          title: '36 x 60"',
           action: 0.9,
           price: 80
         },
         {
-          title: '40" x 60"',
+          title: '40 x 60"',
           action: 1,
           price: 100
         }
@@ -279,27 +279,27 @@ export default {
       price: 100,
       size: [
         {
-          title: '8" x 12"',
+          title: '8 x 12"',
           action: 0.2,
           price: 0
         },
         {
-          title: '16" x 24"',
+          title: '16 x 24"',
           action: 0.4,
           price: 25
         },
         {
-          title: '24" x 36"',
+          title: '24 x 36"',
           action: 0.7,
           price: 50
         },
         {
-          title: '36" x 60"',
+          title: '36 x 60"',
           action: 0.87,
           price: 80
         },
         {
-          title: '40" x 60"',
+          title: '40 x 60"',
           action: 1,
           price: 100
         }
@@ -343,27 +343,27 @@ export default {
       price: 200,
       size: [
         {
-          title: '8" x 12"',
+          title: '8 x 12"',
           action: 0.2,
           price: 0
         },
         {
-          title: '16" x 24"',
+          title: '16 x 24"',
           action: 0.4,
           price: 25
         },
         {
-          title: '24" x 36"',
+          title: '24 x 36"',
           action: 0.7,
           price: 50
         },
         {
-          title: '36" x 60"',
+          title: '36 x 60"',
           action: 0.87,
           price: 80
         },
         {
-          title: '40" x 60"',
+          title: '40 x 60"',
           action: 1,
           price: 100
         }
