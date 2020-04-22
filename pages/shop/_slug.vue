@@ -20,6 +20,46 @@
             </div>
           </template>
 
+          <template v-if="informationModal">
+            <div class="product__information-overlay" @click="informationModal = false">
+              <div class="product__information-overlay-wrapper" @click.stop.prevent="">
+                <template v-if="informationType === 'material'">
+                  <button v-for="(option, index) in prices" :key="'material-' + index" :class="{'product__button': true, 'product__button--active': materialOption === index}" @click="changeMaterial(option.action, index)">{{option.title}}</button>
+                  <h3>{{prices[materialOption].title}}</h3>
+                  <p>{{prices[materialOption].description}}</p>
+                </template>
+
+                <template v-if="informationType === 'finish'">
+                  <button v-for="(option, index) in prices[materialOption].finish" :key="'finish-' + index" :class="{'product__button': true, 'product__button--active': finishOption === index}" @click="changeFinish(option.action, index)">{{option.title}}</button>
+                  <h3>{{prices[materialOption][informationType][finishOption].title}}</h3>
+                  <p>{{prices[materialOption][informationType][finishOption].description}}</p>
+                </template>
+
+                <template v-if="informationType === 'styles'">
+                  <button v-for="(option, index) in prices[materialOption].styles" :key="'styles-' + index" :class="{'product__button': true, 'product__button--active': stylesOption === index}" @click="changeStyles(option.action, index)">{{option.title}}</button>
+                  <h3>{{prices[materialOption][informationType][stylesOption].title}}</h3>
+                  <p>{{prices[materialOption][informationType][stylesOption].description}}</p>
+                </template>
+
+                <template v-if="informationType === 'frame'">
+                  <button v-for="(option, index) in prices[materialOption].frame" :key="'frame-' + index" :class="{'product__button': true, 'product__button--active': frameOption === index}" @click="changeFrame(option.action, index)">{{option.title}}</button>
+                  <h3>{{prices[materialOption][informationType][frameOption].title}}</h3>
+                  <p>{{prices[materialOption][informationType][frameOption].description}}</p>
+                </template>
+
+                <template v-if="informationType === 'mount'">
+                  <button v-for="(option, index) in prices[materialOption].mount" :key="'mount-' + index" :class="{'product__button': true, 'product__button--active': mountOption === index}" @click="changeMount(option.action, index)">{{option.title}}</button>
+                  <h3>{{prices[materialOption][informationType][mountOption].title}}</h3>
+                  <p>{{prices[materialOption][informationType][mountOption].description}}</p>
+                </template>
+
+                <button @click="informationModal = false" class="close" title="Close">
+                  <b-icon icon="close" custom-size="mdi-24px"></b-icon>
+                </button>
+              </div>   
+            </div>
+          </template>
+
           <div class="columns is-4">
             <div class="column is-two-thirds">
               <div class="product__title">
@@ -104,21 +144,21 @@
               <div class="product__options">
 
                 <div class="product__option">
-                  <h5>Material</h5>
+                  <h5 @click="information('material')">Material <b-icon icon="information-outline" custom-size="mdi-18" /></h5>
                   <div class="wrap">
                     <button v-for="(option, index) in prices" :key="'material-' + index" :class="{'product__button': true, 'product__button--active': materialOption === index}" @click="changeMaterial(option.action, index)">{{option.title}}</button>
                   </div>
                 </div>
 
                 <div class="product__option" v-if="prices[materialOption].finish">
-                  <h5>Type</h5>
+                  <h5 @click="information('finish')">Type <b-icon icon="information-outline" custom-size="mdi-18" /></h5>
                   <div class="wrap">
                     <button v-for="(option, index) in prices[materialOption].finish" :key="'finish-' + index" :class="{'product__button': true, 'product__button--active': finishOption === index}" @click="changeFinish(option.action, index)">{{option.title}}</button>
                   </div>
                 </div>
 
                 <div class="product__option" v-if="prices[materialOption].styles">
-                  <h5>Style</h5>
+                  <h5 @click="information('styles')">Style <b-icon icon="information-outline" custom-size="mdi-18" /></h5>
                   <div class="wrap">
                     <button v-for="(option, index) in prices[materialOption].styles" :key="'styles-' + index" :class="{'product__button': true, 'product__button--active': stylesOption === index}" @click="changeStyles(option.action, index)">{{option.title}}</button>
                   </div>
@@ -132,7 +172,7 @@
                 </div>
 
                 <div class="product__option">
-                  <h5>Frame</h5>
+                  <h5 @click="information('frame')">Frame <b-icon icon="information-outline" custom-size="mdi-18" /></h5>
                   <div class="wrap" v-if="prices[materialOption].frame">
                     <button v-for="(option, index) in prices[materialOption].frame" :key="'frame-' + index" :class="{'product__button': true, 'product__button--active': frameOption === index}" @click="changeFrame(option.action, index)">{{option.title}}</button>
                   </div>
@@ -142,7 +182,7 @@
                 </div>
 
                 <div class="product__option">
-                  <h5>Mounting type</h5>
+                  <h5 @click="information('mount')">Mounting type <b-icon icon="information-outline" custom-size="mdi-18" /></h5>
                   <div class="wrap" v-if="prices[materialOption].mount">
                     <button v-for="(option, index) in prices[materialOption].mount" :key="'mount-' + index" :class="{'product__button': true, 'product__button--active': mountOption === index}" @click="changeMount(option.action, index)">{{option.title}}</button>
                   </div>
@@ -288,7 +328,9 @@ export default {
       zoom: 1,
       image: 0,
       canvasImage: 1,
-      overlay: false
+      overlay: false,
+      informationModal: false,
+      informationType: 'material'
     }
   },
   components: {
@@ -400,6 +442,12 @@ export default {
     },
     magnify(zoom) {
       this.zoom = zoom;
+    },
+    information(modal) {
+      this.informationModal = true;
+      this.informationType = modal;
+
+      console.log(this.informationType);
     },
     changeSize: function(size, sizeOption) {
       this.size = size;
@@ -514,14 +562,14 @@ export default {
       right: 0;
       bottom: 0;
       z-index: 999;
-      background: rgba(0,0,0,.75);
+      background: rgba(0,0,0,.8);
       display: flex;
       align-items: center;
       justify-content: center;
 
       img {
         max-height: 80vh;
-        max-width: 80%;
+        max-width: 96%;
       }
 
       button {
@@ -544,6 +592,51 @@ export default {
           color: $white;
         }
       }
+    }
+
+    &__information-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 999;
+      background: rgba(0,0,0,.8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      .close {
+        background: $white;
+        color: $black;
+        position: absolute;
+        top: 30px;
+        right: 10px;
+        border: none;
+        width: 40px;
+        height: 40px;
+        z-index: 30;
+        transition: all .5s ease;
+        cursor: pointer;
+        display: block;
+        transform: translateY(-50%);
+
+        &:hover {
+          background: $black;
+          color: $white;
+        }
+      }
+    }
+
+    &__information-overlay-wrapper {
+      background: $white;
+      width: 96%;
+      max-width: 1024px;
+      min-height: 250px;
+      max-height: 90vh;
+      overflow-y: auto;
+      padding: 20px;
+      position: relative;
     }
 
     &__nav-item {
@@ -588,6 +681,7 @@ export default {
 
       h5 {
         text-decoration: underline;
+        cursor: pointer;
       }
     }
 

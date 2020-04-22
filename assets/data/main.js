@@ -54,6 +54,7 @@ export default {
   prices: [
     {
       title: 'Fine art paper',
+      description: 'Fine paper blah',
       price: 0,
       size: [
         {
@@ -85,46 +86,56 @@ export default {
       finish: [
         {
           title: 'Matte',
+          description: 'Fine paper blah',
           price: 0
         },
         {
           title: 'Velvet',
+          description: 'Fine paper blah',
           price: 15
         },
         {
           title: 'Satin',
+          description: 'Fine paper blah',
           price: 25
         },
         {
           title: 'Eco paper',
+          description: 'Fine paper blah',
           price: 30
         }
       ],
       styles: [
         {
           title: 'Borderless',
+          description: 'Fine paper blah',
           price: 0
         },
         {
           title: '2" Border',
+          description: 'Fine paper blah',
           price: 15
         },
         {
           title: 'Dibond',
+          description: 'Fine paper blah',
           price: 25
         },
         {
           title: 'Thick gatorboard',
+          description: 'Fine paper blah',
           price: 30
         }
       ],
       mount: [
         {
           title: 'Mounting hook',
+          description: 'Fine paper blah',
           price: 0
         },
         {
           title: 'Steel line',
+          description: 'Fine paper blah',
           price: 10
         }
       ],
@@ -132,22 +143,26 @@ export default {
         {
           title: 'None',
           action: 'transparent',
+          description: 'Fine paper blah',
           price: 0
         },
         {
           title: 'White',
           action: 'white',
+          description: 'Fine paper blah',
           price: 15
         },
         {
           title: 'Black',
           action: 'black',
+          description: 'Fine paper blah',
           price: 15
         }
       ]
     },
     {
       title: 'Canvas',
+      description: 'Canvas paper blah',
       price: 50,
       size: [
         {
@@ -179,50 +194,61 @@ export default {
       finish: [
         {
           title: 'Gloss',
+          description: 'Fine paper blah',
           price: 0
         },
         {
           title: 'Matte',
+          description: 'Fine paper blah',
           price: 15
         },
         {
           title: 'Metallic',
+          description: 'Fine paper blah',
           price: 25
         }
       ],
       styles: [
         {
           title: 'Artboard',
+          description: 'Fine paper blah',
           price: 0
         },
         {
           title: 'Gatorboard',
+          description: 'Fine paper blah',
           price: 15
         },
         {
           title: 'Thin stretched',
+          description: 'Fine paper blah',
           price: 25
         },
         {
           title: 'Thick stretched',
+          description: 'Fine paper blah',
           price: 30
         },
         {
           title: 'Gallery wrap',
+          description: 'Fine paper blah',
           price: 30
         },
         {
           title: 'Thin gallery wrap',
+          description: 'Fine paper blah',
           price: 30
         }
       ],
       mount: [
         {
           title: 'Mounting hook',
+          description: 'Fine paper blah',
           price: 0
         },
         {
           title: 'Steel line',
+          description: 'Fine paper blah',
           price: 10
         }
       ],
@@ -230,22 +256,26 @@ export default {
         {
           title: 'None',
           action: 'transparent',
+          description: 'Fine paper blah',
           price: 0
         },
         {
           title: 'White',
           action: 'white',
+          description: 'Fine paper blah',
           price: 15
         },
         {
           title: 'Black',
           action: 'black',
+          description: 'Fine paper blah',
           price: 15
         }
       ]
     },
     {
       title: 'Acrylic',
+      description: 'Acrylic paper blah',
       price: 100,
       size: [
         {
@@ -277,10 +307,12 @@ export default {
       mount: [
         {
           title: 'Mounting hook',
+          description: 'Fine paper blah',
           price: 0
         },
         {
           title: 'Steel line',
+          description: 'Fine paper blah',
           price: 10
         }
       ],
@@ -288,22 +320,26 @@ export default {
         {
           title: 'None',
           action: 'transparent',
+          description: 'Fine paper blah',
           price: 0
         },
         {
           title: 'White',
           action: 'white',
+          description: 'Fine paper blah',
           price: 15
         },
         {
           title: 'Black',
           action: 'black',
+          description: 'Fine paper blah',
           price: 15
         }
       ]
     },
     {
       title: 'Metal',
+      description: 'Metal paper blah',
       price: 200,
       size: [
         {
@@ -335,28 +371,34 @@ export default {
       finish: [
         {
           title: 'Gloss',
+          description: 'Fine paper blah',
           price: 20
         },
         {
           title: 'Matte',
+          description: 'Fine paper blah',
           price: 80
         },
         {
           title: 'Silver gloss',
+          description: 'Fine paper blah',
           price: 180
         },
         {
           title: 'Silver matte',
+          description: 'Fine paper blah',
           price: 200
         }
       ],
       mount: [
         {
           title: 'Mounting hook',
+          description: 'Fine paper blah',
           price: 0
         },
         {
           title: 'Steel line',
+          description: 'Fine paper blah',
           price: 10
         }
       ],
@@ -364,16 +406,19 @@ export default {
         {
           title: 'None',
           action: 'transparent',
+          description: 'Fine paper blah',
           price: 0
         },
         {
           title: 'White',
           action: 'white',
+          description: 'Fine paper blah',
           price: 15
         },
         {
           title: 'Black',
           action: 'black',
+          description: 'Fine paper blah',
           price: 15
         }
       ]

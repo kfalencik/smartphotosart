@@ -205,7 +205,7 @@ export default {
         position: absolute;
         background: rgba(0,0,0,0);
 
-        @media (max-width: 1979px) {
+        @media (max-width: 1439px) {
           background: rgba(0,0,0,0.5);
         }
       }
@@ -223,7 +223,7 @@ export default {
       z-index: 20;
       transform: translate(-50%, -50%);
 
-      @media (max-width: 1979px) {
+      @media (max-width: 1439px) {
         left: 50% !important;
         top: 50% !important;
         color: $white !important;
