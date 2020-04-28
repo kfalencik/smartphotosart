@@ -1,3 +1,5 @@
+export const strict = false
+
 import  firebase from 'firebase/app';
 import emailjs from 'emailjs-com';
 import 'firebase/firestore';
@@ -284,9 +286,7 @@ export const mutations = {
           "cart": data[1],
           "total": data[0].total
         }
-        emailjs.send(emailserviceid, 'iconari_dispatched', emailParams, emailuserid).then(() => {
-          self.app.router.push('/dashboard/orders');
-        });
+        emailjs.send(emailserviceid, 'iconari_dispatched', emailParams, emailuserid);
       });
     });
   },

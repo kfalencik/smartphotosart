@@ -93,7 +93,19 @@
                   </template>
                 </template>
 
-                
+                <template v-if="informationType === 'backing'">
+                  <img :src="require('@/assets/images/info/' + prices[materialOption].finish[finishOption][informationType][backingOption].image)" v-if="prices[materialOption].finish[finishOption][informationType][backingOption].image" :alt="prices[materialOption].finish[finishOption][informationType][backingOption].title + ' preview'" />
+                  <button v-for="(option, index) in prices[materialOption].finish[finishOption].backing" :key="'backing-' + index" :class="{'product__button': true, 'product__button--active': backingOption === index}" @click="changeBacking(option.action, index)">{{option.title}}</button>
+                  <h3>{{prices[materialOption].finish[finishOption][informationType][backingOption].title}}</h3>
+                  <div v-html="prices[materialOption].finish[finishOption][informationType][backingOption].description"></div>
+
+                  <template v-if="prices[materialOption].finish[finishOption][informationType][backingOption].technical">
+                    <br />
+                    <p v-for="(item, index) in prices[materialOption].finish[finishOption][informationType][backingOption].technical" :key="index">
+                      <strong>{{ item.label }}</strong>: {{ item.value }}
+                    </p>
+                  </template>
+                </template>
 
                 <button @click="informationModal = false" class="close" title="Close">
                   <b-icon icon="close" custom-size="mdi-24px"></b-icon>
@@ -206,6 +218,13 @@
                   </div>
                 </div>
 
+                <div class="product__option" v-if="prices[materialOption].finish[finishOption].backing">
+                  <h5 @click="information('backing')">Backing <b-icon icon="information-outline" custom-size="mdi-18" /></h5>
+                  <div class="wrap">
+                    <button v-for="(option, index) in prices[materialOption].finish[finishOption].backing" :key="'backing-' + index" :class="{'product__button': true, 'product__button--active': backingOption === index}" @click="changeBacking(option.action, index)">{{option.title}}</button>
+                  </div>
+                </div>
+
                 <div class="product__option">
                   <h5>Size</h5>
                   <div class="wrap">
@@ -267,6 +286,7 @@
                     <tr><td>Material</td><td>{{prices[materialOption].title}}</td><td>{{ price(prices[materialOption].price)}}</td></tr>
                     <tr v-if="prices[materialOption].finish"><td>Media</td><td>{{prices[materialOption].finish[finishOption].title}}</td><td>{{ price(prices[materialOption].finish[finishOption].price)}}</td></tr>
                     <tr v-if="prices[materialOption].finish[finishOption].styles"><td>Style</td><td>{{prices[materialOption].finish[finishOption].styles[stylesOption].title}}</td><td>{{ price(prices[materialOption].finish[finishOption].styles[stylesOption].price)}}</td></tr>
+                    <tr v-if="prices[materialOption].finish[finishOption].backing"><td>Backing</td><td>{{prices[materialOption].finish[finishOption].backing[backingOption].title}}</td><td>{{ price(prices[materialOption].finish[finishOption].backing[backingOption].price)}}</td></tr>
                     <tr><td>Size</td><td>{{prices[materialOption].finish[finishOption].size[sizeOption].title}}</td><td>{{ price(prices[materialOption].finish[finishOption].size[sizeOption].price)}}</td></tr>
                     <tr v-if="prices[materialOption].frame"><td>Frame</td><td>{{prices[materialOption].frame[frameOption].title}}</td><td>{{ price(prices[materialOption].frame[frameOption].price)}}</td></tr>
                     <tr v-if="prices[materialOption].glass"><td>Glass</td><td>{{prices[materialOption].glass[glassOption].title}}</td><td>{{ price(prices[materialOption].glass[glassOption].price)}}</td></tr>
@@ -359,6 +379,8 @@ export default {
       sizeOption: 0,
       glass: 0,
       glassOption: 0,
+      backing: 0,
+      backingOption: 0,
       frame: 'transparent',
       frameOption: 0,
       zoom: 1,
@@ -426,8 +448,12 @@ export default {
         price = price + this.prices[this.materialOption].finish[this.finishOption].price;
       }
 
-      if (this.prices[this.materialOption].styles) {
+      if (this.prices[this.materialOption].finish[this.finishOption].styles) {
         price = price + this.prices[this.materialOption].finish[this.finishOption].styles[this.stylesOption].price;
+      }
+
+      if (this.prices[this.materialOption].finish[this.finishOption].backing) {
+        price = price + this.prices[this.materialOption].finish[this.finishOption].backing[this.backingOption].price;
       }
 
       if (this.prices[this.materialOption].glass) {
@@ -451,8 +477,12 @@ export default {
         price = price + this.prices[this.materialOption].finish[this.finishOption].price;
       }
 
-      if (this.prices[this.materialOption].styles) {
+      if (this.prices[this.materialOption].finish[this.finishOption].styles) {
         price = price + this.prices[this.materialOption].finish[this.finishOption].styles[this.stylesOption].price;
+      }
+
+      if (this.prices[this.materialOption].finish[this.finishOption].backing) {
+        price = price + this.prices[this.materialOption].finish[this.finishOption].backing[this.backingOption].price;
       }
 
       if (this.prices[this.materialOption].glass) {
@@ -472,6 +502,10 @@ export default {
       return 2;
     }
   },
+  mounted() {
+    this.size = this.prices[0].finish[0].size[this.prices[0].finish[0].size.length - 1].action;
+    this.sizeOption = this.prices[0].finish[0].size.length - 1;
+  },
   methods: {
     discount: function(price, discount) {
       return price - ((price / 100) * discount);
@@ -490,8 +524,8 @@ export default {
     changeMaterial: function(material, index) {
       this.material = material;
       this.materialOption = index;
-      this.size = 0.2;
-      this.sizeOption = 0;
+      this.size = this.prices[index].finish[0].size[this.prices[index].finish[0].size.length - 1].action;
+      this.sizeOption = this.prices[index].finish[0].size.length - 1;
       this.finish = 0;
       this.finishOption = 0;
       this.styles = 0;
@@ -500,12 +534,14 @@ export default {
       this.glassOption = 0;
       this.frame = 'transparent';
       this.frameOption = 0;
+      this.backing = 0;
+      this.backingOption = 0;
     },
     changeFinish: function(finish, index) {
       this.finish = finish;
       this.finishOption = index;
-      this.size = 0.2;
-      this.sizeOption = 0;
+      this.size = this.prices[this.materialOption].finish[index].size[this.prices[this.materialOption].finish[index].size.length - 1].action;
+      this.sizeOption = this.prices[this.materialOption].finish[index].size.length - 1;
     },
     changeStyles: function(styles, index) {
       this.styles = styles;
@@ -518,6 +554,10 @@ export default {
     changeFrame: function(frame, index) {
       this.frame = frame;
       this.frameOption = index;
+    },
+    changeBacking: function(backing, index) {
+      this.backing = backing;
+      this.backingOption = index;
     },
     changeQuantity: function(quantity) {
       if (quantity !== 0 && quantity !== 10) {
@@ -533,7 +573,7 @@ export default {
     addToCart: function() {
       const self = this;
 
-      this.$store.commit('localStorage/addToCart', [this.product.id, [this.materialOption, this.finishOption, this.stylesOption, this.sizeOption, this.frameOption, this.glassOption], this.quantity]);
+      this.$store.commit('localStorage/addToCart', [this.product.id, [this.materialOption, this.finishOption, this.stylesOption, this.sizeOption, this.frameOption, this.glassOption, this.backingOption], this.quantity]);
       this.$buefy.snackbar.open({
         duration: 5000,
         position: 'is-top',
@@ -556,6 +596,8 @@ export default {
       this.glass = 0;
       this.glassOption = 0;
       this.quantity = 1;
+      this.backing = 0;
+      this.backingOption = 0;
     }
   }
 }

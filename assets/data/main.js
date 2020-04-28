@@ -822,26 +822,28 @@ export default {
             {
               title: 'Polished Shine',
               image: 'acrylic-metallic.jpg',
-              description: '<p>Polished Shine is what we refer to our most popular option when it comes to acrylic surfaces. The crystal clear surface will have a level of shine and reflection which provides the ultimate in sleek and modern looks.</p><p>A paper backing option is the more econimical option and provides some protection to the back of the print.</p>',
+              description: '<p>Polished Shine is what we refer to our most popular option when it comes to acrylic surfaces. The crystal clear surface will have a level of shine and reflection which provides the ultimate in sleek and modern looks.</p>',
               price: 25
-            },
-            {
-              title: 'Polished shine dibond',
-              image: 'acrylic-metallic-dibond.jpg',
-              description: '<p>Polished Shine is what we refer to our most popular option when it comes to acrylic surfaces. The crystal clear surface will have a level of shine and reflection which provides the ultimate in sleek and modern looks.</p><p>The dibond is recommended for your most valued work. Dibond is a very thin aluminum panel. When the print is mounted on Dibond it adds a layer of protection and helps strengthen the acrylic.</p>',
-              price: 60
             },
             {
               title: 'No glare',
               image: 'acrylic-metallic-no-glare.jpg',
-              description: '<p>Crystal clear acrylic plexiglass with reflection control and polished edges allowing your image to be on display at its fullest. Unlike the highly-polished shine acrylic, reflection control is useful for environments in which direct light sources might create distracting glares.</p><p>A paper backing option is the more econimical option and provides some protection to the back of the print.</p>',
-              price: 30
+              description: '<p>Crystal clear acrylic plexiglass with reflection control and polished edges allowing your image to be on display at its fullest. Unlike the highly-polished shine acrylic, reflection control is useful for environments in which direct light sources might create distracting glares.</p>',
+              price: 60
+            },
+          ],
+          backing: [
+            {
+              title: 'Paper backing',
+              image: 'acrylic-metallic.jpg',
+              description: '<p>A paper backing option is the more econimical option and provides some protection to the back of the print.</p>',
+              price: 0
             },
             {
-              title: 'No glare dibond',
-              image: 'acrylic-metallic-no-glare-dibond.jpg',
-              description: '<p>Crystal clear acrylic plexiglass with reflection control and polished edges allowing your image to be on display at its fullest. Unlike the highly-polished shine acrylic, reflection control is useful for environments in which direct light sources might create distracting glares.</p><p>The dibond is recommended for your most valued work. Dibond is a very thin aluminum panel. When the print is mounted on Dibond it adds a layer of protection and helps strengthen the acrylic.</p>',
-              price: 100
+              title: 'Dibond',
+              image: 'acrylic-metallic-dibond.jpg',
+              description: '<p>The dibond is recommended for your most valued work. Dibond is a very thin aluminum panel. When the print is mounted on Dibond it adds a layer of protection and helps strengthen the acrylic.</p>',
+              price: 50
             }
           ],
           description: 'Moab Exhibition Luster now with a gloss optimizer coating. This high quality 11 mil 300g paper answers artist’s and photographers’ requests for a high quality paper between a matte and a gloss, with excellent ink retention characteristics and a color gamut that is second to none. This paper maintains a traditional E surface finish, providing an elegant texture consistent to that of a traditional dark room print.',
@@ -881,32 +883,35 @@ export default {
             {
               title: 'Polished Shine',
               image: 'acrylic-metallic.jpg',
-              description: '<p>Polished Shine is what we refer to our most popular option when it comes to acrylic surfaces. The crystal clear surface will have a level of shine and reflection which provides the ultimate in sleek and modern looks.</p><p>A paper backing option is the more econimical option and provides some protection to the back of the print.</p>',
+              description: '<p>Polished Shine is what we refer to our most popular option when it comes to acrylic surfaces. The crystal clear surface will have a level of shine and reflection which provides the ultimate in sleek and modern looks.</p>',
               price: 25
-            },
-            {
-              title: 'Polished shine dibond',
-              image: 'acrylic-metallic-dibond.jpg',
-              description: '<p>Polished Shine is what we refer to our most popular option when it comes to acrylic surfaces. The crystal clear surface will have a level of shine and reflection which provides the ultimate in sleek and modern looks.</p><p>The dibond is recommended for your most valued work. Dibond is a very thin aluminum panel. When the print is mounted on Dibond it adds a layer of protection and helps strengthen the acrylic.</p>',
-              price: 60
             },
             {
               title: 'No glare',
               image: 'acrylic-metallic-no-glare.jpg',
-              description: '<p>Crystal clear acrylic plexiglass with reflection control and polished edges allowing your image to be on display at its fullest. Unlike the highly-polished shine acrylic, reflection control is useful for environments in which direct light sources might create distracting glares.</p><p>A paper backing option is the more econimical option and provides some protection to the back of the print.</p>',
-              price: 30
+              description: '<p>Crystal clear acrylic plexiglass with reflection control and polished edges allowing your image to be on display at its fullest. Unlike the highly-polished shine acrylic, reflection control is useful for environments in which direct light sources might create distracting glares.</p>',
+              price: 60
+            },
+          ],
+          backing: [
+            {
+              title: 'Paper backing',
+              image: 'acrylic-metallic.jpg',
+              description: '<p>A paper backing option is the more econimical option and provides some protection to the back of the print.</p>',
+              price: 0
             },
             {
-              title: 'No glare dibond',
-              image: 'acrylic-metallic-no-glare-dibond.jpg',
-              description: '<p>Crystal clear acrylic plexiglass with reflection control and polished edges allowing your image to be on display at its fullest. Unlike the highly-polished shine acrylic, reflection control is useful for environments in which direct light sources might create distracting glares.</p><p>The dibond is recommended for your most valued work. Dibond is a very thin aluminum panel. When the print is mounted on Dibond it adds a layer of protection and helps strengthen the acrylic.</p>',
-              price: 100
+              title: 'Dibond',
+              image: 'acrylic-metallic-dibond.jpg',
+              description: '<p>The dibond is recommended for your most valued work. Dibond is a very thin aluminum panel. When the print is mounted on Dibond it adds a layer of protection and helps strengthen the acrylic.</p>',
+              price: 50
             }
           ],
           description: 'Branded as Moab Slickrock Metallic Pearl, this paper enables you to create stunning prints that previously could be output only in a darkroom. The metallic, high-gloss surface on this 10-mil, 255g photo paper results in prints that are sharp, vibrant, and exceptionally rich-looking. This paper provides the perfect way to make portraits, fine art reproductions, and competition prints that stand out from the others.',
           price: 15
         }
-      ]
+      ],
+      
     }
   ],
   categories: [

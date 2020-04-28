@@ -303,23 +303,27 @@ export default {
           productPrice = productPrice + this.prices[item.extras[0]].price;
 
           if (this.prices[item.extras[0]].finish) {
-           productPrice = productPrice + this.prices[item.extras[0]].finish[item.extras[1]].price;
+            productPrice = productPrice + this.prices[item.extras[0]].finish[item.extras[1]].price;
           }
 
-          if (this.prices[item.extras[0]].styles) {
-            productPrice = productPrice + this.prices[item.extras[0]].styles[item.extras[2]].price;
+          if (this.prices[item.extras[0]].finish[item.extras[1]].styles) {
+            productPrice = productPrice + this.prices[item.extras[0]].finish[item.extras[1]].styles[item.extras[2]].price;
           }
 
-          if (this.prices[item.extras[0]].size) {
-            productPrice = productPrice + this.prices[item.extras[0]].size[item.extras[3]].price;
+          if (this.prices[item.extras[0]].finish[item.extras[1]].backing) {
+            productPrice = productPrice + this.prices[item.extras[0]].finish[item.extras[1]].backing[item.extras[6]].price;
+          }
+
+          if (this.prices[item.extras[0]].finish[item.extras[1]].size) {
+            productPrice = productPrice + this.prices[item.extras[0]].finish[item.extras[1]].size[item.extras[3]].price;
           }
 
           if (this.prices[item.extras[0]].frame) {
             productPrice = productPrice + this.prices[item.extras[0]].frame[item.extras[4]].price;
           }
 
-          if (this.prices[item.extras[0]].mount) {
-            productPrice = productPrice + this.prices[item.extras[0]].mount[item.extras[5]].price;
+          if (this.prices[item.extras[0]].glass) {
+            productPrice = productPrice + this.prices[item.extras[0]].glass[item.extras[5]].price;
           }
 
           price = price + (productPrice * item.quantity);
@@ -339,7 +343,7 @@ export default {
         this.cart.forEach(item => {
           let product = this.product(item.product);
           let productPrice = this.productTotal(product);
-          productPrice = this.productWithExtras(productPrice, item.extras[0], item.extras[1], item.extras[2], item.extras[3], item.extras[4], item.extras[5]);
+          productPrice = this.productWithExtras(productPrice, item.extras[0], item.extras[1], item.extras[2], item.extras[3], item.extras[4], item.extras[5], item.extras[6]);
           let price = productPrice * item.quantity;
           cartTotal = cartTotal + price;
 
@@ -385,7 +389,7 @@ export default {
             city: this.deliveryCity,
             zipcode: this.deliveryZipCode,
             state: this.deliveryState
-          }, event, this.cartProducts, this.priceFormatter(this.total), 'paid']);
+          }, event, this.cartProducts, this.priceFormatter(this.total), this.priceFormatter(this.total + this.tax), this.tax, 'paid']);
         },
         paymentCancelled: function(event) {
           this.$buefy.toast.open({message: 'Your order was unsuccessful, please try again', type: 'is-danger'});
@@ -397,14 +401,24 @@ export default {
             return (Math.floor(price * 100) / 100).toFixed(2)
         },
         extrasFromatter: function(extras) {
-            return `
-                Material: ${this.prices[extras[0]].title},
-                Type: ${this.prices[extras[0]].finish ? this.prices[extras[0]].finish[extras[1]].title: this.prices[0].finish[extras[1]].title},
-                Style: ${this.prices[extras[0]].styles ? this.prices[extras[0]].styles[extras[2]].title: this.prices[0].styles[extras[2]].title},
-                Size: ${this.prices[extras[0]].size ? this.prices[extras[0]].size[extras[3]].title: this.prices[0].size[extras[3]].title},
-                Frame: ${this.prices[extras[0]].frame ? this.prices[extras[0]].frame[extras[4]].title: this.prices[0].frame[extras[4]].title},
-                Mount type: ${this.prices[extras[0]].mount ? this.prices[extras[0]].mount[extras[5]].title: this.prices[0].mount[extras[5]].title}
-            `;
+          let productList = `Material: ${this.prices[extras[0]].title}, Media: ${this.prices[extras[0]].finish[extras[1]].title}, Style: ${this.prices[extras[0]].finish[extras[1]].styles[extras[2]].title},`;
+
+          if (this.prices[extras[0]].finish[extras[1]].backing) {
+            productList = productList + ` Backing: ${this.prices[extras[0]].finish[extras[1]].backing[extras[6]].title},`;
+          }
+
+          if (this.prices[extras[0]].finish[extras[1]].frame) {
+            productList = productList + ` Frame: ${this.prices[extras[0]].finish[extras[1]].frame[extras[4]].title},`;
+          }
+
+          if (this.prices[extras[0]].finish[extras[1]].glass) {
+            productList = productList + ` Glass: ${this.prices[extras[0]].finish[extras[1]].glass[extras[5]].title},`;
+          }
+
+          productList = productList + ` Size: ${this.prices[extras[0]].finish[extras[1]].size[extras[3]].title}`;
+
+          console.log(productList);
+          return productList;
         },
         product(id) {
             const product = this.$store.state.products.filter(product => product.id === parseInt(id));
@@ -417,31 +431,35 @@ export default {
 
             return price;
         },
-        productWithExtras(total, material, finish, styles, size, frame, mount) {
-            let price = total;
-            price = price + this.prices[material].price;
+        productWithExtras(total, material, finish, style, size, frame, glass, backing) {
+          let price = total;
+          price = price + this.prices[material].price;
 
-            if (this.prices[material].finish) {
-              price = price + this.prices[material].finish[finish].price;
-            }
+          if (this.prices[material].finish[finish].size) {
+            price = price + this.prices[material].finish[finish].size[size].price;
+          }
 
-            if (this.prices[material].styles) {
-              price = price + this.prices[material].styles[styles].price;
-            }
+          if (this.prices[material].finish) {
+            price = price + this.prices[material].finish[finish].price;
+          }
 
-            if (this.prices[material].size) {
-              price = price + this.prices[material].size[size].price;
-            }
+          if (this.prices[material].finish[finish].styles) {
+            price = price + this.prices[material].finish[finish].styles[style].price;
+          }
 
-            if (this.prices[material].frame) {
-              price = price + this.prices[material].frame[frame].price;
-            }
+          if (this.prices[material].finish[finish].backing) {
+            price = price + this.prices[material].finish[finish].backing[backing].price;
+          }
 
-            if (this.prices[material].mount) {
-              price = price + this.prices[material].mount[mount].price;
-            }
+          if (this.prices[material].glass) {
+            price = price + this.prices[material].glass[glass].price;
+          }
 
-            return price;
+          if (this.prices[material].frame) {
+            price = price + this.prices[material].frame[frame].price;
+          }
+
+          return price;
         },
         validateDetails() {
             if (

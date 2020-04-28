@@ -22,7 +22,9 @@
         <h3>Ogolne infromacje</h3>
         <div><strong>Kod PayPal: </strong>{{order.paypal.paymentID}}</div>
         <div><strong>Data zamowienia: </strong>{{order.date}}</div>
-        <div><strong>Cena: </strong>${{order.total}}</div>
+        <div><strong>Cena brutto: </strong>${{order.subtotal}}</div>
+        <div><strong>Podatek: </strong>${{order.tax}}</div>
+        <div><strong>Cena netto: </strong>${{order.total}}</div>
         <div><strong>Status: </strong><span class="tag" :class="statusType(order.status)" v-html="status(order.status)"></span></div>
         <div class="dispatcher" v-if="order.status !== 'dispatched'">
           <button class="button is-success" @click="dispatch">Oznacz jako wyslane</button>
@@ -45,8 +47,7 @@
             <b-table-column field="name" label="Nazwa">
               {{ props.row.name }}
             </b-table-column>
-            <b-table-column field="description" label="Specyfikacja">
-              {{ props.row.description }}
+            <b-table-column field="description" label="Specyfikacja" v-html="extras(props.row.description)">
             </b-table-column>
             <b-table-column field="quantity" label="Ilosc">
               {{ props.row.quantity }}
@@ -115,6 +116,14 @@ export default {
           return 'is-success'
       }
     },
+    extras(extras) {
+      let extrasList = '<ul>';
+      extras.split(',').forEach(item => {
+        extrasList = extrasList + '<li>' + item + '</li>';
+      });
+      extrasList = extrasList + '</ul>';
+      return extrasList;
+    },
     dispatch() {
       this.$buefy.dialog.confirm({
         title: 'Czy jestes pewien?',
@@ -125,12 +134,17 @@ export default {
         hasIcon: true,
         onConfirm: () => {
           // Send email to customer
-          let emailCart = "<ul>";
+          let emailCart = "<table border='1' cellspacing='0' cellpadding='5' style='border: none; border-collapse: collapse;'>";
+          emailCart = `${emailCart}<tr><td>Item</td><td>Description</td><td>Quantity</td><td>Price</td></tr>`;
+
           this.order.items.forEach(item => {
-            emailCart = `${emailCart}<li>${item.quantity} x ${item.name} - ${item.description}</li>`;
+            emailCart = `${emailCart}<tr><td>${item.name}</td><td>${item.description}</td><td>${item.quantity}</td><td>$${item.price}</td></tr>`;
           });
 
-          emailCart = emailCart + '</ul>';
+          emailCart = `${emailCart}<tr><td style="border: none"></td><td style="border: none"></td><td><strong>Subtotal</strong></td><td><strong>$${this.order.subtotal}</strong></td></tr>`;
+          emailCart = `${emailCart}<tr><td style="border: none"></td><td style="border: none"></td><td><strong>Tax</strong></td><td><strong>$${this.order.tax}</strong></td></tr>`;
+          emailCart = `${emailCart}<tr><td style="border: none"></td><td style="border: none"></td><td><strong>Total</strong></td><td><strong>$${this.order.total}</strong></td></tr>`;
+          emailCart = emailCart + '</table>';
 
           let emailShippingAddress = `<p>${this.order.details.address1}`;
           if (this.order.details.address2 != '') emailShippingAddress = emailShippingAddress + ', '  + this.order.details.address2;
@@ -138,9 +152,9 @@ export default {
 
           emailShippingAddress = emailShippingAddress + '</p><p>' + this.order.details.city + ', ' + this.order.details.zipcode + '</p><p>' + this.order.details.state + ', United States</p>'
 
-          this.$store.dispatch('redirecting');
           this.$buefy.toast.open({message: 'Zamowienie zostalo wyslane!', type: 'is-success'});
           this.$store.commit('dispatchOrder', [this.order, emailCart, emailShippingAddress]);
+          this.$router.push('/dashboard/orders');
         }
       })
     }

@@ -85,7 +85,9 @@ export const mutations = {
     state.order.details = data[0];
     state.order.paypal = data[1];
     state.order.items = data[2];
-    state.order.total = data[3];
+    state.order.subtotal = data[3];
+    state.order.total = data[4];
+    state.order.tax = (Math.floor(data[5] * 100) / 100).toFixed(2);
 
     if (state.discount) {
       state.order.items.pop();
@@ -95,8 +97,10 @@ export const mutations = {
       details: data[0],
       paypal: data[1],
       items: data[2],
-      total: data[3],
-      status: data[4],
+      subtotal: data[3],
+      total: data[4],
+      tax: data[5],
+      status: data[6],
       date: date,
       timestamp: `${yyyy}${mm}${dd}${timeReversed}`,
       discount: state.discount
@@ -104,12 +108,17 @@ export const mutations = {
     state.cart = [];
     state.discount = null;
 
-    let emailCart = "<ul>";
+    let emailCart = "<table border='1' cellspacing='0' cellpadding='5' style='border: none; border-collapse: collapse;'>";
+    emailCart = `${emailCart}<tr><td>Item</td><td>Description</td><td>Quantity</td><td>Price</td></tr>`;
+
     state.order.items.forEach(item => {
-      emailCart = `${emailCart}<li>${item.quantity} x ${item.name} - ${item.description}</li>`;
+      emailCart = `${emailCart}<tr><td>${item.name}</td><td>${item.description}</td><td>${item.quantity}</td><td>$${item.price}</td></tr>`;
     });
 
-    emailCart = emailCart + '</ul>';
+    emailCart = `${emailCart}<tr><td style="border: none"></td><td style="border: none"></td><td><strong>Subtotal</strong></td><td><strong>$${state.order.subtotal}</strong></td></tr>`;
+    emailCart = `${emailCart}<tr><td style="border: none"></td><td style="border: none"></td><td><strong>Tax</strong></td><td><strong>$${state.order.tax}</strong></td></tr>`;
+    emailCart = `${emailCart}<tr><td style="border: none"></td><td style="border: none"></td><td><strong>Total</strong></td><td><strong>$${state.order.total}</strong></td></tr>`;
+    emailCart = emailCart + '</table>';
 
 
     let emailShippingAddress = `<p>${state.order.details.address1}`;
@@ -126,6 +135,8 @@ export const mutations = {
       "lastName": state.order.details.lastName,
       "address": emailShippingAddress,
       "cart": emailCart,
+      "tax": state.order.tax,
+      "subtotal": state.order.subtotal,
       "total": state.order.total
     }
 

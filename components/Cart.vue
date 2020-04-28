@@ -28,7 +28,7 @@
             <td></td>
             <td></td>
             <td></td>
-            <td>Tax (7%)</td>
+            <td>Tax</td>
             <td>{{ price(tax) }}</td>
             <td></td>
           </tr>
@@ -106,20 +106,24 @@ export default {
           productPrice = productPrice + this.prices[item.extras[0]].finish[item.extras[1]].price;
         }
 
-        if (this.prices[item.extras[0]].styles) {
-          productPrice = productPrice + this.prices[item.extras[0]].styles[item.extras[2]].price;
+        if (this.prices[item.extras[0]].finish[item.extras[1]].styles) {
+          productPrice = productPrice + this.prices[item.extras[0]].finish[item.extras[1]].styles[item.extras[2]].price;
         }
 
-        if (this.prices[item.extras[0]].size) {
-          productPrice = productPrice + this.prices[item.extras[0]].size[item.extras[3]].price;
+        if (this.prices[item.extras[0]].finish[item.extras[1]].backing) {
+          productPrice = productPrice + this.prices[item.extras[0]].finish[item.extras[1]].backing[item.extras[6]].price;
+        }
+
+        if (this.prices[item.extras[0]].finish[item.extras[1]].size) {
+          productPrice = productPrice + this.prices[item.extras[0]].finish[item.extras[1]].size[item.extras[3]].price;
         }
 
         if (this.prices[item.extras[0]].frame) {
           productPrice = productPrice + this.prices[item.extras[0]].frame[item.extras[4]].price;
         }
 
-        if (this.prices[item.extras[0]].mount) {
-          productPrice = productPrice + this.prices[item.extras[0]].mount[item.extras[5]].price;
+        if (this.prices[item.extras[0]].glass) {
+          productPrice = productPrice + this.prices[item.extras[0]].glass[item.extras[5]].price;
         }
 
         price = price + (productPrice * item.quantity);
