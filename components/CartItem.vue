@@ -50,7 +50,7 @@
     </td>
 
     <td>
-      <button class="button is-danger" @click="removeFromCart(index)"><b-icon icon="minus"></b-icon></button>
+      <button class="button is-danger" @click="removeFromCart(index)"><b-icon icon="close"></b-icon></button>
     </td>
   </tr>
 </template>
@@ -147,11 +147,15 @@ export default {
       @media (max-width: $medium) {
         display: block;
       }
+
+      .button {
+        font-size: 10px;
+      }
     }
 
     &__thumbnail {
       height: 80px;
-      width: 200px;
+      width: auto;
 
       img {
         width: 50px;

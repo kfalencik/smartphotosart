@@ -398,7 +398,7 @@ export default {
           this.paymentAuthorized(event);
         },
         priceFormatter: function(price) {
-            return (Math.floor(price * 100) / 100).toFixed(2)
+          return (Math.floor(price * 100) / 100).toFixed(2)
         },
         extrasFromatter: function(extras) {
           let productList = `Material: ${this.prices[extras[0]].title}, Media: ${this.prices[extras[0]].finish[extras[1]].title}, Style: ${this.prices[extras[0]].finish[extras[1]].styles[extras[2]].title},`;
@@ -417,7 +417,6 @@ export default {
 
           productList = productList + ` Size: ${this.prices[extras[0]].finish[extras[1]].size[extras[3]].title}`;
 
-          console.log(productList);
           return productList;
         },
         product(id) {

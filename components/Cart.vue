@@ -73,7 +73,7 @@ export default {
     return {
       coupon: '',
       couponField: null,
-       tax: 0
+      tax: 0
     }
   },
   computed: {

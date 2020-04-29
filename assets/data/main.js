@@ -354,16 +354,18 @@ export default {
       glass: [
         {
           title: 'No glass',
-          description: 'Fine paper blah',
+          description: 'No additional glass',
           price: 0
         },
         {
           title: 'Premium Clear',
+          image: 'paper-premium-clear.jpg',
           description: 'Framing grade clear acrylic is shatter resistant and lightweight.',
           price: 60
         },
         {
           title: 'Reflection Control',
+          image: 'paper-reflection-control.jpg',
           description: 'With its matte finish, Tru Vue Reflection Control® Acrylic scatters light to diminish unwanted glare.',
           price: 100
         }
@@ -371,12 +373,14 @@ export default {
       frame: [
         {
           title: 'No frame',
+          description: 'No additional frame',
           action: 'transparent',
           price: 0
         },
         {
           title: 'White',
           action: 'white',
+          image: 'frame-white.jpg',
           description: 'Alto White 1-15/16"',
           technical: [
             {
@@ -413,6 +417,7 @@ export default {
         {
           title: 'Black',
           action: 'black',
+          image: 'frame-black.jpg',
           description: 'Alto Black 1-15/16"',
           technical: [
             {
