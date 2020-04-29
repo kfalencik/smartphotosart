@@ -24,8 +24,8 @@
             <div class="product__information-overlay" @click="informationModal = false">
               <div class="product__information-overlay-wrapper" @click.stop.prevent="">
                 <template v-if="informationType === 'material'">
-                  <button v-for="(option, index) in prices" :key="'material-' + index" :class="{'product__button': true, 'product__button--active': materialOption === index}" @click="changeMaterial(option.action, index)">{{option.title}}</button>
                   <img :src="require('@/assets/images/info/' + prices[materialOption].image)" v-if="prices[materialOption].image" :alt="prices[materialOption].title + ' preview'" />
+                  <button v-for="(option, index) in prices" :key="'material-' + index" :class="{'product__button': true, 'product__button--active': materialOption === index}" @click="changeMaterial(option.action, index)">{{option.title}}</button>
                   <h3>{{prices[materialOption].title}}</h3>
                   <div v-html="prices[materialOption].description"></div>
 
@@ -66,8 +66,8 @@
                 </template>
 
                 <template v-if="informationType === 'frame'">
-                  <button v-for="(option, index) in prices[materialOption].frame" :key="'frame-' + index" :class="{'product__button': true, 'product__button--active': frameOption === index}" @click="changeFrame(option.action, index)">{{option.title}}</button>
                   <img :src="require('@/assets/images/info/' + prices[materialOption][informationType][frameOption].image)" v-if="prices[materialOption][informationType][frameOption].image" :alt="prices[materialOption][informationType][frameOption].title + ' preview'" />
+                  <button v-for="(option, index) in prices[materialOption].frame" :key="'frame-' + index" :class="{'product__button': true, 'product__button--active': frameOption === index}" @click="changeFrame(option.action, index)">{{option.title}}</button>
                   <h3>{{prices[materialOption][informationType][frameOption].title}}</h3>
                   <div v-html="prices[materialOption][informationType][frameOption].description"></div>
 
@@ -80,8 +80,8 @@
                 </template>
 
                 <template v-if="informationType === 'glass'">
-                  <button v-for="(option, index) in prices[materialOption].glass" :key="'glass-' + index" :class="{'product__button': true, 'product__button--active': glassOption === index}" @click="changeGlass(option.action, index)">{{option.title}}</button>
                   <img :src="require('@/assets/images/info/' + prices[materialOption][informationType][glassOption].image)" v-if="prices[materialOption][informationType][glassOption].image" :alt="prices[materialOption][informationType][glassOption].title + ' preview'" />
+                  <button v-for="(option, index) in prices[materialOption].glass" :key="'glass-' + index" :class="{'product__button': true, 'product__button--active': glassOption === index}" @click="changeGlass(option.action, index)">{{option.title}}</button>
                   <h3>{{prices[materialOption][informationType][glassOption].title}}</h3>
                   <div v-html="prices[materialOption][informationType][glassOption].description"></div>
 
@@ -686,16 +686,25 @@ export default {
       align-items: center;
       justify-content: center;
 
+      img {
+        margin-top: 25px;
+      }
+
+      @media (min-width: $medium) {
+        img {
+          width: 50%;
+          border: 1px solid $primary;
+          float: left;
+          margin-right: 35px;
+          margin-top: 0;
+        }
+      }
+
       h3 {
         margin: 35px 0 10px;
       }
 
-      img {
-        width: 50%;
-        border: 1px solid $primary;
-        float: left;
-        margin-right: 35px;
-      }
+      
 
       .close {
         background: $white;
