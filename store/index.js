@@ -6,7 +6,9 @@ import 'firebase/firestore';
 import 'firebase/firebase-storage';
 import firebaseConfig from '~/assets/data/firebase';
 import data from '../assets/data/main';
-import { ToastProgrammatic as Toast } from 'buefy'
+import { ToastProgrammatic as Toast } from 'buefy';
+
+// API c02590b0d855d0eff17f2be344e999ad-us8'
 
 
 // Firestore database connection
@@ -172,35 +174,13 @@ export const mutations = {
   addNewsletter (state, email) {
     db = firebase.firestore();
     const self = this;
-    let found = state.newsletter.filter(item => item.email === email);
 
-    if (found.length > 0) {
-      db.collection("newsletter").where("email", "==", email).get()
-      .then(function(querySnapshot) {
-        querySnapshot.forEach(function(doc) {
-          db.collection("newsletter").doc(doc.id).update({subscribed: !found[0].subscribed}).then(() => {
-            if (found[0].subscribed) {
-              Toast.open({message: 'You have been removed from the newsletter list.', type: 'is-warning'});
-            } else {
-              Toast.open({message: 'You have been added to the newsletter list.', type: 'is-success'});
-            }
-            setTimeout(function(){
-              self.app.router.go();
-            }, 2000);
-          });
-        });
-      });
-    } else {
-      db.collection("newsletter").add({
-        email,
-        subscribed: true
-      }).then(() => {
-        Toast.open({message: 'You have been added to the newsletter list.', type: 'is-success'});
-        setTimeout(function(){
-          self.app.router.go();
-        }, 2000);
-      });
-    }
+    db.collection("newsletter").add({
+      email,
+      subscribed: true
+    }).then(() => {
+      Toast.open({message: 'You have been added to the newsletter list.', type: 'is-success'});
+    });
   },
   editNewsletter (state, data) {
     db = firebase.firestore();
