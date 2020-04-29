@@ -40,7 +40,7 @@
           <p>The date at the top of this Cookie Policy indicates when it was last updated.  </p>
           
           <h3>Where can I get further information?</h3>
-          <p>If you have any questions about our use of cookies or other technologies, please email us at info@smartgraphicsstudio.com or by post to:  </p>
+          <p>If you have any questions about our use of cookies or other technologies, please email us at info@smartphotosart.com or by post to:  </p>
           
           <div>Smart Photos Art</div>
           <div>1280 WILDWOOD LAKES BLVD</div>

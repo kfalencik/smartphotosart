@@ -1,5 +1,4 @@
 MailChimp integration
-EmailJS account integration for info@smartphotosart.com
 Email templates/notifications
 Newsletter discount email
 New home sections

@@ -18,7 +18,7 @@ export default {
         align: 'left'
       },
       {
-        title: 'Create your space',
+        title: 'Create your own space',
         color: 'white',
         top: '-50px',
         left: '500px',

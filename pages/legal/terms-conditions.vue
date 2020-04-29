@@ -61,7 +61,7 @@
           <p>3.3  You warrant that any User Content does comply with our Acceptable Use Policy, and you will be liable to us and indemnify us for any breach of that warranty. This means you will be responsible for any loss or damage we suffer as a result of your breach of this warranty. </p>
           <p>3.4  We have the right to remove any User Content you put on the Site if, in our opinion, such User Content does not comply with the Acceptable Use Policy.  </p>
           <p>3.5  We are not responsible and accept no liability for any User Content including any such content that contains incorrect information or is defamatory or loss of User Content. We accept no obligation to screen, edit or monitor any User Content but we reserve the right to remove, screen and/or edit any User Content without notice and at any time. User Content has not been verified or approved by us and the views expressed by other users on the Site do not represent our views or values </p>
-          <p>3.6  If you wish to complain about User Content uploaded by other users please contact us at info@smartgraphicsstudio.com.     </p>
+          <p>3.6  If you wish to complain about User Content uploaded by other users please contact us at info@smartphotosart.com.</p>
 
           <h3>Our content</h3>
           <p>4.1  Unless otherwise indicated, the Site and Services including source code, databases, functionality, software, website designs, audio, video, text, photographs, and graphics on the Site (<strong>Our Content</strong>) are owned or licensed to us, and are protected by copyright and trade mark laws.   </p>
@@ -119,7 +119,7 @@
           <p>9.6  If any provision or part of a provision of these Terms and Conditions is unlawful, void or unenforceable, that provision or part of the provision is deemed severable from these Terms and Conditions and does not affect the validity and enforceability of any remaining provisions.  </p>
           <p>9.7  There is no joint venture, partnership, employment or agency relationship created between you and us as a result of these Terms and Conditions or use of the Site or Services. </p>
           <p>9.8  A person who is not a party to these Terms and Conditions shall have no right under the Contracts (Rights of Third Parties) Act 1999 to enforce any term of these Terms and Conditions. </p>
-          <p>9.9  In order to resolve a complaint regarding the Services or to receive further information regarding use of the Services, please contact us by email at info@smartphotosstudio.com or by post to: </p>
+          <p>9.9  In order to resolve a complaint regarding the Services or to receive further information regarding use of the Services, please contact us by email at info@smartphotosart.com or by post to: </p>
           <div><br /> </div>
           <div>Smart Photos Art </div>
           <div>1280 WILDWOOD LAKES BLVD</div>

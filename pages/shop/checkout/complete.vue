@@ -9,7 +9,7 @@
                     <p>Please keep a note of your order id as it will serve as a reference to this order in case of any questions or problems.</p>
                     <p>We have sent you an email to the address you provided during checkout with all the details of this transaction.</p>
                     <p>We will send you any updates or changes to this order on the same email address.</p>
-                    <p>If you wish to make any changes or cancel this order please send us an email at <a href="mailto:info@smartgraphicsstudio.com">info@smartgraphicsstudio.com</a></p>
+                    <p>If you wish to make any changes or cancel this order please send us an email at <a href="mailto:info@smartphotosart.com">info@smartphotosart.com</a></p>
 
                     <router-link to="/shop">Go back to our shop</router-link>
                 </div>
