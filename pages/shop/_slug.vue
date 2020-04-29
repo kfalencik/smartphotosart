@@ -589,8 +589,8 @@ export default {
 
       this.material = 0;
       this.materialOption = 0;
-      this.size = 1;
-      this.sizeOption = 0;
+      this.size = this.prices[0].finish[0].size[this.prices[0].finish[0].size.length - 1].action;
+      this.sizeOption = this.prices[0].finish[0].size.length - 1;
       this.finish = 0;
       this.finishOption = 0;
       this.styles = 0;
