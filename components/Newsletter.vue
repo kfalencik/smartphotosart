@@ -4,7 +4,7 @@
       <div class="container">
         <div><b-icon icon="email-outline" custom-size="mdi-36px"></b-icon></div>
         <h3>Join our newsletter</h3>
-        <p>Sign up to our newsletter and get <strong>25% off</strong> your next order. Pretty sweet, we know!</p>
+        <p>Sign up to our newsletter and get <strong>5% off</strong> your next order. Pretty sweet, we know!</p>
 
          <mailchimp-subscribe
             url="https://smartphotosart.us8.list-manage.com/subscribe/post-json"

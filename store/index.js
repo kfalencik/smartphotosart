@@ -213,7 +213,7 @@ export const mutations = {
     const self = this;
 
     db.collection("discounts").add(discount).then(() => {
-      self.app.router.push('/dashboard/disocunts');
+      self.app.router.push('/dashboard/discounts');
     });
   },
   editDiscountCode (state, data) {
@@ -224,7 +224,7 @@ export const mutations = {
     .then(function(querySnapshot) {
       querySnapshot.forEach(function(doc) {
         db.collection("discounts").doc(doc.id).update(data[1]).then(() => {
-          self.app.router.push('/dashboard/disocunts');
+          self.app.router.push('/dashboard/discounts');
         });
       });
     });
