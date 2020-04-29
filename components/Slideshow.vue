@@ -133,7 +133,7 @@ export default {
       height: 615px;
     }
 
-    @media (min-width: $xlarge) {
+    @media (min-width: $xlarge) and (min-height: 1200px) {
       height: 700px;
     }
 
@@ -161,7 +161,7 @@ export default {
         height: 615px;
       }
 
-      @media (min-width: $xlarge) {
+      @media (min-width: $xlarge) and (min-height: 1200px) {
         height: 700px;
       }
     }
