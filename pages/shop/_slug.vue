@@ -297,6 +297,8 @@
                   <h5>Totals</h5>
                   <table border="1">
                     <tbody>
+                    <tr><td>Product</td><td>{{ price(productTotal)}}</td></tr>
+                    <tr><td>Extras</td><td>{{ price(extrasTotal) }}</td></tr>
                     <tr><td>Product with extras</td><td>{{ price(productWithExtras) }}</td></tr>
                     <tr><td>Quantity</td><td>x{{quantity}}</td></tr>
                     <tr><td><strong>Total</strong></td><td><strong>{{ price(total) }}</strong></td></tr>
