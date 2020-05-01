@@ -7,9 +7,9 @@
         <p>Sign up to our newsletter and get <strong>5% off</strong> your next order. Pretty sweet, we know!</p>
 
          <mailchimp-subscribe
-            url="https://smartphotosart.us8.list-manage.com/subscribe/post-json"
-            user-id="9ca1fcd09cb883532c31bb17e"
-            list-id="3c5636ef62"
+            :url="mailChimpApi"
+            :user-id="mailChimpUid"
+            :list-id="mailChimpList"
             @success="onSuccess"
           >
 
@@ -37,7 +37,10 @@ import MailchimpSubscribe from 'vue-mailchimp-subscribe'
 export default {
   data() {
     return {
-      email: ''
+      email: '',
+      mailChimpApi: process.env.MAILCHIMP_API,
+      mailChimpUid: process.env.MAILCHIMP_UID,
+      mailChimpList: process.env.MAILCHIMP_LIST
     }
   },
   components: {

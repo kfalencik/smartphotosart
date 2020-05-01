@@ -8,9 +8,6 @@ import firebaseConfig from '~/assets/data/firebase';
 import data from '../assets/data/main';
 import { ToastProgrammatic as Toast } from 'buefy';
 
-// API c02590b0d855d0eff17f2be344e999ad-us8'
-
-
 // Firestore database connection
 let db, storage;
 
