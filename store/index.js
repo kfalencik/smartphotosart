@@ -139,7 +139,16 @@ export const mutations = {
     const self = this;
 
     db.collection("products").add(product).then(() => {
-      self.app.router.go();
+      if (process.env.BUILD_HOOK !== 'default') {
+        fetch(process.env.BUILD_HOOK, {
+          method: 'POST',
+          redirect: 'follow'
+        }).then(response => {
+          self.app.router.go();
+        });
+      } else {
+        self.app.router.go();
+      }
     });
   },
   editProduct (state, data) {
