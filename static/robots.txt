@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /dashbaord/
 
 Sitemap: https://www.smartphotosart.com/sitemap.xml

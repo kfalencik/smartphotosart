@@ -1,9 +1,6 @@
-MailChimp integration
 Email templates/notifications
-Newsletter discount email
 New home sections
 Tax ?
 Panoramic products
 Add all products
-Categories
 New icons
