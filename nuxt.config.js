@@ -73,7 +73,8 @@ export default async function() {
       MAILCHIMP_API: process.env.MAILCHIMP_API || 'default',
       MAILCHIMP_UID: process.env.MAILCHIMP_UID || 'default',
       MAILCHIMP_LIST: process.env.MAILCHIMP_LIST || 'default',
-      BUILD_HOOK: process.env.BUILD_HOOK || 'default'
+      BUILD_HOOK: process.env.BUILD_HOOK || 'default',
+      ANALYTICS: process.env.ANALYTICS || 'default'
     },
     /*
     ** Customize the progress-bar color
