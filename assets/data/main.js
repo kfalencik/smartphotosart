@@ -921,52 +921,64 @@ export default {
   ],
   categories: [
     {
-      title: 'Art',
-      slug: 'art'
-    },
-    {
-      title: 'Inspirational',
-      slug: 'inspirational'
-    },
-    {
-      title: 'City landscape',
-      slug: 'city-landscape'
-    },
-    {
       title: 'Abstract',
       slug: 'abstract'
     },
     {
-      title: 'Money',
-      slug: 'money'
-    },
-    {
-      title: 'Quotes',
-      slug: 'quotes'
-    },
-    {
-      title: 'Photography',
-      slug: 'photography'
-    },
-    {
-      title: 'Movies',
-      slug: 'movies'
+      title: 'Animals',
+      slug: 'animals'
     },
     {
       title: 'Beach',
       slug: 'beach'
     },
     {
-      title: 'Comics',
-      slug: 'comics'
+      title: 'Cars',
+      slug: 'cars'
+    },
+    {
+      title: 'City',
+      slug: 'city'
+    },
+    {
+      title: 'Coasts',
+      slug: 'coasts'
+    },
+    {
+      title: 'Forest',
+      slug: 'forest'
+    },
+    {
+      title: 'Mountains',
+      slug: 'mountains'
+    },
+    {
+      title: 'Movie',
+      slug: 'movie'
+    },
+    {
+      title: 'Nature',
+      slug: 'nature'
+    },
+    {
+      title: 'Rain',
+      slug: 'rain'
+    },
+    {
+      title: 'Recognizable',
+      slug: 'recognizable'
     },
     {
       title: 'Retro',
       slug: 'retro'
     },
     {
-      title: '3D',
-      slug: '3d'
+      title: 'Streets',
+      slug: 'streets'
+    },
+    {
+      title: 'Sunrise and sunset',
+      slug: 'sunrise-sunset'
     }
   ],
 }
