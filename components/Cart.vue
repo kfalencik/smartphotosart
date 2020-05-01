@@ -3,6 +3,10 @@
     <div v-if="cart.length > 0">
       <table class="cart">
         <tbody>
+          <tr class="cart__item--head">
+            <td></td><td>Product</td><td>Description</td><td>Quantity</td><td>Price</td><td></td></tr>
+          </tr>
+
           <CartItem class="cart__item" v-for="(item, index) in cart" :key="'item-' + index" :index="index" :productid="item.product" :quantity="item.quantity" :extras="item.extras" />
 
           <tr class="cart__item--bold" v-if="discount !== null">
@@ -204,6 +208,19 @@ export default {
     &__item {
       background: lighten($lightgrey, 40%);
 
+      &--head {
+        background: $black;
+        color: $white;
+
+        @media (max-width: $medium) {
+          display: none !important;
+        }
+        
+        td {
+          padding: 10px;
+        }
+      }
+
       &--bold {
         border-bottom: 1px solid $black;
         border-top: 1px solid $black;
@@ -213,7 +230,7 @@ export default {
         }
       }
 
-      &:nth-child(even) {
+      &:nth-child(odd) {
         background: $white;
       }
     }
