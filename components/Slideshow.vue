@@ -121,7 +121,6 @@ export default {
     height: 375px;
     width: 100%;
     padding: 0;
-    overflow: hidden;
     position: relative;
     z-index: 10;
 
@@ -248,7 +247,7 @@ export default {
         line-height: 0.9;
         text-transform: uppercase;
         padding: 0 60px;
-        font-family: 'Tall Films Expanded';
+        font-family: $fontTitle;
 
         @media (max-width: $small) {
           font-size: 35px;
@@ -266,8 +265,8 @@ export default {
     }
 
     &__nav-item {
-      background: $white;
-      color: $black;
+      background: $tertiary;
+      color: $white;
       position: absolute;
       top: 50%;
       left: 20px;
@@ -280,7 +279,7 @@ export default {
       opacity: 0.3;
       display: block;
       transform: translateY(-50%);
-      border: 1px solid $black;
+      border: 1px solid $primary;
 
       @media (max-width: $small) {
         display: none;

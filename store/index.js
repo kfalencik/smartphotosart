@@ -28,6 +28,7 @@ export const state = () => ({
   assets: [],
   newsletter: [],
   searchKeyword: '',
+  homepage: data.homepage,
   categories: data.categories,
   slideshow: data.slideshow.slides,
   filterCategories: [],

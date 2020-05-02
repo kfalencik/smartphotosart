@@ -119,7 +119,9 @@
 
 <style lang="scss" scoped>
   .header {
-    border-bottom: 1px solid lighten($lightgrey, 40%);
+    z-index: 20;
+
+    @include goldFrame;
 
     .section {
       padding-top: 15px;
@@ -312,7 +314,7 @@
     }
 
     &__notification-indicator {
-      background: #48c774;
+      background: $tertiary;
       color: $white;
       width: 16px;
       height: 16px;

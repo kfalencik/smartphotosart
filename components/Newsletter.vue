@@ -6,12 +6,12 @@
         <h3>Join our newsletter</h3>
         <p>Sign up to our newsletter and get <strong>5% off</strong> your next order. Pretty sweet, we know!</p>
 
-         <mailchimp-subscribe
-            :url="mailChimpApi"
-            :user-id="mailChimpUid"
-            :list-id="mailChimpList"
-            @success="onSuccess"
-          >
+        <mailchimp-subscribe
+          :url="mailChimpApi"
+          :user-id="mailChimpUid"
+          :list-id="mailChimpList"
+          @success="onSuccess"
+        >
 
         <template v-slot="{ subscribe, setEmail, error }">
           <form @submit.prevent="subscribe">
@@ -54,11 +54,13 @@ export default {
 }
 </script>
 
-<style lang="scss" scroped>
+<style lang="scss" scoped>
   .newsletter {
     background: $black;
     color: $white;
     margin-top: 50px;
+
+    @include goldFrame; 
 
     h3 {
       margin-top: 0;

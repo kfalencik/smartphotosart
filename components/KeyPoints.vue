@@ -51,7 +51,7 @@
     background-color: $primary;
     color: $black;
     padding-bottom: 25px;
-    margin: 50px 0;
+    margin: 50px 0 0;
 
     .icon {
       margin-bottom: 25px;

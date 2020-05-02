@@ -83,14 +83,15 @@ export default {
 <style lang="scss" scoped>
   .testimonials {
     width: 100%;
-    padding: 0;
-    overflow: hidden;
+    padding: 15px 0;
     position: relative;
     z-index: 10;
     background-color: $black;
     color: $white;
     margin-top: 50px;
     margin-bottom: -50px;
+
+    @include goldFrame;
 
     h3 {
       margin-top: 20px;

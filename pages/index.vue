@@ -13,6 +13,9 @@
     <Popular number="4" />
     <Testimonials />
     <KeyPoints />
+
+    <LimitedEdition />
+
     <New number="4" />
     <div class="sr-only">
       <h4>Search by category</h4>
@@ -61,6 +64,7 @@ import Testimonials from '~/components/Testimonials';
 import New from '~/components/New';
 import Services from '~/components/Services';
 import KeyPoints from '~/components/KeyPoints';
+import LimitedEdition from '~/components/LimitedEditionSection';
 
 export default {
   head () {
@@ -99,7 +103,8 @@ export default {
     Testimonials,
     New,
     Services,
-    KeyPoints
+    KeyPoints,
+    LimitedEdition
   },
 }
 </script>

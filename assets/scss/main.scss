@@ -10,10 +10,40 @@
 // Set your colors
 $primary: #dddddd;
 $secondary: #152445;
-$tertiary: #ffb661;
-$black: #414141;
+$tertiary: rgba(228,211,143,1);
+$black: rgb(78, 78, 78);
 $white: #FFFFFF;
 $lightgrey: #737373;
+
+$gold: linear-gradient(90deg, rgba(228,211,143,1) 0%, rgba(243,243,184,1) 25%, rgba(212,178,98,1) 65%);
+
+// Mixins
+@mixin goldFrame {
+  position: relative;
+
+  &::before {
+    content: '';
+    height: 5px;
+    background: $gold;
+    position: absolute;
+    top: -5px;
+    left: 0;
+    right: 0;
+  }
+
+  &::after {
+    content: '';
+    height: 5px;
+    background: $gold;
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    right: 0;
+  }
+}
+
+//Fonts
+$fontTitle: 'Tall Films Expanded';
 
 // Breakpoints
 

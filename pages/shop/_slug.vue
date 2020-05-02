@@ -655,8 +655,8 @@ export default {
       }
 
       button {
-        background: $white;
-        color: $black;
+        background: $tertiary;
+        color: $white;
         position: absolute;
         top: 50px;
         right: 50px;
@@ -706,11 +706,9 @@ export default {
         margin: 35px 0 10px;
       }
 
-      
-
       .close {
-        background: $white;
-        color: $black;
+        background: $black;
+        color: $white;
         position: absolute;
         top: 30px;
         right: 10px;
@@ -724,7 +722,7 @@ export default {
         transform: translateY(-50%);
 
         &:hover {
-          background: $black;
+          background: $tertiary;
           color: $white;
         }
       }
@@ -746,8 +744,8 @@ export default {
     }
 
     &__nav-item {
-      background: $white;
-      color: $black;
+      background: $tertiary;
+      color: $white;
       position: absolute;
       top: 50%;
       left: 20px;
@@ -760,6 +758,7 @@ export default {
       opacity: 0.3;
       display: block;
       transform: translateY(-50%);
+      border: 1px solid $primary;
 
       &:nth-child(3) {
         left: auto;
@@ -923,8 +922,8 @@ export default {
       z-index: 20;
       top: 20px;
       right: 20px;
-      background: $white;
-      color: $black;
+      background: $tertiary;
+      color: $white;
       border: none;
       width: 40px;
       height: 40px;
@@ -933,7 +932,7 @@ export default {
       cursor: pointer;
       opacity: 0.3;
       display: block;
-      border: 1px solid $black;
+      border: 1px solid $primary;
       
       &:hover {
         background: $black;
