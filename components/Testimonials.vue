@@ -88,6 +88,8 @@ export default {
     z-index: 10;
     background-color: $black;
     color: $white;
+    margin-top: 50px;
+    margin-bottom: -50px;
 
     h3 {
       margin-top: 20px;

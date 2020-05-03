@@ -75,7 +75,6 @@
         align-items: center;
         justify-content: center;
         min-width: 320px;
-        border: 1px solid $lightgrey, 20%;
         padding: 20px;
         background: $white;
         margin: 10px 15px;

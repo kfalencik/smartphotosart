@@ -10,9 +10,6 @@
       <p>It can be hard to choose just one motif for a canvas – sometimes you might rather have two, three, four or even more motifs nested together on one wall. Use a level and measuring stick to hang your canvas prints properly. Consider making a sketch before you begin hanging them. Lay out the prints on the floor if you have the space or else draw them on paper. One extra piece of advice is to have a straight line somewhere, horizontally or vertically, between the prints. This will make the wall look better organised and make it easier to mix and match motifs.</p>
     </div>
     <Services />
-    
-    <Testimonials />
-
     <Popular number="4" />
     <KeyPoints />
 
@@ -20,6 +17,8 @@
     <LimitedEdition />
 
     <New number="4" />
+    <!-- <Testimonials /> -->
+
     <div class="sr-only">
       <h4>Search by category</h4>
       <nav>

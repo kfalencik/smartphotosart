@@ -123,6 +123,9 @@ export default {
     padding: 0;
     position: relative;
     z-index: 10;
+    margin-top: 3px;
+
+    @include goldFrame;
 
     @media (min-width: $large) {
       height: 585px;
