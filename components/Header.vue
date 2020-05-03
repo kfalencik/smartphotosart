@@ -120,6 +120,7 @@
 <style lang="scss" scoped>
   .header {
     z-index: 20;
+    border-bottom: 1px solid $primary;
 
     .section {
       padding-top: 15px;

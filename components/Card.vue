@@ -102,7 +102,7 @@ export default {
       }
 
       .discount {
-        color: $primary;
+        color: $lightgrey;
         font-size: 0.8em;
         text-decoration: line-through;
         margin-right: 10px;

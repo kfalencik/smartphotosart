@@ -8,12 +8,12 @@
 }
 
 // Set your colors
-$primary: #dddddd;
+$primary: #eee;
 $secondary: #152445;
 $tertiary: rgba(228,211,143,1);
 $black: rgb(78, 78, 78);
 $white: #FFFFFF;
-$lightgrey: #737373;
+$lightgrey: #929292;
 
 $gold: linear-gradient(90deg, rgba(228,211,143,1) 0%, rgba(243,243,184,1) 25%, rgba(212,178,98,1) 65%);
 
@@ -100,7 +100,7 @@ form {
 }
 
 .input {
-  border: 1px solid lighten($lightgrey, 40%);
+  border: 1px solid $primary;
   color: $black;
   font-size: 1em;
   font-family: 'Poppins';
@@ -282,7 +282,7 @@ ul, ol {
 }
 
 .select select {
-  border-color: lighten($lightgrey, 40%);
+  border-color: $primary;
 }
 
 .button:focus, .button.is-focused {

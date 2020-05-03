@@ -32,7 +32,7 @@
     padding: 0;
 
     &__bottom {
-      background: lighten($lightgrey, 40%);
+      background: $primary;
       color: $black;
       font-size: 0.8em;
 

@@ -206,7 +206,7 @@ export default {
     width: 100%;
 
     &__item {
-      background: lighten($lightgrey, 40%);
+      background: $primary;
 
       &--head {
         background: $black;

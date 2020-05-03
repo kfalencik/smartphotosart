@@ -788,7 +788,7 @@ export default {
       }
 
       h5 {
-        border-bottom: 1px solid lighten($lightgrey, 40%);
+        border-bottom: 1px solid $primary;
       }
 
       &--with-guide {
@@ -798,7 +798,7 @@ export default {
 
         .guide {
           cursor: pointer;
-          color: lighten($lightgrey, 20%);
+          color: $lightgrey;
           font-size: 12px;
           float: right;
 
