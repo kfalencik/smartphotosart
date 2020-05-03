@@ -655,7 +655,7 @@ export default {
       }
 
       button {
-        background: $tertiary;
+        background: $black;
         color: $white;
         position: absolute;
         top: 50px;
@@ -670,7 +670,7 @@ export default {
         transform: translateY(-50%);
 
         &:hover {
-          background: $black;
+          background: $tertiary;
           color: $white;
         }
       }
@@ -744,7 +744,7 @@ export default {
     }
 
     &__nav-item {
-      background: $tertiary;
+      background: $black;
       color: $white;
       position: absolute;
       top: 50%;
@@ -766,7 +766,7 @@ export default {
       }
 
       &:hover {
-        background: $black;
+        background: $tertiary;
         color: $white;
       }
     }
@@ -922,7 +922,7 @@ export default {
       z-index: 20;
       top: 20px;
       right: 20px;
-      background: $tertiary;
+      background: $black;
       color: $white;
       border: none;
       width: 40px;
@@ -935,7 +935,7 @@ export default {
       border: 1px solid $primary;
       
       &:hover {
-        background: $black;
+        background: $tertiary;
         color: $white;
       }
     }

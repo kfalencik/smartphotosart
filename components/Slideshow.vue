@@ -265,7 +265,7 @@ export default {
     }
 
     &__nav-item {
-      background: $tertiary;
+      background: $black;
       color: $white;
       position: absolute;
       top: 50%;
@@ -291,7 +291,7 @@ export default {
       }
 
       &:hover {
-        background: $black;
+        background: $tertiary;
         color: $white;
       }
     }

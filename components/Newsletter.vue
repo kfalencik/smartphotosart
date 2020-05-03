@@ -21,7 +21,7 @@
             <div class="form__fields">
               <label class="sr-only" for="newsletter-email">Email address</label>
               <input id="newsletter-email" class="input input--secondary input--inline" type="email" v-model="email" @input="setEmail($event.target.value)" placeholder="Your email address" />
-              <button class="button button--secondary" type="submit">Subscribe</button>
+              <button class="button is-black" type="submit">Subscribe</button>
             </div>
           </form>
         </template>
@@ -56,11 +56,9 @@ export default {
 
 <style lang="scss" scoped>
   .newsletter {
-    background: $black;
-    color: $white;
+    background: $tertiary;
+    color: $black;
     margin-top: 50px;
-
-    @include goldFrame; 
 
     h3 {
       margin-top: 0;
@@ -95,6 +93,10 @@ export default {
       width: 400px;
       margin: 0 auto;
       max-width: 100%;
+
+      input {
+        border-color: $black;
+      }
     }
   }
 </style>

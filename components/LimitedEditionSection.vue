@@ -42,11 +42,21 @@ export default {
   &__item {
     display: flex;
     align-items: center;
+
+    @media (max-width: $medium) {
+      flex-direction: column;
+      padding: 25px 0;
+      text-align: center;
+    }
   }
 
   &__icon {
     flex: 0 0 200px;
     margin-right: 30px;
+
+    @media (max-width: $medium) {
+      margin: 0 0 20px 0;
+    }
   }
 }
 </style>

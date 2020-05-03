@@ -922,9 +922,9 @@ export default {
   homepage: {
     section1: {
       title: 'Our photographer',
-      description: '<p></p><p></p>',
-      quote: '"I believe photographs have a power to change the perception of life around you. Through my photography I try to encapsulate real moments and memories, provoking a feeling of true emotion in the viewer. Though this is often challenging, it\'s what makes the profession so magical, and is why it has always been my greatest passion."',
-      signature: '',
+      description: 'Peter Falencik gradueted from "Artistic photography and brand promotion" in Europe. He has been professional photographer for 15 years. he successfully dealt with the promotion of large companies, production of industry advertisements, and portret photography. Awarded at exhibitions, he works for magazines, every year he works for charity for needy. In the end he devoted himself to the artistic photography.',
+      quote: 'I believe photographs have a power to change the perception of life around you. Through my photography I try to encapsulate real moments and memories, provoking a feeling of true emotion in the viewer. Though this is often challenging, it\'s what makes the profession so magical, and is why it has always been my greatest passion.',
+      signature: '/images/signature.png',
       image: ''
     },
     section2: {
@@ -942,7 +942,7 @@ export default {
         {
           title: 'Certificate of authenticity',
           description: 'It is crusial to provide , to include the proper documentation to our clients when they buy our products. The cerificate ensure the validity and authencitity of the transaction and photography we sell. While our goal is to provide only best quality, genuine and authenthic artworkall photography we sell includes a COA.',
-          icon: 'icon-limited-edition.png'
+          icon: 'icon-certificate.png'
         }
       ]
     }

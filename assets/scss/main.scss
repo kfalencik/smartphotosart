@@ -23,20 +23,20 @@ $gold: linear-gradient(90deg, rgba(228,211,143,1) 0%, rgba(243,243,184,1) 25%, r
 
   &::before {
     content: '';
-    height: 5px;
+    height: 3px;
     background: $gold;
     position: absolute;
-    top: -5px;
+    top: -3px;
     left: 0;
     right: 0;
   }
 
   &::after {
     content: '';
-    height: 5px;
+    height: 3px;
     background: $gold;
     position: absolute;
-    bottom: -5px;
+    bottom: -3px;
     left: 0;
     right: 0;
   }
@@ -86,6 +86,12 @@ form {
       border-color: $primary;
       color: $primary;
     }
+  }
+
+  &.is-black {
+    background-color: $black;
+    color: $white;
+    border-color: $black;
   }
 }
 

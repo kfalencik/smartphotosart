@@ -10,10 +10,13 @@
       <p>It can be hard to choose just one motif for a canvas – sometimes you might rather have two, three, four or even more motifs nested together on one wall. Use a level and measuring stick to hang your canvas prints properly. Consider making a sketch before you begin hanging them. Lay out the prints on the floor if you have the space or else draw them on paper. One extra piece of advice is to have a straight line somewhere, horizontally or vertically, between the prints. This will make the wall look better organised and make it easier to mix and match motifs.</p>
     </div>
     <Services />
-    <Popular number="4" />
+    
     <Testimonials />
+
+    <Popular number="4" />
     <KeyPoints />
 
+    <About />
     <LimitedEdition />
 
     <New number="4" />
@@ -65,6 +68,7 @@ import New from '~/components/New';
 import Services from '~/components/Services';
 import KeyPoints from '~/components/KeyPoints';
 import LimitedEdition from '~/components/LimitedEditionSection';
+import About from '~/components/About';
 
 export default {
   head () {
@@ -104,7 +108,8 @@ export default {
     New,
     Services,
     KeyPoints,
-    LimitedEdition
+    LimitedEdition,
+    About
   },
 }
 </script>
