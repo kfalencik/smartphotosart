@@ -11,12 +11,11 @@
     </div>
     <Services />
     <Popular number="4" />
-    <KeyPoints />
-
     <About />
+    <KeyPoints />
     <LimitedEdition />
 
-    <New number="4" />
+    <New number="8" />
     <!-- <Testimonials /> -->
 
     <div class="sr-only">

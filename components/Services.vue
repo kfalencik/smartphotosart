@@ -47,6 +47,7 @@
 <style lang="scss">
   .services {
     z-index: 20;
+    margin-bottom: -50px;
 
     &__item {
       text-align: center;

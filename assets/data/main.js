@@ -53,6 +53,136 @@ export default {
   },
   prices: [
     {
+      title: 'Acrylic',
+      description: 'Face mounted acrylics are the standards professionals turn to over other acrylics when it comes to acrylic prints. Your image will be printed on one of our popular photo papers (satin luster or metallic pearl) and face mounted to the back of the ¼” acrylic panels with a polished edge. In addition to the two paper choices you can choose from either a high gloss polished shine (most popular) or a reflection control acrylic. You can also opt to have your acrylic ordered with a dibond backing. Hanging hardware is provided at no additional charge.',
+      image: 'acrylic-luster.jpg',
+      price: 100,
+      finish: [
+        {
+          title: 'Satin Luster',
+          image: 'acrylic-luster.jpg',
+          size: [
+            {
+              title: '8 x 12"',
+              action: 0.2,
+              price: 0
+            },
+            {
+              title: '16 x 24"',
+              action: 0.4,
+              price: 25
+            },
+            {
+              title: '24 x 36"',
+              action: 0.6,
+              price: 50
+            },
+            {
+              title: '36 x 54"',
+              action: 0.9,
+              price: 50
+            },
+            {
+              title: '40 x 60"',
+              action: 1,
+              price: 100
+            }
+          ],
+          styles: [
+            {
+              title: 'Polished Shine',
+              image: 'acrylic-metallic.jpg',
+              description: '<p>Polished Shine is what we refer to our most popular option when it comes to acrylic surfaces. The crystal clear surface will have a level of shine and reflection which provides the ultimate in sleek and modern looks.</p>',
+              price: 25
+            },
+            {
+              title: 'No glare',
+              image: 'acrylic-metallic-no-glare.jpg',
+              description: '<p>Crystal clear acrylic plexiglass with reflection control and polished edges allowing your image to be on display at its fullest. Unlike the highly-polished shine acrylic, reflection control is useful for environments in which direct light sources might create distracting glares.</p>',
+              price: 60
+            },
+          ],
+          backing: [
+            {
+              title: 'Paper backing',
+              image: 'acrylic-metallic.jpg',
+              description: '<p>A paper backing option is the more econimical option and provides some protection to the back of the print.</p>',
+              price: 0
+            },
+            {
+              title: 'Dibond',
+              image: 'acrylic-metallic-dibond.jpg',
+              description: '<p>The dibond is recommended for your most valued work. Dibond is a very thin aluminum panel. When the print is mounted on Dibond it adds a layer of protection and helps strengthen the acrylic.</p>',
+              price: 50
+            }
+          ],
+          description: 'Moab Exhibition Luster now with a gloss optimizer coating. This high quality 11 mil 300g paper answers artist’s and photographers’ requests for a high quality paper between a matte and a gloss, with excellent ink retention characteristics and a color gamut that is second to none. This paper maintains a traditional E surface finish, providing an elegant texture consistent to that of a traditional dark room print.',
+          price: 15
+        },
+        {
+          title: 'Metallic',
+          image: 'acrylic-metallic.jpg',
+          size: [
+            {
+              title: '8 x 12"',
+              action: 0.2,
+              price: 0
+            },
+            {
+              title: '16 x 24"',
+              action: 0.4,
+              price: 25
+            },
+            {
+              title: '24 x 36"',
+              action: 0.6,
+              price: 50
+            },
+            {
+              title: '36 x 54"',
+              action: 0.9,
+              price: 50
+            },
+            {
+              title: '40 x 60"',
+              action: 1,
+              price: 100
+            }
+          ],
+          styles: [
+            {
+              title: 'Polished Shine',
+              image: 'acrylic-metallic.jpg',
+              description: '<p>Polished Shine is what we refer to our most popular option when it comes to acrylic surfaces. The crystal clear surface will have a level of shine and reflection which provides the ultimate in sleek and modern looks.</p>',
+              price: 25
+            },
+            {
+              title: 'No glare',
+              image: 'acrylic-metallic-no-glare.jpg',
+              description: '<p>Crystal clear acrylic plexiglass with reflection control and polished edges allowing your image to be on display at its fullest. Unlike the highly-polished shine acrylic, reflection control is useful for environments in which direct light sources might create distracting glares.</p>',
+              price: 60
+            },
+          ],
+          backing: [
+            {
+              title: 'Paper backing',
+              image: 'acrylic-metallic.jpg',
+              description: '<p>A paper backing option is the more econimical option and provides some protection to the back of the print.</p>',
+              price: 0
+            },
+            {
+              title: 'Dibond',
+              image: 'acrylic-metallic-dibond.jpg',
+              description: '<p>The dibond is recommended for your most valued work. Dibond is a very thin aluminum panel. When the print is mounted on Dibond it adds a layer of protection and helps strengthen the acrylic.</p>',
+              price: 50
+            }
+          ],
+          description: 'Branded as Moab Slickrock Metallic Pearl, this paper enables you to create stunning prints that previously could be output only in a darkroom. The metallic, high-gloss surface on this 10-mil, 255g photo paper results in prints that are sharp, vibrant, and exceptionally rich-looking. This paper provides the perfect way to make portraits, fine art reproductions, and competition prints that stand out from the others.',
+          price: 15
+        }
+      ],
+    },
+    {
       title: 'Fine art paper',
       description: 'One of the largest ranges of paper selections, while using the highest level of archival print technology allowing superior detail and color, you can create custom giclee prints of your artwork and photos.',
       image: 'paper-matte.jpg',
@@ -786,137 +916,6 @@ export default {
           price: 15
         }
       ]
-    },
-    {
-      title: 'Acrylic',
-      description: 'Face mounted acrylics are the standards professionals turn to over other acrylics when it comes to acrylic prints. Your image will be printed on one of our popular photo papers (satin luster or metallic pearl) and face mounted to the back of the ¼” acrylic panels with a polished edge. In addition to the two paper choices you can choose from either a high gloss polished shine (most popular) or a reflection control acrylic. You can also opt to have your acrylic ordered with a dibond backing. Hanging hardware is provided at no additional charge.',
-      image: 'acrylic-luster.jpg',
-      price: 100,
-      finish: [
-        {
-          title: 'Satin Luster',
-          image: 'acrylic-luster.jpg',
-          size: [
-            {
-              title: '8 x 12"',
-              action: 0.2,
-              price: 0
-            },
-            {
-              title: '16 x 24"',
-              action: 0.4,
-              price: 25
-            },
-            {
-              title: '24 x 36"',
-              action: 0.6,
-              price: 50
-            },
-            {
-              title: '36 x 54"',
-              action: 0.9,
-              price: 50
-            },
-            {
-              title: '40 x 60"',
-              action: 1,
-              price: 100
-            }
-          ],
-          styles: [
-            {
-              title: 'Polished Shine',
-              image: 'acrylic-metallic.jpg',
-              description: '<p>Polished Shine is what we refer to our most popular option when it comes to acrylic surfaces. The crystal clear surface will have a level of shine and reflection which provides the ultimate in sleek and modern looks.</p>',
-              price: 25
-            },
-            {
-              title: 'No glare',
-              image: 'acrylic-metallic-no-glare.jpg',
-              description: '<p>Crystal clear acrylic plexiglass with reflection control and polished edges allowing your image to be on display at its fullest. Unlike the highly-polished shine acrylic, reflection control is useful for environments in which direct light sources might create distracting glares.</p>',
-              price: 60
-            },
-          ],
-          backing: [
-            {
-              title: 'Paper backing',
-              image: 'acrylic-metallic.jpg',
-              description: '<p>A paper backing option is the more econimical option and provides some protection to the back of the print.</p>',
-              price: 0
-            },
-            {
-              title: 'Dibond',
-              image: 'acrylic-metallic-dibond.jpg',
-              description: '<p>The dibond is recommended for your most valued work. Dibond is a very thin aluminum panel. When the print is mounted on Dibond it adds a layer of protection and helps strengthen the acrylic.</p>',
-              price: 50
-            }
-          ],
-          description: 'Moab Exhibition Luster now with a gloss optimizer coating. This high quality 11 mil 300g paper answers artist’s and photographers’ requests for a high quality paper between a matte and a gloss, with excellent ink retention characteristics and a color gamut that is second to none. This paper maintains a traditional E surface finish, providing an elegant texture consistent to that of a traditional dark room print.',
-          price: 15
-        },
-        {
-          title: 'Metallic',
-          image: 'acrylic-metallic.jpg',
-          size: [
-            {
-              title: '8 x 12"',
-              action: 0.2,
-              price: 0
-            },
-            {
-              title: '16 x 24"',
-              action: 0.4,
-              price: 25
-            },
-            {
-              title: '24 x 36"',
-              action: 0.6,
-              price: 50
-            },
-            {
-              title: '36 x 54"',
-              action: 0.9,
-              price: 50
-            },
-            {
-              title: '40 x 60"',
-              action: 1,
-              price: 100
-            }
-          ],
-          styles: [
-            {
-              title: 'Polished Shine',
-              image: 'acrylic-metallic.jpg',
-              description: '<p>Polished Shine is what we refer to our most popular option when it comes to acrylic surfaces. The crystal clear surface will have a level of shine and reflection which provides the ultimate in sleek and modern looks.</p>',
-              price: 25
-            },
-            {
-              title: 'No glare',
-              image: 'acrylic-metallic-no-glare.jpg',
-              description: '<p>Crystal clear acrylic plexiglass with reflection control and polished edges allowing your image to be on display at its fullest. Unlike the highly-polished shine acrylic, reflection control is useful for environments in which direct light sources might create distracting glares.</p>',
-              price: 60
-            },
-          ],
-          backing: [
-            {
-              title: 'Paper backing',
-              image: 'acrylic-metallic.jpg',
-              description: '<p>A paper backing option is the more econimical option and provides some protection to the back of the print.</p>',
-              price: 0
-            },
-            {
-              title: 'Dibond',
-              image: 'acrylic-metallic-dibond.jpg',
-              description: '<p>The dibond is recommended for your most valued work. Dibond is a very thin aluminum panel. When the print is mounted on Dibond it adds a layer of protection and helps strengthen the acrylic.</p>',
-              price: 50
-            }
-          ],
-          description: 'Branded as Moab Slickrock Metallic Pearl, this paper enables you to create stunning prints that previously could be output only in a darkroom. The metallic, high-gloss surface on this 10-mil, 255g photo paper results in prints that are sharp, vibrant, and exceptionally rich-looking. This paper provides the perfect way to make portraits, fine art reproductions, and competition prints that stand out from the others.',
-          price: 15
-        }
-      ],
-      
     }
   ],
   homepage: {
