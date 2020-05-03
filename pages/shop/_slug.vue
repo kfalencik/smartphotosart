@@ -197,29 +197,29 @@
             <div class="product__details column is-one-third">
               <div class="product__options">
 
-                <div class="product__option">
-                  <h5 @click="information('material')">Material <b-icon icon="information-outline" custom-size="mdi-18" /></h5>
+                <div class="product__option product__option--with-guide">
+                  <h5 @click="information('material')">Material <span class="guide"><b-icon icon="information-outline" custom-size="mdi-18" /> MATERIAL GUIDE</span></h5>
                   <div class="wrap">
                     <button v-for="(option, index) in prices" :key="'material-' + index" :class="{'product__button': true, 'product__button--active': materialOption === index}" @click="changeMaterial(option.action, index)">{{option.title}}</button>
                   </div>
                 </div>
 
-                <div class="product__option" v-if="prices[materialOption].finish">
-                  <h5 @click="information('finish')">Media <b-icon icon="information-outline" custom-size="mdi-18" /></h5>
+                <div class="product__option product__option--with-guide" v-if="prices[materialOption].finish">
+                  <h5 @click="information('finish')">Media <span class="guide"><b-icon icon="information-outline" custom-size="mdi-18" /> MEDIA GUIDE</span></h5>
                   <div class="wrap">
                     <button v-for="(option, index) in prices[materialOption].finish" :key="'finish-' + index" :class="{'product__button': true, 'product__button--active': finishOption === index}" @click="changeFinish(option.action, index)">{{option.title}}</button>
                   </div>
                 </div>
 
-                <div class="product__option" v-if="prices[materialOption].finish[finishOption].styles">
-                  <h5 @click="information('styles')">Style <b-icon icon="information-outline" custom-size="mdi-18" /></h5>
+                <div class="product__option product__option--with-guide" v-if="prices[materialOption].finish[finishOption].styles">
+                  <h5 @click="information('styles')">Style <span class="guide"><b-icon icon="information-outline" custom-size="mdi-18" /> STYLE GUIDE</span></h5>
                   <div class="wrap">
                     <button v-for="(option, index) in prices[materialOption].finish[finishOption].styles" :key="'styles-' + index" :class="{'product__button': true, 'product__button--active': stylesOption === index}" @click="changeStyles(option.action, index)">{{option.title}}</button>
                   </div>
                 </div>
 
-                <div class="product__option" v-if="prices[materialOption].finish[finishOption].backing">
-                  <h5 @click="information('backing')">Backing <b-icon icon="information-outline" custom-size="mdi-18" /></h5>
+                <div class="product__option product__option--with-guide" v-if="prices[materialOption].finish[finishOption].backing">
+                  <h5 @click="information('backing')">Backing <span class="guide"><b-icon icon="information-outline" custom-size="mdi-18" /> BACKING GUIDE</span></h5>
                   <div class="wrap">
                     <button v-for="(option, index) in prices[materialOption].finish[finishOption].backing" :key="'backing-' + index" :class="{'product__button': true, 'product__button--active': backingOption === index}" @click="changeBacking(option.action, index)">{{option.title}}</button>
                   </div>
@@ -232,15 +232,15 @@
                   </div>
                 </div>
 
-                <div class="product__option" v-if="prices[materialOption].frame">
-                  <h5 @click="information('frame')">Frame <b-icon icon="information-outline" custom-size="mdi-18" /></h5>
+                <div class="product__option product__option--with-guide" v-if="prices[materialOption].frame">
+                  <h5 @click="information('frame')">Frame <span class="guide"><b-icon icon="information-outline" custom-size="mdi-18" /> FRAME GUIDE</span></h5>
                   <div class="wrap">
                     <button v-for="(option, index) in prices[materialOption].frame" :key="'frame-' + index" :class="{'product__button': true, 'product__button--active': frameOption === index}" @click="changeFrame(option.action, index)">{{option.title}}</button>
                   </div>
                 </div>
 
-                <div class="product__option" v-if="prices[materialOption].glass">
-                  <h5 @click="information('glass')">Glass <b-icon icon="information-outline" custom-size="mdi-18" /></h5>
+                <div class="product__option product__option--with-guide" v-if="prices[materialOption].glass">
+                  <h5 @click="information('glass')">Glass <span class="guide"><b-icon icon="information-outline" custom-size="mdi-18" /> GLASS GUIDE</span></h5>
                   <div class="wrap">
                     <button v-for="(option, index) in prices[materialOption].glass" :key="'glass-' + index" :class="{'product__button': true, 'product__button--active': glassOption === index}" @click="changeGlass(option.action, index)">{{option.title}}</button>
                   </div>
@@ -773,7 +773,6 @@ export default {
 
     &__options {
       padding: 0 0 15px;
-      border-bottom: 1px solid lighten($lightgrey, 40%);
       margin-bottom: 15px;
     }
 
@@ -784,9 +783,29 @@ export default {
         margin-bottom: 0;
       }
 
+      .button {
+        margin-top: 10px;
+      }
+
       h5 {
-        text-decoration: underline;
-        cursor: pointer;
+        border-bottom: 1px solid lighten($lightgrey, 40%);
+      }
+
+      &--with-guide {
+        h5 {
+          margin-bottom: 5px;
+        }
+
+        .guide {
+          cursor: pointer;
+          color: lighten($lightgrey, 20%);
+          font-size: 12px;
+          float: right;
+
+          .icon {
+            margin-right: -5px;
+          }
+        }
       }
     }
 
