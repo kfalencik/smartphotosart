@@ -23,7 +23,7 @@
         <div><strong>Kod PayPal: </strong>{{order.paypal.paymentID}}</div>
         <div><strong>Data zamowienia: </strong>{{order.date}}</div>
         <div><strong>Cena brutto: </strong>${{order.subtotal}}</div>
-        <div><strong>Podatek: </strong>${{order.tax}}</div>
+        <!-- <div><strong>Podatek: </strong>${{order.tax}}</div> -->
         <div><strong>Cena netto: </strong>${{order.total}}</div>
         <div><strong>Status: </strong><span class="tag" :class="statusType(order.status)" v-html="status(order.status)"></span></div>
         <div class="dispatcher" v-if="order.status !== 'dispatched'">
@@ -141,8 +141,8 @@ export default {
             emailCart = `${emailCart}<tr><td>${item.name}</td><td>${item.description}</td><td>${item.quantity}</td><td>$${item.price}</td></tr>`;
           });
 
-          emailCart = `${emailCart}<tr><td style="border: none"></td><td style="border: none"></td><td><strong>Subtotal</strong></td><td><strong>$${this.order.subtotal}</strong></td></tr>`;
-          emailCart = `${emailCart}<tr><td style="border: none"></td><td style="border: none"></td><td><strong>Tax</strong></td><td><strong>$${this.order.tax}</strong></td></tr>`;
+          // emailCart = `${emailCart}<tr><td style="border: none"></td><td style="border: none"></td><td><strong>Subtotal</strong></td><td><strong>$${this.order.subtotal}</strong></td></tr>`;
+          // emailCart = `${emailCart}<tr><td style="border: none"></td><td style="border: none"></td><td><strong>Tax</strong></td><td><strong>$${this.order.tax}</strong></td></tr>`;
           emailCart = `${emailCart}<tr><td style="border: none"></td><td style="border: none"></td><td><strong>Total</strong></td><td><strong>$${this.order.total}</strong></td></tr>`;
           emailCart = emailCart + '</table>';
 

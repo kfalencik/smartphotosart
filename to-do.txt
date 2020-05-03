@@ -1,6 +1,3 @@
 Email templates/notifications
-New home sections
-Tax ?
 Panoramic products
 Add all products
-New icons

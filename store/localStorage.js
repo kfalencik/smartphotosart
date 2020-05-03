@@ -115,8 +115,8 @@ export const mutations = {
       emailCart = `${emailCart}<tr><td>${item.name}</td><td>${item.description}</td><td>${item.quantity}</td><td>$${item.price}</td></tr>`;
     });
 
-    emailCart = `${emailCart}<tr><td style="border: none"></td><td style="border: none"></td><td><strong>Subtotal</strong></td><td><strong>$${state.order.subtotal}</strong></td></tr>`;
-    emailCart = `${emailCart}<tr><td style="border: none"></td><td style="border: none"></td><td><strong>Tax</strong></td><td><strong>$${state.order.tax}</strong></td></tr>`;
+    // emailCart = `${emailCart}<tr><td style="border: none"></td><td style="border: none"></td><td><strong>Subtotal</strong></td><td><strong>$${state.order.subtotal}</strong></td></tr>`;
+    // emailCart = `${emailCart}<tr><td style="border: none"></td><td style="border: none"></td><td><strong>Tax</strong></td><td><strong>$${state.order.tax}</strong></td></tr>`;
     emailCart = `${emailCart}<tr><td style="border: none"></td><td style="border: none"></td><td><strong>Total</strong></td><td><strong>$${state.order.total}</strong></td></tr>`;
     emailCart = emailCart + '</table>';
 

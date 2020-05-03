@@ -181,19 +181,22 @@
           <div class="column is-narrow">
             <div class="checkout-panel checkout-panel--pay">
               <div class="header">
-                <h4>Your total - ${{priceFormatter(total + tax)}}</h4>
+                <h4>Your total - ${{priceFormatter(total)}}</h4>
                 <img src="/payment-methods.png" width="200" alt="" role="presentation" />
               </div>
 
               <div class="content" v-if="checkoutValidation">
                 <p>Your details have been now saved. Please pay by clicking on the button below or <a @click.stop="checkoutValidation = false">edit your details</a>.</p>
                 <client-only>
-                  <paypal-checkout
-                    :amount="priceFormatter(total + tax).toString()"
+
+                  <!-- :amount="priceFormatter(total + tax).toString()"
                     :details="{
                       tax: priceFormatter(tax),
                       subtotal: priceFormatter(total).toString()
-                    }"
+                    }" -->
+
+                  <paypal-checkout
+                    :amount="priceFormatter(total).toString()"
                     currency="USD"
                     :env="credentials.env"
                     :client="credentials"
@@ -389,7 +392,7 @@ export default {
             city: this.deliveryCity,
             zipcode: this.deliveryZipCode,
             state: this.deliveryState
-          }, event, this.cartProducts, this.priceFormatter(this.total), this.priceFormatter(this.total + this.tax), this.tax, 'paid']);
+          }, event, this.cartProducts, this.priceFormatter(this.total), this.priceFormatter(this.total), this.tax, 'paid']);
         },
         paymentCancelled: function(event) {
           this.$buefy.toast.open({message: 'Your order was unsuccessful, please try again', type: 'is-danger'});

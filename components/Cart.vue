@@ -4,7 +4,7 @@
       <table class="cart">
         <tbody>
           <tr class="cart__item--head">
-            <td></td><td>Product</td><td>Description</td><td>Quantity</td><td>Price</td><td></td></tr>
+            <td></td><td>Product</td><td>Description</td><td>Quantity</td><td>Price</td><td></td>
           </tr>
 
           <CartItem class="cart__item" v-for="(item, index) in cart" :key="'item-' + index" :index="index" :productid="item.product" :quantity="item.quantity" :extras="item.extras" />
@@ -20,29 +20,29 @@
             <td></td>
           </tr>
 
-          <tr class="cart__item--bold">
+          <!-- <tr class="cart__item--bold">
             <td></td>
             <td></td>
             <td></td>
             <td>Subtotal</td>
             <td>{{ price(total) }}</td>
             <td></td>
-          </tr>
-          <tr class="cart__item--bold">
+          </tr> -->
+          <!-- <tr class="cart__item--bold">
             <td></td>
             <td></td>
             <td></td>
             <td>Tax</td>
             <td>{{ price(tax) }}</td>
             <td></td>
-          </tr>
+          </tr> -->
           <tr class="cart__item--bold">
             <td></td>
             <td></td>
             <td></td>
             <td><strong>Total</strong></td>
             <td class="cart-item__price">
-              <strong>{{ price(total + tax) }}</strong>
+              <strong>{{ price(total) }}</strong>
             </td>
             <td></td>
           </tr>
