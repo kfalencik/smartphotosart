@@ -121,8 +121,6 @@
   .header {
     z-index: 20;
 
-    @include goldFrame;
-
     .section {
       padding-top: 15px;
       padding-bottom: 15px;
