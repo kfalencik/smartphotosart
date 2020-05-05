@@ -12,25 +12,29 @@
         </div>
 
         <div class="header__center">
-          <div class="header__navigation">
-            <button class="button is-secondary" @click.stop.prevent="toggleMenu"><b-icon icon="menu" custom-size="mdi-24px"></b-icon> <span>&nbsp;Shop by category</span></button>
-            <nav :class="{'header__main-nav': true, 'active': navigation}">
-              <ul>
-                <li>
-                  <a @click.prevent="allCategories">All categories</a>
-                </li>
-                <li v-for="(category, index) in categories" :key="index">
-                  <a @click.prevent="selectCategory(category.slug)">{{category.title}}</a>
-                </li>
-              </ul>
-            </nav>
-          </div>
           <div class="header__search">
             <form @submit.stop.prevent="search">
               <label class="sr-only" for="search">Search</label>
               <input id="search" class="input input--inline" v-model="searchKeyword" placeholder="Search for..." />
-              <button type="submit" @click.stop.prevent="search" class="button is-primary"><span class="sr-only">Search</span><b-icon icon="magnify" custom-size="mdi-24px"></b-icon></button>
+              <button type="submit" @click.stop.prevent="search" class="button"><span class="sr-only">Search</span><b-icon icon="magnify" custom-size="mdi-24px"></b-icon></button>
             </form>
+          </div>
+
+          <div class="header__navigation">
+            <button class="button is-secondary" @click.stop.prevent="toggleMenu"><b-icon icon="menu" custom-size="mdi-24px"></b-icon> <span>&nbsp;Menu</span></button>
+            <nav :class="{'header__main-nav': true, 'active': navigation}">
+              <ul>
+                <li>
+                  <a @click.prevent="allCategories">Shop</a>
+                </li>
+                <li>
+                  <a href="https://etsy.com" target="_blank" rel="noopener">Etsy shop</a>
+                </li>
+                <li>
+                  <nuxt-link to="/contact">Contact</nuxt-link>
+                </li>
+              </ul>
+            </nav>
           </div>
         </div>
 
@@ -96,6 +100,8 @@
         this.navigation = !this.navigation;
       },
       allCategories: function() {
+        this.searchKeyword = '';
+        this.$store.commit('setSearchKeyword', '');
         this.$store.commit('toggleFilterCategory', []);
         this.$store.dispatch('filterProducts');
         this.$store.commit('sortProducts', 'popularity-az');
@@ -197,16 +203,21 @@
         display: flex;
         flex-direction: row;
       }
+
+      button {
+        color: $lightgrey;
+        border-color: $primary;
+      }
     }
 
     &__navigation {
       position: relative;
 
-      @media (min-width: $medium) {
-        margin-right: 20px;
-      }
-
       button {
+        @media (min-width: $medium) {
+          display: none;
+        }
+
         .icon {
           margin: 0 !important;
         }
@@ -225,89 +236,108 @@
       }
     }
 
-    &__main-nav {
-      position: absolute;
-      opacity: 0;
-      z-index: 20;
-      left: 0;
-      width: 100%;
-      min-width: 250px;
-      top: 50px;
-      background: $white;
-      border-radius: 3px;
-      padding: 5px 20px 0px;
-      box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.15);
-      border: 2px solid $lightgrey;
-      transition: all .3s ease;
-      transform: scaleY(0);
-      transform-origin: top;
+    @media (min-width: $medium) {
+      &__main-nav {
+        width: 240px;
 
-      &.active {
-        opacity: 1;
-        transform: scaleY(1);
-      }
+        li {
+          float: left;
+          list-style: none;
+          margin-right: 15px;
+          padding: 6px 0;
 
-      @media (min-width: $medium) {
-        left: -100px;
-
-        &::before {
-          bottom: 100%;
-          left: 50%;
-          border: solid transparent;
-          content: " ";
-          height: 0;
-          width: 0;
-          position: absolute;
-          pointer-events: none;
-          border-color: rgba(194, 225, 245, 0);
-          border-bottom-color: $lightgrey;
-          border-width: 20px;
-          margin-left: -20px;
-        }
-
-        &::after {
-          bottom: 100%;
-          left: 50%;
-          border: solid transparent;
-          content: " ";
-          height: 0;
-          width: 0;
-          position: absolute;
-          pointer-events: none;
-          border-color: rgba(136, 183, 213, 0);
-          border-bottom-color: $white;
-          border-width: 17px;
-          margin-left: -17px;
+          a:hover {
+            color: $black;
+          }
         }
       }
+    }
 
-      @media (min-width: $large) {
+    @media (max-width: $medium) {
+      &__main-nav {
+        position: absolute;
+        opacity: 0;
+        z-index: 20;
         left: 0;
-      }
-
-      ul {
-        margin-left: 0;
-      }
-
-      li {
-        list-style: none;
-        padding: 0;
         width: 100%;
-        height: auto;
-        position: relative;
-        border-bottom: 1px solid #ddd;
-        float: none;
+        min-width: 250px;
+        top: 50px;
+        background: $white;
+        border-radius: 3px;
+        padding: 5px 20px 0px;
+        box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.15);
+        border: 2px solid $lightgrey;
         transition: all .3s ease;
+        transform: scaleY(0);
+        transform-origin: top;
 
-        &:hover {
-          border-color: $tertiary;
+        &.active {
+          opacity: 1;
+          transform: scaleY(1);
         }
 
-        a {
-          padding: 12px 0;
-          display: block;
-          font-size: 0.8em;
-          color: $black;
+        @media (min-width: $medium) {
+          left: -100px;
+
+          &::before {
+            bottom: 100%;
+            left: 50%;
+            border: solid transparent;
+            content: " ";
+            height: 0;
+            width: 0;
+            position: absolute;
+            pointer-events: none;
+            border-color: rgba(194, 225, 245, 0);
+            border-bottom-color: $lightgrey;
+            border-width: 20px;
+            margin-left: -20px;
+          }
+
+          &::after {
+            bottom: 100%;
+            left: 50%;
+            border: solid transparent;
+            content: " ";
+            height: 0;
+            width: 0;
+            position: absolute;
+            pointer-events: none;
+            border-color: rgba(136, 183, 213, 0);
+            border-bottom-color: $white;
+            border-width: 17px;
+            margin-left: -17px;
+          }
+        }
+
+        @media (min-width: $large) {
+          left: 0;
+        }
+
+        ul {
+          margin-left: 0;
+        }
+
+        li {
+          list-style: none;
+          padding: 0;
+          width: 100%;
+          height: auto;
+          position: relative;
+          border-bottom: 1px solid #ddd;
+          float: none;
+          transition: all .3s ease;
+
+          &:hover {
+            border-color: $tertiary;
+          }
+
+          a {
+            padding: 12px 0;
+            display: block;
+            font-size: 0.8em;
+            color: $black;
+          }
         }
       }
     }
@@ -332,7 +362,7 @@
       text-align: right;
 
       @media (min-width: $medium) {
-        width: 100px;
+        width: 35px;
       }
 
       ul {
