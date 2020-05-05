@@ -599,6 +599,8 @@ export default {
       this.glassOption = 0;
       this.quantity = 1;
       this.backing = 0;
+      this.frame = 'transparent';
+      this.frameOption = 0;
       this.backingOption = 0;
     }
   }
