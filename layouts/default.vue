@@ -1,17 +1,20 @@
 <template>
   <div :class="{'page': true, 'page--home': home}">
+    <div  v-if="loaded">
     <Header />
     <main keep-alive>
-      <div v-if="loaded">
+      <div >
         <div class="container">
           <Messages />
         </div>
         <nuxt />
       </div>
-      <b-loading :is-full-page="true" :active.sync="loading"></b-loading>
+      
       <Newsletter />
     </main>
     <Footer />
+    </div>
+    <b-loading :is-full-page="true" :active.sync="loading"></b-loading>
   </div>
 </template>
 
