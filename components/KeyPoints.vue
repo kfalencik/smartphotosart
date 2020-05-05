@@ -57,7 +57,7 @@
     }
 
     h2 {
-      margin: 0 0 35px;
+      margin: 0 0 15px;
       text-align: center;
     }
 
