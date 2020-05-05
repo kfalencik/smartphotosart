@@ -90,7 +90,7 @@ export default {
     .form__fields{
       display: flex;
       flex-direction: row;
-      width: 400px;
+      width: 340px;
       margin: 0 auto;
       max-width: 100%;
     }

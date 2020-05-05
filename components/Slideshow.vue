@@ -123,6 +123,7 @@ export default {
     padding: 0;
     position: relative;
     z-index: 10;
+    overflow: hidden;
 
     @media (min-width: $large) {
       height: 585px;
