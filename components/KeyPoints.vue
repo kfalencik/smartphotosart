@@ -61,6 +61,11 @@
       text-align: center;
     }
 
+    .container {
+      background: $primary;
+      padding: 35px;
+    }
+
     .columns {
       text-align: center;
       justify-content: space-between;
@@ -75,7 +80,6 @@
         justify-content: center;
         min-width: 320px;
         padding: 20px;
-        background: $white;
         margin: 10px 15px;
         text-align: center;
 

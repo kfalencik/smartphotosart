@@ -34,7 +34,11 @@ export default {
 <style lang="scss" scoped>
 .limited-edition {
   position: relative;
-  background: $primary;
+
+  .container {
+    padding: 35px;
+    background: $primary;
+  }
 
   &__item {
     display: flex;

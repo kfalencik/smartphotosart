@@ -56,6 +56,7 @@
       align-items: center;
       justify-content: center;
       margin: 15px 0;
+      border-right: 1px solid $primary;
 
       img {
         width: 100px;

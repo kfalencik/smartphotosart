@@ -84,7 +84,8 @@ export default {
     }
 
     &__title {
-      padding: 10px 0;
+      padding: 10px 0 5px;
+      margin-bottom: 5px;
       border-bottom: 1px solid $primary;
 
       h5 {
