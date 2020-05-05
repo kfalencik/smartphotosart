@@ -11,8 +11,11 @@
     </div>
     <Services />
     <Popular number="4" />
-    <About />
+
     <KeyPoints />
+
+    <About />
+    
     <LimitedEdition />
 
     <New number="8" />

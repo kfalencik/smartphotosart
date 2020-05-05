@@ -50,8 +50,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  .product {
+  .card {
+    box-shadow: none;
+  }
 
+  .product {
     &__discount-badge {
       background: $tertiary;
       width: 90px;
@@ -81,9 +84,8 @@ export default {
     }
 
     &__title {
-      padding: 0 5px 10px;
-      margin: 10px;
-      border-bottom: 1px solid $lightgrey;
+      padding: 10px 0;
+      border-bottom: 1px solid $primary;
 
       h5 {
         color: $black;
@@ -94,8 +96,6 @@ export default {
       display: flex;
       flex-direction: row;
       align-items: baseline;
-      justify-content: flex-end;
-      padding: 0 15px 15px;
       
       .price {
         color: $black;

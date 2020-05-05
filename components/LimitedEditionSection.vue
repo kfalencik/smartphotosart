@@ -33,11 +33,8 @@ export default {
 
 <style lang="scss" scoped>
 .limited-edition {
-  background: $black;
-  color: $white;
   position: relative;
-  
-  @include goldFrame;
+  background: $primary;
 
   &__item {
     display: flex;

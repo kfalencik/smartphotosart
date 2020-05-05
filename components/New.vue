@@ -36,7 +36,7 @@ export default {
 
     a {
       float: right;
-      margin-top: 15px;
+      margin-top: 25px;
       text-decoration: underline;
     }
   }
