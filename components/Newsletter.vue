@@ -57,6 +57,8 @@ export default {
 <style lang="scss" scoped>
   .newsletter {
     margin-top: 50px;
+    background: $black;
+    color: $white;
 
     h3 {
       margin-top: 0;
@@ -68,8 +70,6 @@ export default {
       align-items: center;
       justify-content: center;
       text-align: center;
-      padding: 20px;
-      background: aliceblue;
     }
 
     .messages.error {
