@@ -14,7 +14,7 @@
               United States
             </address>
           </p>
-          <form name="contact" method="POST" data-netlify="true" data-netlify-recaptcha="true">
+          <form name="contact" data-netlify="true" data-netlify-recaptcha="true">
             <div class="field">
               <label class="label">Name</label>
               <div class="control">
