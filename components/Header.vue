@@ -241,7 +241,7 @@
 
     @media (min-width: $medium) {
       &__main-nav {
-        width: 240px;
+        width: 250px;
 
         li {
           float: left;
