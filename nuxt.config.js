@@ -96,7 +96,11 @@ export default async function() {
     ** Nuxt.js dev-modules
     */
     buildModules: [
+      '@aceforth/nuxt-optimized-images',
     ],
+    optimizedImages: {
+      optimizeImages: true
+    },
     /*
     ** Nuxt.js modules
     */
