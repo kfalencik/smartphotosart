@@ -49,8 +49,6 @@
 <style lang="scss" scoped>
   .key-points {
     color: $black;
-    padding-bottom: 25px;
-    margin: 50px 0 0;
 
     .icon {
       margin-bottom: 25px;

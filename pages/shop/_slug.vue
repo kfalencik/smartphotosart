@@ -6,11 +6,11 @@
 
           <template v-if="overlay && image !== 0">
             <div class="product__overlay" @click="overlay = false">
-              <img :src="require('@/assets/products/' + product.image)" v-if="image === 1" role="presentation" alt="" />
-              <img :src="require('@/assets/products/' + product.canvasImage)" v-if="image === 2" role="presentation" alt="" />
-              <img :src="require('@/assets/products/' + product.image2)" v-if="product.image2 && image === 3" role="presentation" alt="" />
-              <img :src="require('@/assets/products/' + product.image3)" v-if="product.image3 && image === 4" role="presentation" alt="" />
-              <img :src="require('@/assets/products/' + product.image4)" v-if="product.image4 && image === 5" role="presentation" alt="" />
+              <img :src="require(`@/assets/products/${product.slug}/${product.image}`)" v-if="image === 1" role="presentation" alt="" />
+              <img :src="require(`@/assets/products/${product.slug}/${product.canvasImage}`)" v-if="image === 2" role="presentation" alt="" />
+              <img :src="require(`@/assets/products/${product.slug}/${product.image2}`)" v-if="product.image2 && image === 3" role="presentation" alt="" />
+              <img :src="require(`@/assets/products/${product.slug}/${product.image3}`)" v-if="product.image3 && image === 4" role="presentation" alt="" />
+              <img :src="require(`@/assets/products/${product.slug}/${product.image4}`)" v-if="product.image4 && image === 5" role="presentation" alt="" />
               <img v-if="product.landscape && image === 6" :src="require('@/assets/images/comparison_landscape.jpg')" role="presentation" alt="" />
               <img v-if="!product.landscape && image === 6" :src="require('@/assets/images/comparison_portrait.jpg')" role="presentation" alt="" />
 

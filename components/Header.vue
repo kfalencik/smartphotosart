@@ -241,7 +241,7 @@
 
     @media (min-width: $medium) {
       &__main-nav {
-        width: 250px;
+        width: 320px;
 
         li {
           float: left;
@@ -249,8 +249,16 @@
           margin-right: 15px;
           padding: 6px 0;
 
-          a:hover {
-            color: $black;
+          &:first-child {
+            font-weight: bold;
+          }
+
+          a {
+            font-size: 18px;
+
+            &:hover {
+              color: $black;
+            }
           }
         }
       }

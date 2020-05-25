@@ -52,6 +52,7 @@ export default {
 <style lang="scss" scoped>
   .card {
     box-shadow: none;
+    padding-bottom: 35px;
   }
 
   .product {

@@ -137,5 +137,10 @@ export default {
     padding: 50px;
     width: calc(100% - 250px);
     float: right;
+
+    ul {
+      margin: 0;
+      list-style: none;
+    }
   }
 </style>
