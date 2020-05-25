@@ -71,15 +71,15 @@ export default {
 
     &__image {
       overflow: hidden;
+      transition: all .4s ease;
 
       img {
-        transition: all .4s ease;
         display: block;
       }
     }
 
     a:hover {
-      img {
+      .product__image {
         transform: scale(1.1);
       }
     }
