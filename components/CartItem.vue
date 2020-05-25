@@ -1,7 +1,7 @@
 <template>
   <tr class="cart-item">
     <td class="cart-item__thumbnail">
-      <img :src="require('@/assets/products/' + product.canvasImage)" alt="Canvas" />
+      <img :src="require(`@/assets/products/${product.slug}/${product.canvasImage}`)" alt="Canvas" />
     </td>
     <td class="cart-item__title">
       {{ product.title }}
@@ -21,7 +21,7 @@
       </template>
 
       <template v-if="prices[materialOption].finish[finishOption].backing">
-        <strong>Backing: </strong>
+        <strong>Backing: </strong> 
         <span >{{ prices[materialOption].finish[finishOption].backing[backingOption].title }},</span>
       </template>
 
