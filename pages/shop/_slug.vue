@@ -164,7 +164,7 @@
 
               <div class="product__thumbnails">
                 <div class="product__thumbnails-item product__thumbnails-item--preview" :class="{'product__thumbnails-item--active': image === 0}" aria-label="Dynamic preview" @click="image = 0;">
-                  <b-icon icon="image-filter"></b-icon>
+                  <b-icon icon="image-area"></b-icon>
                   Dynamic preview
                 </div>
 
