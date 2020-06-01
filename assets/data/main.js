@@ -29,7 +29,7 @@ export default {
         image: 'products/police-car/main.jpg',
         title: 'Exceptional style',
         color: 'white',
-        position: 'center center'
+        position: 'center bottom'
       },
       {
         image: 'products/marco-island-sunset/main.jpg',
