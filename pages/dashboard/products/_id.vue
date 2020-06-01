@@ -12,6 +12,10 @@
           <b-input placeholder="Identyfikator produktu" v-model="slug" disabled></b-input>
         </b-field>
 
+        <b-field class="form__input" label="Opis">
+          <b-input maxlength="1000" type="textarea"  v-model="description" placeholder="Opis produktu"></b-input>
+        </b-field>
+
         <b-field label="Kategoria">
           <b-select placeholder="Wybierz kategorie" v-model="category" required>
             <option
@@ -80,6 +84,7 @@ export default {
   data() {
     return {
       title: '',
+      description: '',
       slug: '',
       category: '',
       image: '',
@@ -108,6 +113,7 @@ export default {
       let product = this.$store.state.products.filter(product => product.id === parseInt(this.id));
       product = product[0];
       this.title = product.title;
+      this.description = product.description;
       this.slug = product.slug;
       this.category = product.category;
       this.canvasImage = product.canvasImage;
@@ -138,6 +144,7 @@ export default {
 
         this.$store.commit('editProduct', [this.product.id, {
           title: this.title,
+          description: this.description,
           image: this.image,
           image2: this.image2,
           image3: this.image3,

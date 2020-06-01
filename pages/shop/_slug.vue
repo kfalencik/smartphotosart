@@ -119,7 +119,8 @@
               <div class="product__title">
                 <h2>{{product.title}}</h2>
                 <Stars :product="product.id" link="true" />
-                <p>All of our prints are high-resolution images, printed with acid-free ink on best quality canvas. Please use the widget below to customize canvas size, edge colour, frame and more.</p>
+                <p v-if="product.description" v-html="product.description"></p>
+                <p v-else>All of our prints are high-resolution images, printed with acid-free ink on best quality canvas. Please use the widget below to customize canvas size, edge colour, frame and more.</p>
               </div>
             </div>
           </div>

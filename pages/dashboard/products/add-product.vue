@@ -12,6 +12,10 @@
           <b-input placeholder="Identyfikator produktu" v-model="slug" required></b-input>
         </b-field>
 
+        <b-field class="form__input" label="Opis">
+          <b-input maxlength="1000" type="textarea" placeholder="Opis produktu" v-model="description"></b-input>
+        </b-field>
+
         <b-field label="Kategoria">
           <b-select placeholder="Wybierz kategorie" v-model="category" required>
             <option
@@ -80,6 +84,7 @@ export default {
     data() {
         return {
             title: '',
+            description: '',
             slug: '',
             category: '',
             image: '',
@@ -135,6 +140,7 @@ export default {
                 this.$store.commit('addProduct', {
                     id: this.latestId,
                     title: this.title,
+                    description: this.description,
                     slug: this.slug,
                     category: this.category,
                     image: this.image,
