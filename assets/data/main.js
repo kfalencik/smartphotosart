@@ -948,6 +948,10 @@ export default {
       slug: 'beach'
     },
     {
+      title: 'Black & White',
+      slug: 'black-white'
+    },
+    {
       title: 'Cars',
       slug: 'cars'
     },
@@ -974,6 +978,10 @@ export default {
     {
       title: 'Nature',
       slug: 'nature'
+    },
+    {
+      title: 'People',
+      slug: 'people'
     },
     {
       title: 'Rain',
