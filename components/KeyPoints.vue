@@ -62,6 +62,10 @@
     .container {
       background: $primary;
       padding: 35px;
+
+      @media (max-width: $medium) {
+        padding: 15px;
+      }
     }
 
     .columns {
@@ -71,15 +75,23 @@
       flex-direction: row;
       flex-wrap: wrap;
 
+      @media (max-width: $medium) {
+        flex-direction: column;
+      }
+
       .column {
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        min-width: 320px;
         padding: 20px;
         margin: 10px 15px;
         text-align: center;
+
+        @media (min-width: $medium) {
+          min-width: 320px;
+        }
+        
 
         img {
           margin-bottom: 10px;

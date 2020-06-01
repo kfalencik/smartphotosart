@@ -7,11 +7,11 @@
             <h2>{{section.title}}</h2>
             <p>{{section.description}}</p>
             <q>{{section.quote}}</q>
-            <img :src="require('@/assets' + section.signature)" alt="Peter Falencik" />
+            <img :src="require('@/assets' + section.signature)" width="200" alt="Peter Falencik" />
           </div>
 
-          <div class="column is-half">
-            <p>*PHOTO PLACEHOLDER*</p>
+          <div class="column has-text-centered is-half">
+            <img :src="require(`~/assets/images/peterfalencik.jpg`)" width="500" alt="Peter Falencik" />
           </div>
         </div>
       </div>
@@ -30,6 +30,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.section {
+  margin-bottom: -102px;
+}
+
 p {
   margin: 25px 0;
 }
@@ -38,9 +42,21 @@ q {
   font-style: italic;
 }
 
-img {
-  float: right;
-  margin-top: 50px;
-  width: 200px;
+.column {
+  &:first-child {
+    img {
+      margin: 50px 0 35px;
+      float: right;
+    }
+  }
+
+  @media (min-width: $medium) {
+     &:last-child {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      align-items: center;
+    }
+  }
 }
 </style>

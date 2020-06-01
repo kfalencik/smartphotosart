@@ -58,6 +58,10 @@
       margin: 15px 0;
       border-right: 1px solid $primary;
 
+      @media (max-width: $medium) {
+        border: none;
+      }
+
       img {
         width: 100px;
         margin-bottom: 10px;

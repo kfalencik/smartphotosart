@@ -72,9 +72,12 @@ export default {
     &__image {
       overflow: hidden;
       transition: all .4s ease;
+      height: 215px;
+      text-align: center;
 
       img {
-        display: block;
+        width: auto;
+        height: 100%;
       }
     }
 
