@@ -2,7 +2,7 @@ export default {
   slideshow: {
     slides: [
       {
-        image: 'products/space-journey/main.jpg',
+        image: 'products/ocean-wood/main.jpg',
         title: 'Reason to change your wall',
         color: 'black',
         position: 'left bottom'
@@ -14,19 +14,19 @@ export default {
         position: 'center bottom'
       },
       {
-        image: 'products/police-car/main.jpg',
+        image: 'products/space-journey/main.jpg',
         title: 'Create your own space',
         color: '#4e4e4e',
         position: 'right bottom'
       },
       {
-        image: 'products/ocean-wood/main.jpg',
+        image: 'products/manhattan/main.jpg',
         title: 'Unique ideas for modern look',
         color: 'white',
         position: 'left bottom'
       },
       {
-        image: 'products/manhattan/main.jpg',
+        image: 'products/police-car/main.jpg',
         title: 'Exceptional style',
         color: 'white',
         position: 'center center'
