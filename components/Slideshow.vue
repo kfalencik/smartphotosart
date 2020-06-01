@@ -10,15 +10,9 @@
     <div class="slideshow__slides">
       <div v-for="(slide, index) in slides" :key="index" :class="{'slideshow__slide': true, 'slideshow__slide--prev': index + 1 === heroPreviousSlide, 'slideshow__slide--next': index + 1 === heroNextSlide, 'slideshow__slide--active': index + 1 === heroCurrentSlide}">
           <div class="slideshow__slide-image">
-            <picture alt="" role="presentation">
-              <source media="(max-width: 1024px)" :srcset="require('@/assets/slideshow/' + parseInt(index + 1) + '_small.jpg')" alt="" role="presentation">
-              <source media="(max-width: 1980px)" :srcset="require('@/assets/slideshow/' + parseInt(index + 1) + '.jpg')" alt="" role="presentation">
-              <source media="(max-width: 2560px)" :srcset="require('@/assets/slideshow/' + parseInt(index + 1) + '_2k.jpg')" alt="" role="presentation">
-              <source media="(min-width: 2561px)" :srcset="require('@/assets/slideshow/' + parseInt(index + 1) + '_4k.jpg')" alt="" role="presentation">
-              <img :srcset="require('@/assets/slideshow/' + parseInt(index + 1) + '.jpg')" alt="" role="presentation">
-            </picture>
+            <img :src="require(`@/assets/${slide.image}`)" alt="" role="presentation" :style="`object-position: ${slide.position}`">
 
-            <div class="slideshow__slide-text" :style="{top: 'calc(50% + ' + slide.top + ')', left: 'calc(50% + ' + slide.left + ')', color: slide.color, width: slide.width, textAlign: slide.align}">
+            <div class="slideshow__slide-text" :style="`color: ${slide.color}`"> 
               <h2>{{slide.title}}</h2>
             </div>
           </div>
@@ -124,6 +118,8 @@ export default {
     position: relative;
     z-index: 10;
     overflow: hidden;
+    max-width: 2560px;
+    margin: 0 auto;
 
     @media (min-width: $large) {
       height: 585px;
@@ -211,17 +207,14 @@ export default {
         width: 100%;
         height: 100%;
         position: absolute;
-        background: rgba(0,0,0,0);
-
-        @media (max-width: 1439px) {
-          background: rgba(0,0,0,0.5);
-        }
+        background: rgba(0,0,0,0.35);
       }
 
       img {
         height: 100%;
         width: 100%;
         object-fit: cover;
+        object-position: bottom;
       }
     }
 
@@ -230,15 +223,13 @@ export default {
       position: absolute;
       z-index: 20;
       transform: translate(-50%, -50%);
-
-      @media (max-width: 1439px) {
-        left: 50% !important;
-        top: 50% !important;
-        color: $white !important;
-        text-shadow: 0 0 5px rgba(0,0,0,0.4);
-        width: 100% !important;
-        text-align: center !important;
-      }
+      left: 50% !important;
+      top: 50% !important;
+      width: 1000px;
+      text-align: center;
+      color: $white !important;
+      text-shadow: 0 0 5px rgba(0,0,0,0.4);
+      width: 100%;
 
       h2 {
         text-decoration: none;

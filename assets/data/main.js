@@ -2,52 +2,40 @@ export default {
   slideshow: {
     slides: [
       {
+        image: 'products/space-journey/main.jpg',
         title: 'Reason to change your wall',
         color: 'black',
-        top: '240px',
-        left: '0px',
-        width: '1200px',
-        align: 'center'
+        position: 'left bottom'
       },
       {
+        image: 'products/horseshoe/main.jpg',
         title: 'Vivid colors',
-        color: 'black',
-        top: '0px',
-        left: '370px',
-        width: '280px',
-        align: 'left'
-      },
-      {
-        title: 'Create your own space',
         color: 'white',
-        top: '-50px',
-        left: '500px',
-        width: '200px',
-        align: 'left'
+        position: 'center bottom'
       },
       {
+        image: 'products/police-car/main.jpg',
+        title: 'Create your own space',
+        color: '#4e4e4e',
+        position: 'right bottom'
+      },
+      {
+        image: 'products/ocean-wood/main.jpg',
         title: 'Unique ideas for modern look',
         color: 'white',
-        top: '-80px',
-        left: '590px',
-        width: '500px',
-        align: 'left'
+        position: 'left bottom'
       },
       {
+        image: 'products/manhattan/main.jpg',
         title: 'Exceptional style',
         color: 'white',
-        top: '-200px',
-        left: '420px',
-        width: '300px',
-        align: 'left'
+        position: 'center center'
       },
       {
+        image: 'products/marco-island-sunset/main.jpg',
         title: 'Gallery quality',
         color: 'black',
-        top: '80px',
-        left: '0px',
-        width: '900px',
-        align: 'center'
+        position: 'center bottom'
       }
     ]
   },
