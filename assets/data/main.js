@@ -2,37 +2,37 @@ export default {
   slideshow: {
     slides: [
       {
-        image: 'products/ocean-wood/main.jpg',
+        image: 'products/000704/main.jpg',
         title: 'Reason to change your wall',
         color: 'black',
         position: 'left bottom'
       },
       {
-        image: 'products/horseshoe/main.jpg',
+        image: 'products/000668/main.jpg',
         title: 'Vivid colors',
         color: 'white',
         position: 'center bottom'
       },
       {
-        image: 'products/space-journey/main.jpg',
+        image: 'products/000669/main.jpg',
         title: 'Create your own space',
         color: '#4e4e4e',
         position: 'right bottom'
       },
       {
-        image: 'products/manhattan/main.jpg',
+        image: 'products/000708/main.jpg',
         title: 'Unique ideas for modern look',
         color: 'white',
         position: 'left bottom'
       },
       {
-        image: 'products/police-car/main.jpg',
+        image: 'products/000700/main.jpg',
         title: 'Exceptional style',
         color: 'white',
         position: 'center bottom'
       },
       {
-        image: 'products/marco-island-sunset/main.jpg',
+        image: 'products/000705/main.jpg',
         title: 'Gallery quality',
         color: 'black',
         position: 'center bottom'
