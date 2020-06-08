@@ -8,7 +8,7 @@
           <b-input placeholder="Nazwa produktu" v-model="title" required></b-input>
         </b-field>
 
-        <b-field message='Musi byc unikatowe. Zamiast spacji dac myslnik, male litery np. "i-love-chicago-i"' class="form__input" label="Identyfikator produktu">
+        <b-field message='Musi byc unikatowe np. "000777"' class="form__input" label="Identyfikator produktu">
           <b-input placeholder="Identyfikator produktu" v-model="slug" required></b-input>
         </b-field>
 
