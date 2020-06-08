@@ -121,6 +121,7 @@
                 <Stars :product="product.id" link="true" />
                 <p v-if="product.description" v-html="product.description"></p>
                 <p v-else>All of our prints are high-resolution images, printed with acid-free ink on best quality canvas. Please use the widget below to customize canvas size, edge colour, frame and more.</p>
+                <p class="product__sku">SKU: {{product.slug}}</p>
               </div>
             </div>
           </div>
@@ -773,6 +774,11 @@ export default {
         background: $tertiary;
         color: $white;
       }
+    }
+
+    &__sku {
+      font-size: 14px;
+      color: $black;
     }
 
     &__options {

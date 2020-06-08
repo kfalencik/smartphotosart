@@ -47,6 +47,9 @@
             <b-table-column field="name" label="Nazwa">
               {{ props.row.name }}
             </b-table-column>
+            <b-table-column field="name" label="SKU">
+              {{ props.row.sku }}
+            </b-table-column>
             <b-table-column field="description" label="Specyfikacja" v-html="extras(props.row.description)">
             </b-table-column>
             <b-table-column field="quantity" label="Ilosc">
@@ -135,10 +138,10 @@ export default {
         onConfirm: () => {
           // Send email to customer
           let emailCart = "<table border='1' cellspacing='0' cellpadding='5' style='border: none; border-collapse: collapse;'>";
-          emailCart = `${emailCart}<tr><td>Item</td><td>Description</td><td>Quantity</td><td>Price</td></tr>`;
+          emailCart = `${emailCart}<tr><td>Item</td><td>SKU</td><td>Description</td><td>Quantity</td><td>Price</td></tr>`;
 
           this.order.items.forEach(item => {
-            emailCart = `${emailCart}<tr><td>${item.name}</td><td>${item.description}</td><td>${item.quantity}</td><td>$${item.price}</td></tr>`;
+            emailCart = `${emailCart}<tr><td>${item.name}</td><td>${item.sku}</td><td>${item.description}</td><td>${item.quantity}</td><td>$${item.price}</td></tr>`;
           });
 
           // emailCart = `${emailCart}<tr><td style="border: none"></td><td style="border: none"></td><td><strong>Subtotal</strong></td><td><strong>$${this.order.subtotal}</strong></td></tr>`;

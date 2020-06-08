@@ -4,7 +4,7 @@
       <img :src="require(`@/assets/products/${product.slug}/${product.canvasImage}`)" alt="Canvas" />
     </td>
     <td class="cart-item__title">
-      {{ product.title }}
+      {{ product.title }}<br /> <span class="cart-item__sku">(SKU: {{product.slug}})</span>
     </td>
 
     <td class="cart-item__extras">
@@ -151,6 +151,11 @@ export default {
       .button {
         font-size: 10px;
       }
+    }
+
+    &__sku {
+      font-size: 14px;
+      color: $black;
     }
 
     &__thumbnail {
