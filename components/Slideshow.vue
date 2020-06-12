@@ -10,8 +10,12 @@
     <div class="slideshow__slides">
       <div v-for="(slide, index) in slides" :key="index" :class="{'slideshow__slide': true, 'slideshow__slide--prev': index + 1 === heroPreviousSlide, 'slideshow__slide--next': index + 1 === heroNextSlide, 'slideshow__slide--active': index + 1 === heroCurrentSlide}">
           <div class="slideshow__slide-image">
-            <img :src="require(`@/assets/${slide.image}`)" alt="" role="presentation" :style="`object-position: ${slide.position}`">
-
+            <picture>
+              <source :srcset="require(`@/assets/${slide.image}.jpg`)" media="(min-width: 2049px)">
+              <source :srcset="require(`@/assets/${slide.image}_medium.jpg`)" media="(min-width: 1981px)">
+              <source :srcset="require(`@/assets/${slide.image}_small.jpg`)" media="(min-width: 769px)">
+              <img :src="require(`@/assets/${slide.image}_xs.jpg`)" />
+            </picture>
             <div class="slideshow__slide-text" :style="`color: ${slide.color}`"> 
               <h2>{{slide.title}}</h2>
             </div>
@@ -118,7 +122,6 @@ export default {
     position: relative;
     z-index: 10;
     overflow: hidden;
-    max-width: 2560px;
     margin: 0 auto;
 
     @media (min-width: $large) {
@@ -214,7 +217,11 @@ export default {
         height: 100%;
         width: 100%;
         object-fit: cover;
-        object-position: bottom;
+        object-position: center top;
+
+        @media (max-width: $medium) {
+          object-position: left center;
+        }
       }
     }
 
@@ -222,9 +229,9 @@ export default {
       color: $white;
       position: absolute;
       z-index: 20;
-      transform: translate(-50%, -50%);
+      transform: translateX(-50%);
       left: 50% !important;
-      top: 50% !important;
+      top: 15% !important;
       width: 1000px;
       text-align: center;
       color: $white !important;
