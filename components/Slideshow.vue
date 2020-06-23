@@ -16,9 +16,12 @@
               <source :srcset="require(`@/assets/${slide.image}_small.jpg`)" media="(min-width: 769px)">
               <img :src="require(`@/assets/${slide.image}_xs.jpg`)" />
             </picture>
-            <div class="slideshow__slide-text" :style="`color: ${slide.color}`"> 
-              <h2>{{slide.title}}</h2>
-            </div>
+
+            <template v-if="slide.title">
+              <div class="slideshow__slide-text" :style="`color: ${slide.color}`"> 
+                <h2>{{slide.title}}</h2>
+              </div>
+            </template>
           </div>
       </div>
     </div>
@@ -210,7 +213,7 @@ export default {
         width: 100%;
         height: 100%;
         position: absolute;
-        background: rgba(0,0,0,0.35);
+        //background: rgba(0,0,0,0.35);
       }
 
       img {
