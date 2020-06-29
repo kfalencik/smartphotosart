@@ -7,11 +7,6 @@ export default {
         position: 'center bottom'
       },
       {
-        image: 'slideshow/2',
-        color: 'white',
-        position: 'center bottom'
-      },
-      {
         image: 'slideshow/3',
         color: '#4e4e4e',
         position: 'center bottom'

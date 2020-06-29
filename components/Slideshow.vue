@@ -139,6 +139,10 @@ export default {
       height: 700px;
     }
 
+    @media (min-width: 3000) and (min-height: 1200px) {
+      height: 900px;
+    }
+
     &__logo {
       position: absolute;
       top: 50%;
