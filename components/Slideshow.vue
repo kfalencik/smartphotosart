@@ -139,7 +139,7 @@ export default {
       height: 700px;
     }
 
-    @media (min-width: 3000) and (min-height: 1200px) {
+    @media (min-width: 3000px) and (min-height: 1200px) {
       height: 900px;
     }
 
@@ -164,11 +164,19 @@ export default {
       width: 100%;
 
       @media (min-width: $large) {
+        height: 585px;
+      }
+
+      @media (min-width: $large) {
         height: 615px;
       }
 
       @media (min-width: $xlarge) and (min-height: 1200px) {
         height: 700px;
+      }
+
+      @media (min-width: 3000px) and (min-height: 1200px) {
+        height: 900px;
       }
     }
 
@@ -224,11 +232,7 @@ export default {
         height: 100%;
         width: 100%;
         object-fit: cover;
-        object-position: center top;
-
-        @media (max-width: $medium) {
-          object-position: left center;
-        }
+        object-position: center bottom;
       }
     }
 
