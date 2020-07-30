@@ -6,11 +6,11 @@
 
           <template v-if="overlay && image !== 0">
             <div class="product__overlay" @click="overlay = false">
-              <img :src="require(`@/assets/products/${product.slug}/${product.image}`)" v-if="image === 1" role="presentation" alt="" />
-              <img :src="require(`@/assets/products/${product.slug}/${product.canvasImage}`)" v-if="image === 2" role="presentation" alt="" />
-              <img :src="require(`@/assets/products/${product.slug}/${product.image2}`)" v-if="product.image2 && image === 3" role="presentation" alt="" />
-              <img :src="require(`@/assets/products/${product.slug}/${product.image3}`)" v-if="product.image3 && image === 4" role="presentation" alt="" />
-              <img :src="require(`@/assets/products/${product.slug}/${product.image4}`)" v-if="product.image4 && image === 5" role="presentation" alt="" />
+              <img :src="require(`@/assets/products/${product.slug}/main.jpg`)" v-if="image === 1" role="presentation" alt="" />
+              <img :src="require(`@/assets/products/${product.slug}/wall.jpg`)" v-if="image === 2" role="presentation" alt="" />
+              <img :src="require(`@/assets/products/${product.slug}/room-1.jpg`)" v-if="product.image2 && image === 3" role="presentation" alt="" />
+              <img :src="require(`@/assets/products/${product.slug}/room-2.jpg`)" v-if="product.image3 && image === 4" role="presentation" alt="" />
+              <img :src="require(`@/assets/products/${product.slug}/room-3.jpg`)" v-if="product.image4 && image === 5" role="presentation" alt="" />
               <img v-if="product.landscape && image === 6" :src="require('@/assets/images/comparison_landscape.jpg')" role="presentation" alt="" />
               <img v-if="!product.landscape && image === 6" :src="require('@/assets/images/comparison_portrait.jpg')" role="presentation" alt="" />
 
@@ -129,8 +129,8 @@
           <div class="columns is-4">
             <div class="column is-two-thirds">
               <template v-if="image === 0">
-                <div v-if="product.canvasImage" class="product__dynamic-preview" :style="{ 'background-image': 'url(' + require('@/assets/images/product-' + orientation + '-background-' + canvasImage + '.jpg') + ')' }" >
-                  <div class="product__canvas" :style="{ 'background-image': 'url(' + require(`@/assets/products/${slug}/${product.canvasImage}`), 'transform': 'scale(' + size * zoom + ')', width: product.landscape ? '480px' : '310px',   height: product.landscape ? '310px' : '480px' }">
+                <div class="product__dynamic-preview" :style="{ 'background-image': 'url(' + require('@/assets/images/product-' + orientation + '-background-' + canvasImage + '.jpg') + ')' }" >
+                  <div class="product__canvas" :style="{ 'background-image': 'url(' + require(`@/assets/products/${slug}/main.jpg`), 'transform': 'scale(' + size * zoom + ')', width: product.landscape ? '480px' : '310px',   height: product.landscape ? '310px' : '480px' }">
                     <div class="product__frame" v-if="frame !== 'transparent'" :style="{'border-color': frame}"></div>
                   </div>
 
@@ -145,11 +145,11 @@
 
               <template v-else>
                 <div class="product__image">
-                  <img :src="require(`@/assets/products/${slug}/${product.image}`)" v-if="image === 1" role="presentation" alt="" />
-                  <img :src="require(`@/assets/products/${slug}/${product.canvasImage}`)" v-if="image === 2" role="presentation" alt="" />
-                  <img :src="require(`@/assets/products/${slug}/${product.image2}`)" v-if="product.image2 && image === 3" role="presentation" alt="" />
-                  <img :src="require(`@/assets/products/${slug}/${product.image3}`)" v-if="product.image3 && image === 4" role="presentation" alt="" />
-                  <img :src="require(`@/assets/products/${slug}/${product.image4}`)" v-if="product.image4 && image === 5" role="presentation" alt="" />
+                  <img :src="require(`@/assets/products/${slug}/main.jpg`)" v-if="image === 1" role="presentation" alt="" />
+                  <img :src="require(`@/assets/products/${slug}/wall.jpg`)" v-if="image === 2" role="presentation" alt="" />
+                  <img :src="require(`@/assets/products/${slug}/room-1.jpg`)" v-if="image === 3" role="presentation" alt="" />
+                  <img :src="require(`@/assets/products/${slug}/room-2.jpg`)" v-if="image === 4" role="presentation" alt="" />
+                  <img :src="require(`@/assets/products/${slug}/room-3.jpg`)" v-if="image === 5" role="presentation" alt="" />
                   <img v-if="product.landscape && image === 6" :src="require('@/assets/images/comparison_landscape.jpg')" role="presentation" alt="" />
                   <img v-if="!product.landscape && image === 6" :src="require('@/assets/images/comparison_portrait.jpg')" role="presentation" alt="" />
 
@@ -170,23 +170,23 @@
                 </div>
 
                 <div class="product__thumbnails-item" @click="image = 2;" :class="{'product__thumbnails-item--active': image === 2}">
-                  <img :src="require(`@/assets/products/${slug}/${product.canvasImage}`)" alt="Thumbnail 3" />
+                  <img :src="require(`@/assets/products/${slug}/main.jpg`)" alt="Thumbnail 3" />
                 </div>
 
                 <div class="product__thumbnails-item" @click="image = 1;" :class="{'product__thumbnails-item--active': image === 1}">
-                  <img :src="require(`@/assets/products/${slug}/${product.image}`)" alt="Thumbnail 2" />
+                  <img :src="require(`@/assets/products/${slug}/wall.jpg`)" alt="Thumbnail 2" />
                 </div>
 
-                <div v-if="product.image2" class="product__thumbnails-item" @click="image = 3;" :class="{'product__thumbnails-item--active': image === 3}">
-                  <img :src="require(`@/assets/products/${slug}/${product.image2}`)" alt="Thumbnail 4" />
+                <div class="product__thumbnails-item" @click="image = 3;" :class="{'product__thumbnails-item--active': image === 3}">
+                  <img :src="require(`@/assets/products/${slug}/room-1.jpg`)" alt="Thumbnail 4" />
                 </div>
 
-                <div v-if="product.image3" class="product__thumbnails-item" @click="image = 4;" :class="{'product__thumbnails-item--active': image === 4}">
-                  <img :src="require(`@/assets/products/${slug}/${product.image3}`)" alt="Thumbnail 4" />
+                <div class="product__thumbnails-item" @click="image = 4;" :class="{'product__thumbnails-item--active': image === 4}">
+                  <img :src="require(`@/assets/products/${slug}/room-2.jpg`)" alt="Thumbnail 4" />
                 </div>
 
-                <div v-if="product.image4" class="product__thumbnails-item" @click="image = 5;" :class="{'product__thumbnails-item--active': image === 5}">
-                  <img :src="require(`@/assets/products/${slug}/${product.image4}`)" alt="Thumbnail 4" />
+                <div class="product__thumbnails-item" @click="image = 5;" :class="{'product__thumbnails-item--active': image === 5}">
+                  <img :src="require(`@/assets/products/${slug}/room-3.jpg`)" alt="Thumbnail 4" />
                 </div>
 
                 <div class="product__thumbnails-item" @click="image = 6;" :class="{'product__thumbnails-item--active': image === 6}">
@@ -332,14 +332,14 @@ export default {
         { hid: 'ogdesc', property: 'og:description', content: 'A beautiful canvas "' + this.product.title + '" for your wall'},
         { hid: 'ogtype', property: 'og:type', content: 'product.item'},
         { hid: 'ogurl', property: 'og:url', content: 'https://www.smartphotosart.com/shop/' + this.$route.params.slug},
-        { hid: 'ogimage', property: 'og:image', content: require(`@/assets/products/${this.slug}/${this.product.canvasImage}`)},
+        { hid: 'ogimage', property: 'og:image', content: require(`@/assets/products/${this.slug}/main.jpg`)},
         { property: 'product:price:amount', content: this.priceFormatter(this.productTotal)},
         { property: 'product:price:currency', content: 'USD'},
         { property: 'product:retailer_item_id', content: this.product.id},
         { hid: 'twittercard', name: 'twitter:card', content: 'summary_large_image'},
         { hid: 'twittertitle', name: 'twitter:title', content: 'Smart Photos Art - ' + this.product.title},
         { hid: 'twitterdesc', name: 'twitter:description', content: 'A beautiful canvas "' + this.product.title + '" for your wall'},
-        { hid: 'twitterimage', name: 'twitter:image', content: require(`@/assets/products/${this.slug}/${this.product.canvasImage}`)},
+        { hid: 'twitterimage', name: 'twitter:image', content: require(`@/assets/products/${this.slug}/main.jpg`)},
       ],
       link: [
         { rel: 'canonical', href: 'https://www.smartphotosart.com/shop/' + this.$route.params.slug}
@@ -354,7 +354,7 @@ export default {
       "logo": "https://d33wubrfki0l68.cloudfront.net/c65ae7c78c877a2b79ca8c12efc08fbfdf7e6409/32cd5/_nuxt/img/7aadeb4.png",
       "name": this.product.title,
       "category": this.product.category,
-      "image": require(`@/assets/products/${this.slug}/${this.product.canvasImage}`),
+      "image": require(`@/assets/products/${this.slug}/main.jpg`),
       "description": 'A beautiful canvas "' + this.product.title + '" for your wall',
       "productID": this.product.id,
       "aggregateRating": {
@@ -429,7 +429,7 @@ export default {
       return Math.ceil(stars / reviewsTotal);
     },
     background() {
-      return 'url(' + require(`@/assets/products/${this.slug}/${this.product.canvasImage}`) + ')';
+      return 'url(' + require(`@/assets/products/${this.slug}/main.jpg`) + ')';
     },
     prices() {
       return this.$store.state.prices;

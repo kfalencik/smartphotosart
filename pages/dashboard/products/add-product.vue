@@ -27,26 +27,6 @@
           </b-select>
         </b-field>
 
-        <b-field message="890x585 jesli poziome, 585x890 jesli pionowe, najlepiej .jpg" class="form__input" label="Zdjecie na dynamiczny podglad">
-          <b-input placeholder="Zdjecie na dynamiczny podglad" v-model="canvasImage" required></b-input>
-        </b-field>
-
-        <b-field message="890x585 lub 585x890, najlepiej .jpg" class="form__input" label="Zdjecie produktu">
-          <b-input placeholder="Zdjecie produktu" v-model="image" required></b-input>
-        </b-field>
-
-        <b-field message="890x585 lub 585x890, najlepiej .jpg" class="form__input" label="Dodatkowe zdjecie produktu (2)">
-          <b-input placeholder="Dodatkowe zdjecie produktu (2)" v-model="image2"></b-input>
-        </b-field>
-
-        <b-field message="890x585 lub 585x890, najlepiej .jpg" class="form__input" label="Dodatkowe zdjecie produktu (3)">
-          <b-input placeholder="Dodatkowe zdjecie produktu (3)" v-model="image3"></b-input>
-        </b-field>
-
-        <b-field message="890x585 lub 585x890, najlepiej .jpg" class="form__input" label="Dodatkowe zdjecie produktu (4)">
-          <b-input placeholder="Dodatkowe zdjecie produktu (4)" v-model="image4"></b-input>
-        </b-field>
-
         <b-field message='W dolarach np. "120.99"' class="form__input" label="Cena">
           <b-input placeholder="Cena" v-model="price" required></b-input>
         </b-field>
@@ -87,11 +67,6 @@ export default {
             description: '',
             slug: '',
             category: '',
-            image: '',
-            image2: '',
-            image3: '',
-            image4: '',
-            canvasImage: '',
             price: 0,
             discount: 0,
             landscape: "false",
@@ -114,8 +89,6 @@ export default {
             if (
                 this.title === '' ||
                 this.slug === '' ||
-                this.image === '' ||
-                this.canvasImage === '' ||
                 this.price === 0
             ){
                 this.$store.commit('addMessage', ['Cos jest nie tak, sprawdz wszystkie pola.', 'bad']);
@@ -143,11 +116,6 @@ export default {
                     description: this.description,
                     slug: this.slug,
                     category: this.category,
-                    image: this.image,
-                    image2: this.image2,
-                    image3: this.image3,
-                    image4: this.image4,
-                    canvasImage: this.canvasImage,
                     price: this.price,
                     discount: parseInt(this.discount),
                     landscape: this.landscape === 'true' ? true : false,
