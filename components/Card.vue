@@ -6,7 +6,7 @@
           -{{ product.discount }}%
         </div>
         <div class="product__image">
-          <img :src="require(`@/assets/products/${product.slug}/${product.image}`)" :alt="product.title" loading="lazy" />
+          <img :src="product.image2" :alt="product.title" loading="lazy" />
         </div>
         <div class="product__title">
           <h5>{{ product.title }}</h5>

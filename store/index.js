@@ -137,33 +137,68 @@ export const mutations = {
   },
   addProduct (state, product) {
     db = firebase.firestore();
+    storage = firebase.storage().ref();
+    const metadata = {
+      contentType: 'image/jpeg',
+    };
     const self = this;
 
-    db.collection("products").add(product).then(() => {
-      if (process.env.BUILD_HOOK !== 'default') {
-        fetch(process.env.BUILD_HOOK, {
-          method: 'POST',
-          redirect: 'follow'
-        }).then(response => {
-          self.app.router.go();
-        });
-      } else {
-        self.app.router.go();
-      }
-    });
+    product[1].forEach((file, index) => {
+      storage.child(`images/${product[0].slug}/${file.name}`).put(file, metadata).then((payload) => {
+        payload.ref.getDownloadURL().then((url) => {
+          product[0][`image${index + 1}`] = url
+
+          if (index + 1 === product[1].length) {
+            setTimeout(() => {
+              db.collection("products").add(product[0]).then(() => {
+                if (process.env.BUILD_HOOK !== 'default') {
+                  fetch(process.env.BUILD_HOOK, {
+                    method: 'POST',
+                    redirect: 'follow'
+                  }).then(response => {
+                    self.app.router.go();
+                  });
+                } else {
+                  self.app.router.go();
+                }
+              });
+            }, 1000)
+          } 
+        })
+      })
+    })    
   },
   editProduct (state, data) {
     db = firebase.firestore();
+    storage = firebase.storage().ref();
+    const metadata = {
+      contentType: 'image/jpeg',
+    };
     const self = this;
+    
+    const products = data[2].filter(item => item.image)
 
-    db.collection("products").where("id", "==", data[0]).get()
-    .then(function(querySnapshot) {
-      querySnapshot.forEach(function(doc) {
-        db.collection("products").doc(doc.id).update(data[1]).then(() => {
-          self.app.router.go();
-        });
-      });
-    });
+    products.forEach((file, index) => {
+      console.log(file)
+      storage.child(`images/${data[1].slug}/${file.image.name}`).put(file.image, metadata).then((payload) => {
+        payload.ref.getDownloadURL().then((url) => {
+          data[1][`image${file.id}`] = url
+
+          if (index + 1 === products.length) {
+            setTimeout(() => {
+              db.collection("products").where("id", "==", data[0]).get()
+              .then(function(querySnapshot) {
+                querySnapshot.forEach(function(doc) {
+                  db.collection("products").doc(doc.id).update(data[1]).then(() => {
+                    self.app.router.go();
+                  });
+                })
+              });
+            }, 1000)
+          } 
+        })
+      })
+    })
   },
   removeProduct(state, id) {
     db = firebase.firestore();
