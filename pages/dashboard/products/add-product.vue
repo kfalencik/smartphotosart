@@ -16,15 +16,23 @@
           <b-input maxlength="1000" type="textarea" placeholder="Opis produktu" v-model="description"></b-input>
         </b-field>
 
-        <b-field label="Kategoria">
-          <b-select placeholder="Wybierz kategorie" v-model="category" required>
-            <option
-              v-for="option in categories"
-              :value="option.slug"
-              :key="option.slug">
-              {{ option.title }}
-            </option>
-          </b-select>
+        <b-field class="form__input" message="Wybierz przynajmniej jedna kategorie" label="Katergorie">
+          <b-taginput
+            v-model="categories"
+            ellipsis
+            autocomplete
+            :allow-new="false"
+            :data="categoriesSelect"
+            maxtags="3"
+            :openOnFocus="true"
+            @typing="getFilteredTags"
+            field="title"
+            icon="label"
+            placeholder="Wybierz kategorie">
+              <template slot-scope="props">
+                {{props.option.slug}}
+              </template>
+          </b-taginput>
         </b-field>
 
         <b-field class="form__input file" label="Glowne zdjecie produktu">
@@ -126,7 +134,7 @@ export default {
       title: '',
       description: '',
       slug: '',
-      category: '',
+      categories: [],
       price: 0,
       discount: 0,
       landscape: "true",
@@ -146,7 +154,7 @@ export default {
   },
   layout: 'dashboard',
   computed: {
-    categories() {
+    categoriesSelect() {
       this.category = this.$store.state.categories[0].slug;
       return this.$store.state.categories;
     },
@@ -254,7 +262,7 @@ export default {
             title: this.title,
             description: this.description,
             slug: this.slug,
-            category: this.category,
+            categories: this.categories.join(", "),
             price: this.price,
             discount: parseInt(this.discount),
             landscape: this.landscape === 'true' ? true : false,
@@ -269,6 +277,11 @@ export default {
 
         this.$buefy.toast.open({message: 'Produkt zostal dodany!', type: 'is-success'});
       }
+    },
+
+    getFilteredTags(text) {
+      const data = this.$store.state.categories;
+      this.categoriesSelect = data.filter((option) => option.title.toLowerCase().indexOf(text.toLowerCase()) >= 0)
     }
   }
 }

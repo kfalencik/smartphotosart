@@ -63,9 +63,9 @@ export const mutations = {
         let found = 0;
 
         state.filterCategories.forEach(category => {
-          if (product.category === category) {
-            found++;
-          };
+          if (product.categories) {
+            found = found + product.categories.split(', ').filter(item => item === category).length
+          }
         });
 
         if (found > 0) {
@@ -178,27 +178,37 @@ export const mutations = {
     
     const products = data[2].filter(item => item.image)
 
-    products.forEach((file, index) => {
-      console.log(file)
-      storage.child(`images/${data[1].slug}/${file.image.name}`).put(file.image, metadata).then((payload) => {
-        payload.ref.getDownloadURL().then((url) => {
-          data[1][`image${file.id}`] = url
+    if (products.length) {
+      products.forEach((file, index) => {
+        storage.child(`images/${data[1].slug}/${file.image.name}`).put(file.image, metadata).then((payload) => {
+          payload.ref.getDownloadURL().then((url) => {
+            data[1][`image${file.id}`] = url
 
-          if (index + 1 === products.length) {
-            setTimeout(() => {
-              db.collection("products").where("id", "==", data[0]).get()
-              .then(function(querySnapshot) {
-                querySnapshot.forEach(function(doc) {
-                  db.collection("products").doc(doc.id).update(data[1]).then(() => {
-                    self.app.router.go();
-                  });
-                })
-              });
-            }, 1000)
-          } 
+            if (index + 1 === products.length) {
+              setTimeout(() => {
+                db.collection("products").where("id", "==", data[0]).get()
+                .then(function(querySnapshot) {
+                  querySnapshot.forEach(function(doc) {
+                    db.collection("products").doc(doc.id).update(data[1]).then(() => {
+                      self.app.router.go();
+                    });
+                  })
+                });
+              }, 1000)
+            } 
+          })
         })
       })
-    })
+    } else {
+      db.collection("products").where("id", "==", data[0]).get()
+      .then(function(querySnapshot) {
+        querySnapshot.forEach(function(doc) {
+          db.collection("products").doc(doc.id).update(data[1]).then(() => {
+            self.app.router.go();
+          });
+        })
+      });
+    }
   },
   removeProduct(state, id) {
     db = firebase.firestore();

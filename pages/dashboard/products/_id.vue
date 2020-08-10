@@ -16,15 +16,23 @@
           <b-input maxlength="1000" type="textarea"  v-model="description" placeholder="Opis produktu"></b-input>
         </b-field>
 
-        <b-field label="Kategoria">
-          <b-select placeholder="Wybierz kategorie" v-model="category" required>
-            <option
-              v-for="option in categories"
-              :value="option.slug"
-              :key="option.slug">
-              {{ option.title }}
-            </option>
-          </b-select>
+        <b-field class="form__input" message="Wybierz przynajmniej jedna kategorie" label="Katergorie">
+          <b-taginput
+            v-model="categories"
+            ellipsis
+            autocomplete
+            :allow-new="false"
+            :data="categoriesSelect"
+            maxtags="3"
+            :openOnFocus="true"
+            @typing="getFilteredTags"
+            field="title"
+            icon="label"
+            placeholder="Wybierz kategorie">
+              <template slot-scope="props">
+                {{props.option.title}}
+              </template>
+          </b-taginput>
         </b-field>
 
         <b-field class="form__input file" label="Glowne zdjecie produktu">
@@ -126,7 +134,8 @@ export default {
       title: '',
       description: '',
       slug: '',
-      category: '',
+      categories: [],
+      categoriesSelect: [],
       price: 0,
       discount: 0,
       landscape: "false",
@@ -147,10 +156,6 @@ export default {
   },
   layout: 'dashboard',
   computed: {
-    categories() {
-      let categories = this.$store.state.categories;
-      return categories;
-    },
     id() {
       return this.$route.params.id;
     },
@@ -160,11 +165,13 @@ export default {
       this.title = product.title;
       this.description = product.description;
       this.slug = product.slug;
-      this.category = product.category;
+      this.categoriesSelect = this.$store.state.categories
       this.price = product.price;
       this.discount = product.discount;
       this.landscape = product.landscape.toString();
-      this.tags = product.tags.split(',');
+      this.tags = product.tags ? product.tags.split(',') : [];
+      console.log(product.categories.split(', '))
+      this.categories = product.categories ? product.categories.split(', ').map(item => this.categoriesSelect.filter(category => category.slug === item)[0]) : [];
 
       this.image1URL = product.image1
       this.image2URL = product.image2
@@ -239,10 +246,12 @@ export default {
   },
   methods: {
     editProduct: function() {
+      console.log(this.categories)
       if (
         this.title === '' ||
         this.slug === '' ||
         this.price === 0 ||
+        this.categories === [] ||
         this.tags === ''
       ) {
         this.$store.commit('addMessage', ['Cos jest nie tak, sprawdz wszystkie pola.', 'bad']);
@@ -257,7 +266,7 @@ export default {
             description: this.description,
             price: this.price,
             discount: this.discount,
-            category: this.category,
+            categories: this.categories.map(item => item.slug).join(", "),
             landscape: this.landscape === 'true' ? true : false,
             tags: this.tags.join(", ")
           },
@@ -287,6 +296,11 @@ export default {
 
         this.$buefy.toast.open({message: 'Zmiany zostaly zapisane!', type: 'is-success'});
       }
+    },
+
+    getFilteredTags(text) {
+      const data = this.$store.state.categories;
+      this.categoriesSelect = data.filter((option) => option.title.toLowerCase().indexOf(text.toLowerCase()) >= 0)
     }
   }
 }
