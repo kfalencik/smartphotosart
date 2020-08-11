@@ -170,7 +170,6 @@ export default {
       this.discount = product.discount;
       this.landscape = product.landscape.toString();
       this.tags = product.tags ? product.tags.split(',') : [];
-      console.log(product.categories.split(', '))
       this.categories = product.categories ? product.categories.split(', ').map(item => this.categoriesSelect.filter(category => category.slug === item)[0]) : [];
 
       this.image1URL = product.image1
