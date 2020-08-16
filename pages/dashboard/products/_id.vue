@@ -245,7 +245,6 @@ export default {
   },
   methods: {
     editProduct: function() {
-      console.log(this.categories)
       if (
         this.title === '' ||
         this.slug === '' ||

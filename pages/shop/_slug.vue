@@ -124,6 +124,14 @@
                 <p class="product__sku">SKU: {{product.slug}}</p>
               </div>
             </div>
+
+            <div class="column is-one-third">
+              <div class="product__navigation has-text-right">
+                <span @click="changeProduct('next')"><b-icon icon="chevron-left" size="is-small"></b-icon> Previous Product</span>
+                &nbsp; &nbsp; &nbsp;
+                <span @click="changeProduct('prev')">Next Product <b-icon icon="chevron-right" size="is-small"></b-icon></span>
+              </div>
+            </div>
           </div>
 
           <div class="columns is-4">
@@ -373,6 +381,7 @@ export default {
   transition: 'page',
   data() {
     return {
+      prodcutIndex: 0,
       quantity: 1,
       size: 0.2 ,
       material: 0,
@@ -412,7 +421,12 @@ export default {
       return this.$route.params.slug;
     },
     product() {
-      const product = this.$store.state.products.filter(product => product.slug === this.slug);
+      const product = this.$store.state.products.filter((product, index) => {
+        if (product.slug === this.slug) {
+          this.prodcutIndex = index;
+          return product
+        }
+      });
       return product[0];
     },
     productReviews() {
@@ -605,6 +619,18 @@ export default {
       this.frame = 'transparent';
       this.frameOption = 0;
       this.backingOption = 0;
+    },
+
+    changeProduct (direction) {
+      let newProductSlug = 0;
+      
+      if (direction === 'next') {
+        newProductSlug = this.$store.state.products[this.prodcutIndex + 1] ? this.$store.state.products[this.prodcutIndex + 1].slug : this.$store.state.products[0].slug
+      } else {
+        newProductSlug = this.$store.state.products[this.prodcutIndex - 1] ? this.$store.state.products[this.prodcutIndex - 1].slug : this.$store.state.products[this.$store.state.products.length - 1].slug
+      }
+
+      this.$router.push('/shop/' + newProductSlug)
     }
   }
 }
@@ -1131,6 +1157,10 @@ export default {
         display: block;
         object-fit: cover;
       }
+    }
+
+    &__navigation span {
+      cursor: pointer;
     }
   }
 </style>
