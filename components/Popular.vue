@@ -1,9 +1,21 @@
 <template>
   <div class="section">
     <div class="container">
-      <h2>Most popular designs</h2>
+      <h2>
+        <router-link to="/shop">Most popular designs</router-link>
+      </h2>
+
       <Products :products="products" />
-      <router-link to="/shop">See all products</router-link>
+      
+      <div class="has-text-centered">
+        <b-button to="/shop" tag="router-link" class="is-tertiary"> 
+          <b-icon
+            icon="cart"
+            size="is-small">
+          </b-icon>
+          &nbsp; Explore Our Designs
+        </b-button>
+      </div>
     </div>
   </div>
 
@@ -32,11 +44,19 @@ export default {
   .container {
     h2 {
       margin-top: 0;
+
+      a {
+        color: $black;
+      }
     }
 
-    a {
-      float: right;
-      text-decoration: underline;
+    .is-tertiary {
+      background-color: $tertiary;
+      color: $black;
+    }
+
+    .has-text-centered {
+      margin-top: 2em;
     }
   }
 </style>

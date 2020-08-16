@@ -953,6 +953,10 @@ export default {
       slug: 'animals'
     },
     {
+      title: 'Architecture',
+      slug: 'architecture'
+    },
+    {
       title: 'Beach',
       slug: 'beach'
     },
