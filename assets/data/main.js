@@ -973,8 +973,16 @@ export default {
       slug: 'coasts'
     },
     {
+      title: 'Food',
+      slug: 'food'
+    },
+    {
       title: 'Forest',
       slug: 'forest'
+    },
+    {
+      title: 'Landscape',
+      slug: 'landscape'
     },
     {
       title: 'Mountains',
