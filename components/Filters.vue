@@ -7,7 +7,7 @@
       </div>
     </div>
 
-    <b-field label="Filter by">
+    <b-field label="Sort by">
       <b-select placeholder="Filter by" v-model="sorter" @input="sortProducts" expanded>
         <option value="popularity-az">Most popular</option>
         <option value="popularity-za">Least popular</option>

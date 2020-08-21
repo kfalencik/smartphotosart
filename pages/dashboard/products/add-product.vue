@@ -235,6 +235,7 @@ export default {
         this.image3 === null ||
         this.image4 === null ||
         this.image5 === null ||
+        this.categories === [] ||
         this.tags === ''
       ){
         this.$store.commit('addMessage', ['Cos jest nie tak, sprawdz wszystkie pola.', 'bad']);
@@ -262,7 +263,7 @@ export default {
             title: this.title,
             description: this.description,
             slug: this.slug,
-            categories: this.categories.join(", "),
+            categories: this.categories.map(item => item.slug).join(", "),
             price: this.price,
             discount: parseInt(this.discount),
             landscape: this.landscape === 'true' ? true : false,

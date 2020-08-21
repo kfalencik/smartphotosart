@@ -144,3 +144,12 @@ export default {
     }
   }
 </style>
+
+<style lang="scss">
+  .pagination-list {
+    ul {
+      margin: 0;
+      list-style: none;
+    }
+  }
+</style>

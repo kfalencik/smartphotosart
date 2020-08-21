@@ -1,7 +1,43 @@
 <template>
   <div>
     <h2>Produkty</h2>
-    <router-link class="button is-black" to="/dashboard/products/add-product">Dodaj produkt</router-link>
+    
+    <div class="filters">
+      <b-field grouped>
+        <p class="control">
+        <b-button 
+          tag="router-link"
+          type="is-dark"
+          to="/dashboard/products/add-product"
+        >
+          Dodaj produkt
+        </b-button>
+        </p>
+
+        <p class="control">
+          <b-autocomplete
+            v-model="filterName"
+            placeholder="Wyszukaj po nazwie"
+            :data="products"
+            field="title"
+            @input="filterByName"
+          >
+          </b-autocomplete>
+        </p>
+
+        <p class="control">
+          <b-select class="control" placeholder="Kategoria" @input="filterByCategory" v-model="filterCategory">
+            <option value="">Wybierz kategorie</option>
+            <option
+              v-for="category in categories"
+              :key="category.slug">
+              {{ category.title }}
+            </option>
+          </b-select>
+        </p>
+      </b-field>
+    </div>
+
     <b-table :data="products" :bordered="true" :striped="true" :narrowed="true" :current-page.sync="currentPage" :paginated="true" :per-page="20">
       <template slot-scope="props">
         <b-table-column field="id" label="ID" width="40">
@@ -30,11 +66,13 @@ export default {
   data() {
     return {
       currentPage: 1,
+      filterName: '',
+      filterCategory: ''
     }
   },
   computed: {
     products() {
-      let products = [...this.$store.state.products];
+      let products = [...this.$store.state.filteredProducts];
       let productsData = products.sort((a, b) => (a.slug > b.slug) ? 1 : -1);
 
       products.forEach(product => {
@@ -42,12 +80,16 @@ export default {
       });
 
       return productsData;
+    },
+    categories () {
+      return this.$store.state.categories
     }
   },
   methods: {
     price: function(price) {
       return '$' + (Math.floor(price * 100) / 100).toFixed(2)
     },
+
     removeProduct: function(id) {
       this.$buefy.dialog.confirm({
         title: 'Czy jestes pewien?',
@@ -62,13 +104,25 @@ export default {
           this.$store.commit('removeProduct', id);
         }
       });
+    },
+
+    filterByCategory () {
+      const data = this.$store.state.categories;
+      const selectedCategory = data.filter((option) => option.title === this.filterCategory)[0]
+      this.$store.commit('setFilterCategory', selectedCategory.slug)
+      this.$store.commit('filterProducts')
+    },
+
+    filterByName () {
+      this.$store.commit('setSearchKeyword', this.filterName)
+      this.$store.commit('filterProducts')
     }
   }
 }
 </script>
 
 <style lang="scss" scoped>
-  .button {
+  .filters {
     margin: 15px 0 25px;
   }
 </style>
