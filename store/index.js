@@ -427,25 +427,21 @@ export const actions = {
     const storage = firebase.storage().ref();
 
     context.state.slideshowImages.forEach(item => {
-        const images = []
+      const images = []
 
-        storage.child(`site/slideshow/${item.images}.jpg`).getDownloadURL().then(function(url) {
-          images.push(url)
-        })
-
+      storage.child(`site/slideshow/${item.images}.jpg`).getDownloadURL().then(function(url) {
+        images.push(url)
         storage.child(`site/slideshow/${item.images}_medium.jpg`).getDownloadURL().then(function(url) {
           images.push(url)
+          storage.child(`site/slideshow/${item.images}_small.jpg`).getDownloadURL().then(function(url) {
+            images.push(url)
+            storage.child(`site/slideshow/${item.images}_xs.jpg`).getDownloadURL().then(function(url) {
+              images.push(url)
+              item.images = images;
+            })
+          })
         })
-
-        storage.child(`site/slideshow/${item.images}_small.jpg`).getDownloadURL().then(function(url) {
-          images.push(url)
-        })
-
-        storage.child(`site/slideshow/${item.images}_xs.jpg`).getDownloadURL().then(function(url) {
-          images.push(url)
-        })
-
-        item.images = images.sort((a, b) => (a < b) ? 1 : -1);
+      })
     })
   }
 }

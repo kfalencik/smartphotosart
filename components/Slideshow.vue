@@ -13,10 +13,10 @@
             <img
               :src="slide.images[1]"
               :srcset="`
-                ${slide.images[3]} 2049w,
+                ${slide.images[0]} 2049w,
                 ${slide.images[1]} 1981w,
                 ${slide.images[2]} 769w,
-                ${slide.images[0]} 320w,
+                ${slide.images[3]} 320w,
               `"
             />
 
