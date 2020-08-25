@@ -15,7 +15,17 @@
           <div class="header__search">
             <form @submit.stop.prevent="search">
               <label class="sr-only" for="search">Search</label>
-              <input id="search" class="input input--inline" v-model="searchKeyword" placeholder="Search for..." />
+              <b-input 
+                type="search"
+                id="search"
+                icon="magnify"
+                icon-clickable
+                expanded
+                placeholder="Search for..."
+                v-model="searchKeyword"
+                @input="search"
+                >
+              </b-input>
               <button type="submit" @click.stop.prevent="search" class="button"><span class="sr-only">Search</span><b-icon icon="magnify" custom-size="mdi-24px"></b-icon></button>
             </form>
           </div>
@@ -103,11 +113,11 @@
         this.navigation = !this.navigation;
       },
       allCategories: function() {
-        this.searchKeyword = '';
-        this.$store.commit('setSearchKeyword', '');
-        this.$store.commit('toggleFilterCategory', []);
-        this.$store.dispatch('filterProducts');
-        this.$store.commit('sortProducts', 'popularity-az');
+        // this.searchKeyword = '';
+        // this.$store.commit('setSearchKeyword', '');
+        // this.$store.commit('toggleFilterCategory', []);
+        // this.$store.dispatch('filterProducts');
+        // this.$store.commit('sortProducts', 'popularity-az');
         this.$router.push('/shop');
       },
       selectCategory: function(slug) {
@@ -190,6 +200,10 @@
 
       form {
         padding-top: 0;
+
+        .control {
+          flex: 1;
+        }
 
         .is-primary {
           background-color: $black;

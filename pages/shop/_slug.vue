@@ -323,6 +323,8 @@
       </div>
     </div>
 
+    <SimilarProducts :number="4" />
+
     <KeyPoints style="key-points" />
   </div>
 </template>
@@ -330,6 +332,7 @@
 <script>
 import Stars from '~/components/Stars';
 import KeyPoints from '~/components/KeyPoints';
+import SimilarProducts from '~/components/SimilarProducts';
 
 export default {
   head () {
@@ -407,7 +410,8 @@ export default {
   },
   components: {
     Stars,
-    KeyPoints
+    KeyPoints,
+    SimilarProducts
   },
   computed: {
     orientation() {
@@ -650,7 +654,6 @@ export default {
     $canvasWidth: 300px;
     $canvasHeight: 480px;
     $canvasDepth: 6px;
-    margin-bottom: 50px;
 
     h2 {
       margin-top: 0;

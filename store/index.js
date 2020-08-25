@@ -34,7 +34,8 @@ export const state = () => ({
   filterCategories: [],
   filterPrice: [0, 999],
   filterTags: [],
-  sorter: 'popularity-az',
+  orientation: '',
+  sorter: 'date-az',
   prices: data.prices,
   messages: [],
   loaded: false,
@@ -74,6 +75,12 @@ export const mutations = {
       });
     } 
 
+    if(state.orientation !== '') {
+      state.filteredProducts = state.filteredProducts.filter(item => {
+        return (item.landscape && state.orientation === 'landscape') || (!item.landscape && state.orientation === 'portrait')
+      })
+    }
+
     if (state.searchKeyword !== '') {
       state.filteredProducts = state.filteredProducts.filter(product => {
         if (product.title.toLowerCase().indexOf(state.searchKeyword.toLowerCase()) !== -1 || product.tags.toLowerCase().indexOf(state.searchKeyword.toLowerCase()) !== -1) {
@@ -82,17 +89,20 @@ export const mutations = {
       });
     }
   },
+  orientationProducts (state, orientation) {
+    state.orientation = orientation;
+  },
   sortProducts (state, sorter = null) {
     if (sorter) {
       state.sorter = sorter;
     }
 
     switch (state.sorter) {
-      case 'date-az':
-        state.filteredProducts.sort((a, b) => (a.date < b.date) ? 1 : -1);
-        break;
       case 'date-za':
-        state.filteredProducts.sort((a, b) => (a.date > b.date) ? 1 : -1);
+        state.filteredProducts.sort((a, b) => (a.date < b.date) ? -1 : ((a.date > b.date) ? 1 : 0));
+        break;
+      case 'date-az':
+        state.filteredProducts.sort((a, b) => (a.date > b.date) ? -1 : ((a.date < b.date) ? 1 : 0));
         break;
       case 'popularity-az':
         state.filteredProducts.sort((a, b) => (a.bought < b.bought) ? 1 : -1);

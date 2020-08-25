@@ -7,12 +7,20 @@
       </div>
     </div>
 
+    <b-field label="Orientation type">
+      <b-select placeholder="Orientation type" v-model="orientation" @input="orientationProducts($event)" expanded>
+        <option value="">All</option>
+        <option value="landscape">Landscape</option>
+        <option value="portrait">Portrait</option>
+      </b-select>
+    </b-field>
+
     <b-field label="Sort by">
-      <b-select placeholder="Filter by" v-model="sorter" @input="sortProducts" expanded>
-        <option value="popularity-az">Most popular</option>
-        <option value="popularity-za">Least popular</option>
+      <b-select placeholder="Sort by" v-model="sorter" @input="sortProducts($event)" expanded>
         <option value="date-az">Newest products</option>
         <option value="date-za">Oldest products</option>
+        <option value="popularity-az">Most popular</option>
+        <option value="popularity-za">Least popular</option>
         <option value="price-za">Lowest price</option>
         <option value="price-az">Highest price</option>
       </b-select>
@@ -22,11 +30,6 @@
 
 <script>
 export default {
-  data() {
-    return {
-      sorter: 'popularity-az'
-    }
-  },
   computed: {
     categories() {
       return this.$store.state.categories;
@@ -42,6 +45,22 @@ export default {
       get () {
         return this.$store.state.filterCategories;
       }
+    },
+    sorter: {
+      set (sorter) {
+        this.$store.commit('sortProducts', sorter);
+      },
+      get () {
+        return this.$store.state.sorter;
+      }
+    },
+    orientation: {
+      set (orientation) {
+        this.$store.commit('orientationProducts', orientation);
+      },
+      get () {
+        return this.$store.state.orientation;
+      }
     }
   },
   methods: {
@@ -55,6 +74,10 @@ export default {
       this.$store.commit('sortProducts', this.sorter);
     },
     sortProducts: function(event) {
+      this.$store.commit('sortProducts', this.sorter);
+    },
+    orientationProducts: function(event) {
+      this.$store.dispatch('filterProducts');
       this.$store.commit('sortProducts', this.sorter);
     }
   }
