@@ -30,7 +30,6 @@ export const state = () => ({
   searchKeyword: '',
   homepage: data.homepage,
   categories: data.categories,
-  slideshow: data.slideshow.slides,
   filterCategories: [],
   filterPrice: [0, 999],
   filterTags: [],
