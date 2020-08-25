@@ -40,7 +40,24 @@ export const state = () => ({
   messages: [],
   loaded: false,
   redirecting: false,
-  ordersLoaded: false
+  ordersLoaded: false,
+  slideshowImages: [
+    {
+      images: '1'
+    },
+    {
+      images: '2'
+    },
+    {
+      images: '3'
+    },
+    {
+      images: '4'
+    },
+    {
+      images: '5'
+    }
+  ]
 })
 
 export const mutations = {
@@ -404,5 +421,33 @@ export const actions = {
     });
     orders.sort((a, b) => (a.timestamp > b.timestamp) ? 1 : -1);
     context.commit('loadOrders', orders);
+  },
+
+  async getSlideshowImages (context) {
+    const storage = firebase.storage().ref();
+
+    context.state.slideshowImages.forEach(item => {
+        const images = []
+
+        storage.child(`site/slideshow/${item.images}.jpg`).getDownloadURL().then(function(url) {
+          images.push(url)
+        })
+
+        storage.child(`site/slideshow/${item.images}_medium.jpg`).getDownloadURL().then(function(url) {
+          images.push(url)
+        })
+
+        storage.child(`site/slideshow/${item.images}_small.jpg`).getDownloadURL().then(function(url) {
+          images.push(url)
+        })
+
+        storage.child(`site/slideshow/${item.images}_xs.jpg`).getDownloadURL().then(function(url) {
+          images.push(url)
+        })
+
+        item.images = images
+    })
+
+    console.log(context.state)
   }
 }

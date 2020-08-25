@@ -7,14 +7,14 @@
       <b-icon icon="arrow-right" custom-size="mdi-24px"></b-icon>
     </button>
 
-    <div class="slideshow__slides">
+    <div class="slideshow__slides" v-if="slides.length">
       <div v-for="(slide, index) in slides" :key="index" :class="{'slideshow__slide': true, 'slideshow__slide--prev': index + 1 === heroPreviousSlide, 'slideshow__slide--next': index + 1 === heroNextSlide, 'slideshow__slide--active': index + 1 === heroCurrentSlide}">
           <div class="slideshow__slide-image">
             <picture>
-              <source :srcset="require(`@/assets/${slide.image}.jpg`)" media="(min-width: 2049px)">
-              <source :srcset="require(`@/assets/${slide.image}_medium.jpg`)" media="(min-width: 1981px)">
-              <source :srcset="require(`@/assets/${slide.image}_small.jpg`)" media="(min-width: 769px)">
-              <img :src="require(`@/assets/${slide.image}_xs.jpg`)" />
+              <source :srcset="slide.images[0]" media="(min-width: 2049px)">
+              <source :srcset="slide.images[1]" media="(min-width: 1981px)">
+              <source :srcset="slide.images[2]" media="(min-width: 769px)">
+              <img :src="slide.images[3]" />
             </picture>
 
             <template v-if="slide.title">
@@ -43,7 +43,7 @@ export default {
   },
   computed: {
     slides() {
-      return this.$store.state.slideshow
+      return this.$store.state.slideshowImages
     },
     heroTotalSlides() {
       return this.slides.length
@@ -53,13 +53,7 @@ export default {
     let app = this;
     this.initHeroSlider();
 
-    // document.querySelector('.hero').addEventListener('swiped-right', function(){
-    //   app.changeSlide(app.heroCurrentSlide - 1);
-    // });
-
-    // document.querySelector('.hero').addEventListener('swiped-left', function(){
-    //   app.changeSlide(app.heroCurrentSlide + 1);
-    // });
+    this.$store.dispatch('getSlideshowImages')
   },
   methods: {
     initHeroSlider: function() {
