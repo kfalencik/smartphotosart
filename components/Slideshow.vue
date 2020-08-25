@@ -10,12 +10,15 @@
     <div class="slideshow__slides" v-if="slides.length">
       <div v-for="(slide, index) in slides" :key="index" :class="{'slideshow__slide': true, 'slideshow__slide--prev': index + 1 === heroPreviousSlide, 'slideshow__slide--next': index + 1 === heroNextSlide, 'slideshow__slide--active': index + 1 === heroCurrentSlide}">
           <div class="slideshow__slide-image">
-            <picture>
-              <source :srcset="slide.images[3]" media="(min-width: 2049px)">
-              <source :srcset="slide.images[1]" media="(min-width: 1981px)">
-              <source :srcset="slide.images[2]" media="(min-width: 769px)">
-              <img :src="slide.images[0]" />
-            </picture>
+            <img
+              :src="slide.images[1]"
+              :srcset="`
+                ${slide.images[3]} 2049w,
+                ${slide.images[1]} 1981w,
+                ${slide.images[2]} 769w,
+                ${slide.images[0]} 320w,
+              `"
+            />
 
             <template v-if="slide.title">
               <div class="slideshow__slide-text" :style="`color: ${slide.color}`"> 
@@ -52,10 +55,7 @@ export default {
   mounted() {
     let app = this;
     this.initHeroSlider();
-
-    setTimeout(() => {
-      this.$store.dispatch('getSlideshowImages')
-    }, 500);
+    this.$store.dispatch('getSlideshowImages')
   },
   methods: {
     initHeroSlider: function() {
