@@ -116,7 +116,10 @@
 
           <div class="columns is-4">
             <div class="column is-two-thirds">
+              <router-link to="/shop"><b-icon icon="chevron-left" size="is-small"></b-icon>Back to shop</router-link>
               <div class="product__title">
+                
+                <br />
                 <h2>{{product.title}}</h2>
                 <Stars :product="product.id" link="true" />
                 <p v-if="product.description" v-html="product.description"></p>
