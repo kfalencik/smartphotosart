@@ -445,9 +445,7 @@ export const actions = {
           images.push(url)
         })
 
-        item.images = images
+        item.images = images.sort((a, b) => (a < b) ? 1 : -1);
     })
-
-    console.log(context.state)
   }
 }

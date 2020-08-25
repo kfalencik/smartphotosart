@@ -11,10 +11,10 @@
       <div v-for="(slide, index) in slides" :key="index" :class="{'slideshow__slide': true, 'slideshow__slide--prev': index + 1 === heroPreviousSlide, 'slideshow__slide--next': index + 1 === heroNextSlide, 'slideshow__slide--active': index + 1 === heroCurrentSlide}">
           <div class="slideshow__slide-image">
             <picture>
-              <source :srcset="slide.images[0]" media="(min-width: 2049px)">
+              <source :srcset="slide.images[3]" media="(min-width: 2049px)">
               <source :srcset="slide.images[1]" media="(min-width: 1981px)">
               <source :srcset="slide.images[2]" media="(min-width: 769px)">
-              <img :src="slide.images[3]" />
+              <img :src="slide.images[0]" />
             </picture>
 
             <template v-if="slide.title">
