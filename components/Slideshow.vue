@@ -53,7 +53,9 @@ export default {
     let app = this;
     this.initHeroSlider();
 
-    this.$store.dispatch('getSlideshowImages')
+    setTimeout(() => {
+      this.$store.dispatch('getSlideshowImages')
+    }, 500);
   },
   methods: {
     initHeroSlider: function() {
