@@ -23,7 +23,7 @@ export default {
 
       const slug = this.$route.params.slug;
       const product = productsArray.filter(item => item.slug === slug)[0];
-      const productCategories = product.categories.split(', ');
+      const productCategories = product.categories.split(', ').sort((a, b) => (a > b) ? 1 : -1);
       console.log(productCategories)
       
       for (let i = productsArray.length - 1; i > 0; i--) {
@@ -34,13 +34,13 @@ export default {
       while (productsFound.length < this.number) {
         productsArray.forEach(item => {
           if (item.slug !== slug) {
-            if (item.categories.split(', ').includes(productCategories[0])) {
+            if (item.categories.split(', ').sort((a, b) => (a < b) ? 1 : -1).includes(productCategories[0])) {
               productsFound.push(item)
             }
-            else if (item.categories.split(', ').includes(productCategories[1])) {
+            else if (item.categories.split(', ').sort((a, b) => (a < b) ? 1 : -1).includes(productCategories[1])) {
               productsFound.push(item)
             }
-            else if (item.categories.split(', ').includes(productCategories[2])) {
+            else if (item.categories.split(', ').sort((a, b) => (a < b) ? 1 : -1).includes(productCategories[2])) {
               productsFound.push(item)
             }
           }
