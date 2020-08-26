@@ -42,6 +42,10 @@ export default {
   },
   mounted() {
     this.$store.dispatch('getShopData');
+
+    if (window.ApplePaySession) {
+      alert('apple pay available')
+    }
   },
   computed: {
     loaded() {
