@@ -237,7 +237,7 @@
 export default {
     head () {
       return {
-        title: 'Smart Photos Art - Checkout',
+        title: 'Peter Falencik Photography - Checkout',
       }
     },
     data() {
@@ -250,9 +250,9 @@ export default {
           production: process.env.PP_CIDD
         },
         experienceOptions: {
-          name: "Smart Photos Art",
+          name: "Peter Falencik Photography",
           presentation: {
-            brand_name: "Smart Photos Art",
+            brand_name: "Peter Falencik Photography",
             logo_image: "http://localhost:3000/_nuxt/assets/images/logo.svg"
           },
           input_fields: {

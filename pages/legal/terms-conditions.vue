@@ -8,7 +8,7 @@
           <div><strong>Last Updated 03 January 2020 </strong> </div>
 
           <h3>Agreement to Terms</h3>
-          <p>1.1  These Terms and Conditions constitute a legally binding agreement made between you, whether personally or on behalf of an entity (<strong>you</strong>), and <strong>Smart Photos Art</strong>,<strong> </strong>located at<strong> 1280 WILDWOOD LAKES BLVD, </strong><strong> </strong><strong>Naples, FL </strong><strong>34104 United States </strong>(<strong>we</strong>, <strong>us</strong>), concerning your access to and use of the <strong>Smart Photos Art</strong><strong> (https://smartphotosart.com) </strong>website as well as any related applications (the <strong>Site</strong>).  </p>
+          <p>1.1  These Terms and Conditions constitute a legally binding agreement made between you, whether personally or on behalf of an entity (<strong>you</strong>), and <strong>Peter Falencik Photography</strong>,<strong> </strong>located at<strong> 1280 WILDWOOD LAKES BLVD, </strong><strong> </strong><strong>Naples, FL </strong><strong>34104 United States </strong>(<strong>we</strong>, <strong>us</strong>), concerning your access to and use of the <strong>Peter Falencik Photography</strong><strong> (https://smartphotosart.com) </strong>website as well as any related applications (the <strong>Site</strong>).  </p>
           <p>The Site provides the following services: <strong>Online marketplace </strong>(<strong>Services</strong>). You agree that by accessing the Site and/or Services, you have read, understood, and agree to be bound by all of these Terms and Conditions.  </p>
           <p><strong>If you do not agree with all of these Terms and Conditions, then you are prohibited from using the Site and Services and you must discontinue use immediately</strong>. We recommend that you print a copy of these Terms and Conditions for future reference.  </p>
           <p>1.2  The supplemental policies set out in Section 1.7 below, as well as any supplemental terms and condition or documents that may be posted on the Site from time to time, are expressly incorporated by reference.  </p>
@@ -121,7 +121,7 @@
           <p>9.8  A person who is not a party to these Terms and Conditions shall have no right under the Contracts (Rights of Third Parties) Act 1999 to enforce any term of these Terms and Conditions. </p>
           <p>9.9  In order to resolve a complaint regarding the Services or to receive further information regarding use of the Services, please contact us by email at info@smartphotosart.com or by post to: </p>
           <div><br /> </div>
-          <div>Smart Photos Art </div>
+          <div>Peter Falencik Photography </div>
           <div>1280 WILDWOOD LAKES BLVD</div>
           <div>Naples, FL 34104  </div>
           <div>United States    </div>  
@@ -135,7 +135,7 @@
 export default {
   head () {
     return {
-      title: 'Smart Photos Art - Terms & Conditions',
+      title: 'Peter Falencik Photography - Terms & Conditions',
     }
   },
 }

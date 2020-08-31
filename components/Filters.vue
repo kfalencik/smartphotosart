@@ -17,14 +17,18 @@
 
     <b-field label="Sort by">
       <b-select placeholder="Sort by" v-model="sorter" @input="sortProducts($event)" expanded>
-        <option value="date-az">Newest products</option>
-        <option value="date-za">Oldest products</option>
         <option value="popularity-az">Most popular</option>
         <option value="popularity-za">Least popular</option>
+        <option value="date-az">Newest products</option>
+        <option value="date-za">Oldest products</option>
         <option value="price-za">Lowest price</option>
         <option value="price-az">Highest price</option>
       </b-select>
     </b-field>
+
+    <div class="filters__reset">
+      <b-button class="is-full is-black" @click="resetFilters">Reset</b-button>
+    </div>
   </div>
 </template>
 
@@ -79,6 +83,13 @@ export default {
     orientationProducts: function(event) {
       this.$store.dispatch('filterProducts');
       this.$store.commit('sortProducts', this.sorter);
+    },
+    resetFilters: function() {
+      this.$store.commit('setSearchKeyword', '');
+      this.$store.commit('toggleFilterCategory', []);
+      this.$store.commit('orientationProducts', '');
+      this.$store.commit('sortProducts', 'popularity-az');
+      this.filterProducts();
     }
   }
 }
@@ -99,6 +110,14 @@ export default {
       h5 {
         margin-bottom: 10px;
         text-decoration: underline;
+      }
+    }
+
+    &__reset {
+      margin-top: 35px;
+
+      button {
+        width: 100%;
       }
     }
 

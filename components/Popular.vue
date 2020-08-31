@@ -29,7 +29,7 @@ export default {
   computed: {
     products() {
       let productsArray = [...this.$store.state.products];
-      let products = productsArray.sort((a, b) => (a.bought < b.bought) ? 1 : -1);
+      let products = productsArray.sort((a, b) => (a.bought > b.bought) ? -1 : (a.bought < b.bought) ? 1 : 0);
       products = products.slice(0, this.number);
       return products;
     }

@@ -326,7 +326,7 @@
       </div>
     </div>
 
-    <SimilarProducts :number="4" />
+    <SimilarProducts :number="8" />
 
     <KeyPoints style="key-points" />
   </div>
@@ -340,9 +340,9 @@ import SimilarProducts from '~/components/SimilarProducts';
 export default {
   head () {
     return {
-      title: 'Smart Photos Art - ' + this.product.title,
+      title: 'Peter Falencik Photography - ' + this.product.title,
       meta: [
-        { hid: 'ogtitle', property: 'og:title', content: 'Smart Photos Art - ' + this.product.title},
+        { hid: 'ogtitle', property: 'og:title', content: 'Peter Falencik Photography - ' + this.product.title},
         { hid: 'ogdesc', property: 'og:description', content: 'A beautiful canvas "' + this.product.title + '" for your wall'},
         { hid: 'ogtype', property: 'og:type', content: 'product.item'},
         { hid: 'ogurl', property: 'og:url', content: 'https://www.smartphotosart.com/shop/' + this.$route.params.slug},
@@ -351,7 +351,7 @@ export default {
         { property: 'product:price:currency', content: 'USD'},
         { property: 'product:retailer_item_id', content: this.product.id},
         { hid: 'twittercard', name: 'twitter:card', content: 'summary_large_image'},
-        { hid: 'twittertitle', name: 'twitter:title', content: 'Smart Photos Art - ' + this.product.title},
+        { hid: 'twittertitle', name: 'twitter:title', content: 'Peter Falencik Photography - ' + this.product.title},
         { hid: 'twitterdesc', name: 'twitter:description', content: 'A beautiful canvas "' + this.product.title + '" for your wall'},
         { hid: 'twitterimage', name: 'twitter:image', content: this.product.image1},
       ],
@@ -364,7 +364,7 @@ export default {
     return {
       "@context": "https://www.schema.org",
       "@type": "product",
-      "brand": "Smart Photos Art",
+      "brand": "Peter Falencik Photography",
       "logo": "https://d33wubrfki0l68.cloudfront.net/c65ae7c78c877a2b79ca8c12efc08fbfdf7e6409/32cd5/_nuxt/img/7aadeb4.png",
       "name": this.product.title,
       "category": this.product.category,
@@ -435,6 +435,9 @@ export default {
         }
       });
       return product[0];
+    },
+    filteredProducts() {
+      return this.$store.state.filteredProducts
     },
     productReviews() {
       const reviews = this.$store.state.reviews.filter(product => product.id === this.product.id);
@@ -634,11 +637,20 @@ export default {
 
     changeProduct (direction) {
       let newProductSlug = 0;
+      let productIndex = 0;
+
+      this.filteredProducts.forEach((item, index) => {
+        if (item.id === this.product.id) {
+          productIndex = index
+        }
+      })
+
+      console.log(productIndex)
       
-      if (direction === 'next') {
-        newProductSlug = this.$store.state.products[this.prodcutIndex + 1] ? this.$store.state.products[this.prodcutIndex + 1].slug : this.$store.state.products[0].slug
+      if (direction === 'prev') {
+        newProductSlug = this.filteredProducts[productIndex + 1] ? this.filteredProducts[productIndex + 1].slug : this.filteredProducts[0].slug
       } else {
-        newProductSlug = this.$store.state.products[this.prodcutIndex - 1] ? this.$store.state.products[this.prodcutIndex - 1].slug : this.$store.state.products[this.$store.state.products.length - 1].slug
+        newProductSlug = this.filteredProducts[productIndex - 1] ? this.filteredProducts[productIndex - 1].slug : this.filteredProducts[this.filteredProducts.length - 1].slug
       }
 
       this.$router.push('/shop/' + newProductSlug)

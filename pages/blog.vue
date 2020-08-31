@@ -14,7 +14,7 @@
 export default {
   head () {
     return {
-      title: 'Smart Photos Art - Blog',
+      title: 'Peter Falencik Photography - Blog',
     }
   },
 }

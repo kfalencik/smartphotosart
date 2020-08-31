@@ -19,7 +19,7 @@ export default {
   computed: {
     products() {
       const productsArray = [...this.$store.state.products];
-      const productsFound = [];
+      let productsFound = [];
 
       const slug = this.$route.params.slug;
       const product = productsArray.filter(item => item.slug === slug)[0];
@@ -33,19 +33,26 @@ export default {
       while (productsFound.length < this.number) {
         productsArray.forEach(item => {
           if (item.slug !== slug) {
+            item.similarity = 0
             if (item.categories.split(', ').sort((a, b) => (a < b) ? 1 : -1).includes(productCategories[0])) {
-              productsFound.push(item)
+              item.similarity = item.similarity + 2
             }
-            else if (item.categories.split(', ').sort((a, b) => (a < b) ? 1 : -1).includes(productCategories[1])) {
-              productsFound.push(item)
+            if (item.categories.split(', ').sort((a, b) => (a < b) ? 1 : -1).includes(productCategories[1])) {
+              item.similarity = item.similarity + 1
             }
-            else if (item.categories.split(', ').sort((a, b) => (a < b) ? 1 : -1).includes(productCategories[2])) {
-              productsFound.push(item)
+            if (item.categories.split(', ').sort((a, b) => (a < b) ? 1 : -1).includes(productCategories[2])) {
+              item.similarity = item.similarity + 1
             }
+            if (item.title.substring(0, 3) === product.title.substring(0, 3)) {
+              item.similarity = item.similarity + 5
+            }
+
+            productsFound.push(item)
           }
         })
       }
       
+      productsFound = productsFound.sort((a, b) => (a.similarity > b.similarity) ? -1 : ((a.similarity < b.similarity) ? 1 : 0));
       return productsFound.slice(0, this.number);
     }
   },

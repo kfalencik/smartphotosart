@@ -34,7 +34,7 @@ export const state = () => ({
   filterPrice: [0, 999],
   filterTags: [],
   orientation: '',
-  sorter: 'date-az',
+  sorter: 'popularity-az',
   prices: data.prices,
   messages: [],
   loaded: false,
@@ -120,11 +120,11 @@ export const mutations = {
       case 'date-az':
         state.filteredProducts.sort((a, b) => (a.date > b.date) ? -1 : ((a.date < b.date) ? 1 : 0));
         break;
-      case 'popularity-az':
-        state.filteredProducts.sort((a, b) => (a.bought < b.bought) ? 1 : -1);
-        break;
       case 'popularity-za':
-        state.filteredProducts.sort((a, b) => (a.bought > b.bought) ? 1 : -1);
+        state.filteredProducts.sort((a, b) => (a.bought < b.bought) ? -1 : (a.bought > b.bought) ? 1 : 0);
+        break;
+      case 'popularity-az':
+        state.filteredProducts.sort((a, b) => (a.bought > b.bought) ? -1 : (a.bought < b.bought) ? 1 : 0);
         break;
       case 'price-az':
         state.filteredProducts.sort((a, b) => ((a.price - ((a.price/100) * a.discount)) < (b.price - ((b.price/100) * b.discount))) ? 1 : -1);

@@ -4,8 +4,8 @@
       <template v-if="authorized">
         <div class="sidebar">
           <router-link to="/">
-            <h1 class="sr-only">Smart Photos Art</h1>
-            <img :src="require('@/assets/images/logo.svg')" alt="Smart Photos Art" />
+            <h1 class="sr-only">Peter Falencik Photography</h1>
+            <img :src="require('@/assets/images/logo.svg')" alt="Peter Falencik Photography" />
           </router-link>
 
           <nav>
@@ -53,7 +53,7 @@ import LoginForm from '~/components/LoginForm';
 export default {
   head () {
     return {
-      title: 'Smart Photos Art - Dashboard',
+      title: 'Peter Falencik Photography - Dashboard',
     }
   },
   components: {

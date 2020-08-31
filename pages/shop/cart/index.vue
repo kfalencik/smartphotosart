@@ -19,7 +19,7 @@ import Cart from '~/components/Cart';
 export default {
   head () {
     return {
-      title: 'Smart Photos Art - Cart',
+      title: 'Peter Falencik Photography - Cart',
     }
   },
   name: 'Checkout',

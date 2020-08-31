@@ -3,9 +3,9 @@
     <div class="footer__bottom">
       <div class="section">
         <div class="footer__left">
-          <span>Copyright @ 2020 Smart Photos Art - All rights reserved</span>
+          <span>Copyright @ 2020 Peter Falencik Photography - All rights reserved</span>
         </div>
-        <div class="footer__ceter">
+        <div class="footer__center">
           <nav>
             <ul>
               <li><router-link to="/legal/privacy-policy">Privacy Policy</router-link></li>
@@ -50,12 +50,21 @@
           justify-content: space-between;
           align-items: center;
         }
+
+        > div {
+          flex: 1;
+        }
       }
+    }
+
+    &__left {
+      text-align: left;
     }
 
     &__right {
       display: flex;
       align-items: center;
+      justify-content: flex-end;
 
       img {
         margin-left: 15px;
@@ -71,6 +80,7 @@
 
         @media (min-width: $small) {
           flex-direction: row;
+          justify-content: center;
         }
 
         li {

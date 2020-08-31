@@ -25,7 +25,7 @@ import CartItem from '~/components/CartItem';
 export default {
   head () {
     return {
-      title: 'Smart Photos Art - Order complete',
+      title: 'Peter Falencik Photography - Order complete',
     }
   },
   computed: {

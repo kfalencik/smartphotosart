@@ -47,7 +47,7 @@
   export default {
     head () {
       return {
-        title: 'Smart Photos Art - ' + this.product.title + ' reviews',
+        title: 'Peter Falencik Photography - ' + this.product.title + ' reviews',
       }
     },
     transition: 'page',

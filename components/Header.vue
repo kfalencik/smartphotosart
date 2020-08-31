@@ -5,8 +5,8 @@
         <div class="header__left">
           <div class="header__logo">
             <router-link to="/">
-              <h1 class="sr-only">Smart Photos Art</h1>
-              <img src="~/assets/images/logo.svg" alt="Smart Photos Art" />
+              <h1 class="sr-only">Peter Falencik Photography</h1>
+              <img src="~/assets/images/logo.svg" alt="Peter Falencik Photography" />
             </router-link>
           </div>
         </div>
@@ -79,9 +79,8 @@
   export default{
     data() {
       return {
-        siteName: 'Smart Photos Art',
-        navigation: false,
-        searchKeyword: ''
+        siteName: 'Peter Falencik Photography',
+        navigation: false
       }
     },
     mounted() {
@@ -92,6 +91,14 @@
       });
     },
     computed: {
+      searchKeyword: {
+        set (search) {
+          this.$store.commit('setSearchKeyword', search);
+        },
+        get () {
+          return this.$store.state.searchKeyword;
+        }
+      },
       categories() {
         return this.$store.state.categories;
       },
@@ -113,11 +120,6 @@
         this.navigation = !this.navigation;
       },
       allCategories: function() {
-        // this.searchKeyword = '';
-        // this.$store.commit('setSearchKeyword', '');
-        // this.$store.commit('toggleFilterCategory', []);
-        // this.$store.dispatch('filterProducts');
-        // this.$store.commit('sortProducts', 'popularity-az');
         this.$router.push('/shop');
       },
       selectCategory: function(slug) {
@@ -127,7 +129,6 @@
         this.$router.push('/shop');
       },
       search: function() {
-        this.$store.commit('setSearchKeyword', this.searchKeyword);
         this.$store.dispatch('filterProducts');
         this.$store.commit('sortProducts');
         this.$router.push('/shop');

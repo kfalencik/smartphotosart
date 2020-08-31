@@ -16,7 +16,7 @@ import Filters from '~/components/Filters';
 export default {
   head () {
     return {
-      title: 'Smart Photos Art - Shop',
+      title: 'Peter Falencik Photography - Shop',
     }
   },
   name: 'Shop',

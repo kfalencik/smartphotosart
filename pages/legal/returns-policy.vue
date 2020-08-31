@@ -14,7 +14,7 @@
           <h3>RETURN PROCESS</h3>
           <p>To return an item, please email customer service at info@smartphotosart.com to obtain a Return Merchandise Authorization (RMA) number. After receiving a RMA number, place the item securely in its original packaging and include your proof of purchase, and mail your return to the following address:</p>
 
-          <div>Smart Photos Art</div>
+          <div>Peter Falencik Photography</div>
           <div>Attn: Returns</div>
           <div>RMA #</div>
           <div>1280 WILDWOOD LAKES BLVD</div>
@@ -40,7 +40,7 @@
 export default {
   head () {
     return {
-      title: 'Smart Photos Art - Returns Policy',
+      title: 'Peter Falencik Photography - Returns Policy',
     }
   },
 }

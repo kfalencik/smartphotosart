@@ -8,7 +8,7 @@
           <p>If you wish to contact us with any questions or requests, please use the form below or send us a letter to this address:
 
             <address>
-              Smart Photos Art,<br />
+              Peter Falencik Photography,<br />
               1280 WILDWOOD LAKES BLVD,<br />
               Naples, FL 34104,<br />
               United States
@@ -51,7 +51,7 @@
 export default {
   head () {
     return {
-      title: 'Smart Photos Art - Contact',
+      title: 'Peter Falencik Photography - Contact',
     }
   },
 }
