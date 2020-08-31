@@ -382,11 +382,12 @@ export default {
       "category": this.product.category,
       "image": this.product.image1,
       "description": this.product.description,
-      "productID": this.product.slug,
+      "productID": this.product.id,
+      "sku": this.product.sku,
       "aggregateRating": {
         "@type": "aggregateRating",
         "ratingValue": this.productRating,
-        "reviewCount": this.productReviews.length
+        "reviewCount": 1 + this.productReviews.length
       },
       "offers": {
         "@type": "Offer",
