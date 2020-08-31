@@ -253,7 +253,7 @@ export default {
           name: "Peter Falencik Photography",
           presentation: {
             brand_name: "Peter Falencik Photography",
-            logo_image: "/logo.png"
+            logo_image: "https://www.falencik.com/logo.png"
           },
           input_fields: {
             no_shipping: 1
