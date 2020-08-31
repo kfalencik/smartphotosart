@@ -6,7 +6,7 @@
           <div class="header__logo">
             <router-link to="/">
               <h1 class="sr-only">Peter Falencik Photography</h1>
-              <img src="~/assets/images/logo.svg" alt="Peter Falencik Photography" />
+              <img src="/logo.png" alt="Peter Falencik Photography" />
             </router-link>
           </div>
         </div>
@@ -156,14 +156,14 @@
     }
 
     &__logo {
-      width: 100px;
+      width: 140px;
 
       img {
         display: block;
       }
 
       @media (min-width: $medium) {
-        width: 150px;
+        width: 200px;
         margin-right: 25px;
       }
     }

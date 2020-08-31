@@ -116,7 +116,6 @@
 
           <div class="columns is-4">
             <div class="column is-two-thirds">
-              <router-link to="/shop"><b-icon icon="chevron-left" size="is-small"></b-icon>Back to shop</router-link>
               <div class="product__title">
                 
                 <br />
@@ -126,6 +125,12 @@
                 <p v-else>All of our prints are high-resolution images, printed with acid-free ink on best quality canvas. Please use the widget below to customize canvas size, edge colour, frame and more.</p>
                 <p class="product__sku">SKU: {{product.slug}}</p>
               </div>
+            </div>
+          </div>
+
+          <div class="columns is-4">
+            <div class="column is-two-thirds">
+              <router-link to="/shop"><b-icon icon="chevron-left" size="is-small"></b-icon>Back to shop</router-link>
             </div>
 
             <div class="column is-one-third">
@@ -139,16 +144,16 @@
 
           <div class="columns is-4">
             <div class="column is-two-thirds">
-              <template v-if="image === 0">
+              <template v-if="image === 2">
                 <div class="product__dynamic-preview" :style="{ 'background-image': 'url(' + require('@/assets/images/product-' + orientation + '-background-' + canvasImage + '.jpg') + ')' }" >
                   <div class="product__canvas" :style="{ 'background-image': 'url(' + this.product.image1 + ')', 'transform': 'scale(' + size * zoom + ')', width: product.landscape ? '480px' : '310px',   height: product.landscape ? '310px' : '480px' }">
                     <div class="product__frame" v-if="frame !== 'transparent'" :style="{'border-color': frame}"></div>
                   </div>
 
-                  <button @click="canvasImage === 1 ? canvasImage = 5 : canvasImage = canvasImage - 1" class="product__nav-item" title="Previous">
+                  <button @click="image === 1 ? image = 7 : image = image - 1" class="product__nav-item" title="Previous">
                     <b-icon icon="arrow-left" custom-size="mdi-24px"></b-icon>
                   </button>
-                  <button @click="canvasImage === 5 ? canvasImage = 1 : canvasImage = canvasImage + 1" class="product__nav-item" title="Next">
+                  <button @click="image === 7 ? image = 1 : image = image + 1" class="product__nav-item" title="Next">
                     <b-icon icon="arrow-right" custom-size="mdi-24px"></b-icon>
                   </button>
                 </div>
@@ -156,51 +161,58 @@
 
               <template v-else>
                 <div class="product__image">
-                  <img :src="product.image1" v-if="image === 2" role="presentation" alt="" />
-                  <img :src="product.image2" v-if="image === 1" role="presentation" alt="" />
-                  <img :src="product.image3" v-if="image === 3" role="presentation" alt="" />
-                  <img :src="product.image4" v-if="image === 4" role="presentation" alt="" />
-                  <img :src="product.image5" v-if="image === 5" role="presentation" alt="" />
-                  <img v-if="product.landscape && image === 6" :src="require('@/assets/images/comparison_landscape.jpg')" role="presentation" alt="" />
-                  <img v-if="!product.landscape && image === 6" :src="require('@/assets/images/comparison_portrait.jpg')" role="presentation" alt="" />
+                  <img :src="product.image1" v-if="image === 1" role="presentation" alt="" />
+                  <img :src="product.image2" v-if="image === 3" role="presentation" alt="" />
+                  <img :src="product.image3" v-if="image === 4" role="presentation" alt="" />
+                  <img :src="product.image4" v-if="image === 5" role="presentation" alt="" />
+                  <img :src="product.image5" v-if="image === 6" role="presentation" alt="" />
+                  <img v-if="product.landscape && image === 7" :src="require('@/assets/images/comparison_landscape.jpg')" role="presentation" alt="" />
+                  <img v-if="!product.landscape && image === 7" :src="require('@/assets/images/comparison_portrait.jpg')" role="presentation" alt="" />
 
-                  <template v-if="image !== 0">
+                  <template v-if="image !== 2">
                     <button @click="overlay = true" class="product__image-fullscreen" title="Full screen">
                       <b-icon icon="fullscreen" custom-size="mdi-24px"></b-icon>
                     </button>
                   </template>
+
+                  <button @click="image === 7 ? image = 1 : image = image + 1" class="product__nav-item" title="Next">
+                    <b-icon icon="arrow-right" custom-size="mdi-24px"></b-icon>
+                  </button>
+                  <button @click="image === 1 ? image = 7 : image = image - 1" class="product__nav-item" title="Previous">
+                    <b-icon icon="arrow-left" custom-size="mdi-24px"></b-icon>
+                  </button>
                 </div>
               </template>
 
               <p class="small">Please note the preview above is just for demonstration purpouses. The actual size and colours might be slightly different.</p>
 
-              <div class="product__thumbnails">
-                <div class="product__thumbnails-item product__thumbnails-item--preview" :class="{'product__thumbnails-item--active': image === 0}" aria-label="Dynamic preview" @click="image = 0;">
+              <div class="product__thumbnails"> 
+                <div class="product__thumbnails-item" @click="image = 1;" :class="{'product__thumbnails-item--active': image === 1}">
+                  <img :src="product.image1" alt="Thumbnail 3" />
+                </div>
+
+                <div class="product__thumbnails-item product__thumbnails-item--preview" :class="{'product__thumbnails-item--active': image === 2}" aria-label="Dynamic preview" @click="image = 2;">
                   <b-icon icon="image-area"></b-icon>
                   Dynamic preview
                 </div>
 
-                <div class="product__thumbnails-item" @click="image = 2;" :class="{'product__thumbnails-item--active': image === 2}">
-                  <img :src="product.image1" alt="Thumbnail 3" />
-                </div>
-
-                <div class="product__thumbnails-item" @click="image = 1;" :class="{'product__thumbnails-item--active': image === 1}">
+                <div class="product__thumbnails-item" @click="image = 3;" :class="{'product__thumbnails-item--active': image === 3}">
                   <img :src="product.image2" alt="Thumbnail 2" />
                 </div>
 
-                <div class="product__thumbnails-item" @click="image = 3;" :class="{'product__thumbnails-item--active': image === 3}">
+                <div class="product__thumbnails-item" @click="image = 4;" :class="{'product__thumbnails-item--active': image === 4}">
                   <img :src="product.image3" alt="Thumbnail 4" />
                 </div>
 
-                <div class="product__thumbnails-item" @click="image = 4;" :class="{'product__thumbnails-item--active': image === 4}">
+                <div class="product__thumbnails-item" @click="image = 5;" :class="{'product__thumbnails-item--active': image === 5}">
                   <img :src="product.image4" alt="Thumbnail 4" />
                 </div>
 
-                <div class="product__thumbnails-item" @click="image = 5;" :class="{'product__thumbnails-item--active': image === 5}">
+                <div class="product__thumbnails-item" @click="image = 6;" :class="{'product__thumbnails-item--active': image === 6}">
                   <img :src="product.image5" alt="Thumbnail 4" />
                 </div>
 
-                <div class="product__thumbnails-item" @click="image = 6;" :class="{'product__thumbnails-item--active': image === 6}">
+                <div class="product__thumbnails-item" @click="image = 7;" :class="{'product__thumbnails-item--active': image === 7}">
                   <img v-if="product.landscape" :src="require('@/assets/images/comparison_landscape.jpg')" role="presentation" alt="Size comparison" />
                   <img v-else :src="require('@/assets/images/comparison_portrait.jpg')" alt="Size comparison" />
                 </div>
@@ -404,7 +416,7 @@ export default {
       frame: 'transparent',
       frameOption: 0,
       zoom: 1,
-      image: 0,
+      image: 1,
       canvasImage: 1,
       overlay: false,
       informationModal: false,
@@ -808,7 +820,6 @@ export default {
       z-index: 30;
       transition: opacity .5s ease, background .5s ease, color .5s ease;
       cursor: pointer;
-      opacity: 0.3;
       display: block;
       transform: translateY(-50%);
       border: 1px solid $primary;
@@ -986,12 +997,6 @@ export default {
         display: block;
         margin: 0 auto;
       }
-
-      &:hover {
-        .product__image-fullscreen {
-          opacity: 1;
-        }
-      }
     }
 
     &__image-fullscreen {
@@ -1007,7 +1012,6 @@ export default {
       z-index: 30;
       transition: all .5s ease;
       cursor: pointer;
-      opacity: 0.3;
       display: block;
       border: 1px solid $primary;
       
@@ -1034,10 +1038,6 @@ export default {
         width: 100%;
         margin-bottom: 0;
         background-position: center top;
-      }
-
-      &:hover .product__nav-item {
-        opacity: 1;
       }
     }
 

@@ -253,7 +253,7 @@ export default {
           name: "Peter Falencik Photography",
           presentation: {
             brand_name: "Peter Falencik Photography",
-            logo_image: "http://localhost:3000/_nuxt/assets/images/logo.svg"
+            logo_image: "/logo.png"
           },
           input_fields: {
             no_shipping: 1

@@ -4,7 +4,7 @@
       <div>
         <router-link to="/">
           <h1 class="sr-only">Peter Falencik Photography</h1>
-          <img :src="require('@/assets/images/logo.svg')" width="150" alt="Peter Falencik Photography" />
+          <img src="/logo.png" width="150" alt="Peter Falencik Photography" />
         </router-link>
       </div>
       <h3>Zaloguj sie do panelu sterowania</h3>
