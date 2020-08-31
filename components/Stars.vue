@@ -1,11 +1,11 @@
 <template>
   <div v-if="product">
     <div class="stars">
-      <b-icon v-for="index in starsAverage" :key="'star-' + index" icon="star" />
-      <b-icon v-for="index in 5 - starsAverage" :key="'star-empty-' + index" icon="star-outline" />
+      <router-link v-for="index in starsAverage" :key="'star-' + index" :to="'/shop/reviews/' + product"><b-icon icon="star" /></router-link>
+      <router-link v-for="index in 5 - starsAverage" :key="'star-empty-' + index" :to="'/shop/reviews/' + product"><b-icon icon="star-outline" /></router-link>
 
       <span class="reviews" v-if="link">
-        <span v-if="productReviews.length">({{productReviews.length}}) <router-link :to="'/shop/reviews/' + product">Add a review</router-link></span>
+        <span v-if="productReviews.length">({{productReviews.length}}) <router-link :to="'/shop/reviews/' + product">Read or add a review</router-link></span>
         <span v-else>(0) <router-link :to="'/shop/reviews/' + product">Add a review</router-link></span>
       </span>
     </div>

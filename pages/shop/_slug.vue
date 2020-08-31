@@ -443,11 +443,15 @@ export default {
     productRating() {
       let stars = 0;
       let reviewsTotal = this.productReviews.length;
-      this.productReviews.forEach(review => {
-        stars = stars + review.stars;
-      });
+      if (reviewsTotal) {
+        this.productReviews.forEach(review => {
+          stars = stars + review.stars;
+        });
 
-      return Math.ceil(stars / reviewsTotal);
+        return Math.ceil(stars / reviewsTotal);
+      } else {
+        return 0
+      }
     },
     background() {
       return `url(${this.product.image1})`;

@@ -24,7 +24,6 @@ export default {
       const slug = this.$route.params.slug;
       const product = productsArray.filter(item => item.slug === slug)[0];
       const productCategories = product.categories.split(', ').sort((a, b) => (a > b) ? 1 : -1);
-      console.log(productCategories)
       
       for (let i = productsArray.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));

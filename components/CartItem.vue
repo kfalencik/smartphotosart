@@ -123,9 +123,6 @@ export default {
       return this.productWithExtras * this.quantity;
     },
   },
-  mounted() {
-    console.log(this.prices, this.backingOption);
-  },
   methods: {
     price: function(price) {
       return '$' + (Math.floor(price * 100) / 100).toFixed(2)
