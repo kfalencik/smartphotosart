@@ -7,7 +7,7 @@
 			
           <p><strong>Last updated January 03, 2020  </strong></p>
 
-          <p>This Cookie Policy explains how Peter Falencik Photography ("<strong>Company</strong>", "<strong>we</strong>", "<strong>us</strong>", and "<strong>our</strong>") uses cookies and similar technologies to recognize you when you visit our websites at https://smartphotosart.com, ("<strong>Websites</strong>"). It explains what these technologies are and why we use them, as well as your rights to control our use of them.  </p>
+          <p>This Cookie Policy explains how Peter Falencik Photography ("<strong>Company</strong>", "<strong>we</strong>", "<strong>us</strong>", and "<strong>our</strong>") uses cookies and similar technologies to recognize you when you visit our websites at https://falencik.com, ("<strong>Websites</strong>"). It explains what these technologies are and why we use them, as well as your rights to control our use of them.  </p>
           <p>In some cases we may use cookies to collect personal information, or that becomes personal information if we combine it with other information.     </p>
           
           <h3>What are cookies?</h3>
@@ -40,7 +40,7 @@
           <p>The date at the top of this Cookie Policy indicates when it was last updated.  </p>
           
           <h3>Where can I get further information?</h3>
-          <p>If you have any questions about our use of cookies or other technologies, please email us at info@smartphotosart.com or by post to:  </p>
+          <p>If you have any questions about our use of cookies or other technologies, please email us at studio@falencik.com or by post to:  </p>
           
           <div>Peter Falencik Photography</div>
           <div>1280 WILDWOOD LAKES BLVD</div>

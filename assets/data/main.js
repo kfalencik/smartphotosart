@@ -182,7 +182,7 @@ export default {
             },
             {
               title: '24 x 36"',
-              action: 0.9,
+              action: 0.6,
               price: 50
             }
           ],

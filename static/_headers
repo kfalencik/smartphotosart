@@ -1,6 +1,6 @@
 /*
 Content-Security-Policy: default-src ‘self’ ‘unsafe-inline’ ‘unsafe-eval’ https: data:
-X-Frame-Options: *ALLOW-FROM https://smartphotosart.com*
+X-Frame-Options: *ALLOW-FROM https://falencik.com*
 X-XSS-Protection: 1; mode=block
 Referrer-Policy: strict-origin-when-cross-origin
 Expect-CT: max-age=0

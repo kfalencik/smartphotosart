@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /dashbaord/
 
-Sitemap: https://www.smartphotosart.com/sitemap.xml
+Sitemap: https://www.falencik.com/sitemap.xml

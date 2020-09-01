@@ -36,18 +36,18 @@ export default async function() {
         { hid: 'description', name: 'description', content: 'Best canvas shop in USA! Free shipping. Lowest prices ever. Quality canvas and beautiful artwork. ​Environmentally friendly. Customer-Rating excellent. Effortless to order. Ready to hang on the wall.' },
         { name: 'keywords', content: 'canvas, frame, artwork, art, canvas shop, usa, florida, quality, low prices, environmental, effortless, paintings, wall' },
         { hid: 'twittercard', name: 'twitter:card', content: 'summary_large_image'},
-        { hid: 'twittersite', name: 'twitter:site', content: '@smartphotosstudio'},
+        { hid: 'twittersite', name: 'twitter:site', content: '@peterfalencik'},
         { hid: 'twittertitle', name: 'twitter:title', content: 'Peter Falencik Photography - Beautiful canvases for your home or office'},
         { hid: 'twitterdesc', name: 'twitter:description', content: 'Best canvas shop in USA! Free shipping. Lowest prices ever. Quality canvas and beautiful artwork. ​Environmentally friendly. Customer-Rating excellent. Effortless to order. Ready to hang on the wall.'},
         { hid: 'twitterimage', name: 'twitter:image', content: 'https://d33wubrfki0l68.cloudfront.net/c65ae7c78c877a2b79ca8c12efc08fbfdf7e6409/32cd5/_nuxt/img/7aadeb4.png'},
         { hid: 'ogtitle', property: 'og:title', content: 'Peter Falencik Photography - Beautiful canvases for your home or office'},
         { hid: 'ogtype', property: 'og:type', content: 'Website'},
-        { hid: 'ogurl', property: 'og:url', content: 'https://www.smartphotosart.com'},
+        { hid: 'ogurl', property: 'og:url', content: 'https://www.falencik.com'},
         { hid: 'ogdesc', property: 'og:description', content: 'Best canvas shop in USA! Free shipping. Lowest prices ever. Quality canvas and beautiful artwork. ​Environmentally friendly. Customer-Rating excellent. Effortless to order. Ready to hang on the wall.'},
         { hid: 'ogimage', property: 'og:image', content: 'https://d33wubrfki0l68.cloudfront.net/c65ae7c78c877a2b79ca8c12efc08fbfdf7e6409/32cd5/_nuxt/img/7aadeb4.png'}
       ],
       link: [
-        { rel: 'canonical', href: 'https://www.smartphotosart.com'},
+        { rel: 'canonical', href: 'https://www.falencik.com'},
         { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
         { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Poppins&display=swap' }
       ]
@@ -121,7 +121,7 @@ export default async function() {
       }
     },
     sitemap: {
-      hostname: 'https://smartphotosart.com',
+      hostname: 'https://falencik.com',
       gzip: true,
       exclude: [
         '/dashboard/**',

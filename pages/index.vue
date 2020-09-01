@@ -82,9 +82,9 @@ export default {
       "@context" : "http://schema.org",
       "@type" : "Organization",
       "name" : "Peter Falencik Photography",
-      "url" : "https://www.smartphotosart.com",
+      "url" : "https://www.falencik.com",
       "sameAs" : [
-        "https://www.facebook.com/iconarishop",
+        "https://www.facebook.com/peterfalencik",
       ],
       "address": {
         "@type": "PostalAddress",

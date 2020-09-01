@@ -12,7 +12,7 @@
           <p>All returns must be postmarked within fourteen (14) days of the purchase date. All returned items must be in new and unused condition, with all original tags and labels attached.</p>          
           
           <h3>RETURN PROCESS</h3>
-          <p>To return an item, please email customer service at info@smartphotosart.com to obtain a Return Merchandise Authorization (RMA) number. After receiving a RMA number, place the item securely in its original packaging and include your proof of purchase, and mail your return to the following address:</p>
+          <p>To return an item, please email customer service at studio@falencik.com to obtain a Return Merchandise Authorization (RMA) number. After receiving a RMA number, place the item securely in its original packaging and include your proof of purchase, and mail your return to the following address:</p>
 
           <div>Peter Falencik Photography</div>
           <div>Attn: Returns</div>
@@ -28,7 +28,7 @@
                 
           <h3>QUESTIONS</h3>
           <p>If you have any questions concerning our return policy, please contact us at:</p>
-          info@smartphotosart.com
+          studio@falencik.com
 
         </div>
       </div>

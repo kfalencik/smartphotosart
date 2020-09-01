@@ -29,7 +29,7 @@ export default {
   head() {
     return {
       link: [
-        { rel: 'canonical', href: 'https://www.smartphotosart.com' + this.$route.path },
+        { rel: 'canonical', href: 'https://www.falencik.com' + this.$route.path },
       ] 
     }
   },

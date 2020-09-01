@@ -4,10 +4,10 @@
       <div class="section">
         <div :class="{'product container': true, 'product--landscape': product.landscape}">
 
-          <template v-if="overlay && image !== 0">
+          <template v-if="overlay && image !== 7">
             <div class="product__overlay" @click="overlay = false">
-              <img :src="product.image1" v-if="image === 2" role="presentation" alt="" />
-              <img :src="product.image2" v-if="image === 1" role="presentation" alt="" />
+              <img :src="product.image1" v-if="image === 1" role="presentation" alt="" />
+              <img :src="product.image2" v-if="image === 2" role="presentation" alt="" />
               <img :src="product.image3" v-if="image === 3" role="presentation" alt="" />
               <img :src="product.image4" v-if="image === 4" role="presentation" alt="" />
               <img :src="product.image5" v-if="image === 5" role="presentation" alt="" />
@@ -117,8 +117,6 @@
           <div class="columns is-4">
             <div class="column is-two-thirds">
               <div class="product__title">
-                
-                <br />
                 <h2>{{product.title}}</h2>
                 <Stars :product="product.id" link="true" />
                 <p v-if="product.description" v-html="product.description"></p>
@@ -144,7 +142,7 @@
 
           <div class="columns is-4">
             <div class="column is-two-thirds">
-              <template v-if="image === 2">
+              <template v-if="image === 7">
                 <div class="product__dynamic-preview" :style="{ 'background-image': 'url(' + require('@/assets/images/product-' + orientation + '-background-' + canvasImage + '.jpg') + ')' }" >
                   <div class="product__canvas" :style="{ 'background-image': 'url(' + this.product.image1 + ')', 'transform': 'scale(' + size * zoom + ')', width: product.landscape ? '480px' : '310px',   height: product.landscape ? '310px' : '480px' }">
                     <div class="product__frame" v-if="frame !== 'transparent'" :style="{'border-color': frame}"></div>
@@ -162,19 +160,16 @@
               <template v-else>
                 <div class="product__image">
                   <img :src="product.image1" v-if="image === 1" role="presentation" alt="" />
-                  <img :src="product.image2" v-if="image === 3" role="presentation" alt="" />
-                  <img :src="product.image3" v-if="image === 4" role="presentation" alt="" />
-                  <img :src="product.image4" v-if="image === 5" role="presentation" alt="" />
-                  <img :src="product.image5" v-if="image === 6" role="presentation" alt="" />
-                  <img v-if="product.landscape && image === 7" :src="require('@/assets/images/comparison_landscape.jpg')" role="presentation" alt="" />
-                  <img v-if="!product.landscape && image === 7" :src="require('@/assets/images/comparison_portrait.jpg')" role="presentation" alt="" />
+                  <img :src="product.image2" v-if="image === 2" role="presentation" alt="" />
+                  <img :src="product.image3" v-if="image === 3" role="presentation" alt="" />
+                  <img :src="product.image4" v-if="image === 4" role="presentation" alt="" />
+                  <img :src="product.image5" v-if="image === 5" role="presentation" alt="" />
+                  <img v-if="product.landscape && image === 6" :src="require('@/assets/images/comparison_landscape.jpg')" role="presentation" alt="" />
+                  <img v-if="!product.landscape && image === 6" :src="require('@/assets/images/comparison_portrait.jpg')" role="presentation" alt="" />
 
-                  <template v-if="image !== 2">
-                    <button @click="overlay = true" class="product__image-fullscreen" title="Full screen">
-                      <b-icon icon="fullscreen" custom-size="mdi-24px"></b-icon>
-                    </button>
-                  </template>
-
+                  <button @click="overlay = true" class="product__image-fullscreen" title="Full screen">
+                    <b-icon icon="fullscreen" custom-size="mdi-24px"></b-icon>
+                  </button>
                   <button @click="image === 7 ? image = 1 : image = image + 1" class="product__nav-item" title="Next">
                     <b-icon icon="arrow-right" custom-size="mdi-24px"></b-icon>
                   </button>
@@ -191,30 +186,30 @@
                   <img :src="product.image1" alt="Thumbnail 3" />
                 </div>
 
-                <div class="product__thumbnails-item product__thumbnails-item--preview" :class="{'product__thumbnails-item--active': image === 2}" aria-label="Dynamic preview" @click="image = 2;">
-                  <b-icon icon="image-area"></b-icon>
-                  Dynamic preview
-                </div>
-
-                <div class="product__thumbnails-item" @click="image = 3;" :class="{'product__thumbnails-item--active': image === 3}">
+                <div class="product__thumbnails-item" @click="image = 2;" :class="{'product__thumbnails-item--active': image === 2}">
                   <img :src="product.image2" alt="Thumbnail 2" />
                 </div>
 
-                <div class="product__thumbnails-item" @click="image = 4;" :class="{'product__thumbnails-item--active': image === 4}">
+                <div class="product__thumbnails-item" @click="image = 3;" :class="{'product__thumbnails-item--active': image === 3}">
                   <img :src="product.image3" alt="Thumbnail 4" />
                 </div>
 
-                <div class="product__thumbnails-item" @click="image = 5;" :class="{'product__thumbnails-item--active': image === 5}">
+                <div class="product__thumbnails-item" @click="image = 4;" :class="{'product__thumbnails-item--active': image === 4}">
                   <img :src="product.image4" alt="Thumbnail 4" />
                 </div>
 
-                <div class="product__thumbnails-item" @click="image = 6;" :class="{'product__thumbnails-item--active': image === 6}">
+                <div class="product__thumbnails-item" @click="image = 5;" :class="{'product__thumbnails-item--active': image === 5}">
                   <img :src="product.image5" alt="Thumbnail 4" />
                 </div>
 
-                <div class="product__thumbnails-item" @click="image = 7;" :class="{'product__thumbnails-item--active': image === 7}">
+                <div class="product__thumbnails-item" @click="image = 6;" :class="{'product__thumbnails-item--active': image === 6}">
                   <img v-if="product.landscape" :src="require('@/assets/images/comparison_landscape.jpg')" role="presentation" alt="Size comparison" />
                   <img v-else :src="require('@/assets/images/comparison_portrait.jpg')" alt="Size comparison" />
+                </div>
+
+                <div class="product__thumbnails-item product__thumbnails-item--preview" :class="{'product__thumbnails-item--active': image === 7}" aria-label="Dynamic preview" @click="image = 7;">
+                  <b-icon icon="image-area"></b-icon>
+                  Dynamic preview
                 </div>
               </div>
             </div>
@@ -357,7 +352,7 @@ export default {
         { hid: 'ogtitle', property: 'og:title', content: 'Peter Falencik Photography - ' + this.product.title},
         { hid: 'ogdesc', property: 'og:description', content: 'A beautiful canvas "' + this.product.title + '" for your wall'},
         { hid: 'ogtype', property: 'og:type', content: 'product.item'},
-        { hid: 'ogurl', property: 'og:url', content: 'https://www.smartphotosart.com/shop/' + this.$route.params.slug},
+        { hid: 'ogurl', property: 'og:url', content: 'https://www.falencik.com/shop/' + this.$route.params.slug},
         { hid: 'ogimage', property: 'og:image', content: this.product.image1},
         { property: 'product:price:amount', content: this.priceFormatter(this.productTotal)},
         { property: 'product:price:currency', content: 'USD'},
@@ -368,7 +363,7 @@ export default {
         { hid: 'twitterimage', name: 'twitter:image', content: this.product.image1},
       ],
       link: [
-        { rel: 'canonical', href: 'https://www.smartphotosart.com/shop/' + this.$route.params.slug}
+        { rel: 'canonical', href: 'https://www.falencik.com/shop/' + this.$route.params.slug}
       ]
     }
   },
@@ -657,8 +652,6 @@ export default {
           productIndex = index
         }
       })
-
-      console.log(productIndex)
       
       if (direction === 'prev') {
         newProductSlug = this.filteredProducts[productIndex + 1] ? this.filteredProducts[productIndex + 1].slug : this.filteredProducts[0].slug
@@ -667,6 +660,14 @@ export default {
       }
 
       this.$router.push('/shop/' + newProductSlug)
+    }
+  },
+
+  scrollBehavior (to, from, savedPosition) {
+    if (to.hash) {
+      return {selector: to.hash}
+    } else {
+      return {x: 0, y: 0}
     }
   }
 }
@@ -983,18 +984,27 @@ export default {
 
     &__image {
       text-align: center;
-      border: 2px solid lighten($lightgrey, 40%);
+      border: 1px solid lighten($lightgrey, 35%);
       height: 300px;
       overflow: hidden;
       position: relative;
 
+      @media (min-width: $small) {
+        height: 450px;
+      }
+
+
       @media (min-width: $large) {
+        height: 510px;
+      }
+
+      @media (min-width: $superlarge) {
         height: 585px;
       }
 
       img {
         height: 100%;
-        object-fit: contain;
+        object-fit: cover;
         display: block;
         margin: 0 auto;
       }
@@ -1131,6 +1141,12 @@ export default {
 
     &--landscape {
 
+      .product__image {
+        img {
+          width: 100%;
+        }
+      }
+
       #{$root}__canvas {
         width: $canvasHeight;
         height: $canvasWidth;
@@ -1154,7 +1170,7 @@ export default {
       width: 80px;
       height: 80px;
       margin-right: 10px;
-      border: 2px solid lighten($lightgrey, 40%);
+      border: 2px solid lighten($lightgrey, 20%);
       color: $secondary;
       display: flex;
       flex-direction: column;
