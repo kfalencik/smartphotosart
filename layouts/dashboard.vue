@@ -5,7 +5,7 @@
         <div class="sidebar">
           <router-link to="/">
             <h1 class="sr-only">Peter Falencik Photography</h1>
-            <img src="logo.png" alt="Peter Falencik Photography" />
+            <img src="/logo.png" alt="Peter Falencik Photography" />
           </router-link>
 
           <nav>
