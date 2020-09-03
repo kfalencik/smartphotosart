@@ -1,5 +1,5 @@
 /*
-Content-Security-Policy: default-src *; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https: data:
+Content-Security-Policy: default-src *; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' 'unsafe-eval' http://www.google.com http://www.googleapis.com https://fonts.googleapis.com https://cdn.materialdesignicons.com http://www.materialdesignicons.com https: data:
 X-Frame-Options: *ALLOW-FROM https://falencik.com*
 X-XSS-Protection: 1; mode=block
 Referrer-Policy: strict-origin-when-cross-origin
