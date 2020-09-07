@@ -55,6 +55,15 @@ export const state = () => ({
     },
     {
       images: '5'
+    },
+    {
+      images: '6'
+    },
+    {
+      images: '7'
+    },
+    {
+      images: '8'
     }
   ]
 })
