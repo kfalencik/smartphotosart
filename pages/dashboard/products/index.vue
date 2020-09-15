@@ -52,6 +52,9 @@
         <b-table-column field="discount" label="Znizka" width="100">
           <span v-if="props.row.discount > 0">{{ props.row.discount }}%</span>
         </b-table-column>
+        <b-table-column field="bought" label="Ilosc sprzedazy" width="120">
+          {{ props.row.bought }}
+        </b-table-column>
         <b-table-column field="link" label="Akcje" width="120">
           <router-link :to="props.row.editLink">Edytuj</router-link> | <a @click.stop="removeProduct(props.row.id)">Usun</a>
         </b-table-column>

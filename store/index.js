@@ -108,7 +108,7 @@ export const mutations = {
 
     if (state.searchKeyword !== '') {
       state.filteredProducts = state.filteredProducts.filter(product => {
-        if (product.title.toLowerCase().indexOf(state.searchKeyword.toLowerCase()) !== -1 || product.tags.toLowerCase().indexOf(state.searchKeyword.toLowerCase()) !== -1) {
+        if (product.title.toLowerCase().indexOf(state.searchKeyword.toLowerCase()) !== -1 || product.slug.toLowerCase().indexOf(state.searchKeyword.toLowerCase()) !== -1 || product.tags.toLowerCase().indexOf(state.searchKeyword.toLowerCase()) !== -1) {
           return true;
         }
       });
