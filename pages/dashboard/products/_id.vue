@@ -103,6 +103,10 @@
           <b-input placeholder="Znizka" v-model="discount" required></b-input>
         </b-field>
 
+        <b-field class="form__input" label="Ilosc sprzedazy">
+          <b-input placeholder="Ilosc sprzedazy" v-model="bought" required></b-input>
+        </b-field>
+
         <b-field label="Orientacja">
           <b-select placeholder="Wybierz orientacje" v-model="landscape" required>
             <option value="true">Pozioma</option>
@@ -138,6 +142,7 @@ export default {
       categoriesSelect: [],
       price: 0,
       discount: 0,
+      bought: 0,
       landscape: "false",
       tags: [],
       latestId: 0,
@@ -168,6 +173,7 @@ export default {
       this.categoriesSelect = this.$store.state.categories
       this.price = product.price;
       this.discount = product.discount;
+      this.bought = product.bought;
       this.landscape = product.landscape.toString();
       this.tags = product.tags ? product.tags.split(',') : [];
       this.categories = product.categories ? product.categories.split(', ').map(item => this.categoriesSelect.filter(category => category.slug === item)[0]) : [];
@@ -250,7 +256,8 @@ export default {
         this.slug === '' ||
         this.price === 0 ||
         this.categories === [] ||
-        this.tags === ''
+        this.tags === '' ||
+        this.bought === ''
       ) {
         this.$store.commit('addMessage', ['Cos jest nie tak, sprawdz wszystkie pola.', 'bad']);
       } else {
@@ -264,6 +271,7 @@ export default {
             description: this.description,
             price: this.price,
             discount: this.discount,
+            bought: this.bought,
             categories: this.categories.map(item => item.slug).join(", "),
             landscape: this.landscape === 'true' ? true : false,
             tags: this.tags.join(", ")

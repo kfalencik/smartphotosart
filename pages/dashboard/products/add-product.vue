@@ -103,6 +103,10 @@
           <b-input placeholder="Znizka" v-model="discount" required></b-input>
         </b-field>
 
+        <b-field class="form__input" label="Ilosc sprzedazy">
+          <b-input placeholder="Ilosc sprzedazy" v-model="bought" required></b-input>
+        </b-field>
+
         <b-field label="Orientacja">
           <b-select placeholder="Wybierz orientacje" v-model="landscape" required>
             <option value="true">Pozioma</option>
@@ -137,6 +141,7 @@ export default {
       categories: [],
       price: 0,
       discount: 0,
+      bought: 0,
       landscape: "true",
       tags: '',
       latestId: 0,
@@ -269,7 +274,7 @@ export default {
             landscape: this.landscape === 'true' ? true : false,
             tags: this.tags.join(", "),
             date: date,
-            bought: 0
+            bought: this.bought
           },
           [
             this.image1, this.image2, this.image3, this.image4, this.image5
