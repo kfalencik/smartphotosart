@@ -210,7 +210,19 @@ export default {
     },
 
     price () {
-      return this.product.price * this.sizes[this.productInfo.size].price
+      let price = this.product.price * this.sizes[this.productInfo.size].price
+
+      price = price + this.materials[this.productInfo.material].finishes[this.productInfo.finish].styles[this.productInfo.style].sizes[this.productInfo.size]
+
+      if (frames && this.productInfo.frame) {
+        price = price + this.materials[this.productInfo.material].frames[this.productInfo.frame].sizes[this.productInfo.format][this.productInfo.size]
+      }
+
+      if (this.glass && this.productInfo.frame && this.productInfo.glass) {
+        price = price + this.materials[this.productInfo.material].glass[this.productInfo.frame].sizes[this.productInfo.format][this.productInfo.size]
+      }
+
+      return price
     }
 
   },
