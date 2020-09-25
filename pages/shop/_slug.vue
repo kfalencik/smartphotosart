@@ -393,7 +393,7 @@ export default {
     }
   },
   transition: 'page',
-  data() {
+  data () {
     return {
       prodcutIndex: 0,
       quantity: 1,

@@ -1,4 +1,322 @@
 export default {
+  formats: [
+    {
+      title: 'Standard',
+      sizes: [
+        {
+          title: '8 x 12"',
+          action: 0.2,
+          price: 1
+        },
+        {
+          title: '16 x 24"',
+          action: 0.4,
+          price: 2
+        },
+        {
+          title: '24 x 36"',
+          action: 0.6,
+          price: 3
+        },
+        {
+          title: '40 x 60"',
+          action: 1,
+          price: 5
+        }
+      ]
+    },
+    {
+      title: 'Panorama',
+      sizes: [
+        {
+          title: '9 x 16"',
+          action: 0.2,
+          price: 1.5
+        },
+        {
+          title: '18 x 32"',
+          action: 0.4,
+          price: 2.5
+        },
+        {
+          title: '36 x 64"',
+          action: 0.6,
+          price: 3.5
+        },
+        {
+          title: '40 x 70"',
+          action: 1,
+          price: 6
+        }
+      ]
+    }
+  ],
+
+  pricing: [
+    {
+      title: 'Fine Art Paper',
+      finishes: [
+        {
+          title: 'Matte',
+          styles: [
+            {
+              title: 'Borderless',
+              sizes: [12, 36, 80, 225]
+            },
+            {
+              title: 'Dibont',
+              sizes: [40, 80, 170, null]
+            }
+          ]
+        },
+        {
+          title: 'Velvet',
+          styles: [
+            {
+              title: 'Borderless',
+              sizes: [20, 50, 100, 275]
+            },
+            {
+              title: 'Dibont',
+              sizes: [50, 85, 200, null]
+            }
+          ]
+        },
+        {
+          title: 'Satin',
+          styles: [
+            {
+              title: 'Borderless',
+              sizes: [15, 40, 90, 250]
+            },
+            {
+              title: 'Dibont',
+              sizes: [70, 75, 180, null]
+            }
+          ]
+        },
+        {
+          title: 'Eco Hemp',
+          styles: [
+            {
+              title: 'Borderless',
+              sizes: [25, 65, 130, 350]
+            },
+            {
+              title: 'Dibont',
+              sizes: [60, 105, 230, null]
+            }
+          ]
+        }
+      ],
+      frames: [
+        {
+          title: "None",
+          action: 'transparent',
+          sizes: [[0, 0, 0, 0]]
+        },
+        {
+          title: "Wood White",
+          action: 'white',
+          sizes: [[35, 90, 250, 680]]
+        },
+        {
+          title: "Wood Black",
+          action: 'black',
+          sizes: [[35, 90, 250, 680]]
+        }
+      ],
+      glass: [
+        {
+          title: "Clear",
+          sizes: [[0, 0, 0, 0]]
+        },
+        {
+          title: "R Control",
+          sizes: [[20, 30, 60, 150]]
+        }
+      ]
+    },
+    {
+      title: 'Canvas',
+      panorama: true,
+      finishes: [
+        {
+          title: 'Matte',
+          styles: [
+            {
+              title: 'Thin stretched',
+              sizes: [40, 110, 190, null]
+            },
+            {
+              title: 'Thin gallery wrap',
+              sizes: [40, 110, 190, null]
+            },
+            {
+              title: 'Thick stretched',
+              sizes: [47, 125, 220, 450]
+            },
+            {
+              title: 'Thick gallery wrap',
+              sizes: [47, 125, 220, 450]
+            },
+          ],
+          panoramaStyles: [
+            {
+              title: 'Stretcher 2"',
+              sizes: [60, 125, 295, 340]
+            },
+            {
+              title: 'Stretcher 3"',
+              sizes: [null, 175, 390, 430]
+            }
+          ]
+        },
+        {
+          title: 'Gloss',
+          styles: [
+            {
+              title: 'Thin stretched',
+              sizes: [42, 110, 190, null]
+            },
+            {
+              title: 'Thin gallery wrap',
+              sizes: [42, 110, 190, null]
+            },
+            {
+              title: 'Thick stretched',
+              sizes: [55, 125, 220, 450]
+            },
+            {
+              title: 'Thick gallery wrap',
+              sizes: [55, 125, 220, 450]
+            },
+          ],
+          panoramaStyles: [
+            {
+              title: 'Stretcher 2"',
+              sizes: [65, 140, 330, 370]
+            },
+            {
+              title: 'Stretcher 3"',
+              sizes: [null, 190, 420, 460]
+            }
+          ]
+        },
+        {
+          title: 'Silverada',
+          styles: [
+            {
+              title: 'Thin stretched',
+              sizes: [39, 100, 180, null]
+            },
+            {
+              title: 'Thin gallery wrap',
+              sizes: [39, 100, 180, null]
+            },
+            {
+              title: 'Thick stretched',
+              sizes: [45, 110, 200, 460]
+            },
+            {
+              title: 'Thick gallery wrap',
+              sizes: [45, 110, 200, 460]
+            },
+          ]
+        },
+        {
+          title: 'Artisan',
+          styles: [
+            {
+              title: 'Thin stretched',
+              sizes: [39, 100, 190, null]
+            },
+            {
+              title: 'Thin gallery wrap',
+              sizes: [39, 100, 190, null]
+            },
+            {
+              title: 'Thick stretched',
+              sizes: [45, 110, 220, 430]
+            },
+            {
+              title: 'Thick gallery wrap',
+              sizes: [45, 110, 220, 430]
+            },
+          ]
+        }
+      ]
+    },
+    {
+      title: 'Acrylic',
+      panorama: true,
+      finishes: [
+        {
+          title: 'HD',
+          styles: [
+            {
+              title: 'Borderless',
+              sizes: [80, 220, 420, 1100]
+            },
+            {
+              title: 'Border 2"',
+              sizes: [150, 300, 500, 1200]
+            },
+            {
+              title: 'Border 5"',
+              sizes: [220, 420, 700, 1450]
+            }
+          ],
+          panoramaStyles: [
+            {
+              title: 'Borderless',
+              sizes: [60, 120, 320, 1200]
+            },
+            {
+              title: 'Border 2"',
+              sizes: [150, 300, 500, 1400]
+            },
+            {
+              title: 'Border 5"',
+              sizes: [220, 420, 700, 1550]
+            }
+          ]
+        },
+        {
+          title: 'Matte',
+          styles: [
+            {
+              title: 'Borderless',
+              sizes: [65, 200, 380, 950]
+            },
+            {
+              title: 'Border 2"',
+              sizes: [135, 270, 470, 1100]
+            },
+            {
+              title: 'Border 5"',
+              sizes: [195, 395, 650, 1400]
+            }
+          ],
+          panoramaStyles: [
+            {
+              title: 'Borderless',
+              sizes: [65, 200, 380, 950]
+            },
+            {
+              title: 'Border 2"',
+              sizes: [135, 270, 470, 1100]
+            },
+            {
+              title: 'Border 5"',
+              sizes: [195, 395, 650, 1400]
+            }
+          ]
+        },
+      ]
+    }
+  ],
+
   prices: [
     {
       title: 'Acrylic',
