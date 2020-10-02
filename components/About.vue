@@ -5,7 +5,7 @@
         <div class="columns">
           <div class="column is-half">
             <h2>{{section.title}}</h2>
-            <p>{{section.description}}</p>
+            <div v-html="section.description"></div>
             <q>{{section.quote}}</q>
             <img :src="require('@/assets' + section.signature)" width="200" alt="Peter Falencik" />
           </div>

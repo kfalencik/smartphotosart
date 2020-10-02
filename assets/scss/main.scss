@@ -63,12 +63,16 @@ a {
   transition: all .3s ease;
 }
 
+p {
+  margin: 15px 0;
+}
+
 strong {
   color: inherit;
 }
 
 form {
-  padding-top: 35px;
+  padding-top: 15px;
 }
 
 .button {
@@ -152,7 +156,7 @@ h3 {
 
   @media (min-width: $large) {
     font-size: 1.4em;
-    margin: 1em 0;
+    margin: 0.5em 0;
   }
 }
 

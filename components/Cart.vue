@@ -56,7 +56,7 @@
         <div class="column is-half pay">
           <b-field>
             <b-input name="discount" icon="ticket" placeholder="Coupon code" v-model="coupon"></b-input>
-            <p class="control"><button class="button" @click="checkCode">Apply</button></p>
+            <div class="control"><button class="button" @click="checkCode">Apply</button></div>
           </b-field>
         </div>
         <div class="column is-half pay">
@@ -243,7 +243,6 @@ export default {
   }
 
   .pay {
-    margin-top: 35px;
     text-align: right;
   }
 </style>
