@@ -1,5 +1,5 @@
 <template>
-  <div class="limited-edition">
+  <div class="about-me">
     <div class="section">
       <div class="container">
         <div class="columns">
@@ -11,7 +11,7 @@
           </div>
 
           <div class="column has-text-centered is-half">
-            <img :src="require(`~/assets/images/peterfalencik.jpg`)" width="500" alt="Peter Falencik" />
+            <img :src="require(`~/assets/images/peterfalencik.jpg`)" width="680" alt="Peter Falencik" />
           </div>
         </div>
       </div>
@@ -32,6 +32,7 @@ export default {
 <style lang="scss" scoped>
 .section {
   margin-bottom: -102px;
+  padding-top: 0;
 }
 
 p {
