@@ -455,12 +455,12 @@ export default {
         },
         {
           title: 'High Quality Guaranteed',
-          description: 'Peter Falencik gradueted from "Artistic photography and brand promotion" in Europe. He has been professional photographer for 15 years. he successfully dealt with the promotion of large companies, production of industry advertisements, and portret photography. Awarded at exhibitions, he works for magazines, every year he works for charity for needy. In the end he devoted himself to the  artistic photography.',
+          description: 'Our products are always printed on the finest quality materials so you can enjoy them for decades. We have one of the largest ranges of paper selections, while using the highest level of archival print technology allowing superior detail and colour.',
           icon: 'icon-hq.png'
         },
         {
           title: 'Certificate of authenticity',
-          description: 'It is crusial to provide , to include the proper documentation to our clients when they buy our products. The cerificate ensure the validity and authencitity of the transaction and photography we sell. While our goal is to provide only best quality, genuine and authenthic artworkall photography we sell includes a COA.',
+          description: 'It is crucial for us to provide the proper documentation to our clients when they buy our products. The certificate ensures the validity and authenticity of the transaction and photographs we sell. Our goal is to provide only best quality, genuine and authentic artwork.  All of the products we sell will include a COA.',
           icon: 'icon-certificate.png'
         }
       ]
