@@ -563,7 +563,7 @@ export default {
     },
 
     price () {
-      let price = this.productTotal * this.sizes[this.productInfo.size].price
+      let price = this.productTotal * this.formats[this.productInfo.format].sizes[this.productInfo.size].price
 
       price = price + this.materials[this.productInfo.material].finishes[this.productInfo.finish][this.productInfo.format === 0 ? 'styles' : 'panoramaStyles'][this.productInfo.style].sizes[this.productInfo.size]
 
@@ -579,7 +579,7 @@ export default {
     },
 
     productTotal() {
-      let price = this.product.price;
+      let price = parseFloat(this.product.price);
       let discount = (price / 100) * this.product.discount;
       price = price - discount;
 

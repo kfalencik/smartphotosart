@@ -239,7 +239,7 @@ export default {
       this.price = product.price;
       this.discount = product.discount;
       this.bought = product.bought;
-      this.panorama = product.panorama
+      this.panorama = product.panorama ? product.panorama : false
       this.landscape = product.panorama ? true : product.landscape.toString();
       this.tags = product.tags ? product.tags.split(',') : [];
       this.categories = product.categories ? product.categories.split(', ').map(item => this.categoriesSelect.filter(category => category.slug === item)[0]) : [];
