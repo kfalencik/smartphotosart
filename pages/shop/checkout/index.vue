@@ -360,8 +360,6 @@ export default {
           });
         }
 
-        console.log(items)
-
         return items;
       }
     },

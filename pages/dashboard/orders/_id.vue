@@ -91,7 +91,6 @@ export default {
     },
     order() {
       let order = this.$store.state.orders.filter(order => order.paypal.orderID === this.id)[0];
-      console.log(order)
       return order;
     }
   },
@@ -122,7 +121,6 @@ export default {
     },
     extras(extras) {
       let extrasList = '<ul>';
-      console.log(extras)
       extras.split(',').forEach(item => {
         extrasList = extrasList + '<li>' + item + '</li>';
       });

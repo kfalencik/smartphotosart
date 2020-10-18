@@ -86,7 +86,6 @@ export default {
     },
 
     cart() {
-      console.log(this.$store.state.localStorage.cart)
       return this.$store.state.localStorage.cart
     },
 

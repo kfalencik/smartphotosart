@@ -44,7 +44,7 @@ export const state = () => ({
   ordersLoaded: false,
   slideshowImages: [
     {
-      images: '1'
+      images: '6'
     },
     {
       images: '2'
@@ -59,7 +59,7 @@ export const state = () => ({
       images: '5'
     },
     {
-      images: '6'
+      images: '1'
     },
     {
       images: '7'

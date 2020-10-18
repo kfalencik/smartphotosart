@@ -699,8 +699,6 @@ export default {
     addToCart: function() {
       const self = this;
 
-      console.log(this.productInfo)
-
       this.$store.commit('localStorage/addToCart', [this.product.id, this.productInfo, this.quantity]);
       this.$buefy.snackbar.open({
         duration: 5000,

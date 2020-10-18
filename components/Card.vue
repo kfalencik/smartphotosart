@@ -44,7 +44,6 @@ export default {
   methods: {
     discount: function(price, discount) {
       price = parseFloat(price)
-      console.log((price - ((price / 100) * discount)) + this.materials[0].finishes[0].styles[0].sizes[0])
       price = (price - ((price / 100) * discount)) + this.materials[0].finishes[0].styles[0].sizes[0]
       return price;
     },
