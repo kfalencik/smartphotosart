@@ -500,6 +500,10 @@ export default {
       slug: 'coasts'
     },
     {
+      title: 'Florida',
+      slug: 'florida'
+    },
+    {
       title: 'Food',
       slug: 'food'
     },
@@ -538,6 +542,10 @@ export default {
     {
       title: 'Retro',
       slug: 'retro'
+    },
+    {
+      title: 'Space',
+      slug: 'space'
     },
     {
       title: 'Streets',

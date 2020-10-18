@@ -381,11 +381,13 @@
                     </tbody>
                   </table>
 
-                  <h5>Extras</h5>
+                  <h5>Specification</h5>
                   <table border="1">
                     <tbody>
-                    <tr><td>Material</td><td>{{materials[productInfo.material].title}}</td><td>{{ priceDisplay(materials[productInfo.material].price)}}</td></tr>
-                    <tr v-if="materials[productInfo.material].finishes"><td>Media</td><td>{{materials[productInfo.material].finishes[productInfo.finish].title}}</td><td>{{ priceDisplay(materials[productInfo.material].finishes[productInfo.finish].price)}}</td></tr>
+                    <tr><td>Finish</td><td>{{materials[productInfo.material].title}} / {{materials[productInfo.material].finishes[productInfo.finish].title}} / {{materials[productInfo.material].finishes[productInfo.finish][productInfo.format === 0 ? 'styles' : 'panoramaStyles'][productInfo.style].title}}</td><td>{{ priceDisplay(materials[productInfo.material].finishes[productInfo.finish][productInfo.format === 0 ? 'styles' : 'panoramaStyles'][productInfo.style].sizes[productInfo.size])}}</td></tr>
+                    <tr><td>Size</td><td>{{formats[productInfo.format].title}} / {{formats[productInfo.format].sizes[productInfo.size].title}}</td><td>{{ priceDisplay((productTotal * formats[productInfo.format].sizes[productInfo.size].price) - productTotal)}}</td></tr>
+                    <tr v-if="productInfo.frame"><td>Frame</td><td>{{materials[productInfo.material].frames[productInfo.frame].title}}</td><td>{{ priceDisplay(materials[productInfo.material].frames[productInfo.frame].sizes[productInfo.format][productInfo.size])}}</td></tr>
+                    <tr v-if="productInfo.glass"><td>Glass</td><td>{{materials[productInfo.material].glass[productInfo.glass].title}}</td><td>{{ priceDisplay(materials[productInfo.material].glass[productInfo.glass].sizes[productInfo.format][productInfo.size])}}</td></tr>
                     <!-- <tr><td><strong>Extras total</strong></td><td></td><td><strong>{{ priceDisplay(extrasTotal) }}</strong></td></tr> -->
                     </tbody>
                   </table>

@@ -23,7 +23,7 @@
             autocomplete
             :allow-new="false"
             :data="categoriesSelect"
-            maxtags="3"
+            maxtags="4"
             :openOnFocus="true"
             @typing="getFilteredTags"
             field="title"
