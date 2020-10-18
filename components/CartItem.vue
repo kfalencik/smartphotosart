@@ -82,7 +82,7 @@ export default {
 
     productWithExtras() {
       let price = this.productTotal;
-      price = price + this.materials[this.extras.material].finishes[this.extras.finish].styles[this.extras.style].sizes[this.extras.size]
+      price = price + this.materials[this.extras.material].finishes[this.extras.finish][this.extras.format === 0 ? 'styles' : 'panoramaStyles'][this.extras.style].sizes[this.extras.size]
 
       if (this.extras.frame) {
         price = price + this.materials[this.extras.material].frames[this.extras.frame].sizes[this.extras.format][this.extras.size]

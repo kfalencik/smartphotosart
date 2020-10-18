@@ -307,7 +307,7 @@ export default {
           let productDiscount = (productPrice / 100) * product.discount;
           productPrice = productPrice - productDiscount;
 
-          productPrice = productPrice + this.materials[item.extras.material].finishes[item.extras.finish].styles[item.extras.style].sizes[item.extras.size]
+          productPrice = productPrice + this.materials[item.extras.material].finishes[item.extras.finish][item.extras.format === 0 ? 'styles' : 'panoramaStyles'][item.extras.style].sizes[item.extras.size]
 
           if (item.extras.frame) {
             productPrice = productPrice + this.materials[item.extras.material].frames[item.extras.frame].sizes[item.extras.format][item.extras.size]
@@ -429,7 +429,7 @@ export default {
           let productDiscount = (price / 100) * product.discount;
           price = price - productDiscount;
 
-          price = price + this.materials[extras.material].finishes[extras.finish].styles[extras.style].sizes[extras.size]
+          price = price + this.materials[extras.material].finishes[extras.finish][extras.format === 0 ? 'styles' : 'panoramaStyles'][extras.style].sizes[extras.size]
 
           if (extras.frame) {
             price = price + this.materials[extras.material].frames[extras.frame].sizes[extras.format][extras.size]

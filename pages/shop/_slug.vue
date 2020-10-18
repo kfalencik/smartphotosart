@@ -502,7 +502,7 @@ export default {
   },
 
   computed: {
-    slug() {
+    slug () {
       return this.$route.params.slug;
     },
 
@@ -517,7 +517,6 @@ export default {
     },
 
     panorama () {
-      console.log(this.product)
       return this.materials[this.productInfo.material].panorama && this.product.panorama
     },
 
@@ -564,7 +563,7 @@ export default {
     price () {
       let price = this.productTotal * this.sizes[this.productInfo.size].price
 
-      price = price + this.materials[this.productInfo.material].finishes[this.productInfo.finish].styles[this.productInfo.style].sizes[this.productInfo.size]
+      price = price + this.materials[this.productInfo.material].finishes[this.productInfo.finish][this.productInfo.format === 0 ? 'styles' : 'panoramaStyles'][this.productInfo.style].sizes[this.productInfo.size]
 
       if (frames && this.productInfo.frame) {
         price = price + this.materials[this.productInfo.material].frames[this.productInfo.frame].sizes[this.productInfo.format][this.productInfo.size]
