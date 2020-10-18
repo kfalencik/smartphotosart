@@ -292,41 +292,29 @@ export default {
       discounts() {
         return this.$store.state.discounts;
       },
-      prices() {
-        return this.$store.state.prices;
+      materials() {
+        return this.$store.state.pricing;
+      },
+      formats () {
+        return this.$store.state.formats;
       },
       total() {
         let price = 0;
 
         this.cart.forEach(item => {
           let product = this.product(item.product);
-          let productPrice = product.price;
+          let productPrice = product.price * this.formats[item.extras.format].sizes[item.extras.size].price;
           let productDiscount = (productPrice / 100) * product.discount;
           productPrice = productPrice - productDiscount;
-          productPrice = productPrice + this.prices[item.extras[0]].price;
 
-          if (this.prices[item.extras[0]].finish) {
-            productPrice = productPrice + this.prices[item.extras[0]].finish[item.extras[1]].price;
+          productPrice = productPrice + this.materials[item.extras.material].finishes[item.extras.finish].styles[item.extras.style].sizes[item.extras.size]
+
+          if (item.extras.frame) {
+            productPrice = productPrice + this.materials[item.extras.material].frames[item.extras.frame].sizes[item.extras.format][item.extras.size]
           }
 
-          if (this.prices[item.extras[0]].finish[item.extras[1]].styles) {
-            productPrice = productPrice + this.prices[item.extras[0]].finish[item.extras[1]].styles[item.extras[2]].price;
-          }
-
-          if (this.prices[item.extras[0]].finish[item.extras[1]].backing) {
-            productPrice = productPrice + this.prices[item.extras[0]].finish[item.extras[1]].backing[item.extras[6]].price;
-          }
-
-          if (this.prices[item.extras[0]].finish[item.extras[1]].size) {
-            productPrice = productPrice + this.prices[item.extras[0]].finish[item.extras[1]].size[item.extras[3]].price;
-          }
-
-          if (this.prices[item.extras[0]].frame) {
-            productPrice = productPrice + this.prices[item.extras[0]].frame[item.extras[4]].price;
-          }
-
-          if (this.prices[item.extras[0]].glass) {
-            productPrice = productPrice + this.prices[item.extras[0]].glass[item.extras[5]].price;
+          if (item.extras.frame && item.extras.glass) {
+            productPrice = productPrice + this.materials[item.extras.material].glass[item.extras.glass].sizes[item.extras.format][item.extras.size]
           }
 
           price = price + (productPrice * item.quantity);
@@ -343,10 +331,10 @@ export default {
       cartProducts() {
         let items = [];
         let cartTotal = 0;
+
         this.cart.forEach(item => {
           let product = this.product(item.product);
-          let productPrice = this.productTotal(product);
-          productPrice = this.productWithExtras(productPrice, item.extras[0], item.extras[1], item.extras[2], item.extras[3], item.extras[4], item.extras[5], item.extras[6]);
+          let productPrice = this.productWithExtras(product, item.extras);
           let price = productPrice * item.quantity;
           cartTotal = cartTotal + price;
 
@@ -371,6 +359,8 @@ export default {
             "currency": "USD"
           });
         }
+
+        console.log(items)
 
         return items;
       }
@@ -405,21 +395,21 @@ export default {
           return (Math.floor(price * 100) / 100).toFixed(2)
         },
         extrasFromatter: function(extras) {
-          let productList = `Material: ${this.prices[extras[0]].title}, Media: ${this.prices[extras[0]].finish[extras[1]].title}, Style: ${this.prices[extras[0]].finish[extras[1]].styles[extras[2]].title},`;
+          let productList = `Material: ${this.materials[extras.material].title}, Media: ${this.materials[extras.material].finishes[extras.finish].title}, Style: ${this.materials[extras.material].finishes[extras.finish].styles[extras.style].title},`;
 
-          if (this.prices[extras[0]].finish[extras[1]].backing) {
-            productList = productList + ` Backing: ${this.prices[extras[0]].finish[extras[1]].backing[extras[6]].title},`;
+          if (this.materials[extras.material].frames && extras.frame) {
+            productList = productList + ` Frame: ${this.materials[extras.material].frames[extras.frame].title},`;
           }
 
-          if (this.prices[extras[0]].finish[extras[1]].frame) {
-            productList = productList + ` Frame: ${this.prices[extras[0]].finish[extras[1]].frame[extras[4]].title},`;
+          if (this.materials[extras.material].glass && extras.glass) {
+            productList = productList + ` Glass: ${this.materials[extras.material].glass[extras.glass].title},`;
           }
 
-          if (this.prices[extras[0]].finish[extras[1]].glass) {
-            productList = productList + ` Glass: ${this.prices[extras[0]].finish[extras[1]].glass[extras[5]].title},`;
-          }
+          productList = productList + ` Size: ${this.formats[extras.format].sizes[extras.size].title}`;
 
-          productList = productList + ` Size: ${this.prices[extras[0]].finish[extras[1]].size[extras[3]].title}`;
+          if (extras.format !== 0) {
+            productList = productList + ` (${this.formats[extras.format].title})`;
+          }
 
           return productList;
         },
@@ -427,39 +417,26 @@ export default {
             const product = this.$store.state.products.filter(product => product.id === parseInt(id));
             return product[0];
         },
-        productTotal(product) {
-            let price = product.price;
+        productTotal(product, extras) {
+            let price = product.price * this.formats[extras.format].sizes[extras.size];
             let discount = (price / 100) * product.discount;
             price = price - discount;
 
             return price;
         },
-        productWithExtras(total, material, finish, style, size, frame, glass, backing) {
-          let price = total;
-          price = price + this.prices[material].price;
+        productWithExtras(product, extras) {
+          let price = product.price * this.formats[extras.format].sizes[extras.size].price;
+          let productDiscount = (price / 100) * product.discount;
+          price = price - productDiscount;
 
-          if (this.prices[material].finish[finish].size) {
-            price = price + this.prices[material].finish[finish].size[size].price;
+          price = price + this.materials[extras.material].finishes[extras.finish].styles[extras.style].sizes[extras.size]
+
+          if (extras.frame) {
+            price = price + this.materials[extras.material].frames[extras.frame].sizes[extras.format][extras.size]
           }
 
-          if (this.prices[material].finish) {
-            price = price + this.prices[material].finish[finish].price;
-          }
-
-          if (this.prices[material].finish[finish].styles) {
-            price = price + this.prices[material].finish[finish].styles[style].price;
-          }
-
-          if (this.prices[material].finish[finish].backing) {
-            price = price + this.prices[material].finish[finish].backing[backing].price;
-          }
-
-          if (this.prices[material].glass) {
-            price = price + this.prices[material].glass[glass].price;
-          }
-
-          if (this.prices[material].frame) {
-            price = price + this.prices[material].frame[frame].price;
+          if (extras.frame && extras.glass) {
+            price = price + this.materials[extras.material].glass[extras.glass].sizes[extras.format][extras.size]
           }
 
           return price;

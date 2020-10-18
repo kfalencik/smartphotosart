@@ -8,36 +8,31 @@
     </td>
 
     <td class="cart-item__extras">
-      <strong>Material: </strong> {{ prices[materialOption].title }},
+      <strong>Material: </strong> {{ materials[extras.material].title }},
 
-      <template v-if="prices[materialOption].finish">
+      <template v-if="materials[extras.material].finishes">
         <strong>Media: </strong>
-        <span v-if="prices[materialOption].finish">{{ prices[materialOption].finish[finishOption].title }},</span>
+        <span>{{ materials[extras.material].finishes[extras.finish].title }},</span>
       </template>
 
-      <template v-if="prices[materialOption].finish[finishOption].styles">
+      <template v-if="materials[extras.material].finishes[extras.finish].styles">
         <strong>Style: </strong>
-        <span >{{ prices[materialOption].finish[finishOption].styles[stylesOption].title }},</span>
+        <span >{{ materials[extras.material].finishes[extras.finish].styles[extras.style].title }},</span>
       </template>
 
-      <template v-if="prices[materialOption].finish[finishOption].backing">
-        <strong>Backing: </strong> 
-        <span >{{ prices[materialOption].finish[finishOption].backing[backingOption].title }},</span>
-      </template>
-
-      <template v-if="prices[materialOption].frame">
+      <template v-if="materials[extras.material].frames">
         <strong>Frame: </strong>
-        <span v-if="prices[materialOption].frame">{{ prices[materialOption].frame[frameOption].title }},</span>
+        <span v-if="materials[extras.material].frames">{{ materials[extras.material].frames[extras.frame].title }},</span>
       </template>
 
-      <template v-if="prices[materialOption].glass">
+      <template v-if="materials[extras.material].glass">
       <strong>Glass: </strong>
-      <span v-if="prices[materialOption].glass">{{ prices[materialOption].glass[glassOption].title }},</span>
+      <span v-if="materials[extras.material].glass">{{ materials[extras.material].glass[extras.glass].title }},</span>
       </template>
 
-      <template v-if="prices[materialOption].finish[finishOption].size">
+      <template>
         <strong>Size: </strong>
-        <span >{{ prices[materialOption].finish[finishOption].size[sizeOption].title }}</span>
+        <span >{{ formats[extras.format].sizes[extras.size].title }} <span v-if="extras.format !== 0">({{ formats[extras.format].title }})</span></span>
       </template>
     </td>
 
@@ -63,58 +58,38 @@ export default {
     'extras',
     'index'
   ],
-  data() {
-    return {
-      materialOption: this.extras[0],
-      finishOption: this.extras[1],
-      stylesOption: this.extras[2],
-      sizeOption: this.extras[3],
-      frameOption: this.extras[4],
-      glassOption: this.extras[5],
-      backingOption: this.extras[6]
-    }
-  },
   computed: {
     product() {
       const product = this.$store.state.products.filter(product => product.id === parseInt(this.productid));
       return product[0];
     },
-    prices() {
-      return this.$store.state.prices;
+
+    materials() {
+      return this.$store.state.pricing;
     },
+
+    formats() {
+      return this.$store.state.formats;
+    },
+
     productTotal() {
-      let price = this.product.price;
+      let price = this.product.price * this.formats[this.extras.format].sizes[this.extras.size].price;
       let discount = (price / 100) * this.product.discount;
       price = price - discount;
 
       return price;
     },
+
     productWithExtras() {
       let price = this.productTotal;
-      price = price + this.prices[this.materialOption].price;
+      price = price + this.materials[this.extras.material].finishes[this.extras.finish].styles[this.extras.style].sizes[this.extras.size]
 
-      if (this.prices[this.materialOption].finish[this.finishOption].size) {
-        price = price + this.prices[this.materialOption].finish[this.finishOption].size[this.sizeOption].price;
+      if (this.extras.frame) {
+        price = price + this.materials[this.extras.material].frames[this.extras.frame].sizes[this.extras.format][this.extras.size]
       }
 
-      if (this.prices[this.materialOption].finish) {
-        price = price + this.prices[this.materialOption].finish[this.finishOption].price;
-      }
-
-      if (this.prices[this.materialOption].finish[this.finishOption].styles) {
-        price = price + this.prices[this.materialOption].finish[this.finishOption].styles[this.stylesOption].price;
-      }
-
-      if (this.prices[this.materialOption].finish[this.finishOption].backing) {
-        price = price + this.prices[this.materialOption].finish[this.finishOption].backing[this.backingOption].price;
-      }
-
-      if (this.prices[this.materialOption].glass) {
-        price = price + this.prices[this.materialOption].glass[this.glassOption].price;
-      }
-
-      if (this.prices[this.materialOption].frame) {
-        price = price + this.prices[this.materialOption].frame[this.frameOption].price;
+      if (this.extras.frame && this.extras.glass) {
+        price = price + this.materials[this.extras.material].glass[this.extras.glass].sizes[this.extras.format][this.extras.size]
       }
 
       return price;
@@ -153,6 +128,10 @@ export default {
     &__sku {
       font-size: 14px;
       color: $black;
+    }
+
+    &__extras {
+      font-size: 15px;
     }
 
     &__thumbnail {

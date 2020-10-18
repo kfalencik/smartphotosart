@@ -24,84 +24,56 @@
             <div class="product__information-overlay" @click="informationModal = false">
               <div class="product__information-overlay-wrapper" @click.stop.prevent="">
                 <template v-if="informationType === 'material'">
-                  <img :src="require('@/assets/images/info/' + prices[materialOption].image)" v-if="prices[materialOption].image" :alt="prices[materialOption].title + ' preview'" />
-                  <button v-for="(option, index) in prices" :key="'material-' + index" :class="{'product__button': true, 'product__button--active': materialOption === index}" @click="changeMaterial(option.action, index)">{{option.title}}</button>
-                  <h3>{{prices[materialOption].title}}</h3>
-                  <div v-html="prices[materialOption].description"></div>
+                  <img :src="require('@/assets/images/info/' + materials[informationModalOption].image)" v-if="materials[informationModalOption].image" :alt="materials[informationModalOption].title + ' preview'" />
+                  <button v-for="(option, index) in materials" :key="'material-' + index" :class="{'product__button': true, 'product__button--active': informationModalOption === index}" @click="changeInformationOption(index)">{{option.title}}</button>
+                  <h3>{{materials[informationModalOption].title}}</h3>
+                  <div v-html="materials[informationModalOption].description"></div>
 
-                  <template v-if="prices[materialOption].technical">
+                  <template v-if="materials[informationModalOption].technical">
                     <br />
-                    <p v-for="(item, index) in prices[materialOption].technical" :key="index">
+                    <p v-for="(item, index) in materials[informationModalOption].technical" :key="index">
                       <strong>{{ item.label }}</strong>: {{ item.value }}
                     </p>
                   </template>
                 </template>
 
-                <template v-if="informationType === 'finish'">
-                  <img :src="require('@/assets/images/info/' + prices[materialOption][informationType][finishOption].image)" v-if="prices[materialOption][informationType][finishOption].image" :alt="prices[materialOption][informationType][finishOption].title + ' preview'" />
-                  <button v-for="(option, index) in prices[materialOption].finish" :key="'finish-' + index" :class="{'product__button': true, 'product__button--active': finishOption === index}" @click="changeFinish(option.action, index)">{{option.title}}</button>
-                  <h3>{{prices[materialOption][informationType][finishOption].title}}</h3>
-                  <div v-html="prices[materialOption][informationType][finishOption].description"></div>
+                <template v-if="informationType === 'finishes'">
+                  <img :src="require('@/assets/images/info/' + materials[productInfo.material][informationType][informationModalOption].image)" v-if="materials[productInfo.material][informationType][informationModalOption].image" :alt="materials[productInfo.material][informationType][informationModalOption].title + ' preview'" />
+                  <button v-for="(option, index) in materials[productInfo.material].finishes" :key="'finish-' + index" :class="{'product__button': true, 'product__button--active': informationModalOption === index}" @click="changeInformationOption(index)">{{option.title}}</button>
+                  <h3>{{materials[productInfo.material][informationType][informationModalOption].title}}</h3>
+                  <div v-html="materials[productInfo.material][informationType][informationModalOption].description"></div>
 
-                  <template v-if="prices[materialOption][informationType][finishOption].technical">
+                  <template v-if="materials[productInfo.material][informationType][informationModalOption].technical">
                     <br />
-                    <p v-for="(item, index) in prices[materialOption][informationType][finishOption].technical" :key="index">
+                    <p v-for="(item, index) in materials[productInfo.material][informationType][informationModalOption].technical" :key="index">
                       <strong>{{ item.label }}</strong>: {{ item.value }}
                     </p>
                   </template>
                 </template>
 
                 <template v-if="informationType === 'styles'">
-                  <img :src="require('@/assets/images/info/' + prices[materialOption].finish[finishOption][informationType][stylesOption].image)" v-if="prices[materialOption].finish[finishOption][informationType][stylesOption].image" :alt="prices[materialOption].finish[finishOption][informationType][stylesOption].title + ' preview'" />
-                  <button v-for="(option, index) in prices[materialOption].finish[finishOption].styles" :key="'styles-' + index" :class="{'product__button': true, 'product__button--active': stylesOption === index}" @click="changeStyles(option.action, index)">{{option.title}}</button>
-                  <h3>{{prices[materialOption].finish[finishOption][informationType][stylesOption].title}}</h3>
-                  <div v-html="prices[materialOption].finish[finishOption][informationType][stylesOption].description"></div>
+                  <img :src="require('@/assets/images/info/' + materials[productInfo.material]['finishes'][productInfo.finish]['styles'][informationModalOption].image)" v-if="materials[productInfo.material]['finishes'][productInfo.finish]['styles'][informationModalOption].image" :alt="materials[productInfo.material]['finishes'][productInfo.finish]['styles'][informationModalOption].title + ' preview'" />
+                  <button v-for="(option, index) in materials[productInfo.material]['finishes'][productInfo.finish].styles" :key="'finish-' + index" :class="{'product__button': true, 'product__button--active': informationModalOption === index}" @click="changeInformationOption(index)">{{option.title}}</button>
+                  <h3>{{materials[productInfo.material]['finishes'][productInfo.finish]['styles'][informationModalOption].title}}</h3>
+                  <div v-html="materials[productInfo.material]['finishes'][productInfo.finish]['styles'][informationModalOption].description"></div>
 
-                  <template v-if="prices[materialOption].finish[finishOption][informationType][stylesOption].technical">
+                  <template v-if="materials[productInfo.material]['finishes'][productInfo.finish]['styles'][informationModalOption].technical">
                     <br />
-                    <p v-for="(item, index) in prices[materialOption].finish[finishOption][informationType][stylesOption].technical" :key="index">
+                    <p v-for="(item, index) in materials[productInfo.material]['finishes'][productInfo.finish]['styles'][informationModalOption].technical" :key="index">
                       <strong>{{ item.label }}</strong>: {{ item.value }}
                     </p>
                   </template>
                 </template>
 
-                <template v-if="informationType === 'frame'">
-                  <img :src="require('@/assets/images/info/' + prices[materialOption][informationType][frameOption].image)" v-if="prices[materialOption][informationType][frameOption].image" :alt="prices[materialOption][informationType][frameOption].title + ' preview'" />
-                  <button v-for="(option, index) in prices[materialOption].frame" :key="'frame-' + index" :class="{'product__button': true, 'product__button--active': frameOption === index}" @click="changeFrame(option.action, index)">{{option.title}}</button>
-                  <h3>{{prices[materialOption][informationType][frameOption].title}}</h3>
-                  <div v-html="prices[materialOption][informationType][frameOption].description"></div>
+                <template v-if="informationType === 'frames'">
+                  <img :src="require('@/assets/images/info/' + materials[productInfo.material]['frames'][informationModalOption].image)" v-if="materials[productInfo.material]['frames'][informationModalOption].image" :alt="materials[productInfo.material]['frames'][informationModalOption].title + ' preview'" />
+                  <button v-for="(option, index) in materials[productInfo.material].frames" :key="'finish-' + index" :class="{'product__button': true, 'product__button--active': informationModalOption === index}" @click="changeInformationOption(index)">{{option.title}}</button>
+                  <h3>{{materials[productInfo.material]['frames'][informationModalOption].title}}</h3>
+                  <div v-html="materials[productInfo.material]['frames'][informationModalOption].description"></div>
 
-                  <template v-if="prices[materialOption][informationType][frameOption].technical">
+                  <template v-if="materials[productInfo.material]['frames'][informationModalOption].technical">
                     <br />
-                    <p v-for="(item, index) in prices[materialOption][informationType][frameOption].technical" :key="index">
-                      <strong>{{ item.label }}</strong>: {{ item.value }}
-                    </p>
-                  </template>
-                </template>
-
-                <template v-if="informationType === 'glass'">
-                  <img :src="require('@/assets/images/info/' + prices[materialOption][informationType][glassOption].image)" v-if="prices[materialOption][informationType][glassOption].image" :alt="prices[materialOption][informationType][glassOption].title + ' preview'" />
-                  <button v-for="(option, index) in prices[materialOption].glass" :key="'glass-' + index" :class="{'product__button': true, 'product__button--active': glassOption === index}" @click="changeGlass(option.action, index)">{{option.title}}</button>
-                  <h3>{{prices[materialOption][informationType][glassOption].title}}</h3>
-                  <div v-html="prices[materialOption][informationType][glassOption].description"></div>
-
-                  <template v-if="prices[materialOption][informationType][glassOption].technical">
-                    <br />
-                    <p v-for="(item, index) in prices[materialOption][informationType][glassOption].technical" :key="index">
-                      <strong>{{ item.label }}</strong>: {{ item.value }}
-                    </p>
-                  </template>
-                </template>
-
-                <template v-if="informationType === 'backing'">
-                  <img :src="require('@/assets/images/info/' + prices[materialOption].finish[finishOption][informationType][backingOption].image)" v-if="prices[materialOption].finish[finishOption][informationType][backingOption].image" :alt="prices[materialOption].finish[finishOption][informationType][backingOption].title + ' preview'" />
-                  <button v-for="(option, index) in prices[materialOption].finish[finishOption].backing" :key="'backing-' + index" :class="{'product__button': true, 'product__button--active': backingOption === index}" @click="changeBacking(option.action, index)">{{option.title}}</button>
-                  <h3>{{prices[materialOption].finish[finishOption][informationType][backingOption].title}}</h3>
-                  <div v-html="prices[materialOption].finish[finishOption][informationType][backingOption].description"></div>
-
-                  <template v-if="prices[materialOption].finish[finishOption][informationType][backingOption].technical">
-                    <br />
-                    <p v-for="(item, index) in prices[materialOption].finish[finishOption][informationType][backingOption].technical" :key="index">
+                    <p v-for="(item, index) in materials[productInfo.material]['frames'][informationModalOption].technical" :key="index">
                       <strong>{{ item.label }}</strong>: {{ item.value }}
                     </p>
                   </template>
@@ -144,8 +116,8 @@
             <div class="column is-two-thirds">
               <template v-if="image === 7">
                 <div class="product__dynamic-preview" :style="{ 'background-image': 'url(' + require('@/assets/images/product-' + orientation + '-background-' + canvasImage + '.jpg') + ')' }" >
-                  <div class="product__canvas" :style="{ 'background-image': 'url(' + this.product.image1 + ')', 'transform': 'scale(' + size * zoom + ')', width: product.landscape ? '480px' : '310px',   height: product.landscape ? '310px' : '480px' }">
-                    <div class="product__frame" v-if="frame !== 'transparent'" :style="{'border-color': frame}"></div>
+                  <div class="product__canvas" :style="{ 'background-image': 'url(' + product.image1 + ')', 'transform': 'scale(' + formats[productInfo.format].sizes[productInfo.size].action + ')', width: product.landscape ? productInfo.format === 1 ? '600px' : '480px' : '310px', height: product.landscape ? productInfo.format === 1 ? '250' : '310px' : '480px' }">
+                    <div class="product__frame" v-if="materials[productInfo.material].frames && materials[productInfo.material].frames[productInfo.frame].action !== 'transparent'" :style="{'border-color': materials[productInfo.material].frames[productInfo.frame].action}"></div>
                   </div>
 
                   <button @click="image === 1 ? image = 7 : image = image - 1" class="product__nav-item" title="Previous">
@@ -160,11 +132,23 @@
               <template v-else>
                 <div class="product__image">
                   <img :src="product.image1" v-if="image === 1" role="presentation" alt="" />
-                  <img :src="product.image2" v-if="image === 2" role="presentation" alt="" />
-                  <img :src="product.image3" v-if="image === 3" role="presentation" alt="" />
-                  <img :src="product.image4" v-if="image === 4" role="presentation" alt="" />
-                  <img :src="product.image5" v-if="image === 5" role="presentation" alt="" />
-                  <img v-if="product.landscape && image === 6" :src="require('@/assets/images/comparison_landscape.jpg')" role="presentation" alt="" />
+
+                  <template v-if="productInfo.format === 0">
+                    <img :src="product.image2" v-if="image === 2" role="presentation" alt="" />
+                    <img :src="product.image3" v-if="image === 3" role="presentation" alt="" />
+                    <img :src="product.image4" v-if="image === 4" role="presentation" alt="" />
+                    <img :src="product.image5" v-if="image === 5" role="presentation" alt="" />
+                    <img v-if="product.landscape && image === 6" :src="require('@/assets/images/comparison_landscape.jpg')" role="presentation" alt="" />
+                  </template>
+
+                  <template v-if="productInfo.format === 1">
+                    <img :src="product.image2pano" v-if="image === 2" role="presentation" alt="" />
+                    <img :src="product.image3pano" v-if="image === 3" role="presentation" alt="" />
+                    <img :src="product.image4pano" v-if="image === 4" role="presentation" alt="" />
+                    <img :src="product.image5pano" v-if="image === 5" role="presentation" alt="" />
+                    <img v-if="product.panorama && image === 6" :src="require('@/assets/images/comparison_panorama.jpg')" role="presentation" alt="" />
+                  </template>
+
                   <img v-if="!product.landscape && image === 6" :src="require('@/assets/images/comparison_portrait.jpg')" role="presentation" alt="" />
 
                   <button @click="overlay = true" class="product__image-fullscreen" title="Full screen">
@@ -186,26 +170,42 @@
                   <img :src="product.image1" alt="Thumbnail 3" />
                 </div>
 
-                <div class="product__thumbnails-item" @click="image = 2;" :class="{'product__thumbnails-item--active': image === 2}">
-                  <img :src="product.image2" alt="Thumbnail 2" />
-                </div>
+                <template v-if="productInfo.format === 0">
+                  <div class="product__thumbnails-item" @click="image = 2;" :class="{'product__thumbnails-item--active': image === 2}">
+                    <img :src="product.image2" alt="Thumbnail 2" />
+                  </div>
+                  <div class="product__thumbnails-item" @click="image = 3;" :class="{'product__thumbnails-item--active': image === 3}">
+                    <img :src="product.image3" alt="Thumbnail 3" />
+                  </div>
+                  <div class="product__thumbnails-item" @click="image = 4;" :class="{'product__thumbnails-item--active': image === 4}">
+                    <img :src="product.image4" alt="Thumbnail 4" />
+                  </div>
+                  <div class="product__thumbnails-item" @click="image = 5;" :class="{'product__thumbnails-item--active': image === 5}">
+                    <img :src="product.image5" alt="Thumbnail 5" />
+                  </div>
+                  <div class="product__thumbnails-item" @click="image = 6;" :class="{'product__thumbnails-item--active': image === 6}">
+                    <img v-if="product.landscape" :src="require('@/assets/images/comparison_landscape.jpg')" role="presentation" alt="Size comparison" />
+                    <img v-else :src="require('@/assets/images/comparison_portrait.jpg')" alt="Size comparison" />
+                  </div>
+                </template>
 
-                <div class="product__thumbnails-item" @click="image = 3;" :class="{'product__thumbnails-item--active': image === 3}">
-                  <img :src="product.image3" alt="Thumbnail 4" />
-                </div>
-
-                <div class="product__thumbnails-item" @click="image = 4;" :class="{'product__thumbnails-item--active': image === 4}">
-                  <img :src="product.image4" alt="Thumbnail 4" />
-                </div>
-
-                <div class="product__thumbnails-item" @click="image = 5;" :class="{'product__thumbnails-item--active': image === 5}">
-                  <img :src="product.image5" alt="Thumbnail 4" />
-                </div>
-
-                <div class="product__thumbnails-item" @click="image = 6;" :class="{'product__thumbnails-item--active': image === 6}">
-                  <img v-if="product.landscape" :src="require('@/assets/images/comparison_landscape.jpg')" role="presentation" alt="Size comparison" />
-                  <img v-else :src="require('@/assets/images/comparison_portrait.jpg')" alt="Size comparison" />
-                </div>
+                <template v-if="productInfo.format === 1">
+                  <div class="product__thumbnails-item" @click="image = 2;" :class="{'product__thumbnails-item--active': image === 2}">
+                    <img :src="product.image2pano" alt="Thumbnail 2" />
+                  </div>
+                  <div class="product__thumbnails-item" @click="image = 3;" :class="{'product__thumbnails-item--active': image === 3}">
+                    <img :src="product.image3pano" alt="Thumbnail 3" />
+                  </div>
+                  <div class="product__thumbnails-item" @click="image = 4;" :class="{'product__thumbnails-item--active': image === 4}">
+                    <img :src="product.image4pano" alt="Thumbnail 4" />
+                  </div>
+                  <div class="product__thumbnails-item" @click="image = 5;" :class="{'product__thumbnails-item--active': image === 5}">
+                    <img :src="product.image5pano" alt="Thumbnail 5" />
+                  </div>
+                  <div v-if="product.panorama" class="product__thumbnails-item" @click="image = 6;" :class="{'product__thumbnails-item--active': image === 6}">
+                    <img :src="require('@/assets/images/comparison_panorama.jpg')" role="presentation" alt="Size comparison" />
+                  </div>
+                </template>
 
                 <div class="product__thumbnails-item product__thumbnails-item--preview" :class="{'product__thumbnails-item--active': image === 7}" aria-label="Dynamic preview" @click="image = 7;">
                   <b-icon icon="image-area"></b-icon>
@@ -213,73 +213,132 @@
                 </div>
               </div>
             </div>
-
-
+            
             <div class="product__details column is-one-third">
               <div class="product__options">
+                <div class="product__option product__option--with-guide">
+                  <h5 @click="information('material', productInfo.material)">Material <span class="guide"><b-icon icon="information-outline" custom-size="mdi-18" /> MATERIAL GUIDE</span></h5>
+                  <div class="wrap">
+                    <b-field>
+                      <b-select placeholder="Select Material" required :value="productInfo.material" ref="material" @change.native="changeMaterial">
+                        <option
+                          v-for="(option, index) in materials"
+                          :value="index"
+                          :key="'material-' + index">
+                          {{option.title}}
+                        </option>
+                      </b-select>
+                    </b-field>
+                  </div>
+                  
+                </div>
 
                 <div class="product__option product__option--with-guide">
-                  <h5 @click="information('material')">Material <span class="guide"><b-icon icon="information-outline" custom-size="mdi-18" /> MATERIAL GUIDE</span></h5>
+                  <h5 @click="information('finishes', productInfo.finish)">Media <span class="guide"><b-icon icon="information-outline" custom-size="mdi-18" /> MEDIA GUIDE</span></h5>
                   <div class="wrap">
-                    <button v-for="(option, index) in prices" :key="'material-' + index" :class="{'product__button': true, 'product__button--active': materialOption === index}" @click="changeMaterial(option.action, index)">{{option.title}}</button>
+                    <b-field>
+                      <b-select placeholder="Select Media" required :value="productInfo.finish" ref="finish" @input="changeProduct">
+                        <template v-for="(option, index) in finishes">
+                          <option
+                            :value="index"
+                            :key="'finish-' + index">
+                            {{option.title}}
+                          </option>
+                        </template>
+                      </b-select>
+                    </b-field>
                   </div>
                 </div>
 
-                <div class="product__option product__option--with-guide" v-if="prices[materialOption].finish">
-                  <h5 @click="information('finish')">Media <span class="guide"><b-icon icon="information-outline" custom-size="mdi-18" /> MEDIA GUIDE</span></h5>
+                <div class="product__option product__option--with-guide">
+                  <h5 @click="information('styles', productInfo.style)">Style <span class="guide"><b-icon icon="information-outline" custom-size="mdi-18" /> STYLE GUIDE</span></h5>
                   <div class="wrap">
-                    <button v-for="(option, index) in prices[materialOption].finish" :key="'finish-' + index" :class="{'product__button': true, 'product__button--active': finishOption === index}" @click="changeFinish(option.action, index)">{{option.title}}</button>
+                    <b-field>
+                      <b-select placeholder="Select Style" required :value="productInfo.style" ref="style" @input="changeProduct">
+                        <template v-for="(option, index) in styles">
+                          <option
+                            :value="index"
+                            :key="'style-' + index">
+                            {{option.title}}
+                          </option>
+                        </template>
+                      </b-select>
+                    </b-field>
                   </div>
                 </div>
 
-                <div class="product__option product__option--with-guide" v-if="prices[materialOption].finish[finishOption].styles">
-                  <h5 @click="information('styles')">Style <span class="guide"><b-icon icon="information-outline" custom-size="mdi-18" /> STYLE GUIDE</span></h5>
+                <div class="product__option" v-if="panorama">
+                  <h5>Format</h5>
                   <div class="wrap">
-                    <button v-for="(option, index) in prices[materialOption].finish[finishOption].styles" :key="'styles-' + index" :class="{'product__button': true, 'product__button--active': stylesOption === index}" @click="changeStyles(option.action, index)">{{option.title}}</button>
-                  </div>
-                </div>
-
-                <div class="product__option product__option--with-guide" v-if="prices[materialOption].finish[finishOption].backing">
-                  <h5 @click="information('backing')">Backing <span class="guide"><b-icon icon="information-outline" custom-size="mdi-18" /> BACKING GUIDE</span></h5>
-                  <div class="wrap">
-                    <button v-for="(option, index) in prices[materialOption].finish[finishOption].backing" :key="'backing-' + index" :class="{'product__button': true, 'product__button--active': backingOption === index}" @click="changeBacking(option.action, index)">{{option.title}}</button>
+                    <b-field>
+                      <b-select placeholder="Select Format" required :value="productInfo.format" ref="format" @input="changeProduct">
+                        <template v-for="(option, index) in formats">
+                          <option
+                            :value="index"
+                            :key="'format-' + index">
+                            {{option.title}}
+                          </option>
+                        </template>
+                      </b-select>
+                    </b-field>
                   </div>
                 </div>
 
                 <div class="product__option">
                   <h5>Size</h5>
-                  <div class="wrap">
-                    <button v-for="(option, index) in prices[materialOption].finish[finishOption].size" :key="'size-' + index" :class="{'product__button': true, 'product__button--active': sizeOption === index}" @click="changeSize(option.action, index)">{{option.title}}</button>
+                  <div class="wrap" v-if="sizes">
+                    <b-field>
+                      <b-select placeholder="Select Size" required :value="productInfo.size" ref="size" @input="changeProduct">
+                        <template v-for="(option, index) in sizes">
+                          <option
+                            :value="index"
+                            :key="'size-' + index">
+                            {{option.title}}
+                          </option>
+                        </template>
+                      </b-select>
+                    </b-field>
                   </div>
                 </div>
 
-                <div class="product__option product__option--with-guide" v-if="prices[materialOption].frame">
-                  <h5 @click="information('frame')">Frame <span class="guide"><b-icon icon="information-outline" custom-size="mdi-18" /> FRAME GUIDE</span></h5>
+                <div class="product__option product__option--with-guide" v-if="frames">
+                  <h5 @click="information('frames', productInfo.frame)">Frame <span class="guide"><b-icon icon="information-outline" custom-size="mdi-18" /> FRAME GUIDE</span></h5>
                   <div class="wrap">
-                    <button v-for="(option, index) in prices[materialOption].frame" :key="'frame-' + index" :class="{'product__button': true, 'product__button--active': frameOption === index}" @click="changeFrame(option.action, index)">{{option.title}}</button>
+                    <b-field>
+                      <b-select placeholder="Select Frame" required :value="productInfo.frame" ref="frame" @input="changeProduct">
+                        <template v-for="(option, index) in frames">
+                          <option
+                            :value="index"
+                            :key="'frame-' + index">
+                            {{option.title}}
+                          </option>
+                        </template>
+                      </b-select>
+                    </b-field>
                   </div>
                 </div>
 
-                <div class="product__option product__option--with-guide" v-if="prices[materialOption].glass">
-                  <h5 @click="information('glass')">Glass <span class="guide"><b-icon icon="information-outline" custom-size="mdi-18" /> GLASS GUIDE</span></h5>
+                <div class="product__option product__option--with-guide" v-if="productInfo.frame && glass">
+                  <h5>Glass <span class="guide"><b-icon icon="information-outline" custom-size="mdi-18" /> GLASS GUIDE</span></h5>
                   <div class="wrap">
-                    <button v-for="(option, index) in prices[materialOption].glass" :key="'glass-' + index" :class="{'product__button': true, 'product__button--active': glassOption === index}" @click="changeGlass(option.action, index)">{{option.title}}</button>
-                  </div>
-                </div>
-
-                <div class="product__option">
-                  <h5>Quantity</h5>
-                  <div class="wrap product__quantity">
-                    <button class="button button--tertiary" @click="changeQuantity(quantity - 1)"><b-icon icon="minus-circle-outline" /><span class="sr-only">Minus</span></button>
-                    <span>{{ quantity }}</span>
-                    <button class="button button--tertiary" @click="changeQuantity(quantity + 1)"><b-icon icon="plus-circle-outline" /><span class="sr-only">Plus</span></button>
+                    <b-field>
+                      <b-select placeholder="Select Glass" required :value="productInfo.glass" ref="glass" @input="changeProduct">
+                        <template v-for="(option, index) in glass">
+                          <option
+                            :value="index"
+                            :key="'frame-' + index">
+                            {{option.title}}
+                          </option>
+                        </template>
+                      </b-select>
+                    </b-field>
                   </div>
                 </div>
               </div>
 
               <div class="product__add-to-cart">
                 <div class="product__price">
-                  <h5>{{ price(total) }}</h5>
+                  <h5>{{ priceDisplay(price) }}</h5>
                 </div>
 
                 <div class="product__add">
@@ -295,34 +354,29 @@
                   <h5>Product</h5>
                   <table border="1">
                     <tbody>
-                    <tr><td>Print price</td><td>{{ price(product.price)}}</td></tr>
+                    <tr><td>Print price</td><td>{{ priceDisplay(product.price)}}</td></tr>
                     <tr><td>Discount</td><td>{{product.discount}}%</td></tr>
-                    <tr><td><strong>Total</strong></td><td><strong>{{ price(productTotal)}}</strong></td></tr>
+                    <tr><td><strong>Total</strong></td><td><strong>{{ priceDisplay(productTotal)}}</strong></td></tr>
                     </tbody>
                   </table>
 
                   <h5>Extras</h5>
                   <table border="1">
                     <tbody>
-                    <tr><td>Material</td><td>{{prices[materialOption].title}}</td><td>{{ price(prices[materialOption].price)}}</td></tr>
-                    <tr v-if="prices[materialOption].finish"><td>Media</td><td>{{prices[materialOption].finish[finishOption].title}}</td><td>{{ price(prices[materialOption].finish[finishOption].price)}}</td></tr>
-                    <tr v-if="prices[materialOption].finish[finishOption].styles"><td>Style</td><td>{{prices[materialOption].finish[finishOption].styles[stylesOption].title}}</td><td>{{ price(prices[materialOption].finish[finishOption].styles[stylesOption].price)}}</td></tr>
-                    <tr v-if="prices[materialOption].finish[finishOption].backing"><td>Backing</td><td>{{prices[materialOption].finish[finishOption].backing[backingOption].title}}</td><td>{{ price(prices[materialOption].finish[finishOption].backing[backingOption].price)}}</td></tr>
-                    <tr><td>Size</td><td>{{prices[materialOption].finish[finishOption].size[sizeOption].title}}</td><td>{{ price(prices[materialOption].finish[finishOption].size[sizeOption].price)}}</td></tr>
-                    <tr v-if="prices[materialOption].frame"><td>Frame</td><td>{{prices[materialOption].frame[frameOption].title}}</td><td>{{ price(prices[materialOption].frame[frameOption].price)}}</td></tr>
-                    <tr v-if="prices[materialOption].glass"><td>Glass</td><td>{{prices[materialOption].glass[glassOption].title}}</td><td>{{ price(prices[materialOption].glass[glassOption].price)}}</td></tr>
-                    <tr><td><strong>Extras total</strong></td><td></td><td><strong>{{ price(extrasTotal) }}</strong></td></tr>
+                    <tr><td>Material</td><td>{{materials[productInfo.material].title}}</td><td>{{ priceDisplay(materials[productInfo.material].price)}}</td></tr>
+                    <tr v-if="materials[productInfo.material].finishes"><td>Media</td><td>{{materials[productInfo.material].finishes[productInfo.finish].title}}</td><td>{{ priceDisplay(materials[productInfo.material].finishes[productInfo.finish].price)}}</td></tr>
+                    <!-- <tr><td><strong>Extras total</strong></td><td></td><td><strong>{{ priceDisplay(extrasTotal) }}</strong></td></tr> -->
                     </tbody>
                   </table>
 
                   <h5>Totals</h5>
                   <table border="1">
                     <tbody>
-                    <tr><td>Product</td><td>{{ price(productTotal)}}</td></tr>
-                    <tr><td>Extras</td><td>{{ price(extrasTotal) }}</td></tr>
+                    <!-- <tr><td>Product</td><td>{{ priceDisplay(productTotal)}}</td></tr>
+                    <tr><td>Extras</td><td>{{ priceDisplay(extrasTotal) }}</td></tr>
                     <tr><td>Product with extras</td><td>{{ price(productWithExtras) }}</td></tr>
                     <tr><td>Quantity</td><td>x{{quantity}}</td></tr>
-                    <tr><td><strong>Total</strong></td><td><strong>{{ price(total) }}</strong></td></tr>
+                    <tr><td><strong>Total</strong></td><td><strong>{{ priceDisplay(price) }}</strong></td></tr> -->
                     </tbody>
                   </table>
                 </div>
@@ -340,6 +394,7 @@
 </template>
 
 <script>
+
 import Stars from '~/components/Stars';
 import KeyPoints from '~/components/KeyPoints';
 import SimilarProducts from '~/components/SimilarProducts';
@@ -367,6 +422,7 @@ export default {
       ]
     }
   },
+
   jsonld() {
     return {
       "@context": "https://www.schema.org",
@@ -392,50 +448,44 @@ export default {
       }
     }
   },
+
   transition: 'page',
+
   data () {
     return {
       prodcutIndex: 0,
       quantity: 1,
-      size: 0.2 ,
-      material: 0,
-      materialOption: 0,
-      finish: 0,
-      finishOption: 0,
-      styles: 0,
-      stylesOption: 0,
-      sizeOption: 0,
-      glass: 0,
-      glassOption: 0,
-      backing: 0,
-      backingOption: 0,
-      frame: 'transparent',
-      frameOption: 0,
+      productInfo: {
+        material: 0,
+        finish: 0,
+        style: 0,
+        format: 0,
+        size: 0,
+        frame: 0,
+        glass: 0
+      },
       zoom: 1,
       image: 1,
       canvasImage: 1,
       overlay: false,
       informationModal: false,
+      informationModalOption: 0,
       informationType: 'material'
     }
   },
+
   components: {
     Stars,
     KeyPoints,
     SimilarProducts
   },
+
   computed: {
-    orientation() {
-      if (this.product.landscape) {
-        return 'landscape';
-      } else {
-        return 'horizontal';
-      }
-    },
     slug() {
       return this.$route.params.slug;
     },
-    product() {
+
+    product () {
       const product = this.$store.state.products.filter((product, index) => {
         if (product.slug === this.slug) {
           this.prodcutIndex = index;
@@ -444,13 +494,88 @@ export default {
       });
       return product[0];
     },
-    filteredProducts() {
-      return this.$store.state.filteredProducts
+
+    panorama () {
+      return this.materials[this.productInfo.material].panorama
     },
+
+    materials () {
+      return this.$store.state.pricing
+    },
+
+    finishes () {
+      const finishes = this.materials[this.productInfo.material].finishes.filter(finish => ((this.productInfo.format === 0 && finish.styles) || (this.productInfo.format === 1 && finish.panoramaStyles)))
+      if (!finishes || finishes.length - 1 < this.productInfo.finish) {
+        this.$set(this.productInfo, 'finish', 0);
+      }
+      return finishes
+    },
+
+    styles () {
+      const styles = this.productInfo.format === 0 ? this.materials[this.productInfo.material].finishes[this.productInfo.finish].styles : this.materials[this.productInfo.material].finishes[this.productInfo.finish].panoramaStyles
+      if (!styles || styles.length - 1 < this.productInfo.style) {
+        this.$set(this.productInfo, 'style', 0);
+      }
+      return styles
+    },
+
+    formats () {
+      return this.$store.state.formats
+    },
+
+    sizes () {
+      const sizes = this.formats[this.productInfo.format].sizes.filter((size, index) => this.materials[this.productInfo.material].finishes[this.productInfo.finish].styles[this.productInfo.style].sizes[index])
+      if (!sizes || sizes.length - 1 < this.productInfo.size) {
+        this.$set(this.productInfo, 'size', 0);
+      }
+      return sizes
+    },
+
+    frames () {
+      return this.materials[this.productInfo.material].frames
+    },
+
+    glass () {
+      return this.materials[this.productInfo.material].glass
+    },
+
+    price () {
+      let price = this.product.price * this.sizes[this.productInfo.size].price
+
+      price = price + this.materials[this.productInfo.material].finishes[this.productInfo.finish].styles[this.productInfo.style].sizes[this.productInfo.size]
+
+      if (frames && this.productInfo.frame) {
+        price = price + this.materials[this.productInfo.material].frames[this.productInfo.frame].sizes[this.productInfo.format][this.productInfo.size]
+      }
+
+      if (this.glass && this.productInfo.frame && this.productInfo.glass) {
+        price = price + this.materials[this.productInfo.material].glass[this.productInfo.glass].sizes[this.productInfo.format][this.productInfo.size]
+      }
+
+      return price
+    },
+
+    productTotal() {
+      let price = this.product.price;
+      let discount = (price / 100) * this.product.discount;
+      price = price - discount;
+
+      return price;
+    },
+
+    orientation() {
+      if (this.product.landscape) {
+        return 'landscape';
+      } else {
+        return 'horizontal';
+      }
+    },
+
     productReviews() {
       const reviews = this.$store.state.reviews.filter(product => product.id === this.product.id);
       return reviews;
     },
+
     productRating() {
       let stars = 0;
       let reviewsTotal = this.productReviews.length;
@@ -464,157 +589,73 @@ export default {
         return 0
       }
     },
+  
     background() {
       return `url(${this.product.image1})`;
-    },
-    prices() {
-      return this.$store.state.prices;
-    },
-    productTotal() {
-      let price = this.product.price;
-      let discount = (price / 100) * this.product.discount;
-      price = price - discount;
-
-      return price;
-    },
-    productWithExtras() {
-      let price = this.productTotal;
-      price = price + this.prices[this.materialOption].price;
-
-      if (this.prices[this.materialOption].finish[this.finishOption].size) {
-        price = price + this.prices[this.materialOption].finish[this.finishOption].size[this.sizeOption].price;
-      }
-
-      if (this.prices[this.materialOption].finish) {
-        price = price + this.prices[this.materialOption].finish[this.finishOption].price;
-      }
-
-      if (this.prices[this.materialOption].finish[this.finishOption].styles) {
-        price = price + this.prices[this.materialOption].finish[this.finishOption].styles[this.stylesOption].price;
-      }
-
-      if (this.prices[this.materialOption].finish[this.finishOption].backing) {
-        price = price + this.prices[this.materialOption].finish[this.finishOption].backing[this.backingOption].price;
-      }
-
-      if (this.prices[this.materialOption].glass) {
-        price = price + this.prices[this.materialOption].glass[this.glassOption].price;
-      }
-
-      if (this.prices[this.materialOption].frame) {
-        price = price + this.prices[this.materialOption].frame[this.frameOption].price;
-      }
-
-      return price;
-    },
-    extrasTotal() {
-      let price = this.prices[this.materialOption].price;
-
-      if (this.prices[this.materialOption].finish[this.finishOption].size) {
-        price = price + this.prices[this.materialOption].finish[this.finishOption].size[this.sizeOption].price;
-      }
-
-      if (this.prices[this.materialOption].finish) {
-        price = price + this.prices[this.materialOption].finish[this.finishOption].price;
-      }
-
-      if (this.prices[this.materialOption].finish[this.finishOption].styles) {
-        price = price + this.prices[this.materialOption].finish[this.finishOption].styles[this.stylesOption].price;
-      }
-
-      if (this.prices[this.materialOption].finish[this.finishOption].backing) {
-        price = price + this.prices[this.materialOption].finish[this.finishOption].backing[this.backingOption].price;
-      }
-
-      if (this.prices[this.materialOption].glass) {
-        price = price + this.prices[this.materialOption].glass[this.glassOption].price;
-      }
-
-      if (this.prices[this.materialOption].frame) {
-        price = price + this.prices[this.materialOption].frame[this.frameOption].price;
-      }
-
-      return price;
-    },
-    total() {
-      return this.productWithExtras * this.quantity;
-    },
-    zoomLevel() {
-      return 2;
     }
+
   },
-  mounted() {
-    this.size = this.prices[0].finish[0].size[this.prices[0].finish[0].size.length - 1].action;
-    this.sizeOption = this.prices[0].finish[0].size.length - 1;
-  },
+
   methods: {
-    discount: function(price, discount) {
-      return price - ((price / 100) * discount);
+    changeProduct () {
+      if (this.$refs.material) this.$set(this.productInfo, 'material', this.$refs.material.selected)
+      else this.$set(this.productInfo, 'material', 0)
+
+      if (this.$refs.finish) this.$set(this.productInfo, 'finish', this.$refs.finish.selected)
+      else this.$set(this.productInfo, 'finish', 0
+      )
+      if (this.$refs.style) this.$set(this.productInfo, 'style', this.$refs.style.selected) 
+      else this.$set(this.productInfo, 'style', 0)
+
+      if (this.$refs.format) this.$set(this.productInfo, 'format', this.$refs.format.selected)
+      else this.$set(this.productInfo, 'format', 0)
+
+      if (this.$refs.size) this.$set(this.productInfo, 'size', this.$refs.size.selected)
+      else this.$set(this.productInfo, 'size', 0)
+
+      if (this.$refs.frame) this.$set(this.productInfo, 'frame', this.$refs.frame.selected)
+      else this.$set(this.productInfo, 'frame', 0)
+
+      if (this.$refs.glass) this.$set(this.productInfo, 'glass', this.$refs.glass.selected)
+      else this.$set(this.productInfo, 'glass', 0)
     },
-    magnify(zoom) {
-      this.zoom = zoom;
+
+    changeMaterial () {
+      if (this.$refs.material) this.$set(this.productInfo, 'material', this.$refs.material.selected)
+      else this.$set(this.productInfo, 'material', 0)
+
+      this.$set(this.productInfo, 'finish', 0)
+      this.$set(this.productInfo, 'style', 0)
+      this.$set(this.productInfo, 'format', 0)
+      this.$set(this.productInfo, 'size', 0)
+      this.$set(this.productInfo, 'frame', 0)
+      this.$set(this.productInfo, 'glass', 0)
     },
-    information(modal) {
+
+    changeInformationOption (option) {
+      this.informationModalOption = option
+    },
+
+    information(modal, option) {
+      this.informationModalOption = option;
       this.informationModal = true;
       this.informationType = modal;
     },
-    changeSize: function(size, sizeOption) {
-      this.size = size;
-      this.sizeOption = sizeOption;
-    },
-    changeMaterial: function(material, index) {
-      this.material = material;
-      this.materialOption = index;
-      this.size = this.prices[index].finish[0].size[this.prices[index].finish[0].size.length - 1].action;
-      this.sizeOption = this.prices[index].finish[0].size.length - 1;
-      this.finish = 0;
-      this.finishOption = 0;
-      this.styles = 0;
-      this.stylesOption = 0;
-      this.glass = 0;
-      this.glassOption = 0;
-      this.frame = 'transparent';
-      this.frameOption = 0;
-      this.backing = 0;
-      this.backingOption = 0;
-    },
-    changeFinish: function(finish, index) {
-      this.finish = finish;
-      this.finishOption = index;
-      this.size = this.prices[this.materialOption].finish[index].size[this.prices[this.materialOption].finish[index].size.length - 1].action;
-      this.sizeOption = this.prices[this.materialOption].finish[index].size.length - 1;
-    },
-    changeStyles: function(styles, index) {
-      this.styles = styles;
-      this.stylesOption = index;
-    },
-    changeGlass: function(glass, index) {
-      this.glass = glass;
-      this.glassOption = index;
-    },
-    changeFrame: function(frame, index) {
-      this.frame = frame;
-      this.frameOption = index;
-    },
-    changeBacking: function(backing, index) {
-      this.backing = backing;
-      this.backingOption = index;
-    },
-    changeQuantity: function(quantity) {
-      if (quantity !== 0 && quantity !== 10) {
-        this.quantity = quantity;
-      }
-    },
-    price: function(price) {
+
+    priceDisplay: function(price) {
       return '$' + (Math.floor(price * 100) / 100).toFixed(2)
     },
+
     priceFormatter: function(price) {
       return (Math.floor(price * 100) / 100).toFixed(2)
     },
+
     addToCart: function() {
       const self = this;
 
-      this.$store.commit('localStorage/addToCart', [this.product.id, [this.materialOption, this.finishOption, this.stylesOption, this.sizeOption, this.frameOption, this.glassOption, this.backingOption], this.quantity]);
+      console.log(this.productInfo)
+
+      this.$store.commit('localStorage/addToCart', [this.product.id, this.productInfo, this.quantity]);
       this.$buefy.snackbar.open({
         duration: 5000,
         position: 'is-top',
@@ -625,53 +666,11 @@ export default {
           self.$router.push('/shop/cart');
         }
       });
-
-      this.material = 0;
-      this.materialOption = 0;
-      this.size = this.prices[0].finish[0].size[this.prices[0].finish[0].size.length - 1].action;
-      this.sizeOption = this.prices[0].finish[0].size.length - 1;
-      this.finish = 0;
-      this.finishOption = 0;
-      this.styles = 0;
-      this.stylesOption = 0;
-      this.glass = 0;
-      this.glassOption = 0;
-      this.quantity = 1;
-      this.backing = 0;
-      this.frame = 'transparent';
-      this.frameOption = 0;
-      this.backingOption = 0;
     },
-
-    changeProduct (direction) {
-      let newProductSlug = 0;
-      let productIndex = 0;
-
-      this.filteredProducts.forEach((item, index) => {
-        if (item.id === this.product.id) {
-          productIndex = index
-        }
-      })
-      
-      if (direction === 'prev') {
-        newProductSlug = this.filteredProducts[productIndex + 1] ? this.filteredProducts[productIndex + 1].slug : this.filteredProducts[0].slug
-      } else {
-        newProductSlug = this.filteredProducts[productIndex - 1] ? this.filteredProducts[productIndex - 1].slug : this.filteredProducts[this.filteredProducts.length - 1].slug
-      }
-
-      this.$router.push('/shop/' + newProductSlug)
-    }
-  },
-
-  scrollBehavior (to, from, savedPosition) {
-    if (to.hash) {
-      return {selector: to.hash}
-    } else {
-      return {x: 0, y: 0}
-    }
   }
 }
 </script>
+
 
 <style lang="scss" scoped>
 
@@ -854,19 +853,12 @@ export default {
         margin-bottom: 0;
       }
 
-      .button {
-        margin-top: 10px;
-      }
-
       h5 {
         border-bottom: 1px solid $primary;
+        margin-bottom: 5px;
       }
 
       &--with-guide {
-        h5 {
-          margin-bottom: 5px;
-        }
-
         .guide {
           cursor: pointer;
           color: $lightgrey;
@@ -1200,6 +1192,18 @@ export default {
 
     &__navigation span {
       cursor: pointer;
+    }
+  }
+</style>
+
+<style lang="scss">
+  .product__details {
+    .select {
+      width: 100%;
+
+      select {
+        width: 100%;
+      }
     }
   }
 </style>

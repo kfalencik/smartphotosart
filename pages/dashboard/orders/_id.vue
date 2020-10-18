@@ -22,9 +22,9 @@
         <h3>Ogolne infromacje</h3>
         <div><strong>Kod PayPal: </strong>{{order.paypal.paymentID}}</div>
         <div><strong>Data zamowienia: </strong>{{order.date}}</div>
-        <div><strong>Cena brutto: </strong>${{order.subtotal}}</div>
+        <!-- <div><strong>Cena brutto: </strong>${{order.subtotal}}</div> -->
         <!-- <div><strong>Podatek: </strong>${{order.tax}}</div> -->
-        <div><strong>Cena netto: </strong>${{order.total}}</div>
+        <div><strong>Cena: </strong>${{order.total}}</div>
         <div><strong>Status: </strong><span class="tag" :class="statusType(order.status)" v-html="status(order.status)"></span></div>
         <div class="dispatcher" v-if="order.status !== 'dispatched'">
           <button class="button is-success" @click="dispatch">Oznacz jako wyslane</button>
@@ -47,10 +47,11 @@
             <b-table-column field="name" label="Nazwa">
               {{ props.row.name }}
             </b-table-column>
-            <b-table-column field="name" label="SKU">
+            <b-table-column field="SKU" label="SKU">
               {{ props.row.sku }}
             </b-table-column>
             <b-table-column field="description" label="Specyfikacja" v-html="extras(props.row.description)">
+              0
             </b-table-column>
             <b-table-column field="quantity" label="Ilosc">
               {{ props.row.quantity }}
@@ -89,8 +90,8 @@ export default {
       return this.$route.params.id;
     },
     order() {
-      let order = this.$store.state.orders.filter(order => order.paypal.orderID === this.id);
-      order = order[0];
+      let order = this.$store.state.orders.filter(order => order.paypal.orderID === this.id)[0];
+      console.log(order)
       return order;
     }
   },
@@ -121,6 +122,7 @@ export default {
     },
     extras(extras) {
       let extrasList = '<ul>';
+      console.log(extras)
       extras.split(',').forEach(item => {
         extrasList = extrasList + '<li>' + item + '</li>';
       });

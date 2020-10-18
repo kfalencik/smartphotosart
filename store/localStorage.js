@@ -39,12 +39,13 @@ export const mutations = {
     // Check if item already exists in cart
     state.cart.forEach(item => {
       if (item.product == cartItem.product
-        && item.extras[0] == cartItem.extras[0]
-        && item.extras[1] == cartItem.extras[1]
-        && item.extras[2] == cartItem.extras[2]
-        && item.extras[3] == cartItem.extras[3]
-        && item.extras[4] == cartItem.extras[4]
-        && item.extras[5] == cartItem.extras[5]
+        && item.extras.material == cartItem.extras.material
+        && item.extras.finish == cartItem.extras.finish
+        && item.extras.style == cartItem.extras.style
+        && item.extras.format == cartItem.extras.format
+        && item.extras.frame == cartItem.extras.frame
+        && item.extras.glass == cartItem.extras.glass
+        && item.extras.size == cartItem.extras.size
       ) {
         found = i;
       }
@@ -55,6 +56,7 @@ export const mutations = {
       state.cart[found].quantity = state.cart[found].quantity + data[2];
     } else {
       state.cart.push(cartItem);
+      
     }
   },
   addDiscount (state, id) {

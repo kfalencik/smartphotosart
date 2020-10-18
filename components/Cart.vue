@@ -84,50 +84,45 @@ export default {
     loaded() {
       return this.$store.state.localStorage.status
     },
+
     cart() {
+      console.log(this.$store.state.localStorage.cart)
       return this.$store.state.localStorage.cart
     },
+
     discount() {
       return this.$store.state.localStorage.discount;
     },
+
     discounts() {
       return this.$store.state.discounts;
     },
-    prices() {
-      return this.$store.state.prices;
+
+    materials () {
+      return this.$store.state.pricing
     },
+
+    formats () {
+      return this.$store.state.formats
+    },
+
     total() {
       let price = 0;
 
       this.cart.forEach(item => {
         let product = this.product(item.product);
-        let productPrice = product.price;
+        let productPrice = product.price * this.formats[item.extras.format].sizes[item.extras.size].price;
         let discount = (productPrice / 100) * product.discount;
         productPrice = productPrice - discount;
-        productPrice = productPrice + this.prices[item.extras[0]].price;
 
-        if (this.prices[item.extras[0]].finish) {
-          productPrice = productPrice + this.prices[item.extras[0]].finish[item.extras[1]].price;
+        productPrice = productPrice + this.materials[item.extras.material].finishes[item.extras.finish].styles[item.extras.style].sizes[item.extras.size]
+
+        if (item.extras.frame) {
+          productPrice = productPrice + this.materials[item.extras.material].frames[item.extras.frame].sizes[item.extras.format][item.extras.size]
         }
 
-        if (this.prices[item.extras[0]].finish[item.extras[1]].styles) {
-          productPrice = productPrice + this.prices[item.extras[0]].finish[item.extras[1]].styles[item.extras[2]].price;
-        }
-
-        if (this.prices[item.extras[0]].finish[item.extras[1]].backing) {
-          productPrice = productPrice + this.prices[item.extras[0]].finish[item.extras[1]].backing[item.extras[6]].price;
-        }
-
-        if (this.prices[item.extras[0]].finish[item.extras[1]].size) {
-          productPrice = productPrice + this.prices[item.extras[0]].finish[item.extras[1]].size[item.extras[3]].price;
-        }
-
-        if (this.prices[item.extras[0]].frame) {
-          productPrice = productPrice + this.prices[item.extras[0]].frame[item.extras[4]].price;
-        }
-
-        if (this.prices[item.extras[0]].glass) {
-          productPrice = productPrice + this.prices[item.extras[0]].glass[item.extras[5]].price;
+        if (item.extras.frame && item.extras.glass) {
+          productPrice = productPrice + this.materials[item.extras.material].glass[item.extras.glass].sizes[item.extras.format][item.extras.size]
         }
 
         price = price + (productPrice * item.quantity);
@@ -142,6 +137,7 @@ export default {
       return price;
     }
   },
+
   methods: {
     checkCode: function() {
       let findCode = this.discounts.filter(discount => discount.code === this.coupon);
@@ -168,10 +164,12 @@ export default {
       }
       this.coupon = '';
     },
+
     product(id) {
       const product = this.$store.state.products.filter(product => product.id === parseInt(id));
       return product[0];
     },
+
     productTotal(product) {
       let price = product.price;
       let discount = (price / 100) * product.discount;
@@ -179,18 +177,15 @@ export default {
 
       return price;
     },
+
     price: function(price) {
       return '$' + (Math.floor(price * 100) / 100).toFixed(2)
     },
+
     priceFormatter: function(price) {
       return (Math.floor(price * 100) / 100).toFixed(2)
     },
-    extrasFromatter: function(extras) {
-      return `
-        Material: ${this.prices[extras[0]].title},
-        Type: ${this.prices[extras[0]].finish ? this.prices[extras[0]].finish[extras[1]].title: this.prices[0].finish[extras[1]].title},
-      `;
-    },
+
     checkout: function() {
       this.$router.push({ path: '/shop/checkout' });
     }
