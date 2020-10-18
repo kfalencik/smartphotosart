@@ -66,6 +66,9 @@ export const state = () => ({
     },
     {
       images: '8'
+    },
+    {
+      images: '9'
     }
   ]
 })
