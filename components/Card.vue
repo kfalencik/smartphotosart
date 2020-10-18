@@ -15,7 +15,7 @@
           <template v-if="product.discount">
             <span>From &nbsp;</span>
             <span class="discount">{{ price(product.price) }}</span>
-            <span class="price"><strong>{{ price(discount(product.price, product.discount)) }}</strong></span>
+            <span class="price"><strong>${{ discount(product.price, product.discount) }}</strong></span>
           </template>
           <template v-else>
             <span>From &nbsp;</span>
@@ -36,13 +36,20 @@ export default {
     product() {
       const product = this.$store.state.products.filter(product => product.id === this.id);
       return product[0];
+    },
+    materials () {
+      return this.$store.state.pricing
     }
   },
   methods: {
     discount: function(price, discount) {
-      return price - ((price / 100) * discount);
+      price = parseFloat(price)
+      console.log((price - ((price / 100) * discount)) + this.materials[0].finishes[0].styles[0].sizes[0])
+      price = (price - ((price / 100) * discount)) + this.materials[0].finishes[0].styles[0].sizes[0]
+      return price;
     },
     price: function(price) {
+      price = parseFloat(price) + this.materials[0].finishes[0].styles[0].sizes[0]
       return '$' + (Math.floor(price * 100) / 100).toFixed(2)
     }
   }

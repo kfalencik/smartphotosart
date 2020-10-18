@@ -107,7 +107,63 @@
           <b-input placeholder="Ilosc sprzedazy" v-model="bought" required></b-input>
         </b-field>
 
-        <b-field label="Orientacja">
+        <b-field class="form__input">
+          <label class="checkbox">
+            <input type="checkbox" v-model="panorama"> Panoarama?
+          </label>
+        </b-field>
+
+        <template v-if="panorama">
+          <b-field class="form__input file" label="Zdjecie 3D produktu (Panorama)">
+            <b-upload v-model="image2pano" required>
+              <a class="button is-info">
+                <b-icon icon="upload"></b-icon>
+                <span>Click to upload</span>
+              </a>
+            </b-upload>
+            <span class="file-thumbnail" v-if="image2pano">
+              <img :src="image2panoURL" />
+            </span>
+          </b-field>
+
+          <b-field class="form__input file" label="Zdjecie na scianie 1 (Panorama)">
+            <b-upload v-model="image3pano" required>
+              <a class="button is-info">
+                <b-icon icon="upload"></b-icon>
+                <span>Click to upload</span>
+              </a>
+            </b-upload>
+            <span class="file-thumbnail" v-if="image3pano">
+              <img :src="image3panoURL" />
+            </span>
+          </b-field>
+
+          <b-field class="form__input file" label="Zdjecie na scianie 2 (Panorama)">
+            <b-upload v-model="image4pano" required>
+              <a class="button is-info">
+                <b-icon icon="upload"></b-icon>
+                <span>Click to upload</span>
+              </a>
+            </b-upload>
+            <span class="file-thumbnail" v-if="image4pano">
+              <img :src="image4panoURL" />
+            </span>
+          </b-field>
+
+          <b-field class="form__input file" label="Zdjecie na scianie 3 (Panorama)">
+            <b-upload v-model="image5pano" required>
+              <a class="button is-info">
+                <b-icon icon="upload"></b-icon>
+                <span>Click to upload</span>
+              </a>
+            </b-upload>
+            <span class="file-thumbnail" v-if="image5pano">
+              <img :src="image5panoURL" />
+            </span>
+          </b-field>
+        </template>
+
+        <b-field label="Orientacja" v-if="!panorama">
           <b-select placeholder="Wybierz orientacje" v-model="landscape" required>
             <option value="true">Pozioma</option>
             <option value="false">Pionowa</option>
@@ -122,6 +178,8 @@
             placeholder="Dodaj">
           </b-taginput>
         </b-field>
+
+        
 
         <div class="form__input form__input--buttons">
           <button type="button" @click="addProduct" class="button is-success">Dodaj produkt</button>
@@ -142,6 +200,7 @@ export default {
       price: 0,
       discount: 0,
       bought: 0,
+      panorama: false,
       landscape: "true",
       tags: '',
       latestId: 0,
@@ -154,7 +213,15 @@ export default {
       image4: null,
       image4URL: null,
       image5: null,
-      image5URL: null
+      image5URL: null,
+      image2pano: null,
+      image2panoURL: null,
+      image3pano: null,
+      image3panoURL: null,
+      image4pano: null,
+      image4panoURL: null,
+      image5pano: null,
+      image5panoURL: null
     }
   },
   layout: 'dashboard',
@@ -227,6 +294,54 @@ export default {
         
         this.image5URL = reader.readAsDataURL(o);
       }
+    },
+    image2pano (o) {
+      if (!this.image2pano || this.image2pano.type !== 'image/jpeg') {
+        this.$store.commit('addMessage', ['Zly typ pliku. Sprawdz czy zdjecie jest w dobrym formacie.', 'bad']);
+        this.image2pano = null
+        this.image2panoURL = null
+      } else {
+        var reader = new FileReader();
+        reader.onload = e => this.image2panoURL = e.target.result
+        
+        this.image2panoURL = reader.readAsDataURL(o);
+      }
+    },
+    image3pano (o) {
+      if (!this.image3pano || this.image3pano.type !== 'image/jpeg') {
+        this.$store.commit('addMessage', ['Zly typ pliku. Sprawdz czy zdjecie jest w dobrym formacie.', 'bad']);
+        this.image3pano = null
+        this.image3panoURL = null
+      } else {
+        var reader = new FileReader();
+        reader.onload = e => this.image3panoURL = e.target.result
+        
+        this.image3panoURL = reader.readAsDataURL(o);
+      }
+    },
+    image4pano (o) {
+      if (!this.image4pano || this.image4pano.type !== 'image/jpeg') {
+        this.$store.commit('addMessage', ['Zly typ pliku. Sprawdz czy zdjecie jest w dobrym formacie.', 'bad']);
+        this.image4pano = null
+        this.image4panoURL = null
+      } else {
+        var reader = new FileReader();
+        reader.onload = e => this.image4panoURL = e.target.result
+        
+        this.image4panoURL = reader.readAsDataURL(o);
+      }
+    },
+    image5pano (o) {
+      if (!this.image5pano || this.image5pano.type !== 'image/jpeg') {
+        this.$store.commit('addMessage', ['Zly typ pliku. Sprawdz czy zdjecie jest w dobrym formacie.', 'bad']);
+        this.image5pano = null
+        this.image5panoURL = null
+      } else {
+        var reader = new FileReader();
+        reader.onload = e => this.image5panoURL = e.target.result
+        
+        this.image5panoURL = reader.readAsDataURL(o);
+      }
     }
   },
   methods: {
@@ -262,6 +377,9 @@ export default {
 
         this.latestId = this.latestId + 1;
 
+        const uploadImages = [this.image1, this.image2, this.image3, this.image4, this.image5]
+        if (this.panorama) uploadImages.push(this.image2pano, this.image3pano, this.image4pano, this.image5pano)
+
         this.$store.commit('addProduct', [
           {
             id: this.latestId,
@@ -271,14 +389,13 @@ export default {
             categories: this.categories.map(item => item.slug).join(", "),
             price: this.price,
             discount: parseInt(this.discount),
-            landscape: this.landscape === 'true' ? true : false,
+            landscape: product.panorama ? true : this.landscape === 'true' ? true : false,
             tags: this.tags.join(", "),
             date: date,
-            bought: this.bought
+            bought: this.bought,
+            panorama: this.panorama
           },
-          [
-            this.image1, this.image2, this.image3, this.image4, this.image5
-          ]
+          uploadImages
         ]);
 
         this.$buefy.toast.open({message: 'Produkt zostal dodany!', type: 'is-success'});

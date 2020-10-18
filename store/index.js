@@ -199,7 +199,7 @@ export const mutations = {
                   self.app.router.go();
                 }
               });
-            }, 1000)
+            }, 2500)
           } 
         })
       })
@@ -231,7 +231,7 @@ export const mutations = {
                     });
                   })
                 });
-              }, 1000)
+              }, 2500)
             } 
           })
         })

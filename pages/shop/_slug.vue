@@ -6,13 +6,25 @@
 
           <template v-if="overlay && image !== 7">
             <div class="product__overlay" @click="overlay = false">
-              <img :src="product.image1" v-if="image === 1" role="presentation" alt="" />
-              <img :src="product.image2" v-if="image === 2" role="presentation" alt="" />
-              <img :src="product.image3" v-if="image === 3" role="presentation" alt="" />
-              <img :src="product.image4" v-if="image === 4" role="presentation" alt="" />
-              <img :src="product.image5" v-if="image === 5" role="presentation" alt="" />
-              <img v-if="product.landscape && image === 6" :src="require('@/assets/images/comparison_landscape.jpg')" role="presentation" alt="" />
-              <img v-if="!product.landscape && image === 6" :src="require('@/assets/images/comparison_portrait.jpg')" role="presentation" alt="" />
+              <template v-if="productInfo.format === 0">
+                <img :src="product.image1" v-if="image === 1" role="presentation" alt="" />
+                <img :src="product.image2" v-if="image === 2" role="presentation" alt="" />
+                <img :src="product.image3" v-if="image === 3" role="presentation" alt="" />
+                <img :src="product.image4" v-if="image === 4" role="presentation" alt="" />
+                <img :src="product.image5" v-if="image === 5" role="presentation" alt="" />
+                <img v-if="product.landscape && image === 6" :src="require('@/assets/images/comparison_landscape.jpg')" role="presentation" alt="" />
+                <img v-if="!product.landscape && image === 6" :src="require('@/assets/images/comparison_portrait.jpg')" role="presentation" alt="" />
+              </template>
+
+              <template v-else>
+                <img :src="product.image1" v-if="image === 1" role="presentation" alt="" />
+                <img :src="product.image6" v-if="image === 2" role="presentation" alt="" />
+                <img :src="product.image7" v-if="image === 3" role="presentation" alt="" />
+                <img :src="product.image8" v-if="image === 4" role="presentation" alt="" />
+                <img :src="product.image9" v-if="image === 5" role="presentation" alt="" />
+                <img v-if="product.panorama && image === 6" :src="require('@/assets/images/comparison_panorama.jpg')" role="presentation" alt="" />
+              </template>
+              
 
               <button @click="overlay = false" title="Close">
                 <b-icon icon="close" custom-size="mdi-24px"></b-icon>
@@ -142,10 +154,10 @@
                   </template>
 
                   <template v-if="productInfo.format === 1">
-                    <img :src="product.image2pano" v-if="image === 2" role="presentation" alt="" />
-                    <img :src="product.image3pano" v-if="image === 3" role="presentation" alt="" />
-                    <img :src="product.image4pano" v-if="image === 4" role="presentation" alt="" />
-                    <img :src="product.image5pano" v-if="image === 5" role="presentation" alt="" />
+                    <img :src="product.image6" v-if="image === 2" role="presentation" alt="" />
+                    <img :src="product.image7" v-if="image === 3" role="presentation" alt="" />
+                    <img :src="product.image8" v-if="image === 4" role="presentation" alt="" />
+                    <img :src="product.image9" v-if="image === 5" role="presentation" alt="" />
                     <img v-if="product.panorama && image === 6" :src="require('@/assets/images/comparison_panorama.jpg')" role="presentation" alt="" />
                   </template>
 
@@ -191,16 +203,16 @@
 
                 <template v-if="productInfo.format === 1">
                   <div class="product__thumbnails-item" @click="image = 2;" :class="{'product__thumbnails-item--active': image === 2}">
-                    <img :src="product.image2pano" alt="Thumbnail 2" />
+                    <img :src="product.image6" alt="Thumbnail 2" />
                   </div>
                   <div class="product__thumbnails-item" @click="image = 3;" :class="{'product__thumbnails-item--active': image === 3}">
-                    <img :src="product.image3pano" alt="Thumbnail 3" />
+                    <img :src="product.image7" alt="Thumbnail 3" />
                   </div>
                   <div class="product__thumbnails-item" @click="image = 4;" :class="{'product__thumbnails-item--active': image === 4}">
-                    <img :src="product.image4pano" alt="Thumbnail 4" />
+                    <img :src="product.image8" alt="Thumbnail 4" />
                   </div>
                   <div class="product__thumbnails-item" @click="image = 5;" :class="{'product__thumbnails-item--active': image === 5}">
-                    <img :src="product.image5pano" alt="Thumbnail 5" />
+                    <img :src="product.image9" alt="Thumbnail 5" />
                   </div>
                   <div v-if="product.panorama" class="product__thumbnails-item" @click="image = 6;" :class="{'product__thumbnails-item--active': image === 6}">
                     <img :src="require('@/assets/images/comparison_panorama.jpg')" role="presentation" alt="Size comparison" />
@@ -505,7 +517,8 @@ export default {
     },
 
     panorama () {
-      return this.materials[this.productInfo.material].panorama
+      console.log(this.product)
+      return this.materials[this.productInfo.material].panorama && this.product.panorama
     },
 
     materials () {
@@ -549,7 +562,7 @@ export default {
     },
 
     price () {
-      let price = this.product.price * this.sizes[this.productInfo.size].price
+      let price = this.productTotal * this.sizes[this.productInfo.size].price
 
       price = price + this.materials[this.productInfo.material].finishes[this.productInfo.finish].styles[this.productInfo.style].sizes[this.productInfo.size]
 
