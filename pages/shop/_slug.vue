@@ -334,6 +334,15 @@
                     </b-field>
                   </div>
                 </div>
+
+                <div class="product__option">
+                  <h5>Quantity</h5>
+                  <div class="wrap product__quantity">
+                    <button class="button button--tertiary" @click="changeQuantity(quantity - 1)"><b-icon icon="minus-circle-outline" /><span class="sr-only">Minus</span></button>
+                    <span>{{ quantity }}</span>
+                    <button class="button button--tertiary" @click="changeQuantity(quantity + 1)"><b-icon icon="plus-circle-outline" /><span class="sr-only">Plus</span></button>
+                  </div>
+                </div>
               </div>
 
               <div class="product__add-to-cart">
@@ -648,6 +657,12 @@ export default {
 
     priceFormatter: function(price) {
       return (Math.floor(price * 100) / 100).toFixed(2)
+    },
+
+    changeQuantity: function(quantity) {
+      if (quantity !== 0 && quantity !== 10) {
+        this.quantity = quantity;
+      }
     },
 
     addToCart: function() {
