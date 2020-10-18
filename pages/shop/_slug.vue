@@ -359,7 +359,7 @@
 
               <div class="product__add-to-cart">
                 <div class="product__price">
-                  <h5>{{ priceDisplay(price) }}</h5>
+                  <h5>{{ priceDisplay(price * quantity) }}</h5>
                 </div>
 
                 <div class="product__add">
@@ -388,18 +388,18 @@
                     <tr><td>Size</td><td>{{formats[productInfo.format].title}} / {{formats[productInfo.format].sizes[productInfo.size].title}}</td><td>{{ priceDisplay((productTotal * formats[productInfo.format].sizes[productInfo.size].price) - productTotal)}}</td></tr>
                     <tr v-if="productInfo.frame"><td>Frame</td><td>{{materials[productInfo.material].frames[productInfo.frame].title}}</td><td>{{ priceDisplay(materials[productInfo.material].frames[productInfo.frame].sizes[productInfo.format][productInfo.size])}}</td></tr>
                     <tr v-if="productInfo.glass"><td>Glass</td><td>{{materials[productInfo.material].glass[productInfo.glass].title}}</td><td>{{ priceDisplay(materials[productInfo.material].glass[productInfo.glass].sizes[productInfo.format][productInfo.size])}}</td></tr>
-                    <!-- <tr><td><strong>Extras total</strong></td><td></td><td><strong>{{ priceDisplay(extrasTotal) }}</strong></td></tr> -->
+                    <tr><td><strong>Extras total</strong></td><td></td><td><strong>{{ priceDisplay(extrasTotal) }}</strong></td></tr>
                     </tbody>
                   </table>
 
                   <h5>Totals</h5>
                   <table border="1">
                     <tbody>
-                    <!-- <tr><td>Product</td><td>{{ priceDisplay(productTotal)}}</td></tr>
+                    <tr><td>Product</td><td>{{ priceDisplay(productTotal)}}</td></tr>
                     <tr><td>Extras</td><td>{{ priceDisplay(extrasTotal) }}</td></tr>
-                    <tr><td>Product with extras</td><td>{{ price(productWithExtras) }}</td></tr>
+                    <tr><td>Product with extras</td><td>{{ priceDisplay(productTotal + extrasTotal) }}</td></tr>
                     <tr><td>Quantity</td><td>x{{quantity}}</td></tr>
-                    <tr><td><strong>Total</strong></td><td><strong>{{ priceDisplay(price) }}</strong></td></tr> -->
+                    <tr><td><strong>Total</strong></td><td><strong>{{ priceDisplay(price * quantity) }}</strong></td></tr>
                     </tbody>
                   </table>
                 </div>
@@ -584,6 +584,23 @@ export default {
       price = price - discount;
 
       return price;
+    },
+
+    extrasTotal () {
+      // style
+      let price = this.materials[this.productInfo.material].finishes[this.productInfo.finish][this.productInfo.format === 0 ? 'styles' : 'panoramaStyles'][this.productInfo.style].sizes[this.productInfo.size]
+      // size
+      price = price + (this.productTotal * this.formats[this.productInfo.format].sizes[this.productInfo.size].price) - this.productTotal
+      // frame
+      if (this.productInfo.frame) {
+        price = price + this.materials[this.productInfo.material].frames[this.productInfo.frame].sizes[this.productInfo.format][this.productInfo.size]
+      }
+      // glass
+      if (this.productInfo.frame && this.productInfo.glass) {
+        price = price + this.materials[this.productInfo.material].glass[this.productInfo.glass].sizes[this.productInfo.format][this.productInfo.size]
+      }
+
+      return price
     },
 
     orientation() {
