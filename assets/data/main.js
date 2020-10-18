@@ -402,7 +402,7 @@ export default {
         },
         {
           title: "Aluminium Slimline - Gold",
-          action: 'gold',
+          action: '#D4AF37',
           sizes: [[20, 35, 45, 60], [50, 80, 100, 150]]
         },
         {
@@ -417,22 +417,22 @@ export default {
         },
         {
           title: "Aluminium Slimline - White Maple",
-          action: 'white',
+          action: '#FED821',
           sizes: [[20, 35, 45, 60], [50, 80, 100, 150]]
         },
         {
           title: "Hamburg - Black Oak",
-          action: 'black',
+          action: '#252321',
           sizes: [[70, 110, 170, 300], [100, 150, 200, 350]]
         },
         {
           title: "Hamburg - Brown Adler",
-          action: 'brown',
+          action: '#AE8E7F',
           sizes: [[70, 110, 170, 300], [100, 150, 200, 350]]
         },
         {
           title: "Hamburg - Walnut",
-          action: 'lightbrown',
+          action: '#5D432C',
           sizes: [[70, 110, 170, 300], [100, 150, 200, 350]]
         }
       ]
