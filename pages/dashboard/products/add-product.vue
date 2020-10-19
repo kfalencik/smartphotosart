@@ -389,7 +389,7 @@ export default {
             categories: this.categories.map(item => item.slug).join(", "),
             price: this.price,
             discount: parseInt(this.discount),
-            landscape: product.panorama ? true : this.landscape === 'true' ? true : false,
+            landscape: this.panorama ? true : this.landscape === 'true' ? true : false,
             tags: this.tags.join(", "),
             date: date,
             bought: this.bought,
