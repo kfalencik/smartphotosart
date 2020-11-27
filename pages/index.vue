@@ -80,10 +80,10 @@ export default {
   },
   jsonld() {
     return {
-      "@context" : "http://schema.org",
+      "@context" : "https://schema.org",
       "@type" : "Organization",
       "name" : "Peter Falencik Photography",
-      "url" : "https://www.falencik.com",
+      "url" : "https://falencik.com",
       "sameAs" : [
         "https://www.facebook.com/peterfalencik",
       ],
