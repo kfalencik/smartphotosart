@@ -789,8 +789,15 @@ export default {
       justify-content: center;
 
       img {
-        max-height: 80vh;
-        max-width: 96%;
+        max-height: 96vh;
+        max-width: 98%;
+      }
+
+      @media (min-width: $medium) {
+        img {
+          max-height: 80vh;
+          max-width: 96%;
+        }
       }
 
       button {

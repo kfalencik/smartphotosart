@@ -359,6 +359,7 @@ export const mutations = {
           "total": data[0].total
         }
         emailjs.send(emailserviceid, 'iconari_dispatched', emailParams, emailuserid);
+        emailjs.send(emailserviceid, 'new_order_studio', emailParams, emailuserid);
       });
     });
   },
