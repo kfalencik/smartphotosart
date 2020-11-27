@@ -83,16 +83,32 @@ export default {
       "@context" : "https://schema.org",
       "@type" : "Organization",
       "name" : "Peter Falencik Photography",
+      "legalName": "Smart Graphic Studios",
+      "logo": "https://falencik.com/logo.png",
+      "foundingDate": "2020",
       "url" : "https://falencik.com",
       "sameAs" : [
         "https://www.facebook.com/peterfalencik",
       ],
+      "founders": [
+        {
+        "@type": "Person",
+        "name": "Peter Falencik"
+        }
+      ],
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "1280 WILDWOOD LAKES BLVD",
+        "addressLocality": "Naples",
         "addressRegion": "FL",
         "postalCode": "34104",
-        "addressCountry": "US"
+        "addressCountry": "USA"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "customer support",
+        "telephone": "[+1239-298-0887]",
+        "email": "studio@falencik.com"
       }
     }
   },
