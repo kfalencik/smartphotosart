@@ -429,6 +429,7 @@ export default {
     return {
       title: 'Peter Falencik Photography - ' + this.product.title,
       meta: [
+        { hid: 'keywords', name: 'keywords', content: 'art, naples, beach, falencik, property, canvas, florida, photography, wall art, beautiful, acryclic, photographer, peter falencik'},
         { hid: 'ogtitle', property: 'og:title', content: 'Peter Falencik Photography - ' + this.product.title},
         { hid: 'ogdesc', property: 'og:description', content: 'A beautiful canvas "' + this.product.title + '" for your wall'},
         { hid: 'ogtype', property: 'og:type', content: 'product.item'},
@@ -451,25 +452,37 @@ export default {
   jsonld() {
     return {
       "@context": "https://www.schema.org",
-      "@type": "product",
-      "brand": "Peter Falencik Photography",
-      "logo": "https://falencik.com/logo.png",
+      "@type": "Product",
       "name": this.product.title,
+      "image": [
+        this.product.image1,
+        this.product.image2,
+        this.product.image3,
+        this.product.image4,
+        this.product.image5
+      ],
+      "brand": {
+        "@type": "Brand",
+        "name": "Peter Falencik Photography"
+      },
+      "description": this.product.description,
+      "sku": this.product.slug,
+      "logo": "https://falencik.com/logo.png",
       "category": this.product.category,
       "image": this.product.image1,
-      "description": this.product.description,
       "productID": this.product.id,
-      "sku": this.product.sku,
       "aggregateRating": {
-        "@type": "aggregateRating",
-        "ratingValue": this.productRating,
+        "@type": "AggregateRating",
+        "ratingValue": this.productRating ? this.productRating : 5,
         "reviewCount": 1 + this.productReviews.length
       },
       "offers": {
         "@type": "Offer",
+        "url": "https://falencik.com/shop/" + this.product.slug,
         "priceCurrency": "USD",
         "price": this.priceFormatter(this.productTotal),
-        "availability": "http://schema.org/InStock"
+        "priceValidUntil": "2025-11-20",
+        "availability": "https://schema.org/InStock"
       }
     }
   },
