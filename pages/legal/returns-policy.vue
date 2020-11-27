@@ -6,7 +6,7 @@
           <h2>RETURNS POLICY</h2>
         
           <p><strong>Last updated January 03, 2020</strong></p>
-          <p>We hope you are happy with your purchase. However, if you are not completely satisfied with your purchase for any reason, you may return it to us for a full refund or an exchange. Please see below for more information on our return policy.</p>
+          <p>We hope you are happy with your purchase. However, if you are not completely satisfied with your purchase for any reason, you may return it to us for a 80% refund. 20% of the total will be charged for logistic and printing costs. Please see below for more information on our return policy.</p>
           
           <h3>RETURNS</h3>
           <p>All returns must be postmarked within fourteen (14) days of the purchase date. All returned items must be in new and unused condition, with all original tags and labels attached.</p>          
@@ -24,7 +24,7 @@
           <p>Please note, you will be responsible for all return shipping charges. We strongly recommend that you use a trackable method to mail your return.</p>
 
           <h3>REFUNDS</h3>
-          <p>After receiving your return and inspecting the condition of your item, we will process your return or exchange. Please allow at least thirty (30) days from the receipt of your item to process your return or exchange.We will notify you by email when your return has been processed. </p>
+          <p>After receiving your return and inspecting the condition of your item, we will process your return or exchange. Please allow at least thirty (30) days from the receipt of your item to process your return or exchange. We will notify you by email when your return has been processed. </p>
                 
           <h3>QUESTIONS</h3>
           <p>If you have any questions concerning our return policy, please contact us at:</p>

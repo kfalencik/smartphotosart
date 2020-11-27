@@ -26,9 +26,9 @@
           </div>
           <div class="services__item column is-one-fifth">
             <div>
-              <img :src="require('@/assets/images/icons/icon-money.png')" alt="" role="presentation" />
-              <h5>Money Back</h5>
-              <p>100% money back return policy</p>
+              <img :src="require('@/assets/images/icons/icon-custom.png')" alt="" role="presentation" />
+              <h5>Custom orders</h5>
+              <p>Order bespoke sized products</p>
             </div>
           </div>
           <div class="services__item column is-one-fifth">
@@ -68,6 +68,7 @@
       }
 
       p {
+        margin-top: 0;
         font-size: 0.8em;
       }
 

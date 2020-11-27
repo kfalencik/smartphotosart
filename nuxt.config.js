@@ -90,7 +90,8 @@ export default async function() {
     plugins: [
       { src: '~/plugins/paypal.js', ssr: false },
       { src: '~/plugins/ga.js', mode: 'client' },
-      { src: '~/plugins/jsonld.js' }
+      { src: '~/plugins/jsonld.js' },
+      { src: '~/plugins/vue-fb-customer-chat.js', mode: 'client', ssr: false }
     ],
     /*
     ** Nuxt.js dev-modules
