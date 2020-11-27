@@ -436,6 +436,86 @@ export default {
           sizes: [[70, 110, 170, 300], [100, 150, 200, 350]]
         }
       ]
+    },
+    {
+      title: 'Metal',
+      description: 'Metal description',
+      image: 'acrylic-luster.jpg',
+      panorama: true,
+      finishes: [
+        {
+          title: 'HD',
+          styles: [
+            {
+              title: 'Borderless',
+              sizes: [80, 220, 420, 1100]
+            }
+          ],
+          panoramaStyles: [
+            {
+              title: 'Borderless',
+              sizes: [60, 120, 320, 1200]
+            }
+          ]
+        }
+      ],
+      frames: [
+        {
+          title: "None",
+          action: 'transparent',
+          sizes: [[0, 0, 0, 0]]
+        },
+        {
+          title: "Artbox - Aluminium Silver",
+          action: 'lightgrey',
+          sizes: [[65, 85, 180, 290], [90, 110, 180, 350]]
+        },
+        {
+          title: "Artbox - Aluminium black",
+          action: 'black',
+          sizes: [[65, 85, 180, 290], [90, 110, 180, 350]]
+        },
+        {
+          title: "Aluminium Slimline - Silver",
+          action: 'lightgrey',
+          sizes: [[20, 35, 45, 60], [50, 80, 100, 150]]
+        },
+        {
+          title: "Aluminium Slimline - Gold",
+          action: '#D4AF37',
+          sizes: [[20, 35, 45, 60], [50, 80, 100, 150]]
+        },
+        {
+          title: "Aluminium Slimline - White",
+          action: 'white',
+          sizes: [[20, 35, 45, 60], [50, 80, 100, 150]]
+        },
+        {
+          title: "Aluminium Slimline - Black",
+          action: 'black',
+          sizes: [[20, 35, 45, 60], [50, 80, 100, 150]]
+        },
+        {
+          title: "Aluminium Slimline - White Maple",
+          action: '#FED821',
+          sizes: [[20, 35, 45, 60], [50, 80, 100, 150]]
+        },
+        {
+          title: "Hamburg - Black Oak",
+          action: '#252321',
+          sizes: [[70, 110, 170, 300], [100, 150, 200, 350]]
+        },
+        {
+          title: "Hamburg - Brown Adler",
+          action: '#AE8E7F',
+          sizes: [[70, 110, 170, 300], [100, 150, 200, 350]]
+        },
+        {
+          title: "Hamburg - Walnut",
+          action: '#5D432C',
+          sizes: [[70, 110, 170, 300], [100, 150, 200, 350]]
+        }
+      ]
     }
   ],
   homepage: {

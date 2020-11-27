@@ -117,9 +117,9 @@
 
             <div class="column is-one-third">
               <div class="product__navigation has-text-right">
-                <span @click="changeProduct('next')"><b-icon icon="chevron-left" size="is-small"></b-icon> Previous Product</span>
+                <span @click="nextProduct('next')"><b-icon icon="chevron-left" size="is-small"></b-icon> Previous Product</span>
                 &nbsp; &nbsp; &nbsp;
-                <span @click="changeProduct('prev')">Next Product <b-icon icon="chevron-right" size="is-small"></b-icon></span>
+                <span @click="nextProduct('prev')">Next Product <b-icon icon="chevron-right" size="is-small"></b-icon></span>
               </div>
             </div>
           </div>
@@ -503,6 +503,10 @@ export default {
     SimilarProducts
   },
 
+  mounted () {
+    this.productInfo.size = this.sizes.length - 1
+  },
+
   computed: {
     slug () {
       return this.$route.params.slug;
@@ -578,7 +582,7 @@ export default {
       return price
     },
 
-    productTotal() {
+    productTotal () {
       let price = parseFloat(this.product.price);
       let discount = (price / 100) * this.product.discount;
       price = price - discount;
@@ -603,7 +607,7 @@ export default {
       return price
     },
 
-    orientation() {
+    orientation () {
       if (this.product.landscape) {
         return 'landscape';
       } else {
@@ -611,12 +615,12 @@ export default {
       }
     },
 
-    productReviews() {
+    productReviews () {
       const reviews = this.$store.state.reviews.filter(product => product.id === this.product.id);
       return reviews;
     },
 
-    productRating() {
+    productRating () {
       let stars = 0;
       let reviewsTotal = this.productReviews.length;
       if (reviewsTotal) {
@@ -630,8 +634,12 @@ export default {
       }
     },
   
-    background() {
+    background () {
       return `url(${this.product.image1})`;
+    },
+
+    filteredProducts() {
+      return this.$store.state.filteredProducts
     }
 
   },
@@ -651,13 +659,32 @@ export default {
       else this.$set(this.productInfo, 'format', 0)
 
       if (this.$refs.size) this.$set(this.productInfo, 'size', this.$refs.size.selected)
-      else this.$set(this.productInfo, 'size', 0)
+      else this.$set(this.productInfo, 'size', this.sizes.length - 1)
 
       if (this.$refs.frame) this.$set(this.productInfo, 'frame', this.$refs.frame.selected)
       else this.$set(this.productInfo, 'frame', 0)
 
       if (this.$refs.glass) this.$set(this.productInfo, 'glass', this.$refs.glass.selected)
       else this.$set(this.productInfo, 'glass', 0)
+    },
+
+    nextProduct (direction) {
+      let newProductSlug = 0;
+      let productIndex = 0;
+
+      this.filteredProducts.forEach((item, index) => {
+        if (item.id === this.product.id) {
+          productIndex = index
+        }
+      })
+      
+      if (direction === 'prev') {
+        newProductSlug = this.filteredProducts[productIndex + 1] ? this.filteredProducts[productIndex + 1].slug : this.filteredProducts[0].slug
+      } else {
+        newProductSlug = this.filteredProducts[productIndex - 1] ? this.filteredProducts[productIndex - 1].slug : this.filteredProducts[this.filteredProducts.length - 1].slug
+      }
+
+      this.$router.push('/shop/' + newProductSlug)
     },
 
     changeMaterial () {
@@ -667,7 +694,7 @@ export default {
       this.$set(this.productInfo, 'finish', 0)
       this.$set(this.productInfo, 'style', 0)
       this.$set(this.productInfo, 'format', 0)
-      this.$set(this.productInfo, 'size', 0)
+      this.$set(this.productInfo, 'size', this.sizes.length - 1)
       this.$set(this.productInfo, 'frame', 0)
       this.$set(this.productInfo, 'glass', 0)
     },
