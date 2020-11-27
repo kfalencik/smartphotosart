@@ -62,36 +62,6 @@ export default {
           title: 'Matte',
           description: 'Matte Paper, our house stock fine art paper, also known as Moab Lasal Photo Matte, is an economical favorite for fine art reproductions and photo prints. It features a smooth surface, heavy weight (230 g, 9.5-mil), neutral white, matte paper engineered for accurate color reproduction that provides high contrast and high-resolution output. This paper is acid-free making it the perfect choice for both photography & fine art reproductions.',
           image: 'paper-matte.jpg',
-          technical: [
-            {
-              label: 'Thickness',
-              value: '9.5 Mil'
-            },
-            {
-              label: 'Weight',
-              value: '230 g/m²'
-            },
-            {
-              label: 'Max print size',
-              value: '40x96" or 96x40"'
-            },
-            {
-              label: 'Printer',
-              value: 'Canon iPF8400'
-            },
-            {
-              label: 'Inks',
-              value: 'Canon Lucia Inks'
-            },
-            {
-              label: 'Dmax & Color Gamut Level',
-              value: 'Excellent'
-            },
-            {
-              label: 'Black and White Capabilities',
-              value: 'Excellent'
-            }
-          ],
           styles: [
             {
               title: 'Borderless',
@@ -206,21 +176,31 @@ export default {
       finishes: [
         {
           title: 'Matte',
+          description: 'Archival certified, The Lyve™ Matte Canvas is a 19 mil bright white, consistent poly-cotton blend matte canvas using an acid-free, neutral pH coating. This award-winning Lyve™ Canvas is taking the printmaking industry by storm. With eye-popping color gamut and Dmax, coupled with critical archival certification and the ability to apply a laminate hassle-free, it sets a new standard of exceptionalism in fine art and photographic printmaking. Internally, we refer to this masterful blend of artistry and engineering as "the game changer" that will capture every nuance in your images.',
+          image: 'canvas-matte.jpg',
           styles: [
             {
               title: 'Thin stretched',
+              description: 'The canvas print will be mounted over 3/4 inch thick (depth) stretcher bars. These prints are meant to be inserted into a frame. You can also choose to have the sides a different color than plain white.',
+              image: 'canvas-thin-stretched.jpg',
               sizes: [40, 110, 190, null]
             },
             {
               title: 'Thin gallery wrap',
+              description: 'The canvas print will be mounted over .75 inch thick (depth) stretcher bars and the image will wrap on the sides with a fraction of an inch around the back. These are usually hung without a frame. Great option for smaller prints given as gifts and mementos.',
+              image: 'canvas-thin-gallery-wrap.jpg',
               sizes: [40, 110, 190, null]
             },
             {
               title: 'Thick stretched',
+              description: 'The canvas print will be mounted over 1.5 inch thick (depth) stretcher bars. These prints are meant to be hung unframed or inserted into a canvas floater frame. You can choose to have the sides of the mounted canvas be a solid color other than plain white',
+              image: 'canvas-thick-stretched.jpg',
               sizes: [47, 125, 220, 450]
             },
             {
               title: 'Thick gallery wrap',
+              description: 'The canvas print will be mounted over 1.5 inch thick (depth) stretcher bars and the image will wrap on the sides with a fraction of an inch around the back. These are usually hung without a frame.',
+              image: 'canvas-thick-gallery-wrap.jpg',
               sizes: [47, 125, 220, 450]
             },
           ],
@@ -237,21 +217,31 @@ export default {
         },
         {
           title: 'Gloss',
+          description: 'Crystalline gloss canvas by Breathing Color is a 440gsm aqueous canvas that will deliver industry-leading dmax and color gamut a step above every other glossy or matte inkjet canvas available today. The Crystalline line is OBA free making it one of the most archival gloss canvas available to date.',
+          image: 'canvas-gloss.jpg',
           styles: [
             {
               title: 'Thin stretched',
+              description: 'The canvas print will be mounted over 3/4 inch thick (depth) stretcher bars. These prints are meant to be inserted into a frame. You can also choose to have the sides a different color than plain white.',
+              image: 'canvas-thin-stretched.jpg',
               sizes: [42, 110, 190, null]
             },
             {
               title: 'Thin gallery wrap',
+              description: 'The canvas print will be mounted over .75 inch thick (depth) stretcher bars and the image will wrap on the sides with a fraction of an inch around the back. These are usually hung without a frame. Great option for smaller prints given as gifts and mementos.',
+              image: 'canvas-thin-gallery-wrap.jpg',
               sizes: [42, 110, 190, null]
             },
             {
               title: 'Thick stretched',
+              description: 'The canvas print will be mounted over 1.5 inch thick (depth) stretcher bars. These prints are meant to be hung unframed or inserted into a canvas floater frame. You can choose to have the sides of the mounted canvas be a solid color other than plain white',
+              image: 'canvas-thick-stretched.jpg',
               sizes: [55, 125, 220, 450]
             },
             {
               title: 'Thick gallery wrap',
+              description: 'The canvas print will be mounted over 1.5 inch thick (depth) stretcher bars and the image will wrap on the sides with a fraction of an inch around the back. These are usually hung without a frame.',
+              image: 'canvas-thick-gallery-wrap.jpg',
               sizes: [55, 125, 220, 450]
             },
           ],
@@ -268,42 +258,62 @@ export default {
         },
         {
           title: 'Silverada',
+          description: 'Silverada is a "silver metallic" fine art poly-cotton blend canvas. The metallic finish comes from an optimal blend of metallic, silver, and pearlescent coating applied to the surface of the base canvas. Silverada delivers an extremely high dmax, wide color gamut, and crisp resolution without the use of optical brighteners, therefore making this canvas highly archival. Metallic finished canvas is also greatly favored by photograhers working in black and white as well as HDR photography. Artists looking for more of a metallic sheen in their tones will also find this canvas suited to give their art that additional contrast and pop which would be hard to produce on other surfaces.',
+          image: 'canvas-silverada.jpg',
           styles: [
             {
               title: 'Thin stretched',
+              description: 'The canvas print will be mounted over 3/4 inch thick (depth) stretcher bars. These prints are meant to be inserted into a frame. You can also choose to have the sides a different color than plain white.',
+              image: 'canvas-thin-stretched.jpg',
               sizes: [39, 100, 180, null]
             },
             {
               title: 'Thin gallery wrap',
+              description: 'The canvas print will be mounted over .75 inch thick (depth) stretcher bars and the image will wrap on the sides with a fraction of an inch around the back. These are usually hung without a frame. Great option for smaller prints given as gifts and mementos.',
+              image: 'canvas-thin-gallery-wrap.jpg',
               sizes: [39, 100, 180, null]
             },
             {
               title: 'Thick stretched',
+              description: 'The canvas print will be mounted over 1.5 inch thick (depth) stretcher bars. These prints are meant to be hung unframed or inserted into a canvas floater frame. You can choose to have the sides of the mounted canvas be a solid color other than plain white',
+              image: 'canvas-thick-stretched.jpg',
               sizes: [45, 110, 200, 460]
             },
             {
               title: 'Thick gallery wrap',
+              description: 'The canvas print will be mounted over 1.5 inch thick (depth) stretcher bars and the image will wrap on the sides with a fraction of an inch around the back. These are usually hung without a frame.',
+              image: 'canvas-thick-gallery-wrap.jpg',
               sizes: [45, 110, 200, 460]
             },
           ]
         },
         {
           title: 'Artisan',
+          description: 'Silverada is a "silver metallic" fine art poly-cotton blend canvas. The metallic finish comes from an optimal blend of metallic, silver, and pearlescent coating applied to the surface of the base canvas. Silverada delivers an extremely high dmax, wide color gamut, and crisp resolution without the use of optical brighteners, therefore making this canvas highly archival. Metallic finished canvas is also greatly favored by photograhers working in black and white as well as HDR photography. Artists looking for more of a metallic sheen in their tones will also find this canvas suited to give their art that additional contrast and pop which would be hard to produce on other surfaces.',
+          image: 'canvas-artisan.jpg',
           styles: [
             {
               title: 'Thin stretched',
+              description: 'The canvas print will be mounted over 3/4 inch thick (depth) stretcher bars. These prints are meant to be inserted into a frame. You can also choose to have the sides a different color than plain white.',
+              image: 'canvas-thin-stretched.jpg',
               sizes: [39, 100, 190, null]
             },
             {
               title: 'Thin gallery wrap',
+              description: 'The canvas print will be mounted over .75 inch thick (depth) stretcher bars and the image will wrap on the sides with a fraction of an inch around the back. These are usually hung without a frame. Great option for smaller prints given as gifts and mementos.',
+              image: 'canvas-thin-gallery-wrap.jpg',
               sizes: [39, 100, 190, null]
             },
             {
               title: 'Thick stretched',
+              description: 'The canvas print will be mounted over 1.5 inch thick (depth) stretcher bars. These prints are meant to be hung unframed or inserted into a canvas floater frame. You can choose to have the sides of the mounted canvas be a solid color other than plain white',
+              image: 'canvas-thick-stretched.jpg',
               sizes: [45, 110, 220, 430]
             },
             {
               title: 'Thick gallery wrap',
+              description: 'The canvas print will be mounted over 1.5 inch thick (depth) stretcher bars and the image will wrap on the sides with a fraction of an inch around the back. These are usually hung without a frame.',
+              image: 'canvas-thick-gallery-wrap.jpg',
               sizes: [45, 110, 220, 430]
             },
           ]
@@ -318,6 +328,7 @@ export default {
       finishes: [
         {
           title: 'HD',
+          image: 'acrylic-luster.jpg',
           styles: [
             {
               title: 'Borderless',
@@ -349,6 +360,7 @@ export default {
         },
         {
           title: 'Matte',
+          image: 'acrylic-luster-no-glare.jpg',
           styles: [
             {
               title: 'Borderless',
@@ -382,56 +394,74 @@ export default {
       frames: [
         {
           title: "None",
+          description: 'No frame',
           action: 'transparent',
           sizes: [[0, 0, 0, 0]]
         },
         {
           title: "Artbox - Aluminium Silver",
+          description: 'Elegant aluminum floater frame. The small gap between the picture and the aluminum frame is simple and effective. It makes the image appear to be floating.',
+          image: 'frame-artbox-aluminium-silver.jpg',
           action: 'lightgrey',
           sizes: [[65, 85, 180, 290], [90, 110, 180, 350]]
         },
         {
           title: "Artbox - Aluminium black",
+          description: 'Elegant aluminum floater frame. The small gap between the picture and the aluminum frame is simple and effective. It makes the image appear to be floating.',
+          image: 'frame-artbox-aluminium-black.jpg',
           action: 'black',
           sizes: [[65, 85, 180, 290], [90, 110, 180, 350]]
         },
         {
           title: "Aluminium Slimline - Silver",
+          description: 'Our aluminum Slimline Frame is an all-around fantastic finishing touch for any acrylic glass photo print. The frame’s small width and depth bring out the best in your acrylic glass photo prints, without drawing too much attention to the frame itself.',
+          image: 'frame-slimline-silver.png',
           action: 'lightgrey',
           sizes: [[20, 35, 45, 60], [50, 80, 100, 150]]
         },
         {
           title: "Aluminium Slimline - Gold",
+          description: 'Our aluminum Slimline Frame is an all-around fantastic finishing touch for any acrylic glass photo print. The frame’s small width and depth bring out the best in your acrylic glass photo prints, without drawing too much attention to the frame itself.',
+          image: 'frame-slimline-gold.png',
           action: '#D4AF37',
           sizes: [[20, 35, 45, 60], [50, 80, 100, 150]]
         },
         {
           title: "Aluminium Slimline - White",
+          description: 'Our aluminum Slimline Frame is an all-around fantastic finishing touch for any acrylic glass photo print. The frame’s small width and depth bring out the best in your acrylic glass photo prints, without drawing too much attention to the frame itself.',
+          image: 'frame-slimline-white.png',
           action: 'white',
           sizes: [[20, 35, 45, 60], [50, 80, 100, 150]]
         },
         {
           title: "Aluminium Slimline - Black",
+          description: 'Our aluminum Slimline Frame is an all-around fantastic finishing touch for any acrylic glass photo print. The frame’s small width and depth bring out the best in your acrylic glass photo prints, without drawing too much attention to the frame itself.',
+          image: 'frame-slimline-black.png',
           action: 'black',
           sizes: [[20, 35, 45, 60], [50, 80, 100, 150]]
         },
         {
           title: "Aluminium Slimline - White Maple",
+          description: 'Our aluminum Slimline Frame is an all-around fantastic finishing touch for any acrylic glass photo print. The frame’s small width and depth bring out the best in your acrylic glass photo prints, without drawing too much attention to the frame itself.',
+          image: 'frame-slimline-white.png',
           action: '#FED821',
           sizes: [[20, 35, 45, 60], [50, 80, 100, 150]]
         },
         {
           title: "Hamburg - Black Oak",
+          image: 'frame-hamburg-black.jpg',
           action: '#252321',
           sizes: [[70, 110, 170, 300], [100, 150, 200, 350]]
         },
         {
           title: "Hamburg - Brown Adler",
+          image: 'frame-hamburg-brown.jpg',
           action: '#AE8E7F',
           sizes: [[70, 110, 170, 300], [100, 150, 200, 350]]
         },
         {
           title: "Hamburg - Walnut",
+          image: 'frame-hamburg-walnut.jpg',
           action: '#5D432C',
           sizes: [[70, 110, 170, 300], [100, 150, 200, 350]]
         }
@@ -439,12 +469,13 @@ export default {
     },
     {
       title: 'Metal',
-      description: 'Metal description',
+      description: 'Face mounted acrylics are the standards professionals turn to over other acrylics when it comes to acrylic prints. Your image will be printed on one of our popular photo papers (satin luster or metallic pearl) and face mounted to the back of the ¼” acrylic panels with a polished edge. In addition to the two paper choices you can choose from either a high gloss polished shine (most popular) or a reflection control acrylic. You can also opt to have your acrylic ordered with a dibond backing. Hanging hardware is provided at no additional charge.',
       image: 'acrylic-luster.jpg',
       panorama: true,
       finishes: [
         {
           title: 'HD',
+          image: 'acrylic-luster.jpg',
           styles: [
             {
               title: 'Borderless',
@@ -462,56 +493,74 @@ export default {
       frames: [
         {
           title: "None",
+          description: 'No frame',
           action: 'transparent',
           sizes: [[0, 0, 0, 0]]
         },
         {
           title: "Artbox - Aluminium Silver",
+          description: 'Elegant aluminum floater frame. The small gap between the picture and the aluminum frame is simple and effective. It makes the image appear to be floating.',
+          image: 'frame-artbox-aluminium-silver.jpg',
           action: 'lightgrey',
           sizes: [[65, 85, 180, 290], [90, 110, 180, 350]]
         },
         {
           title: "Artbox - Aluminium black",
+          description: 'Elegant aluminum floater frame. The small gap between the picture and the aluminum frame is simple and effective. It makes the image appear to be floating.',
+          image: 'frame-artbox-aluminium-black.jpg',
           action: 'black',
           sizes: [[65, 85, 180, 290], [90, 110, 180, 350]]
         },
         {
           title: "Aluminium Slimline - Silver",
+          description: 'Our aluminum Slimline Frame is an all-around fantastic finishing touch for any acrylic glass photo print. The frame’s small width and depth bring out the best in your acrylic glass photo prints, without drawing too much attention to the frame itself.',
+          image: 'frame-slimline-silver.png',
           action: 'lightgrey',
           sizes: [[20, 35, 45, 60], [50, 80, 100, 150]]
         },
         {
           title: "Aluminium Slimline - Gold",
+          description: 'Our aluminum Slimline Frame is an all-around fantastic finishing touch for any acrylic glass photo print. The frame’s small width and depth bring out the best in your acrylic glass photo prints, without drawing too much attention to the frame itself.',
+          image: 'frame-slimline-gold.png',
           action: '#D4AF37',
           sizes: [[20, 35, 45, 60], [50, 80, 100, 150]]
         },
         {
           title: "Aluminium Slimline - White",
+          description: 'Our aluminum Slimline Frame is an all-around fantastic finishing touch for any acrylic glass photo print. The frame’s small width and depth bring out the best in your acrylic glass photo prints, without drawing too much attention to the frame itself.',
+          image: 'frame-slimline-white.png',
           action: 'white',
           sizes: [[20, 35, 45, 60], [50, 80, 100, 150]]
         },
         {
           title: "Aluminium Slimline - Black",
+          description: 'Our aluminum Slimline Frame is an all-around fantastic finishing touch for any acrylic glass photo print. The frame’s small width and depth bring out the best in your acrylic glass photo prints, without drawing too much attention to the frame itself.',
+          image: 'frame-slimline-black.png',
           action: 'black',
           sizes: [[20, 35, 45, 60], [50, 80, 100, 150]]
         },
         {
           title: "Aluminium Slimline - White Maple",
+          description: 'Our aluminum Slimline Frame is an all-around fantastic finishing touch for any acrylic glass photo print. The frame’s small width and depth bring out the best in your acrylic glass photo prints, without drawing too much attention to the frame itself.',
+          image: 'frame-slimline-white.png',
           action: '#FED821',
           sizes: [[20, 35, 45, 60], [50, 80, 100, 150]]
         },
         {
           title: "Hamburg - Black Oak",
+          image: 'frame-hamburg-black.jpg',
           action: '#252321',
           sizes: [[70, 110, 170, 300], [100, 150, 200, 350]]
         },
         {
           title: "Hamburg - Brown Adler",
+          image: 'frame-hamburg-brown.jpg',
           action: '#AE8E7F',
           sizes: [[70, 110, 170, 300], [100, 150, 200, 350]]
         },
         {
           title: "Hamburg - Walnut",
+          image: 'frame-hamburg-walnut.jpg',
           action: '#5D432C',
           sizes: [[70, 110, 170, 300], [100, 150, 200, 350]]
         }

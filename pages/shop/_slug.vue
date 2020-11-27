@@ -36,59 +36,61 @@
             <div class="product__information-overlay" @click="informationModal = false">
               <div class="product__information-overlay-wrapper" @click.stop.prevent="">
                 <template v-if="informationType === 'material'">
-                  <img :src="require('@/assets/images/info/' + materials[informationModalOption].image)" v-if="materials[informationModalOption].image" :alt="materials[informationModalOption].title + ' preview'" />
-                  <button v-for="(option, index) in materials" :key="'material-' + index" :class="{'product__button': true, 'product__button--active': informationModalOption === index}" @click="changeInformationOption(index)">{{option.title}}</button>
-                  <h3>{{materials[informationModalOption].title}}</h3>
-                  <div v-html="materials[informationModalOption].description"></div>
-
-                  <template v-if="materials[informationModalOption].technical">
-                    <br />
-                    <p v-for="(item, index) in materials[informationModalOption].technical" :key="index">
-                      <strong>{{ item.label }}</strong>: {{ item.value }}
-                    </p>
-                  </template>
+                  <div class="columns is-2">
+                    <div class="column is-full"><button v-for="(option, index) in materials" :key="'material-' + index" :class="{'product__button': true, 'product__button--active': informationModalOption === index}" @click="changeInformationOption(index)">{{option.title}}</button></div>
+                    <div class="column is-half">
+                      <img :src="require('@/assets/images/info/' + materials[informationModalOption].image)" v-if="materials[informationModalOption].image" :alt="materials[informationModalOption].title + ' preview'" />
+                    </div>
+                    <div class="column is-half">
+                      <h3>{{materials[informationModalOption].title}}</h3>
+                      <div v-html="materials[informationModalOption].description"></div>
+                    </div>
+                  </div>
                 </template>
 
                 <template v-if="informationType === 'finishes'">
-                  <img :src="require('@/assets/images/info/' + materials[productInfo.material][informationType][informationModalOption].image)" v-if="materials[productInfo.material][informationType][informationModalOption].image" :alt="materials[productInfo.material][informationType][informationModalOption].title + ' preview'" />
-                  <button v-for="(option, index) in materials[productInfo.material].finishes" :key="'finish-' + index" :class="{'product__button': true, 'product__button--active': informationModalOption === index}" @click="changeInformationOption(index)">{{option.title}}</button>
-                  <h3>{{materials[productInfo.material][informationType][informationModalOption].title}}</h3>
-                  <div v-html="materials[productInfo.material][informationType][informationModalOption].description"></div>
-
-                  <template v-if="materials[productInfo.material][informationType][informationModalOption].technical">
-                    <br />
-                    <p v-for="(item, index) in materials[productInfo.material][informationType][informationModalOption].technical" :key="index">
-                      <strong>{{ item.label }}</strong>: {{ item.value }}
-                    </p>
-                  </template>
+                  <div class="columns is-2">
+                    <div class="column is-full">
+                      <button v-for="(option, index) in materials[productInfo.material].finishes" :key="'finish-' + index" :class="{'product__button': true, 'product__button--active': informationModalOption === index}" @click="changeInformationOption(index)">{{option.title}}</button>
+                    </div>
+                    <div class="column is-half">
+                      <img :src="require('@/assets/images/info/' + materials[productInfo.material][informationType][informationModalOption].image)" v-if="materials[productInfo.material][informationType][informationModalOption].image" :alt="materials[productInfo.material][informationType][informationModalOption].title + ' preview'" />
+                    </div>
+                    <div class="column is-half">
+                      <h3>{{materials[productInfo.material][informationType][informationModalOption].title}}</h3>
+                      <div v-html="materials[productInfo.material][informationType][informationModalOption].description"></div>
+                    </div>
+                  </div>
                 </template>
 
                 <template v-if="informationType === 'styles'">
-                  <img :src="require('@/assets/images/info/' + materials[productInfo.material]['finishes'][productInfo.finish]['styles'][informationModalOption].image)" v-if="materials[productInfo.material]['finishes'][productInfo.finish]['styles'][informationModalOption].image" :alt="materials[productInfo.material]['finishes'][productInfo.finish]['styles'][informationModalOption].title + ' preview'" />
-                  <button v-for="(option, index) in materials[productInfo.material]['finishes'][productInfo.finish].styles" :key="'finish-' + index" :class="{'product__button': true, 'product__button--active': informationModalOption === index}" @click="changeInformationOption(index)">{{option.title}}</button>
-                  <h3>{{materials[productInfo.material]['finishes'][productInfo.finish]['styles'][informationModalOption].title}}</h3>
-                  <div v-html="materials[productInfo.material]['finishes'][productInfo.finish]['styles'][informationModalOption].description"></div>
-
-                  <template v-if="materials[productInfo.material]['finishes'][productInfo.finish]['styles'][informationModalOption].technical">
-                    <br />
-                    <p v-for="(item, index) in materials[productInfo.material]['finishes'][productInfo.finish]['styles'][informationModalOption].technical" :key="index">
-                      <strong>{{ item.label }}</strong>: {{ item.value }}
-                    </p>
-                  </template>
+                  <div class="columns is-2">
+                    <div class="column is-full">
+                      <button v-for="(option, index) in materials[productInfo.material]['finishes'][productInfo.finish].styles" :key="'finish-' + index" :class="{'product__button': true, 'product__button--active': informationModalOption === index}" @click="changeInformationOption(index)">{{option.title}}</button>
+                    </div>
+                    <div class="column is-half">
+                      <img :src="require('@/assets/images/info/' + materials[productInfo.material]['finishes'][productInfo.finish]['styles'][informationModalOption].image)" v-if="materials[productInfo.material]['finishes'][productInfo.finish]['styles'][informationModalOption].image" :alt="materials[productInfo.material]['finishes'][productInfo.finish]['styles'][informationModalOption].title + ' preview'" />
+                    </div>
+                    <div class="column is-half">
+                      <h3>{{materials[productInfo.material]['finishes'][productInfo.finish]['styles'][informationModalOption].title}}</h3>
+                      <div v-html="materials[productInfo.material]['finishes'][productInfo.finish]['styles'][informationModalOption].description"></div>
+                    </div>
+                  </div>
                 </template>
 
                 <template v-if="informationType === 'frames'">
-                  <img :src="require('@/assets/images/info/' + materials[productInfo.material]['frames'][informationModalOption].image)" v-if="materials[productInfo.material]['frames'][informationModalOption].image" :alt="materials[productInfo.material]['frames'][informationModalOption].title + ' preview'" />
-                  <button v-for="(option, index) in materials[productInfo.material].frames" :key="'finish-' + index" :class="{'product__button': true, 'product__button--active': informationModalOption === index}" @click="changeInformationOption(index)">{{option.title}}</button>
-                  <h3>{{materials[productInfo.material]['frames'][informationModalOption].title}}</h3>
-                  <div v-html="materials[productInfo.material]['frames'][informationModalOption].description"></div>
-
-                  <template v-if="materials[productInfo.material]['frames'][informationModalOption].technical">
-                    <br />
-                    <p v-for="(item, index) in materials[productInfo.material]['frames'][informationModalOption].technical" :key="index">
-                      <strong>{{ item.label }}</strong>: {{ item.value }}
-                    </p>
-                  </template>
+                  <div class="columns is-2">
+                    <div class="column is-full">
+                     <button v-for="(option, index) in materials[productInfo.material].frames" :key="'finish-' + index" :class="{'product__button': true, 'product__button--active': informationModalOption === index}" @click="changeInformationOption(index)">{{option.title}}</button>
+                    </div>
+                    <div class="column is-half">
+                      <img :src="require('@/assets/images/info/' + materials[productInfo.material]['frames'][informationModalOption].image)" v-if="materials[productInfo.material]['frames'][informationModalOption].image" :alt="materials[productInfo.material]['frames'][informationModalOption].title + ' preview'" />
+                    </div>
+                    <div class="column is-half">
+                      <h3>{{materials[productInfo.material]['frames'][informationModalOption].title}}</h3>
+                      <div v-html="materials[productInfo.material]['frames'][informationModalOption].description"></div>
+                    </div>
+                  </div>
                 </template>
 
                 <button @click="informationModal = false" class="close" title="Close">
@@ -331,7 +333,7 @@
                 </div>
 
                 <div class="product__option product__option--with-guide" v-if="productInfo.frame && glass">
-                  <h5>Glass <span class="guide"><b-icon icon="information-outline" custom-size="mdi-18" /> GLASS GUIDE</span></h5>
+                  <h5>Glass</h5>
                   <div class="wrap">
                     <b-field>
                       <b-select placeholder="Select Glass" required :value="productInfo.glass" ref="glass" @input="changeProduct">
@@ -827,16 +829,6 @@ export default {
 
       img {
         margin-top: 25px;
-      }
-
-      @media (min-width: $medium) {
-        img {
-          width: 50%;
-          border: 1px solid $primary;
-          float: left;
-          margin-right: 35px;
-          margin-top: 0;
-        }
       }
 
       h3 {
