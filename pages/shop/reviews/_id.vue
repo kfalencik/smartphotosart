@@ -88,6 +88,35 @@
           this.$store.commit('addMessage', ['Thank you! Your review has been successfully added.', 'good']);
         }
       }
+    },
+    jsonld() {
+      const reviews = this.reviews.map((review) => {
+        return {
+          "@context": "https://schema.org/",
+          "@type": "Review",
+          "itemReviewed": {
+            "@type": "Product",
+            "name": this.product.title,
+            "category": this.product.category,
+            "image": this.product.image1,
+            "productID": this.product.id,
+            "priceRange": "$$$",
+            "brand": {
+              "@type": "Brand",
+              "name": "Peter Falencik Photography"
+            },
+            "description": this.product.description,
+            "sku": this.product.slug,
+          },
+          "reviewRating": {
+            "@type": "Rating",
+            "ratingValue": review.stars
+          },
+          "reviewBody": review.review
+        }
+      })
+
+      return reviews
     }
   }
 </script>

@@ -471,11 +471,6 @@ export default {
       "category": this.product.category,
       "image": this.product.image1,
       "productID": this.product.id,
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": this.productRating ? this.productRating : 5,
-        "reviewCount": 1 + this.productReviews.length
-      },
       "offers": {
         "@type": "Offer",
         "url": "https://falencik.com/shop/" + this.product.slug,
