@@ -579,7 +579,7 @@ export default {
       columns: [
         {
           title: 'Limited edition',
-          description: 'We are proud to offer exclusive photographs by Peter Falencikwhich will be relaseased in a limited edition. Limited edition means that the photographs will be printed and sold only in a small number of copies, so that each one will be valuable in the future and can start a great collection of a unique artistic work. The LE number is located in the lower right corner of each of the limited series photos.',
+          description: 'We are proud to offer exclusive photographs by Peter Falencik which will be released in a limited edition. Limited edition means that the photographs will be printed and sold only in a small number of copies, so that each one will be valuable in the future and can start a great collection of a unique artistic work. The LE number is located in the lower right corner of each of the limited series photos.',
           icon: 'icon-limited-edition.png'
         },
         {
