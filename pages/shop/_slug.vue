@@ -27,7 +27,7 @@
               
 
               <button @click="overlay = false" title="Close">
-                <b-icon icon="close" custom-size="mdi-24px"></b-icon>
+                <b-icon icon="close"></b-icon>
               </button>
             </div>
           </template>
@@ -35,6 +35,11 @@
           <template v-if="informationModal">
             <div class="product__information-overlay" @click="informationModal = false">
               <div class="product__information-overlay-wrapper" @click.stop.prevent="">
+                <template v-if="informationType === 'size'">
+                  <h2>Custom orders</h2>
+                  <p>We try very hard to provide you with the best options on our website, but we do understand that some of our clients might require a custom size order. If you do need a different size or require any other adjustments to your chosen artwork, please use our integrated support message system (available in the bottom right corner) or send us an email on <a href="mailto:studio@falencik.com">studio@falencik.com</a>.</p>
+                </template>
+
                 <template v-if="informationType === 'material'">
                   <div class="columns is-2">
                     <div class="column is-full"><button v-for="(option, index) in materials" :key="'material-' + index" :class="{'product__button': true, 'product__button--active': informationModalOption === index}" @click="changeInformationOption(index)">{{option.title}}</button></div>
@@ -94,7 +99,7 @@
                 </template>
 
                 <button @click="informationModal = false" class="close" title="Close">
-                  <b-icon icon="close" custom-size="mdi-24px"></b-icon>
+                  <b-icon icon="close"></b-icon>
                 </button>
               </div>   
             </div>
@@ -135,10 +140,10 @@
                   </div>
 
                   <button @click="image === 1 ? image = 7 : image = image - 1" class="product__nav-item" title="Previous">
-                    <b-icon icon="arrow-left" custom-size="mdi-24px"></b-icon>
+                    <b-icon icon="arrow-left"></b-icon>
                   </button>
                   <button @click="image === 7 ? image = 1 : image = image + 1" class="product__nav-item" title="Next">
-                    <b-icon icon="arrow-right" custom-size="mdi-24px"></b-icon>
+                    <b-icon icon="arrow-right"></b-icon>
                   </button>
                 </div>
               </template>
@@ -166,13 +171,13 @@
                   <img v-if="!product.landscape && image === 6" :src="require('@/assets/images/comparison_portrait.jpg')" role="presentation" alt="" />
 
                   <button @click="overlay = true" class="product__image-fullscreen" title="Full screen">
-                    <b-icon icon="fullscreen" custom-size="mdi-24px"></b-icon>
+                    <b-icon icon="fullscreen"></b-icon>
                   </button>
                   <button @click="image === 7 ? image = 1 : image = image + 1" class="product__nav-item" title="Next">
-                    <b-icon icon="arrow-right" custom-size="mdi-24px"></b-icon>
+                    <b-icon icon="arrow-right"></b-icon>
                   </button>
                   <button @click="image === 1 ? image = 7 : image = image - 1" class="product__nav-item" title="Previous">
-                    <b-icon icon="arrow-left" custom-size="mdi-24px"></b-icon>
+                    <b-icon icon="arrow-left"></b-icon>
                   </button>
                 </div>
               </template>
@@ -248,10 +253,10 @@
                 </div>
 
                 <div class="product__option product__option--with-guide">
-                  <h5 @click="information('finishes', productInfo.finish)">Media <span class="guide"><b-icon icon="information-outline" custom-size="mdi-18" /> MEDIA GUIDE</span></h5>
+                  <h5 @click="information('finishes', productInfo.finish)">Media <span class="guide" v-if="finishes.length > 1"><b-icon icon="information-outline" custom-size="mdi-18" /> MEDIA GUIDE</span></h5>
                   <div class="wrap">
                     <b-field>
-                      <b-select placeholder="Select Media" required :value="productInfo.finish" ref="finish" @input="changeProduct">
+                      <b-select placeholder="Select Media" required :value="productInfo.finish" ref="finish" @input="changeProduct" :disabled="finishes.length === 1">
                         <template v-for="(option, index) in finishes">
                           <option
                             :value="index"
@@ -265,10 +270,10 @@
                 </div>
 
                 <div class="product__option product__option--with-guide">
-                  <h5 @click="information('styles', productInfo.style)">Style <span class="guide"><b-icon icon="information-outline" custom-size="mdi-18" /> STYLE GUIDE</span></h5>
+                  <h5 @click="information('styles', productInfo.style)">Style <span v-if="styles.length > 1" class="guide"><b-icon icon="information-outline" custom-size="mdi-18" /> STYLE GUIDE</span></h5>
                   <div class="wrap">
                     <b-field>
-                      <b-select placeholder="Select Style" required :value="productInfo.style" ref="style" @input="changeProduct">
+                      <b-select placeholder="Select Style" required :value="productInfo.style" ref="style" @input="changeProduct" :disabled="styles.length === 1">
                         <template v-for="(option, index) in styles">
                           <option
                             :value="index"
@@ -298,8 +303,8 @@
                   </div>
                 </div>
 
-                <div class="product__option">
-                  <h5>Size</h5>
+                <div class="product__option product__option--with-guide">
+                  <h5 @click="information('size', 'size')">Size <span class="guide"><b-icon icon="information-outline" custom-size="mdi-18" /> Can't find the perfect size?</span></h5>
                   <div class="wrap" v-if="sizes">
                     <b-field>
                       <b-select placeholder="Select Size" required :value="productInfo.size" ref="size" @input="changeProduct">
@@ -316,10 +321,10 @@
                 </div>
 
                 <div class="product__option product__option--with-guide" v-if="frames">
-                  <h5 @click="information('frames', productInfo.frame)">Frame <span class="guide"><b-icon icon="information-outline" custom-size="mdi-18" /> FRAME GUIDE</span></h5>
+                  <h5 @click="information('frames', productInfo.frame)">Frame <span v-if="frames.length > 1" class="guide"><b-icon icon="information-outline" custom-size="mdi-18" /> FRAME GUIDE</span></h5>
                   <div class="wrap">
                     <b-field>
-                      <b-select placeholder="Select Frame" required :value="productInfo.frame" ref="frame" @input="changeProduct">
+                      <b-select placeholder="Select Frame" required :value="productInfo.frame" ref="frame" @input="changeProduct" :disabled="frames.length === 1">
                         <template v-for="(option, index) in frames">
                           <option
                             :value="index"
@@ -903,9 +908,17 @@ export default {
       transform: translateY(-50%);
       border: 1px solid $primary;
 
+      @media (max-width: $medium) {
+        left: 5px;
+      }
+
       &:nth-child(3) {
         left: auto;
         right: 20px;
+
+        @media (max-width: $medium) {
+          right: 10px;
+        }
       }
 
       &:hover {
@@ -1009,6 +1022,11 @@ export default {
       align-items: center;
       margin-right: 15px;
 
+      @media (max-width: $medium) {
+        justify-content: center;
+        margin: 0;
+      }
+
       span {
         padding: 0 20px;
       }
@@ -1095,6 +1113,11 @@ export default {
       cursor: pointer;
       display: block;
       border: 1px solid $primary;
+
+      @media (max-width: $medium) {
+        top: 10px;
+        right: 10px;
+      }
       
       &:hover {
         background: $tertiary;
@@ -1234,6 +1257,10 @@ export default {
       display: flex;
       flex-direction: row;
       flex-wrap: wrap;
+      
+      @media (max-width: $medium) {
+        justify-content: space-around;
+      }
     }
 
     &__thumbnails-item {
@@ -1251,6 +1278,10 @@ export default {
       font-size: 0.8em;
       cursor: pointer;
       transition: all .5s ease;
+
+      @media (max-width: $medium) {
+        margin: 5px;
+      }
 
       &:last-child {
         margin-right: 0;
