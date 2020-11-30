@@ -47,12 +47,12 @@
                   <nuxt-link to="/contact">Contact</nuxt-link>
                 </li>
                 <li>
-                  <a href="https://facebook.com">
+                  <a href="https://www.facebook.com/peterfalencik" target="_blank">
                     <b-icon icon="facebook"></b-icon>
                   </a>
                 </li>
                 <li>
-                  <a href="https://facebook.com">
+                  <a href="https://facebook.com" target="_blank">
                     <b-icon icon="instagram"></b-icon>
                   </a>
                 </li>
