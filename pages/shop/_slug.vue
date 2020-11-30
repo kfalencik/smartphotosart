@@ -808,7 +808,7 @@ export default {
 
       @media (min-width: $medium) {
         img {
-          max-height: 80vh;
+          max-height: 95vh;
           max-width: 96%;
         }
       }
