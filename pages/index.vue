@@ -83,7 +83,7 @@ export default {
       "@context" : "https://schema.org",
       "@type" : "Organization",
       "name" : "Peter Falencik Photography",
-      "legalName": "Smart Graphic Studios",
+      "legalName": "Smart Photos Studio LLC",
       "logo": "https://falencik.com/logo.png",
       "foundingDate": "2020",
       "url" : "https://falencik.com",

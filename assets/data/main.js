@@ -289,7 +289,7 @@ export default {
         },
         {
           title: 'Artisan',
-          description: 'Silverada is a "silver metallic" fine art poly-cotton blend canvas. The metallic finish comes from an optimal blend of metallic, silver, and pearlescent coating applied to the surface of the base canvas. Silverada delivers an extremely high dmax, wide color gamut, and crisp resolution without the use of optical brighteners, therefore making this canvas highly archival. Metallic finished canvas is also greatly favored by photograhers working in black and white as well as HDR photography. Artists looking for more of a metallic sheen in their tones will also find this canvas suited to give their art that additional contrast and pop which would be hard to produce on other surfaces.',
+          description: 'Our most affordable canvas prints use the high quality Artisan Canvas by Breathing Colors. The finished print has a sating (low glass level) appearance ideally suited for both art reproductions and photographs. The superior poly/cotton blend, 2-over-1 canvas is specially engineered to create beautiful prints providing a wide color gamut, exceptional contrast with a consistent canvas texture. Due to the durable nature of the inks, prints are both scratch and smudge resistant without the need to be coated.',
           image: 'canvas-artisan.jpg',
           styles: [
             {
@@ -323,69 +323,83 @@ export default {
     {
       title: 'Acrylic',
       description: 'Face mounted acrylics are the standards professionals turn to over other acrylics when it comes to acrylic prints. Your image will be printed on one of our popular photo papers (satin luster or metallic pearl) and face mounted to the back of the ¼” acrylic panels with a polished edge. In addition to the two paper choices you can choose from either a high gloss polished shine (most popular) or a reflection control acrylic. You can also opt to have your acrylic ordered with a dibond backing. Hanging hardware is provided at no additional charge.',
-      image: 'acrylic-luster.jpg',
+      image: 'acrylic-matte.jpg',
       panorama: true,
       finishes: [
         {
           title: 'HD',
-          image: 'acrylic-luster.jpg',
+          description: 'When it comes to preventing halftone in your prints, no printing technique is better than classic exposure on light-sensitive photo paper. In order to make the technological improvements of modern cameras visible in your photos, we continued to refine this process until we revolutionized classic photo developing with our first generation of ultraHD Photo Prints. To continue to do your pictures justice, we are now taking the realism to the next level. The experts at Fujifilm conceived a new photo paper finely tuned for our printing process. Fuji Crystal Professional Archive Maxima Paper was made for our ultraHD Photo Prints.',
+          image: 'acrylic-hd.jpg',
           styles: [
             {
               title: 'Borderless',
+              image: 'acrylic-borderless.jpg',
               sizes: [80, 220, 420, 1100]
             },
             {
               title: 'Border 2"',
+              image: 'acrylic-2-border.jpg',
               sizes: [150, 300, 500, 1200]
             },
             {
               title: 'Border 5"',
+              image: 'acrylic-5-border.jpg',
               sizes: [220, 420, 700, 1450]
             }
           ],
           panoramaStyles: [
             {
               title: 'Borderless',
+              image: 'acrylic-borderless.jpg',
               sizes: [60, 120, 320, 1200]
             },
             {
               title: 'Border 2"',
+              image: 'acrylic-2-border.jpg',
               sizes: [150, 300, 500, 1400]
             },
             {
               title: 'Border 5"',
+              image: 'acrylic-5-border.jpg',
               sizes: [220, 420, 700, 1550]
             }
           ]
         },
         {
           title: 'Matte',
-          image: 'acrylic-luster-no-glare.jpg',
+          description: 'Our original photo print under matte acrylic glass consists of multiple components. Your photo print is mounted under 1/16 in. (2 mm) of matte acrylic glass, [backed with 1/8 in. (3 mm) of aluminum Dibond and sealed with elastic silicone.',
+          image: 'acrylic-matte.jpg',
           styles: [
             {
               title: 'Borderless',
+              image: 'acrylic-borderless.jpg',
               sizes: [65, 200, 380, 950]
             },
             {
               title: 'Border 2"',
+              image: 'acrylic-2-border.jpg',
               sizes: [135, 270, 470, 1100]
             },
             {
               title: 'Border 5"',
+              image: 'acrylic-5-border.jpg',
               sizes: [195, 395, 650, 1400]
             }
           ],
           panoramaStyles: [
             {
               title: 'Borderless',
+              image: 'acrylic-borderless.jpg',
               sizes: [65, 200, 380, 950]
             },
             {
               title: 'Border 2"',
+              mage: 'acrylic-2-border.jpg',
               sizes: [135, 270, 470, 1100]
             },
             {
               title: 'Border 5"',
+              mage: 'acrylic-5-border.jpg',
               sizes: [195, 395, 650, 1400]
             }
           ]
@@ -449,18 +463,21 @@ export default {
         },
         {
           title: "Hamburg - Black Oak",
+          description: 'Gallery frames with great attention to detail and the very best craftsmanship. You can choose the model that best suits your photo and fits your own personal tastes. The frame is a crucial factor in how your image will be perceived.',
           image: 'frame-hamburg-black.jpg',
           action: '#252321',
           sizes: [[70, 110, 170, 300], [100, 150, 200, 350]]
         },
         {
           title: "Hamburg - Brown Adler",
+          description: 'Gallery frames with great attention to detail and the very best craftsmanship. You can choose the model that best suits your photo and fits your own personal tastes. The frame is a crucial factor in how your image will be perceived.',
           image: 'frame-hamburg-brown.jpg',
           action: '#AE8E7F',
           sizes: [[70, 110, 170, 300], [100, 150, 200, 350]]
         },
         {
           title: "Hamburg - Walnut",
+          description: 'Gallery frames with great attention to detail and the very best craftsmanship. You can choose the model that best suits your photo and fits your own personal tastes. The frame is a crucial factor in how your image will be perceived.',
           image: 'frame-hamburg-walnut.jpg',
           action: '#5D432C',
           sizes: [[70, 110, 170, 300], [100, 150, 200, 350]]
@@ -469,22 +486,23 @@ export default {
     },
     {
       title: 'Metal',
-      description: 'Face mounted acrylics are the standards professionals turn to over other acrylics when it comes to acrylic prints. Your image will be printed on one of our popular photo papers (satin luster or metallic pearl) and face mounted to the back of the ¼” acrylic panels with a polished edge. In addition to the two paper choices you can choose from either a high gloss polished shine (most popular) or a reflection control acrylic. You can also opt to have your acrylic ordered with a dibond backing. Hanging hardware is provided at no additional charge.',
-      image: 'acrylic-luster.jpg',
+      description: 'The premium print meets the highest requirements and is perfect for colorful images. HD Metal Prints are extremely robust, but low in weight, even in large formats. Pictures printed on aluminum are robust and water-resistant - even suited for sheltered outdoor areas.',
+      image: 'metal.jpg',
       panorama: true,
       finishes: [
         {
           title: 'HD',
-          image: 'acrylic-luster.jpg',
+          image: 'metal.jpg',
           styles: [
             {
               title: 'Borderless',
+              image: 'metal-borderless.jpg',
               sizes: [80, 220, 420, 1100]
             }
           ],
           panoramaStyles: [
             {
-              title: 'Borderless',
+              image: 'metal-borderless.jpg',
               sizes: [60, 120, 320, 1200]
             }
           ]
@@ -549,17 +567,20 @@ export default {
         {
           title: "Hamburg - Black Oak",
           image: 'frame-hamburg-black.jpg',
+          description: 'Gallery frames with great attention to detail and the very best craftsmanship. You can choose the model that best suits your photo and fits your own personal tastes. The frame is a crucial factor in how your image will be perceived.',
           action: '#252321',
           sizes: [[70, 110, 170, 300], [100, 150, 200, 350]]
         },
         {
           title: "Hamburg - Brown Adler",
+          description: 'Gallery frames with great attention to detail and the very best craftsmanship. You can choose the model that best suits your photo and fits your own personal tastes. The frame is a crucial factor in how your image will be perceived.',
           image: 'frame-hamburg-brown.jpg',
           action: '#AE8E7F',
           sizes: [[70, 110, 170, 300], [100, 150, 200, 350]]
         },
         {
           title: "Hamburg - Walnut",
+          description: 'Gallery frames with great attention to detail and the very best craftsmanship. You can choose the model that best suits your photo and fits your own personal tastes. The frame is a crucial factor in how your image will be perceived.',
           image: 'frame-hamburg-walnut.jpg',
           action: '#5D432C',
           sizes: [[70, 110, 170, 300], [100, 150, 200, 350]]
@@ -579,7 +600,7 @@ export default {
       columns: [
         {
           title: 'Limited edition',
-          description: 'We are proud to offer exclusive photographs by Peter Falencikwhich will be relaseased in a limited edition. Limited edition means that the photographs will be printed and sold only in a small number of copies, so that each one will be valuable in the future and can start a great collection of a unique artistic work. The LE number is located in the lower right corner of each of the limited series photos.',
+          description: 'We are proud to offer exclusive photographs by Peter Falencik which will be released in a limited edition. Limited edition means that the photographs will be printed and sold only in a small number of copies, so that each one will be valuable in the future and can start a great collection of a unique artistic work. The LE number is located in the lower right corner of each of the limited series photos.',
           icon: 'icon-limited-edition.png'
         },
         {

@@ -37,14 +37,24 @@
                 <li>
                   <a @click.prevent="allCategories">Shop</a>
                 </li>
-                <li>
+                <!-- <li>
                   <a href="https://etsy.com" target="_blank" rel="noopener">Etsy shop</a>
-                </li>
-                <li>
+                </li> -->
+                <!-- <li>
                   <nuxt-link to="/blog">Blog</nuxt-link>
-                </li>
+                </li> -->
                 <li>
                   <nuxt-link to="/contact">Contact</nuxt-link>
+                </li>
+                <li>
+                  <a href="https://www.facebook.com/peterfalencik" target="_blank">
+                    <b-icon icon="facebook"></b-icon>
+                  </a>
+                </li>
+                <li>
+                  <a href="https://facebook.com" target="_blank">
+                    <b-icon icon="instagram"></b-icon>
+                  </a>
                 </li>
               </ul>
             </nav>
