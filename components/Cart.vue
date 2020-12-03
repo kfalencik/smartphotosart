@@ -145,14 +145,9 @@ export default {
         this.couponField = false;
         this.$buefy.toast.open({message: 'Sorry, this coupon code doesn\'t exist.', type: 'is-warning'});
       } else {
-        let date = new Date();
-        let dd = String(date.getDate()).padStart(2, '0');
-        let mm = String(date.getMonth() + 1).padStart(2, '0'); //January is 0!
-        let yyyy = date.getFullYear();
+        let date = new Date().getTime();
 
-        date = `${yyyy}/${mm}/${dd}`;
-
-        if (date > findCode[0].expiry && findCode[0].expiry !== '') {
+        if (date > new Date(findCode[0].expiry).getTime() && findCode[0].expiry !== '') {
           this.couponField = false;
           this.$buefy.toast.open({message: 'Sorry, this coupon has expired.', type: 'is-warning'});
         } else {
