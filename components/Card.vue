@@ -9,17 +9,17 @@
           <img :src="product.image2" :alt="product.title" loading="lazy" />
         </div>
         <div class="product__title">
-          <h5>{{ product.title }}</h5>
+          {{ product.title }}
         </div>
         <div class="product__price">
           <template v-if="product.discount">
-            <span>From &nbsp;</span>
+            <span>from &nbsp;</span>
             <span class="discount">{{ price(product.price) }}</span>
-            <span class="price"><strong>${{ discount(product.price, product.discount) }}</strong></span>
+            <span class="price">${{ discount(product.price, product.discount) }}</span>
           </template>
           <template v-else>
-            <span>From &nbsp;</span>
-            <span class="price"><strong>{{ price(product.price) }}</strong></span>
+            <span>from &nbsp;</span>
+            <span class="price">{{ price(product.price) }}</span>
           </template>
         </div>
       </router-link>
@@ -62,6 +62,8 @@ export default {
   }
 
   .product {
+    text-align: center;
+
     &__discount-badge {
       background: $tertiary;
       width: 90px;
@@ -98,23 +100,19 @@ export default {
       padding: 10px 0 5px;
       margin-bottom: 5px;
       border-bottom: 1px solid $primary;
-
-      h5 {
-        color: $black;
-      }
+      font-size: 1.2em;
+      min-height: 35px;
+      color: $black;
     }
 
     &__price {
       display: flex;
       flex-direction: row;
-      align-items: baseline;
-      
-      .price {
-        color: $black;
-      }
+      justify-content: center;
+      color: $black;
 
       .discount {
-        color: $lightgrey;
+        color: $gold;
         font-size: 0.8em;
         text-decoration: line-through;
         margin-right: 10px;

@@ -1,28 +1,22 @@
 <template>
   <div class="filters">
     <div class="filters__item">
-      <h5>Categories</h5>
+      <h3>Filters</h3>
+      <b-field grouped label="Categories">
+      </b-field>
       <div class="filters__item-field" v-for="category in categories" :key="category.id">
-        <b-checkbox v-model="filterCategories" :checked="categoryEnabled(category.slug)" :native-value="category.slug" expanded>{{category.title}}</b-checkbox>
+        <b-field>
+          <b-checkbox v-model="filterCategories" :checked="categoryEnabled(category.slug)" :native-value="category.slug" expanded>{{category.title}}</b-checkbox>
+        </b-field>
       </div>
     </div>
 
-    <b-field label="Orientation type">
+    <b-field class="mt-5" label="Orientation type">
       <b-select placeholder="Orientation type" v-model="orientation" @input="orientationProducts($event)" expanded>
         <option value="">All</option>
         <option value="landscape">Landscape</option>
         <option value="portrait">Portrait</option>
-      </b-select>
-    </b-field>
-
-    <b-field label="Sort by">
-      <b-select placeholder="Sort by" v-model="sorter" @input="sortProducts($event)" expanded>
-        <option value="popularity-az">Most popular</option>
-        <option value="popularity-za">Least popular</option>
-        <option value="date-az">Newest products</option>
-        <option value="date-za">Oldest products</option>
-        <option value="price-za">Lowest price</option>
-        <option value="price-az">Highest price</option>
+        <option value="panorama">Panorama</option>
       </b-select>
     </b-field>
 
@@ -48,14 +42,6 @@ export default {
       },
       get () {
         return this.$store.state.filterCategories;
-      }
-    },
-    sorter: {
-      set (sorter) {
-        this.$store.commit('sortProducts', sorter);
-      },
-      get () {
-        return this.$store.state.sorter;
       }
     },
     orientation: {
@@ -97,20 +83,12 @@ export default {
 
 <style lang="scss" scoped>
   .filters {
-    margin-right: 50px;
-    padding-right: 20px;
-    width: 200px;
-    display: none;
-    border-right: 1px solid lighten($lightgrey, 40%);
+    h3 {
+      margin-bottom: 50px;
+    }
 
-    &__item {
-      width: 220px;
-      margin-bottom: 35px;
-
-      h5 {
-        margin-bottom: 10px;
-        text-decoration: underline;
-      }
+    &__item-field {
+      display: block;
     }
 
     &__reset {

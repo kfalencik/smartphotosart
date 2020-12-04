@@ -17,7 +17,7 @@
     "firebase": "^7.6.1",
     "js-md5": "^0.7.3",
     "nuxt": "^2.0.0",
-    "nuxt-buefy": "^0.3.2",
+    "nuxt-buefy": "^0.4.0",
     "nuxt-compress": "^1.0.2",
     "nuxt-jsonld": "^1.4.5",
     "nuxt-vuex-localstorage": "^1.2.6",

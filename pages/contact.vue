@@ -1,12 +1,12 @@
 <template>
-  <div class="section">
+  <div class="section section--page">
     <div class="container">
+      <div class="page-header">
+        <h2 class="h2">Contact</h2>
+        <p>If you wish to contact us with any questions or requests, please use the form below or send us a letter to this address:</p>
+      </div>
       <div class="columns">
         <div class="column is-half-widescreen">
-          <h2 class="h2">Contact</h2>
-
-          <p>If you wish to contact us with any questions or requests, please use the form below or send us a letter to this address:
-
             <address>
               Peter Falencik Photography,<br />
               1280 WILDWOOD LAKES BLVD,<br />
@@ -37,7 +37,7 @@
 
             <div class="field is-grouped">
               <div class="control">
-                <button class="button is-success">Submit</button>
+                <button class="button is-black">Submit</button>
               </div>
             </div>
           </form>

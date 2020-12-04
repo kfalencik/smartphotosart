@@ -1,31 +1,8 @@
 <template>
   <div class="slideshow">
-    <button @click="changeSlide(heroCurrentSlide - 1)" class="slideshow__nav-item" title="Previous">
-      <b-icon icon="arrow-left" custom-size="mdi-24px"></b-icon>
-    </button>
-    <button @click="changeSlide(heroCurrentSlide + 1)" class="slideshow__nav-item" title="Next">
-      <b-icon icon="arrow-right" custom-size="mdi-24px"></b-icon>
-    </button>
-
-    <div class="slideshow__slides" v-if="heroTotalSlides && slides[0].images[0] !== '1'">
-      <div v-for="(slide, index) in slides" :key="index" :class="{'slideshow__slide': true, 'slideshow__slide--prev': index + 1 === heroPreviousSlide, 'slideshow__slide--next': index + 1 === heroNextSlide, 'slideshow__slide--active': index + 1 === heroCurrentSlide}">
-          <div class="slideshow__slide-image">
-            <img
-              :src="slide.images[1]"
-              :srcset="`
-                ${slide.images[0]} 2049w,
-                ${slide.images[1]} 1981w,
-                ${slide.images[2]} 769w,
-                ${slide.images[3]} 320w,
-              `"
-            />
-
-            <template v-if="slide.title">
-              <div class="slideshow__slide-text" :style="`color: ${slide.color}`"> 
-                <h2>{{slide.title}}</h2>
-              </div>
-            </template>
-          </div>
+    <div class="slideshow__slides">
+      <div v-for="(slide, index) in services" :key="index" :class="{'slideshow__slide': true, 'slideshow__slide--prev': index + 1 === heroPreviousSlide, 'slideshow__slide--next': index + 1 === heroNextSlide, 'slideshow__slide--active': index + 1 === heroCurrentSlide}">
+        <p v-html="slide"></p>
       </div>
     </div>
   </div>
@@ -33,30 +10,31 @@
 
 <script>
 export default {
+
   data() {
     return {
       heroCurrentSlide: 1,
       heroNextSlide: 2,
-      heroPreviousSlide: this.heroTotalSlides,
+      heroPreviousSlide: 5,
+      heroTotalSlides: 5,
+      services: [
+        '<strong>Free shipping.</strong> We provide free shipping in the whole of USA.',
+        '<strong>Safe payments.</strong> Secure payment system with PayPal.',
+        '<strong>Discounts.</strong> Opportunities to save money everywhere.',
+        '<strong>Custom orders.</strong> Order bespoke sized products.',
+        '<strong>Support 24/7.</strong> Get our help anytime.'
+      ],
 			heroInterval: null,
       heroSlideDirection: 'slide-right',
       changingSlide: false,
       changingSlideInterval: null
     }
   },
-  computed: {
-    slides() {
-      return this.$store.state.slideshowImages
-    },
-    heroTotalSlides() {
-      return this.slides.length
-    }
-  },
+
   mounted() {
-    let app = this;
     this.initHeroSlider();
-    this.$store.dispatch('getSlideshowImages')
   },
+
   methods: {
     initHeroSlider: function() {
       let app = this;
@@ -115,195 +93,51 @@ export default {
 
 <style lang="scss" scoped>
   .slideshow {
-    height: 375px;
+    height: 80px;
     width: 100%;
     padding: 0;
     position: relative;
     z-index: 10;
     overflow: hidden;
     margin: 0 auto;
+    background-color: $primary;
 
-    @media (min-width: $large) {
-      height: 585px;
-    }
-
-    @media (min-width: $large) {
-      height: 615px;
-    }
-
-    @media (min-width: $xlarge) and (min-height: 1200px) {
-      height: 700px;
-    }
-
-    @media (min-width: 3000px) and (min-height: 1200px) {
-      height: 900px;
-    }
-
-    &__logo {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      border: 5px solid #000;
-      background: $white;
-      padding: 10px 15px;
-      z-index: 50;
-
-      @media (min-width: $large) {
-        padding: 50px 75px;
-      }
+    @media (min-width: $medium) {
+      height: 40px;
     }
 
     &__slides {
       position: relative;
       height: 100%;
       width: 100%;
+      height: 80px;
 
-      @media (min-width: $large) {
-        height: 585px;
-      }
-
-      @media (min-width: $large) {
-        height: 615px;
-      }
-
-      @media (min-width: $xlarge) and (min-height: 1200px) {
-        height: 700px;
-      }
-
-      @media (min-width: 3000px) and (min-height: 1200px) {
-        height: 900px;
-      }
+      @media (min-width: $medium) {
+      height: 40px;
+    }
     }
 
     &__slide {
       position: absolute;
       width: 100%;
       height: 100%;
+      padding: 10px 15px;
       will-change: transform;
-      transform: translate(100%);
-      transition: all 1s ease;
-
-      &--prev {
-        transform: translate(-100%);
-        z-index: 5;
-      }
-
-      &--active {
-        transform: translate(0);
-        z-index: 10;
-      }
-
-      &--next {
-        transform: translate(100%);
-        z-index: 3;
-      }
-    }
-
-    &__slide-content {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 86%;
-      max-width: 1140px;
-      opacity: 0;
-      animation: fadeIn 1s 1 forwards;
-      animation-delay: .5s;
-    }
-
-    &__slide-image {
-      height: 100%;
-
-      &::before {
-        content: '';
-        display: block;
-        width: 100%;
-        height: 100%;
-        position: absolute;
-        //background: rgba(0,0,0,0.35);
-      }
-
-      img {
-        height: 100%;
-        width: 100%;
-        object-fit: cover;
-        object-position: center bottom;
-      }
-    }
-
-    &__slide-text {
-      color: $white;
-      position: absolute;
-      z-index: 20;
-      transform: translateX(-50%);
-      left: 50% !important;
-      top: 15% !important;
-      width: 1000px;
       text-align: center;
-      color: $white !important;
-      text-shadow: 0 0 5px rgba(0,0,0,0.4);
-      width: 100%;
+      transition: all 0.8s ease;
+      opacity: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
 
-      h2 {
-        text-decoration: none;
-        margin: 0;
-        font-weight: normal;
-        font-size: 120px;
-        line-height: 0.9;
-        text-transform: uppercase;
-        padding: 0 60px;
-        font-family: $fontTitle;
-
-        @media (max-width: $small) {
-          font-size: 35px;
-        }
-
-        @media (max-width: $medium) {
-          font-size: 45px;
-          padding: 0 20px;
-        }
-
-        @media (max-width: $xlarge) {
-          font-size: 80px;
-        }
+      p {
+        margin: 10px 0;
       }
-    }
-
-    &__nav-item {
-      background: $black;
-      color: $white;
-      position: absolute;
-      top: 50%;
-      left: 20px;
-      border: none;
-      width: 40px;
-      height: 40px;
-      z-index: 30;
-      transition: all .5s ease;
-      cursor: pointer;
-      opacity: 0.3;
-      display: block;
-      transform: translateY(-50%);
-      border: 1px solid $primary;
-
-      @media (max-width: $small) {
-        display: none;
-      } 
-
-      &:nth-child(2) {
-        left: auto;
-        right: 20px;
+      
+      &--active {
+        opacity: 1;
       }
 
-      &:hover {
-        background: $tertiary;
-        color: $white;
-      }
-    }
-
-    &:hover &__nav-item {
-      opacity: 1;
     }
   }
 </style>

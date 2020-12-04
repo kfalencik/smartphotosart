@@ -60,7 +60,7 @@
           </b-field>
         </div>
         <div class="column is-half pay">
-          <button class="button is-success" @click="checkout">Checkout</button>
+          <button class="button is-black" @click="checkout">Checkout</button>
         </div>
       </div>
     </div>

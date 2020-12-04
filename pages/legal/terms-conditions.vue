@@ -1,12 +1,12 @@
 <template>
-  <div class="section">
+  <div class="section section--page">
     <div class="container">
+      <div class="page-header">
+        <h2>Terms & Conditions</h2>
+        <p>Last updated January 03, 2020</p>
+      </div>
       <div class="columns">
         <div class="column is-half-widescreen">
-          <h2>Terms & Conditions</h2>
-
-          <div><strong>Last Updated 03 January 2020 </strong> </div>
-
           <h3>Agreement to Terms</h3>
           <p>1.1  These Terms and Conditions constitute a legally binding agreement made between you, whether personally or on behalf of an entity (<strong>you</strong>), and <strong>Peter Falencik Photography</strong>,<strong> </strong>located at<strong> 1280 WILDWOOD LAKES BLVD, </strong><strong> </strong><strong>Naples, FL </strong><strong>34104 United States </strong>(<strong>we</strong>, <strong>us</strong>), concerning your access to and use of the <strong>Peter Falencik Photography</strong><strong> (https://falencik.com) </strong>website as well as any related applications (the <strong>Site</strong>).  </p>
           <p>The Site provides the following services: <strong>Online marketplace </strong>(<strong>Services</strong>). You agree that by accessing the Site and/or Services, you have read, understood, and agree to be bound by all of these Terms and Conditions.  </p>

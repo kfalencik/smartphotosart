@@ -66,6 +66,7 @@ export default {
   .container {
     h2 {
       margin-top: 0;
+      text-align: center;
 
       a {
         color: $black;

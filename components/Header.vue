@@ -2,6 +2,24 @@
   <header class="header">
     <div class="section">
       <div class="header__wrapper">
+        <div class="header__search" v-if="searchToggle">
+          <form @submit.stop.prevent="search">
+            <label class="sr-only" for="search">Search</label>
+            <b-input 
+              type="search"
+              id="search"
+              icon="magnify"
+              icon-clickable
+              expanded
+              placeholder="Search for..."
+              v-model="searchKeyword"
+              @input="search"
+              >
+            </b-input>
+            <button type="submit" @click.stop.prevent="search" class="button"><span class="sr-only">Search</span><b-icon icon="magnify" custom-size="mdi-24px"></b-icon></button>
+          </form>
+        </div>
+
         <div class="header__left">
           <div class="header__logo">
             <router-link to="/">
@@ -12,49 +30,21 @@
         </div>
 
         <div class="header__center">
-          <div class="header__search">
-            <form @submit.stop.prevent="search">
-              <label class="sr-only" for="search">Search</label>
-              <b-input 
-                type="search"
-                id="search"
-                icon="magnify"
-                icon-clickable
-                expanded
-                placeholder="Search for..."
-                v-model="searchKeyword"
-                @input="search"
-                >
-              </b-input>
-              <button type="submit" @click.stop.prevent="search" class="button"><span class="sr-only">Search</span><b-icon icon="magnify" custom-size="mdi-24px"></b-icon></button>
-            </form>
-          </div>
-
           <div class="header__navigation">
             <button class="button is-secondary" @click.stop.prevent="toggleMenu"><b-icon icon="menu" custom-size="mdi-24px"></b-icon> <span>&nbsp;Menu</span></button>
             <nav :class="{'header__main-nav': true, 'active': navigation}">
               <ul>
                 <li>
-                  <a @click.prevent="allCategories">Shop</a>
+                  <nuxt-link to="/">Home</nuxt-link>
                 </li>
-                <!-- <li>
+                <li>
+                  <nuxt-link to="/shop">Shop</nuxt-link>
+                </li>
+                <li>
                   <a href="https://etsy.com" target="_blank" rel="noopener">Etsy shop</a>
-                </li> -->
-                <!-- <li>
-                  <nuxt-link to="/blog">Blog</nuxt-link>
-                </li> -->
+                </li>
                 <li>
                   <nuxt-link to="/contact">Contact</nuxt-link>
-                </li>
-                <li>
-                  <a href="https://www.facebook.com/peterfalencik" target="_blank">
-                    <b-icon icon="facebook"></b-icon>
-                  </a>
-                </li>
-                <li>
-                  <a href="https://facebook.com" target="_blank">
-                    <b-icon icon="instagram"></b-icon>
-                  </a>
                 </li>
               </ul>
             </nav>
@@ -65,11 +55,16 @@
           <div class="header__user-menu">
             <nav>
               <ul>
-                <!-- <li>
-                  <router-link to="/user-profile">
-                    <b-icon icon="account-outline" custom-size="mdi-24px"><span class="sr-only">Your account</span></b-icon>
-                  </router-link>
-                </li> -->
+                <li>
+                  <a href="https://www.facebook.com/peterfalencik" target="_blank">
+                    <b-icon icon="facebook"></b-icon>
+                  </a>
+                </li>
+                <li>
+                  <a href="https://facebook.com" target="_blank">
+                    <b-icon icon="instagram"></b-icon>
+                  </a>
+                </li>
                 <li>
                   <router-link to="/shop/cart">
                     <b-icon icon="cart-outline" custom-size="mdi-24px"></b-icon>
@@ -129,9 +124,6 @@
       toggleMenu: function(event) {
         this.navigation = !this.navigation;
       },
-      allCategories: function() {
-        this.$router.push('/shop');
-      },
       selectCategory: function(slug) {
         this.$store.commit('setFilterCategory', slug);
         this.$store.dispatch('filterProducts');
@@ -153,8 +145,8 @@
     border-bottom: 1px solid $primary;
 
     .section {
-      padding-top: 15px;
-      padding-bottom: 15px;
+      padding-top: 20px;
+      padding-bottom: 20px;
     }
 
     &__wrapper {
@@ -180,6 +172,8 @@
 
     &__left {
       order: 2;
+      display: flex;
+      flex-direction: row;
 
       @media (min-width: $medium) {
         order: 1;
@@ -188,6 +182,7 @@
 
     &__right {
       order: 3;
+      width: 225px;
       display: flex;
       flex-direction: row;
       align-items: center;
@@ -196,6 +191,7 @@
 
     &__center {
       order: 1;
+      justify-content: center;
 
       @media (min-width: $medium) {
         order: 2;
@@ -266,23 +262,21 @@
 
     @media (min-width: $medium) {
       &__main-nav {
-        width: 320px;
-
         li {
           float: left;
           list-style: none;
-          margin-right: 15px;
-          padding: 6px 0;
-
-          &:first-child {
-            font-weight: bold;
-          }
+          margin-right: 25px;
+          border-bottom: 2px solid transparent;
 
           a {
-            font-size: 18px;
+            letter-spacing: 0.2em;
+            padding-bottom: 8px;
+            text-transform: uppercase;
+            border-bottom: 2px solid transparent;
 
-            &:hover {
-              color: $black;
+
+            &.nuxt-link-exact-active, &:hover {
+              border-bottom: 2px solid $black;
             }
           }
         }
@@ -379,7 +373,7 @@
     }
 
     &__notification-indicator {
-      background: $tertiary;
+      background: $red;
       color: $white;
       width: 16px;
       height: 16px;
@@ -396,10 +390,6 @@
 
     &__user-menu {
       text-align: right;
-
-      @media (min-width: $medium) {
-        width: 35px;
-      }
 
       ul {
         margin-left: 0;

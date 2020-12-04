@@ -106,9 +106,13 @@ export const mutations = {
     } 
 
     if(state.orientation !== '') {
-      state.filteredProducts = state.filteredProducts.filter(item => {
-        return (item.landscape && state.orientation === 'landscape') || (!item.landscape && state.orientation === 'portrait')
-      })
+      if (state.orientation === 'panorama') {
+        state.filteredProducts = state.filteredProducts.filter(item => item.panorama === true)
+      } else {
+        state.filteredProducts = state.filteredProducts.filter(item => {
+          return (item.landscape && state.orientation === 'landscape') || (!item.landscape && state.orientation === 'portrait')
+        })
+      }
     }
 
     if (state.searchKeyword !== '') {

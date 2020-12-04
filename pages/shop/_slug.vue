@@ -1,7 +1,7 @@
 <template>
   <div>
     <div>
-      <div class="section">
+      <div class="section section--page">
         <div :class="{'product container': true, 'product--landscape': product.landscape}">
 
           <template v-if="overlay && image !== 7">
@@ -105,16 +105,12 @@
             </div>
           </template>
 
-          <div class="columns is-4">
-            <div class="column is-two-thirds">
-              <div class="product__title">
-                <h2>{{product.title}}</h2>
-                <Stars :product="product.id" link="true" />
-                <p v-if="product.description" v-html="product.description"></p>
-                <p v-else>All of our prints are high-resolution images, printed with acid-free ink on best quality canvas. Please use the widget below to customize canvas size, edge colour, frame and more.</p>
-                <div class="product__sku">SKU: {{product.slug}}</div>
-              </div>
-            </div>
+          <div class="page-header">
+            <h2>{{product.title}}</h2>
+            <Stars :product="product.id" link="true" />
+            <p v-if="product.description" v-html="product.description"></p>
+            <p v-else>All of our prints are high-resolution images, printed with acid-free ink on best quality canvas. Please use the widget below to customize canvas size, edge colour, frame and more.</p>
+            <div class="product__sku">SKU: {{product.slug}}</div>
           </div>
 
           <div class="columns is-4">
@@ -353,24 +349,15 @@
                     </b-field>
                   </div>
                 </div>
-
-                <div class="product__option">
-                  <h5>Quantity</h5>
-                  <div class="wrap product__quantity">
-                    <button class="button button--tertiary" @click="changeQuantity(quantity - 1)"><b-icon icon="minus-circle-outline" /><span class="sr-only">Minus</span></button>
-                    <span>{{ quantity }}</span>
-                    <button class="button button--tertiary" @click="changeQuantity(quantity + 1)"><b-icon icon="plus-circle-outline" /><span class="sr-only">Plus</span></button>
-                  </div>
-                </div>
               </div>
 
               <div class="product__add-to-cart">
-                <div class="product__price">
-                  <h5>{{ priceDisplay(price * quantity) }}</h5>
+                <div class="product__add">
+                  <button class="button is-black" @click="addToCart">Add to cart</button>
                 </div>
 
-                <div class="product__add">
-                  <button class="button is-success" @click="addToCart">Add to cart</button>
+                <div class="product__price">
+                  <h3>{{ priceDisplay(price * quantity) }}</h3>
                 </div>
               </div>
 
@@ -938,7 +925,7 @@ export default {
     }
 
     &__option {
-      margin-bottom: 25px;
+      margin-bottom: 20px;
 
       &:last-child {
         margin-bottom: 0;
@@ -947,19 +934,25 @@ export default {
       h5 {
         border-bottom: 1px solid $primary;
         margin-bottom: 5px;
+        font-weight: bold;
       }
 
       &--with-guide {
         .guide {
           cursor: pointer;
           color: $lightgrey;
-          font-size: 12px;
+          font-size: 0.75em;
           float: right;
+          font-family: $fontBody;
 
           .icon {
             margin-right: -5px;
           }
         }
+      }
+
+      select {
+        width: 100%;
       }
     }
 

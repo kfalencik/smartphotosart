@@ -1,11 +1,12 @@
 <template>
-  <div class="section">
+  <div class="section section--page">
     <div class="container">
+      <div class="page-header">
+        <h2>RETURNS POLICY</h2>
+        <p>Last updated January 03, 2020</p>
+      </div>
       <div class="columns">
         <div class="column is-half-widescreen">
-          <h2>RETURNS POLICY</h2>
-        
-          <p><strong>Last updated January 03, 2020</strong></p>
           <p>We hope you are happy with your purchase. However, if you are not completely satisfied with your purchase for any reason, you may return it to us for a 80% refund. 20% of the total will be charged for logistic and printing costs. Please see below for more information on our return policy.</p>
           
           <h3>RETURNS</h3>
