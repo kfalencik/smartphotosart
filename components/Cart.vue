@@ -4,26 +4,19 @@
       <div class="cart">
         <div class="cart__items">
           <CartItem class="cart__item" v-for="(item, index) in cart" :key="'item-' + index" :index="index" :productid="item.product" :quantity="item.quantity" :extras="item.extras" />
+          <div class="cart-item" v-if="discount !== null">
+            <strong>{{ discounts[discount].title }}</strong> - {{ discounts[discount].discount }}%
+          </div>
         </div>
         <div class="cart__pay">
-          <tr class="cart__item--bold" v-if="discount !== null">
-            <td></td>
-            <td>Discount</td>
-            <td><strong>Description:</strong> {{ discounts[discount].title }}</td>
-            <td></td>
-            <td class="cart-item__price">
-              <strong>-{{ discounts[discount].discount }}%</strong>
-            </td>
-            <td></td>
-          </tr>
-
+          <img class="my-2" src="/payment-methods.png" width="200" alt="" role="presentation" />
           <b-field>
             <b-input name="discount" icon="ticket" placeholder="Coupon code" v-model="coupon"></b-input>
             <div class="control"><button class="button" @click="checkCode">Apply</button></div>
           </b-field>
-
-          <strong>{{ price(total) }}</strong>
-          <img src="/payment-methods.png" width="200" alt="" role="presentation" />
+          <div class="my-2">
+            Total <strong>{{ price(total) }}</strong>
+          </div>
           <button class="button is-black" @click="checkout">Checkout</button>
         </div>
       </div>
