@@ -904,6 +904,11 @@ export default {
         background: $black;
         color: $white;
         border: 1px solid $primary;
+
+        &:hover {
+          background: $tertiary;
+          color: $white;
+        }
       }
 
       &:nth-child(3) {
@@ -911,13 +916,8 @@ export default {
         right: 20px;
 
         @media (max-width: $medium) {
-          right: 10px;
+          right: 5px;
         }
-      }
-
-      &:hover {
-        background: $tertiary;
-        color: $white;
       }
     }
 
@@ -1111,12 +1111,9 @@ export default {
       transition: all .5s ease;
       cursor: pointer;
       display: block;
-      border: 1px solid $primary;
 
       @media (max-width: $medium) {
         font-size: 14px;
-        top: 10px;
-        right: 10px;
 
         .icon {
           font-size: 14px;
@@ -1129,12 +1126,12 @@ export default {
         background: $black;
         color: $white;
         border: 1px solid $primary;
-      }
-      
-      &:hover {
-        background: $tertiary;
-        color: $white;
-      }
+
+        &:hover {
+          background: $tertiary;
+          color: $white;
+        }
+      }      
     }
 
     &__dynamic-preview {

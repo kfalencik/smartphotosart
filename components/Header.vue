@@ -13,9 +13,9 @@
 
         <div class="header__center">
           <div class="header__navigation">
-            <v-button size="is-small" class="mobile" @click.stop.prevent="toggleMenu">
+            <b-button size="is-small" class="mobile" @click.stop.prevent="toggleMenu">
               <b-icon icon="menu" custom-size="mdi-24px"></b-icon> <span class="sr-only">&nbsp;Menu</span>
-            </v-button>
+            </b-button>
             <nav :class="{'header__main-nav': true, 'active': navigation}">
               <ul>
                 <li>

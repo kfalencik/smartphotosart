@@ -11,17 +11,17 @@ export default {
         {
           title: '16 x 24"',
           action: 0.4,
-          price: 2
+          price: 1.2
         },
         {
           title: '24 x 36"',
           action: 0.6,
-          price: 3
+          price: 2
         },
         {
           title: '40 x 60"',
           action: 1,
-          price: 5
+          price: 3
         }
       ]
     },
@@ -31,22 +31,22 @@ export default {
         {
           title: '9 x 16"',
           action: 0.2,
-          price: 1.5
+          price: 1
         },
         {
           title: '18 x 32"',
           action: 0.4,
-          price: 2.5
+          price: 1.2
         },
         {
           title: '36 x 64"',
           action: 0.6,
-          price: 3.5
+          price: 2
         },
         {
           title: '40 x 70"',
           action: 1,
-          price: 6
+          price: 3
         }
       ]
     }
@@ -429,35 +429,35 @@ export default {
         {
           title: "Aluminium Slimline - Silver",
           description: 'Our aluminum Slimline Frame is an all-around fantastic finishing touch for any acrylic glass photo print. The frame’s small width and depth bring out the best in your acrylic glass photo prints, without drawing too much attention to the frame itself.',
-          image: 'frame-slimline-silver.png',
+          image: 'frame-slimline.jpg',
           action: 'lightgrey',
           sizes: [[20, 35, 45, 60], [50, 80, 100, 150]]
         },
         {
           title: "Aluminium Slimline - Gold",
           description: 'Our aluminum Slimline Frame is an all-around fantastic finishing touch for any acrylic glass photo print. The frame’s small width and depth bring out the best in your acrylic glass photo prints, without drawing too much attention to the frame itself.',
-          image: 'frame-slimline-gold.png',
+          image: 'frame-slimline.jpg',
           action: '#D4AF37',
           sizes: [[20, 35, 45, 60], [50, 80, 100, 150]]
         },
         {
           title: "Aluminium Slimline - White",
           description: 'Our aluminum Slimline Frame is an all-around fantastic finishing touch for any acrylic glass photo print. The frame’s small width and depth bring out the best in your acrylic glass photo prints, without drawing too much attention to the frame itself.',
-          image: 'frame-slimline-white.png',
+          image: 'frame-slimline.jpg',
           action: 'white',
           sizes: [[20, 35, 45, 60], [50, 80, 100, 150]]
         },
         {
           title: "Aluminium Slimline - Black",
           description: 'Our aluminum Slimline Frame is an all-around fantastic finishing touch for any acrylic glass photo print. The frame’s small width and depth bring out the best in your acrylic glass photo prints, without drawing too much attention to the frame itself.',
-          image: 'frame-slimline-black.png',
+          image: 'frame-slimline.jpg',
           action: 'black',
           sizes: [[20, 35, 45, 60], [50, 80, 100, 150]]
         },
         {
           title: "Aluminium Slimline - White Maple",
           description: 'Our aluminum Slimline Frame is an all-around fantastic finishing touch for any acrylic glass photo print. The frame’s small width and depth bring out the best in your acrylic glass photo prints, without drawing too much attention to the frame itself.',
-          image: 'frame-slimline-white.png',
+          image: 'frame-slimline.jpg',
           action: '#FED821',
           sizes: [[20, 35, 45, 60], [50, 80, 100, 150]]
         },
@@ -532,35 +532,35 @@ export default {
         {
           title: "Aluminium Slimline - Silver",
           description: 'Our aluminum Slimline Frame is an all-around fantastic finishing touch for any acrylic glass photo print. The frame’s small width and depth bring out the best in your acrylic glass photo prints, without drawing too much attention to the frame itself.',
-          image: 'frame-slimline-silver.png',
+          image: 'frame-slimline.jpg',
           action: 'lightgrey',
           sizes: [[20, 35, 45, 60], [50, 80, 100, 150]]
         },
         {
           title: "Aluminium Slimline - Gold",
           description: 'Our aluminum Slimline Frame is an all-around fantastic finishing touch for any acrylic glass photo print. The frame’s small width and depth bring out the best in your acrylic glass photo prints, without drawing too much attention to the frame itself.',
-          image: 'frame-slimline-gold.png',
+          image: 'frame-slimline.jpg',
           action: '#D4AF37',
           sizes: [[20, 35, 45, 60], [50, 80, 100, 150]]
         },
         {
           title: "Aluminium Slimline - White",
           description: 'Our aluminum Slimline Frame is an all-around fantastic finishing touch for any acrylic glass photo print. The frame’s small width and depth bring out the best in your acrylic glass photo prints, without drawing too much attention to the frame itself.',
-          image: 'frame-slimline-white.png',
+          image: 'frame-slimline.jpg',
           action: 'white',
           sizes: [[20, 35, 45, 60], [50, 80, 100, 150]]
         },
         {
           title: "Aluminium Slimline - Black",
           description: 'Our aluminum Slimline Frame is an all-around fantastic finishing touch for any acrylic glass photo print. The frame’s small width and depth bring out the best in your acrylic glass photo prints, without drawing too much attention to the frame itself.',
-          image: 'frame-slimline-black.png',
+          image: 'frame-slimline.jpg',
           action: 'black',
           sizes: [[20, 35, 45, 60], [50, 80, 100, 150]]
         },
         {
           title: "Aluminium Slimline - White Maple",
           description: 'Our aluminum Slimline Frame is an all-around fantastic finishing touch for any acrylic glass photo print. The frame’s small width and depth bring out the best in your acrylic glass photo prints, without drawing too much attention to the frame itself.',
-          image: 'frame-slimline-white.png',
+          image: 'frame-slimline.jpg',
           action: '#FED821',
           sizes: [[20, 35, 45, 60], [50, 80, 100, 150]]
         },

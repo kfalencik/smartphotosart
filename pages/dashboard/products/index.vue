@@ -39,26 +39,24 @@
     </div>
 
     <b-table :data="products" :bordered="true" :striped="true" :narrowed="true" :current-page.sync="currentPage" :paginated="true" :per-page="20">
-      <template slot-scope="props">
-        <b-table-column field="id" label="ID" width="40">
-          {{ props.row.slug }}
-        </b-table-column>
-        <b-table-column field="title" label="Nazwa produktu">
-          {{ props.row.title }}
-        </b-table-column>
-        <b-table-column field="price" label="Cena" width="120">
-          {{ price(props.row.price) }}
-        </b-table-column>
-        <b-table-column field="discount" label="Znizka" width="100">
-          <span v-if="props.row.discount > 0">{{ props.row.discount }}%</span>
-        </b-table-column>
-        <b-table-column field="bought" label="Ilosc sprzedazy" width="120">
-          {{ props.row.bought }}
-        </b-table-column>
-        <b-table-column field="link" label="Akcje" width="120">
-          <router-link :to="props.row.editLink">Edytuj</router-link> | <a @click.stop="removeProduct(props.row.id)">Usun</a>
-        </b-table-column>
-      </template>
+      <b-table-column field="id" label="ID" width="40" v-slot="props">
+        {{ props.row.slug }}
+      </b-table-column>
+      <b-table-column field="title" label="Nazwa produktu" v-slot="props">
+        {{ props.row.title }}
+      </b-table-column>
+      <b-table-column field="price" label="Cena" width="120" v-slot="props">
+        {{ price(props.row.price) }}
+      </b-table-column>
+      <b-table-column field="discount" label="Znizka" width="100" v-slot="props">
+        <span v-if="props.row.discount > 0">{{ props.row.discount }}%</span>
+      </b-table-column>
+      <b-table-column field="bought" label="Ilosc sprzedazy" width="120" v-slot="props">
+        {{ props.row.bought }}
+      </b-table-column>
+      <b-table-column field="link" label="Akcje" width="120" v-slot="props">
+        <router-link :to="props.row.editLink">Edytuj</router-link> | <a @click.stop="removeProduct(props.row.id)">Usun</a>
+      </b-table-column>
     </b-table>
   </div>
 </template>
