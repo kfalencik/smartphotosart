@@ -22,9 +22,9 @@
                 <li>
                   <nuxt-link to="/shop">Shop</nuxt-link>
                 </li>
-                <li>
+                <!-- <li>
                   <a href="https://etsy.com" target="_blank" rel="noopener">Etsy shop</a>
-                </li>
+                </li> -->
                 <li>
                   <nuxt-link to="/contact">Contact</nuxt-link>
                 </li>
@@ -43,7 +43,7 @@
                   </a>
                 </li>
                 <li>
-                  <a href="https://facebook.com" target="_blank">
+                  <a href="https://www.instagram.com/falencikphotography/" target="_blank">
                     <b-icon icon="instagram"></b-icon>
                   </a>
                 </li>
@@ -66,7 +66,7 @@
       v-model="openCart"
       :overlay="true"
     >
-      <div class="p-4">
+      <div class="sidebar-cart p-4">
         <h2>Cart</h2>
         <Cart />
       </div>
@@ -411,5 +411,11 @@ import Cart from '~/components/Cart';
         }
       }
     }
+  }
+
+  .sidebar-cart {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
   }
 </style>

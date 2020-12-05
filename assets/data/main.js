@@ -129,7 +129,7 @@ export default {
             {
               title: 'Dibond',
               description: 'Flush mounted (borderless) on Dibond®, a rigid, durable aluminum composite material combines two thin layers of aluminum with a solid polyethylene core.',
-              image: 'paper-dibond',
+              image: 'paper-dibond.jpg',
               sizes: [60, 105, 230, null]
             }
           ]

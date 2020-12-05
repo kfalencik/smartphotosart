@@ -10,42 +10,18 @@
       </div>
     </div>
 
-    <!-- <td class="cart-item__extras">
-      <strong>Material: </strong> {{ materials[extras.material].title }},
-
-      <template v-if="materials[extras.material].finishes">
-        <strong>Media: </strong>
-        <span>{{ materials[extras.material].finishes[extras.finish].title }},</span>
-      </template>
-
-      <template v-if="materials[extras.material].finishes[extras.finish].styles">
-        <strong>Style: </strong>
-        <span >{{ materials[extras.material].finishes[extras.finish].styles[extras.style].title }},</span>
-      </template>
-
-      <template v-if="materials[extras.material].frames">
-        <strong>Frame: </strong>
-        <span v-if="materials[extras.material].frames">{{ materials[extras.material].frames[extras.frame].title }},</span>
-      </template>
-
-      <template v-if="materials[extras.material].glass">
-      <strong>Glass: </strong>
-      <span v-if="materials[extras.material].glass">{{ materials[extras.material].glass[extras.glass].title }},</span>
-      </template>
-
-      <template>
-        <strong>Size: </strong>
-        <span >{{ formats[extras.format].sizes[extras.size].title }} <span v-if="extras.format !== 0">({{ formats[extras.format].title }})</span></span>
-      </template>
-    </td>
-
-    <td class="cart-item__quantity">
-      {{ quantity }}
-    </td>
-
-    <td class="cart-item__price">
-      {{ price(total) }}
-    </td> -->
+    <div class="columns" v-if="product">
+      <div class="column is-half">
+        <b-field>
+          <b-button size="is-small" icon-right="minus" @click="changeQuantity(quantity - 1)"></b-button>
+          <b-button size="is-small" disabled>{{ quantity }}</b-button>
+          <b-button size="is-small" icon-right="plus" @click="changeQuantity(quantity + 1)"></b-button>
+        </b-field>
+      </div>
+      <div class="column is-half">
+        {{ price(total) }}
+      </div>
+    </div>
   </div>
 </template>
 
@@ -104,6 +80,13 @@ export default {
     removeFromCart: function(index) {
       this.$store.commit('localStorage/removeFromCart', index);
       this.$buefy.toast.open({message: 'Item removed from cart.', type: 'is-warning'});
+    },
+    changeQuantity: function(quantity) {
+      if (quantity > 0) {
+        this.$store.commit('localStorage/changeQuantity', { index: this.index, quantity: quantity });
+      } else {
+        this.removeFromCart(this.index)
+      }
     }
   }
 }
@@ -122,10 +105,6 @@ export default {
     &__sku {
       font-size: 14px;
       color: $black;
-    }
-
-    &__extras {
-      font-size: 15px;
     }
 
     &__thumbnail {

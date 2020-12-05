@@ -734,10 +734,7 @@ export default {
         position: 'is-top',
         message: 'Item has been added to your cart!',
         type: 'is-success',
-        actionText: 'Go to cart',
-        onAction: () => {
-          self.$router.push('/shop/cart');
-        }
+        actionText: null
       });
     },
   }

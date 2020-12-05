@@ -1,29 +1,33 @@
 <template>
-  <div v-if="loaded">
-    <div v-if="cart.length > 0">
-      <CartItem class="cart__item" v-for="(item, index) in cart" :key="'item-' + index" :index="index" :productid="item.product" :quantity="item.quantity" :extras="item.extras" />
+  <div class="cart-wrapper" v-if="loaded">
+    <template v-if="cart.length > 0">
+      <div class="cart">
+        <div class="cart__items">
+          <CartItem class="cart__item" v-for="(item, index) in cart" :key="'item-' + index" :index="index" :productid="item.product" :quantity="item.quantity" :extras="item.extras" />
+        </div>
+        <div class="cart__pay">
+          <tr class="cart__item--bold" v-if="discount !== null">
+            <td></td>
+            <td>Discount</td>
+            <td><strong>Description:</strong> {{ discounts[discount].title }}</td>
+            <td></td>
+            <td class="cart-item__price">
+              <strong>-{{ discounts[discount].discount }}%</strong>
+            </td>
+            <td></td>
+          </tr>
 
-      <tr class="cart__item--bold" v-if="discount !== null">
-        <td></td>
-        <td>Discount</td>
-        <td><strong>Description:</strong> {{ discounts[discount].title }}</td>
-        <td></td>
-        <td class="cart-item__price">
-          <strong>-{{ discounts[discount].discount }}%</strong>
-        </td>
-        <td></td>
-      </tr>
+          <b-field>
+            <b-input name="discount" icon="ticket" placeholder="Coupon code" v-model="coupon"></b-input>
+            <div class="control"><button class="button" @click="checkCode">Apply</button></div>
+          </b-field>
 
-       <b-field>
-        <b-input name="discount" icon="ticket" placeholder="Coupon code" v-model="coupon"></b-input>
-        <div class="control"><button class="button" @click="checkCode">Apply</button></div>
-      </b-field>
-
-     
-      <strong>{{ price(total) }}</strong>
-      <img src="/payment-methods.png" width="200" alt="" role="presentation" />
-      <button class="button is-black" @click="checkout">Checkout</button>
-    </div>
+          <strong>{{ price(total) }}</strong>
+          <img src="/payment-methods.png" width="200" alt="" role="presentation" />
+          <button class="button is-black" @click="checkout">Checkout</button>
+        </div>
+      </div>
+    </template>
     <p v-else>There are no items in your cart. Please add some items from <router-link to="/shop">our shop</router-link> first.</p>
   </div>
 </template>
@@ -152,47 +156,26 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  .cart {
-    width: 100%;
-
-    &__item {
-      background: $primary;
-
-      &--head {
-        background: $black;
-        color: $white;
-
-        @media (max-width: $medium) {
-          display: none !important;
-        }
-        
-        td {
-          padding: 10px;
-        }
-      }
-
-      &--bold {
-        border-bottom: 1px solid $black;
-        border-top: 1px solid $black;
-
-        td {
-          padding: 10px;
-        }
-      }
-
-      &:nth-child(odd) {
-        background: $white;
-      }
-    }
-
-    @media (max-width: $medium) {
-      tbody, tr, td {
-        display: block;
-      }
-    }
+  .cart-wrapper {
+    flex: 1;
   }
 
-  .pay {
-    text-align: right;
+  .cart {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+
+    &__items {
+      overflow-x: hidden;
+      overflow-y: auto;
+      width: 100%;
+      max-height: 100%;
+    }
+
+    &__pay {
+      border-top: 1px solid $grey;
+      padding: 15px 0;
+    }
   }
 </style>

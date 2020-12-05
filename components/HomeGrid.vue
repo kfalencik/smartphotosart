@@ -4,7 +4,7 @@
       <img :src="require('@/assets/images/home-main.jpg')" />
       <div class="home-grid__text">
         <h3 class="h2">Beautiful canvases</h3>
-        <p>Discover our collection of beautiful fine art prints created just for you, offering a wide range of styles and subjects including our popular abstract and modern art prints.</p>
+        <p>Discover our collection of beautiful fine art prints created just for you, offering a wide range of styles and subjects including our popular beach and modern art prints.</p>
         <b-button to="/shop" tag="router-link" class="is-black"> 
           Explore Our Designs
         </b-button>
@@ -13,7 +13,7 @@
     <div class="home-grid__item">
       <img :src="require('@/assets/images/home-small-1.jpg')" />
       <div class="home-grid__text">
-        <span class="pre-header">Just In</span>
+        <span class="pre-header">Still warm</span>
         <h3 class="h2">New & Noteworthy</h3>
         <b-button @click="newProducts" class="is-black"> 
           Shop new arivals
