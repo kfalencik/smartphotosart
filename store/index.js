@@ -42,6 +42,7 @@ export const state = () => ({
   loaded: false,
   redirecting: false,
   ordersLoaded: false,
+  openCart: false,
   slideshowImages: [
     {
       images: '6'
@@ -366,6 +367,9 @@ export const mutations = {
       });
     });
   },
+  openCart (state, toggle = null) {
+    state.openCart = toggle !== null ? toggle : true
+  }
 }
 
 export const actions = {

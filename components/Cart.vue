@@ -64,8 +64,6 @@ export default {
     total () {
       let price = 0;
 
-      console.log(this.cart)
-
       this.cart.forEach(item => {
         let product = this.product(item.product);
         let productPrice = product.price * this.formats[item.extras.format].sizes[item.extras.size].price;
@@ -139,6 +137,7 @@ export default {
     },
 
     checkout: function() {
+      this.$store.commit('openCart', false);
       this.$router.push({ path: '/shop/checkout' });
     }
   },

@@ -13,7 +13,9 @@
 
         <div class="header__center">
           <div class="header__navigation">
-            <b-icon @click.stop.prevent="toggleMenu" icon="menu" custom-size="mdi-24px"></b-icon> <span class="sr-only">&nbsp;Menu</span>
+            <v-button size="is-small" class="mobile" @click.stop.prevent="toggleMenu">
+              <b-icon icon="menu" custom-size="mdi-24px"></b-icon> <span class="sr-only">&nbsp;Menu</span>
+            </v-button>
             <nav :class="{'header__main-nav': true, 'active': navigation}">
               <ul>
                 <li>
@@ -48,7 +50,7 @@
                   </a>
                 </li>
                 <li>
-                  <a href="#" @click.prevent.stop="openCart = true">
+                  <a href="#" @click.prevent.stop="toggleCart">
                     <b-icon icon="cart-outline" custom-size="mdi-24px"></b-icon>
                     <span class="header__notification-indicator">{{ totalCart }} <span class="sr-only">products in cart</span></span>
                   </a>
@@ -81,8 +83,7 @@ import Cart from '~/components/Cart';
     data() {
       return {
         siteName: 'Peter Falencik Photography',
-        navigation: false,
-        openCart: false
+        navigation: false
       }
     },
 
@@ -113,6 +114,15 @@ import Cart from '~/components/Cart';
       cart() {
         return this.$store.state.localStorage.cart;
       },
+      openCart: {
+        set (value) {
+          this.$store.commit('openCart', value);
+        },
+        get () {
+          return this.$store.state.openCart;
+        }
+        
+      },
       totalCart() {
         let total = 0;
 
@@ -138,6 +148,9 @@ import Cart from '~/components/Cart';
         this.$store.dispatch('filterProducts');
         this.$store.commit('sortProducts');
         this.$router.push('/shop');
+      },
+      toggleCart: function() {
+        this.$store.commit('openCart');
       }
     },
   }
@@ -179,9 +192,11 @@ import Cart from '~/components/Cart';
       display: flex;
       flex-direction: row;
       flex: 1;
+      justify-content: center;
 
       @media (min-width: $medium) {
         order: 1;
+        justify-content: left;
       }
     }
 
@@ -416,6 +431,13 @@ import Cart from '~/components/Cart';
           color: $black;
         }
       }
+    }
+  }
+
+  @media (min-width: $medium) {
+    .mobile {
+      display: none;
+      border: none;
     }
   }
 

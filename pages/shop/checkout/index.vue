@@ -1,11 +1,10 @@
 <template>
   <div class="section">
     <div class="container">
-      <div>
-        <router-link to="/shop/cart">Go back to the cart</router-link>
+      <div class="page-header">
+        <h2>Checkout</h2>
+        <p>Please provide your address and billing information to proceed with the transaction.</p>
       </div>
-
-      <h2>Checkout</h2>
 
       <template v-if="cart.length > 0 || loading">
         <div class="columns">
