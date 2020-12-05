@@ -2,32 +2,30 @@
   <div>
     <h2>Zamowienia</h2>
     <b-table v-if="orders.length" :data="orders" :bordered="true" :striped="true" :narrowed="true" :current-page.sync="currentPage" :paginated="true" :per-page="20">
-      <template slot-scope="props">
-        <b-table-column field="id" label="ID" width="230">
+        <b-table-column field="id" label="ID" width="230" v-slot="props">
           {{ props.row.paypal.orderID }}
         </b-table-column>
-        <b-table-column field="firstname" label="Imie">
+        <b-table-column field="firstname" label="Imie" v-slot="props">
           {{ props.row.details.firstName }}
         </b-table-column>
-        <b-table-column field="lastname" label="Nazwisko">
+        <b-table-column field="lastname" label="Nazwisko" v-slot="props">
           {{ props.row.details.lastName }}
         </b-table-column>
-        <b-table-column field="email" label="E-mail">
+        <b-table-column field="email" label="E-mail" v-slot="props">
           {{ props.row.details.email }}
         </b-table-column>
-        <b-table-column field="date" label="Data zamowienia">
+        <b-table-column field="date" label="Data zamowienia" v-slot="props">
           {{ props.row.date }}
         </b-table-column>
-        <b-table-column field="total" label="Cena">
+        <b-table-column field="total" label="Cena" v-slot="props">
           {{ price(props.row.total) }}
         </b-table-column>
-        <b-table-column field="status" label="Status">
+        <b-table-column field="status" label="Status" v-slot="props">
           <span class="tag" :class="statusType(props.row.status)" v-html="status(props.row.status)"></span>
         </b-table-column>
-        <b-table-column field="link" label="Akcje" width="140">
+        <b-table-column field="link" label="Akcje" width="140" v-slot="props">
           <router-link :to="props.row.viewLink">Wiecej informacji</router-link>
         </b-table-column>
-      </template>
     </b-table>
 
     <div v-else>
@@ -55,6 +53,8 @@ export default {
       orders.forEach(product => {
         product.viewLink = '/dashboard/orders/' + product.paypal.orderID;
       });
+
+      console.log(ordersData)
 
       return ordersData;
     }

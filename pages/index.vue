@@ -1,6 +1,5 @@
 <template>
   <div>
-    <Slideshow />
     <div class="sr-only">
       <h1>Welcome to Peter Falencik Photography!</h1>
       <h2>Change your walls with Peter Falencik Photography</h2>
@@ -10,7 +9,9 @@
       <p>It’s easy to change the mood of a room with a large canvas. It can also add colour to your white walls. You can experiment with images of flowers, textures or why not even a classic work of art? Our canvas prints come in sizes up to 150 centimeters in height and width and are delivered on a roll in a sturdy cardboard box for easy mounting on our canvas frame.</p>
       <p>It can be hard to choose just one motif for a canvas – sometimes you might rather have two, three, four or even more motifs nested together on one wall. Use a level and measuring stick to hang your canvas prints properly. Consider making a sketch before you begin hanging them. Lay out the prints on the floor if you have the space or else draw them on paper. One extra piece of advice is to have a straight line somewhere, horizontally or vertically, between the prints. This will make the wall look better organised and make it easier to mix and match motifs.</p>
     </div>
-    <Services />
+
+    <HomeGrid />
+
     <Popular number="8" />
 
     <KeyPoints />
@@ -63,7 +64,7 @@
 </template>
 
 <script>
-import Slideshow from '~/components/Slideshow';
+import HomeGrid from '~/components/HomeGrid';
 import Popular from '~/components/Popular';
 import Testimonials from '~/components/Testimonials';
 import New from '~/components/New';
@@ -73,11 +74,13 @@ import LimitedEdition from '~/components/LimitedEditionSection';
 import About from '~/components/About';
 
 export default {
+
   head () {
     return {
       title: 'Peter Falencik Photography',
     }
   },
+
   jsonld() {
     return {
       "@context" : "https://schema.org",
@@ -112,22 +115,26 @@ export default {
       }
     }
   },
+
   computed: {
     categories() {
       return this.$store.state.categories;
     },
   },
+
   name: 'HomePage',
+
   transition: 'page',
+
   components: {
-    Slideshow,
     Popular,
     Testimonials,
     New,
     Services,
     KeyPoints,
     LimitedEdition,
-    About
+    About,
+    HomeGrid
   },
 }
 </script>

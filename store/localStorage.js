@@ -36,16 +36,18 @@ export const mutations = {
     let found = null;
     let i = 0;
 
+    console.log(data)
+
     // Check if item already exists in cart
     state.cart.forEach(item => {
       if (item.product == cartItem.product
-        && item.extras.material == cartItem.extras.material
-        && item.extras.finish == cartItem.extras.finish
-        && item.extras.style == cartItem.extras.style
-        && item.extras.format == cartItem.extras.format
-        && item.extras.frame == cartItem.extras.frame
-        && item.extras.glass == cartItem.extras.glass
-        && item.extras.size == cartItem.extras.size
+        && item.extras.material === cartItem.extras.material
+        && item.extras.finish === cartItem.extras.finish
+        && item.extras.style === cartItem.extras.style
+        && item.extras.format === cartItem.extras.format
+        && item.extras.frame === cartItem.extras.frame
+        && item.extras.glass === cartItem.extras.glass
+        && item.extras.size === cartItem.extras.size
       ) {
         found = i;
       }
@@ -70,6 +72,9 @@ export const mutations = {
   },
   removeFromCart(state, index) {
     state.cart.splice(index, 1);
+  },
+  changeQuantity (state, data) {
+    const product = state.cart[data.index].quantity = data.quantity
   },
   completeOrder (state, data) {
     const self = this;
@@ -119,7 +124,7 @@ export const mutations = {
 
     // emailCart = `${emailCart}<tr><td style="border: none"></td><td style="border: none"></td><td><strong>Subtotal</strong></td><td><strong>$${state.order.subtotal}</strong></td></tr>`;
     // emailCart = `${emailCart}<tr><td style="border: none"></td><td style="border: none"></td><td><strong>Tax</strong></td><td><strong>$${state.order.tax}</strong></td></tr>`;
-    emailCart = `${emailCart}<tr><td style="border: none"></td><td style="border: none"></td><td><strong>Total</strong></td><td><strong>$${state.order.total}</strong></td></tr>`;
+    emailCart = `${emailCart}<tr><td style="border: none"></td><td style="border: none"></td><td><strong>Total</strong></td><td style="border: none"></td><td><strong>$${state.order.total}</strong></td></tr>`;
     emailCart = emailCart + '</table>';
 
 
@@ -143,7 +148,8 @@ export const mutations = {
     }
 
     emailjs.send(emailserviceid, 'iconari_complete', emailParams, emailuserid).then(function(){
-      setTimeout(function(){
+      emailjs.send(emailserviceid, 'new_order_studio', emailParams, emailuserid);
+      setTimeout(function() {
         self.app.router.push('/shop/checkout/complete');
       }, 2000);
     });

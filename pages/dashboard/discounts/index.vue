@@ -3,23 +3,21 @@
     <h2>Kody promocyjne</h2>
     <router-link class="button is-black" to="/dashboard/discounts/add-code">Dodaj kod promocyjny</router-link>
     <b-table :data="discounts" :bordered="true" :striped="true" :narrowed="true" :current-page.sync="currentPage" :paginated="true" :per-page="20">
-      <template slot-scope="props">
-        <b-table-column field="id" label="ID" width="40">
-          {{ props.row.id }}
-        </b-table-column>
-        <b-table-column field="code" label="Kod promocyjny">
-          {{ props.row.code }}
-        </b-table-column>
-        <b-table-column field="title" label="Opis znizki">
-          {{ props.row.title }}
-        </b-table-column>
-        <b-table-column field="discount" label="Znizka" width="100">
-          {{ props.row.discount }}%
-        </b-table-column>
-        <b-table-column field="link" label="Akcje" width="120">
-          <router-link :to="props.row.editLink">Edytuj</router-link> | <a @click.stop="removeDiscountCode(props.row.id)">Usun</a>
-        </b-table-column>
-      </template>
+      <b-table-column field="id" label="ID" width="40" v-slot="props">
+        {{ props.row.id }}
+      </b-table-column>
+      <b-table-column field="code" label="Kod promocyjny" v-slot="props">
+        {{ props.row.code }}
+      </b-table-column>
+      <b-table-column field="title" label="Opis znizki" v-slot="props">
+        {{ props.row.title }}
+      </b-table-column>
+      <b-table-column field="discount" label="Znizka" width="100" v-slot="props">
+        {{ props.row.discount }}%
+      </b-table-column>
+      <b-table-column field="link" label="Akcje" width="120" v-slot="props">
+        <router-link :to="props.row.editLink">Edytuj</router-link> | <a @click.stop="removeDiscountCode(props.row.id)">Usun</a>
+      </b-table-column>
     </b-table>
   </div>
 </template>

@@ -2,13 +2,13 @@
   <div class="section">
     <div class="container">
       <h2>
-        <router-link to="/shop">Most popular designs</router-link>
+        <router-link to="/shop">Our Favourites</router-link>
       </h2>
 
       <Products :products="products" />
       
       <div class="has-text-centered">
-        <b-button to="/shop" tag="router-link" class="is-tertiary"> 
+        <b-button to="/shop" tag="router-link" class="is-black"> 
           <b-icon
             icon="cart"
             size="is-small">
@@ -44,6 +44,7 @@ export default {
   .container {
     h2 {
       margin-top: 0;
+      text-align: center;
 
       a {
         color: $black;

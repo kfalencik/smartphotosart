@@ -8,7 +8,7 @@
           <div class="column is-half-tablet is-one-third-desktop">
             <div class="key-points__item">
               <img :src="require('@/assets/images/icons/icon-art.png')" width="100" alt="" role="presentation" />
-              <h4>Art</h4>
+              <h4>Beautiful</h4>
               <p>We believe photography is an Art and a photographer as a creator is able to change your perception of feeling, affects our emotions. Be a part of it!</p>
             </div>
           </div>
@@ -16,7 +16,7 @@
           <div class="column is-half-tablet is-one-third-desktop">
             <div class="key-points__item">
               <img :src="require('@/assets/images/icons/icon-inspiration.png')" width="100" alt="" role="presentation" />
-              <h4>Inspiration</h4>
+              <h4>Inspiring</h4>
               <p>Peter Falencik’s photography crates amazing atmosphere, inspires people to change their space around them.</p>
             </div>
           </div>
@@ -32,7 +32,7 @@
           <div class="column is-half-tablet is-one-third-desktop">
             <div class="key-points__item">
               <img :src="require('@/assets/images/icons/icon-limited-edition.png')" width="100" alt="" role="presentation" />
-              <h4>Limited Edition</h4>
+              <h4>Limited Editions</h4>
               <p>We share our unique, valuable concepts with only exceptional, small number of customers.</p>
             </div>
           </div>
@@ -40,7 +40,7 @@
           <div class="column is-half-tablet is-one-third-desktop">
             <div class="key-points__item">
               <img :src="require('@/assets/images/icons/icon-your-space.png')" width="100" alt="" role="presentation" />
-              <h4>Your space</h4>
+              <h4>Creative</h4>
               <p>The artistic photography we offer is a reason to create and change your space.</p>
             </div>
           </div>
@@ -69,6 +69,10 @@
     h2 {
       margin: 0 0 15px;
       text-align: center;
+    }
+
+    h4 {
+      font-weight: bold;
     }
 
     .container {

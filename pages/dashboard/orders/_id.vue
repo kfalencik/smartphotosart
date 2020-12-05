@@ -43,23 +43,21 @@
       <div class="column">
         <h3>Dane zamowienia</h3>
         <b-table :data="order.items" :bordered="true" :striped="true" :narrowed="true">
-          <template slot-scope="props">
-            <b-table-column field="name" label="Nazwa">
-              {{ props.row.name }}
-            </b-table-column>
-            <b-table-column field="SKU" label="SKU">
-              {{ props.row.sku }}
-            </b-table-column>
-            <b-table-column field="description" label="Specyfikacja" v-html="extras(props.row.description)">
-              0
-            </b-table-column>
-            <b-table-column field="quantity" label="Ilosc">
-              {{ props.row.quantity }}
-            </b-table-column>
-            <b-table-column field="price" label="Cena">
-              ${{ props.row.price }}
-            </b-table-column>
-          </template>
+          <b-table-column field="name" label="Nazwa" id="name" v-slot="props">
+            {{ props.row.name }}
+          </b-table-column>
+          <b-table-column field="SKU" label="SKU" v-slot="props">
+            {{ props.row.sku }}
+          </b-table-column>
+          <b-table-column field="description" label="Specyfikacja" v-slot="props">
+            <span v-html="extras(props.row.description)"></span>
+          </b-table-column>
+          <b-table-column field="quantity" label="Ilosc" v-slot="props">
+            {{ props.row.quantity }}
+          </b-table-column>
+          <b-table-column field="price" label="Cena" v-slot="props">
+            ${{ props.row.price }}
+          </b-table-column>
         </b-table>
       </div>
     </div>

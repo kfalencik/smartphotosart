@@ -5,7 +5,7 @@
     </div>
 
     <div class="no-results" v-else>
-      <p>Sorry, we have not found any results matching your criteria. Please change filter options and try again.</p>
+      <p>Sorry, we have not found any results matching your criteria. Please change or <a @click.prevent.stop="resetFilters">reset</a> filter options and try again.</p>
     </div>
   </div>
 </template>
@@ -15,12 +15,25 @@ import Card from './Card';
 
 export default {
   props: ['products'],
+
   components: {
     Card
   },
+
   computed: {
     loading() {
       return this.$store.state.loading;
+    }
+  },
+
+  methods: {
+    resetFilters: function() {
+      this.$store.commit('setSearchKeyword', '');
+      this.$store.commit('toggleFilterCategory', []);
+      this.$store.commit('orientationProducts', '');
+      this.$store.commit('sortProducts', 'popularity-az');
+      this.$store.dispatch('filterProducts');
+      this.$store.commit('sortProducts', this.sorter);
     }
   }
 }
@@ -38,5 +51,12 @@ export default {
     align-items: center;
     justify-content: center;
     height: 100%;
+    padding: 5rem 0;
+    font-size: 0.85em;
+    color: $lightgrey;
+
+    a {
+      text-decoration: underline;
+    }
   }
 </style>

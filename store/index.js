@@ -42,6 +42,7 @@ export const state = () => ({
   loaded: false,
   redirecting: false,
   ordersLoaded: false,
+  openCart: false,
   slideshowImages: [
     {
       images: '6'
@@ -106,9 +107,13 @@ export const mutations = {
     } 
 
     if(state.orientation !== '') {
-      state.filteredProducts = state.filteredProducts.filter(item => {
-        return (item.landscape && state.orientation === 'landscape') || (!item.landscape && state.orientation === 'portrait')
-      })
+      if (state.orientation === 'panorama') {
+        state.filteredProducts = state.filteredProducts.filter(item => item.panorama === true)
+      } else {
+        state.filteredProducts = state.filteredProducts.filter(item => {
+          return (item.landscape && state.orientation === 'landscape') || (!item.landscape && state.orientation === 'portrait')
+        })
+      }
     }
 
     if (state.searchKeyword !== '') {
@@ -359,10 +364,12 @@ export const mutations = {
           "total": data[0].total
         }
         emailjs.send(emailserviceid, 'iconari_dispatched', emailParams, emailuserid);
-        emailjs.send(emailserviceid, 'new_order_studio', emailParams, emailuserid);
       });
     });
   },
+  openCart (state, toggle = null) {
+    state.openCart = toggle !== null ? toggle : true
+  }
 }
 
 export const actions = {

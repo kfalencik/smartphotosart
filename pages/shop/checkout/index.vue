@@ -1,11 +1,11 @@
 <template>
   <div class="section">
     <div class="container">
-      <div>
-        <router-link to="/shop/cart">Go back to the cart</router-link>
+      <div class="page-header">
+        <h2>Checkout</h2>
+        <p v-if="cart.length > 0 || loading">Please provide your address and billing information to proceed with the transaction.</p>
+        <p v-else>There are no items in your cart. Please add some items from <router-link to="/shop"><strong>our shop</strong></router-link> first.</p>
       </div>
-
-      <h2>Checkout</h2>
 
       <template v-if="cart.length > 0 || loading">
         <div class="columns">
@@ -169,7 +169,7 @@
                   <div class="columns" v-if="!checkoutValidation">
                     <div class="column">
                       <div class="checkout-panel checkout-panel--confirm">
-                        <button class="button is-success" type="button" @click.stop="validateDetails">Confirm and pay</button>
+                        <button class="button is-black" type="button" @click.stop="validateDetails">Confirm and pay</button>
                       </div>
                     </div>
                   </div>
@@ -224,9 +224,6 @@
           </div>
         </div>
       </template>
-
-      <p v-else>There are no items in your cart. Please add some items from <router-link to="/shop">our shop</router-link> first.</p>
-      
 
       <b-loading :is-full-page="true" :active.sync="loading"></b-loading>
     </div>
@@ -320,7 +317,7 @@ export default {
           price = price + (productPrice * item.quantity);
         });
 
-        if (this.discount) {
+        if (this.discount !== null) {
           price = price - ((price / 100) * this.discounts[this.discount].discount);
         }
 
@@ -348,7 +345,7 @@ export default {
           });
         });
 
-        if (this.discount) {
+        if (this.discount !== null) {
           let totalDiscount = ((cartTotal / 100) * this.discounts[this.discount].discount);
 
           items.push({

@@ -12,49 +12,23 @@
         </div>
 
         <div class="header__center">
-          <div class="header__search">
-            <form @submit.stop.prevent="search">
-              <label class="sr-only" for="search">Search</label>
-              <b-input 
-                type="search"
-                id="search"
-                icon="magnify"
-                icon-clickable
-                expanded
-                placeholder="Search for..."
-                v-model="searchKeyword"
-                @input="search"
-                >
-              </b-input>
-              <button type="submit" @click.stop.prevent="search" class="button"><span class="sr-only">Search</span><b-icon icon="magnify" custom-size="mdi-24px"></b-icon></button>
-            </form>
-          </div>
-
           <div class="header__navigation">
-            <button class="button is-secondary" @click.stop.prevent="toggleMenu"><b-icon icon="menu" custom-size="mdi-24px"></b-icon> <span>&nbsp;Menu</span></button>
+            <b-button size="is-small" class="mobile" @click.stop.prevent="toggleMenu">
+              <b-icon icon="menu" custom-size="mdi-24px"></b-icon> <span class="sr-only">&nbsp;Menu</span>
+            </b-button>
             <nav :class="{'header__main-nav': true, 'active': navigation}">
               <ul>
                 <li>
-                  <a @click.prevent="allCategories">Shop</a>
+                  <nuxt-link to="/">Home</nuxt-link>
+                </li>
+                <li>
+                  <nuxt-link to="/shop">Shop</nuxt-link>
                 </li>
                 <!-- <li>
                   <a href="https://etsy.com" target="_blank" rel="noopener">Etsy shop</a>
                 </li> -->
-                <!-- <li>
-                  <nuxt-link to="/blog">Blog</nuxt-link>
-                </li> -->
                 <li>
                   <nuxt-link to="/contact">Contact</nuxt-link>
-                </li>
-                <li>
-                  <a href="https://www.facebook.com/peterfalencik" target="_blank">
-                    <b-icon icon="facebook"></b-icon>
-                  </a>
-                </li>
-                <li>
-                  <a href="https://facebook.com" target="_blank">
-                    <b-icon icon="instagram"></b-icon>
-                  </a>
                 </li>
               </ul>
             </nav>
@@ -65,16 +39,21 @@
           <div class="header__user-menu">
             <nav>
               <ul>
-                <!-- <li>
-                  <router-link to="/user-profile">
-                    <b-icon icon="account-outline" custom-size="mdi-24px"><span class="sr-only">Your account</span></b-icon>
-                  </router-link>
-                </li> -->
                 <li>
-                  <router-link to="/shop/cart">
+                  <a href="https://www.facebook.com/peterfalencik" target="_blank">
+                    <b-icon icon="facebook"></b-icon>
+                  </a>
+                </li>
+                <li>
+                  <a href="https://www.instagram.com/falencikphotography/" target="_blank">
+                    <b-icon icon="instagram"></b-icon>
+                  </a>
+                </li>
+                <li>
+                  <a href="#" @click.prevent.stop="toggleCart">
                     <b-icon icon="cart-outline" custom-size="mdi-24px"></b-icon>
                     <span class="header__notification-indicator">{{ totalCart }} <span class="sr-only">products in cart</span></span>
-                  </router-link>
+                  </a>
                 </li>
               </ul>
             </nav>
@@ -82,10 +61,24 @@
         </div>
       </div>
     </div>
+
+    <b-sidebar
+      :fullheight="true"
+      :right="true"
+      v-model="openCart"
+      :overlay="true"
+    >
+      <div class="sidebar-cart p-4">
+        <h2>Cart</h2>
+        <Cart />
+      </div>
+    </b-sidebar>
   </header>
 </template>
 
 <script>
+import Cart from '~/components/Cart';
+
   export default{
     data() {
       return {
@@ -93,6 +86,11 @@
         navigation: false
       }
     },
+
+    components: {
+      Cart
+    },
+
     mounted() {
       const self = this;
 
@@ -100,6 +98,7 @@
         self.navigation = false;
       });
     },
+
     computed: {
       searchKeyword: {
         set (search) {
@@ -115,6 +114,15 @@
       cart() {
         return this.$store.state.localStorage.cart;
       },
+      openCart: {
+        set (value) {
+          this.$store.commit('openCart', value);
+        },
+        get () {
+          return this.$store.state.openCart;
+        }
+        
+      },
       totalCart() {
         let total = 0;
 
@@ -125,12 +133,10 @@
         return total;
       }
     },
+
     methods: {
       toggleMenu: function(event) {
         this.navigation = !this.navigation;
-      },
-      allCategories: function() {
-        this.$router.push('/shop');
       },
       selectCategory: function(slug) {
         this.$store.commit('setFilterCategory', slug);
@@ -142,6 +148,9 @@
         this.$store.dispatch('filterProducts');
         this.$store.commit('sortProducts');
         this.$router.push('/shop');
+      },
+      toggleCart: function() {
+        this.$store.commit('openCart');
       }
     },
   }
@@ -153,8 +162,8 @@
     border-bottom: 1px solid $primary;
 
     .section {
-      padding-top: 15px;
-      padding-bottom: 15px;
+      padding-top: 20px;
+      padding-bottom: 20px;
     }
 
     &__wrapper {
@@ -180,14 +189,21 @@
 
     &__left {
       order: 2;
+      display: flex;
+      flex-direction: row;
+      flex: 1;
+      justify-content: center;
 
       @media (min-width: $medium) {
         order: 1;
+        justify-content: left;
       }
     }
 
     &__right {
       order: 3;
+      flex: 1;
+      width: 225px;
       display: flex;
       flex-direction: row;
       align-items: center;
@@ -196,6 +212,8 @@
 
     &__center {
       order: 1;
+      flex: 1;
+      justify-content: center;
 
       @media (min-width: $medium) {
         order: 2;
@@ -266,23 +284,21 @@
 
     @media (min-width: $medium) {
       &__main-nav {
-        width: 320px;
-
         li {
           float: left;
           list-style: none;
-          margin-right: 15px;
-          padding: 6px 0;
-
-          &:first-child {
-            font-weight: bold;
-          }
+          margin-right: 25px;
+          border-bottom: 2px solid transparent;
 
           a {
-            font-size: 18px;
+            letter-spacing: 0.2em;
+            padding-bottom: 8px;
+            text-transform: uppercase;
+            border-bottom: 2px solid transparent;
 
-            &:hover {
-              color: $black;
+
+            &.nuxt-link-exact-active, &:hover {
+              border-bottom: 2px solid $black;
             }
           }
         }
@@ -379,7 +395,7 @@
     }
 
     &__notification-indicator {
-      background: $tertiary;
+      background: $red;
       color: $white;
       width: 16px;
       height: 16px;
@@ -397,10 +413,6 @@
     &__user-menu {
       text-align: right;
 
-      @media (min-width: $medium) {
-        width: 35px;
-      }
-
       ul {
         margin-left: 0;
       }
@@ -409,7 +421,10 @@
         list-style: none;
         padding: 0;
         display: inline-block;
-        margin-left: 10px;
+
+        @media (min-width: $medium) {
+          margin-left: 10px;
+        }
 
         a {
           position: relative;
@@ -417,5 +432,18 @@
         }
       }
     }
+  }
+
+  @media (min-width: $medium) {
+    .mobile {
+      display: none;
+      border: none;
+    }
+  }
+
+  .sidebar-cart {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
   }
 </style>

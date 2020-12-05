@@ -19,7 +19,7 @@
         </b-field>
 
         <div class="form__input form__input--buttons">
-          <button type="submit" class="button is-success">Zaloguj sie</button>
+          <button type="submit" class="button is-black">Zaloguj sie</button>
         </div>
       </form>
 

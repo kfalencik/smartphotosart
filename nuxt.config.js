@@ -49,7 +49,7 @@ export default async function() {
       link: [
         { rel: 'canonical', href: 'https://www.falencik.com/'},
         { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-        { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Poppins&display=swap' }
+        { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&family=Playfair+Display:wght@500&display=swap' }
       ]
     },
     generate: {

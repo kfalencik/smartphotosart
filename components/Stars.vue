@@ -47,6 +47,7 @@
     display: flex;
     flex-direction: row;
     align-items: center;
+    justify-content: center;
 
     .icon {
       color: $tertiary;

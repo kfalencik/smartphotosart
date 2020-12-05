@@ -1,11 +1,12 @@
 <template>
-  <div class="section">
+  <div class="section section--page">
     <div class="container">
+      <div class="page-header">
+        <h2>PRIVACY POLICY</h2>
+        <p>Last updated January 03, 2020</p>
+      </div>
       <div class="columns">
         <div class="column is-half-widescreen">
-          <h2>PRIVACY POLICY</h2>
-
-          <p><strong>Last updated January 03, 2020</strong></p>
           <p> </p>
           <p>Thank you for choosing to be part of our community at Smart Photos Studio LLC, doing business as Peter Falencik Photography (“ <strong> Peter Falencik Photography </strong> ”, “ <strong> we </strong> ”, “ <strong> us </strong> ”, or “ <strong> our </strong> ”). We are committed to protecting your personal information and your right to privacy. If you have any questions or concerns about our policy , or our practices with regards to your personal information, please contact us at studio@falencik.com.</p>
           <p>When you visit our website falencik.com, and use our services, you trust us with your personal information. We take your privacy very seriously. In this privacy policy, we seek to explain to you in the clearest way possible what information we collect, how we use it and what rights you have in relation to it. We hope you take some time to read through it carefully, as it is important. If there are any terms in this privacy policy that you do not agree with, please discontinue use of our Sites and our services. </p>

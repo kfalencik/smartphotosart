@@ -8,7 +8,7 @@
       <Products :products="products" />
 
       <div class="has-text-centered">
-        <b-button to="/shop" tag="router-link" class="is-tertiary"> 
+        <b-button to="/shop" tag="router-link" class="is-black"> 
           <b-icon
             icon="cart"
             size="is-small">
@@ -44,6 +44,7 @@ export default {
   .container {
     h2 {
       margin-top: 0;
+      text-align: center;
 
       a {
         color: $black;
