@@ -13,7 +13,7 @@
 
         <div class="header__center">
           <div class="header__navigation">
-            <button class="button is-secondary" @click.stop.prevent="toggleMenu"><b-icon icon="menu" custom-size="mdi-24px"></b-icon> <span>&nbsp;Menu</span></button>
+            <b-icon @click.stop.prevent="toggleMenu" icon="menu" custom-size="mdi-24px"></b-icon> <span class="sr-only">&nbsp;Menu</span>
             <nav :class="{'header__main-nav': true, 'active': navigation}">
               <ul>
                 <li>
@@ -178,6 +178,7 @@ import Cart from '~/components/Cart';
       order: 2;
       display: flex;
       flex-direction: row;
+      flex: 1;
 
       @media (min-width: $medium) {
         order: 1;
@@ -186,6 +187,7 @@ import Cart from '~/components/Cart';
 
     &__right {
       order: 3;
+      flex: 1;
       width: 225px;
       display: flex;
       flex-direction: row;
@@ -195,6 +197,7 @@ import Cart from '~/components/Cart';
 
     &__center {
       order: 1;
+      flex: 1;
       justify-content: center;
 
       @media (min-width: $medium) {
@@ -403,7 +406,10 @@ import Cart from '~/components/Cart';
         list-style: none;
         padding: 0;
         display: inline-block;
-        margin-left: 10px;
+
+        @media (min-width: $medium) {
+          margin-left: 10px;
+        }
 
         a {
           position: relative;

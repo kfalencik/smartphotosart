@@ -105,6 +105,10 @@
             </div>
           </template>
 
+          <div class="mt-4">
+            <router-link to="/shop"><b-icon icon="chevron-left" size="is-small"></b-icon>Back to shop</router-link>
+          </div>
+
           <div class="page-header">
             <h2>{{product.title}}</h2>
             <Stars :product="product.id" link="true" />
@@ -114,10 +118,7 @@
           </div>
 
           <div class="columns is-4">
-            <div class="column is-two-thirds">
-              <router-link to="/shop"><b-icon icon="chevron-left" size="is-small"></b-icon>Back to shop</router-link>
-            </div>
-
+            <div class="column is-two-thirds"></div>
             <div class="column is-one-third">
               <div class="product__navigation has-text-right">
                 <span @click="nextProduct('next')"><b-icon icon="chevron-left" size="is-small"></b-icon> Previous Product</span>
@@ -877,11 +878,10 @@ export default {
     }
 
     &__nav-item {
-      background: $black;
-      color: $white;
+      color: $black;
       position: absolute;
       top: 50%;
-      left: 20px;
+      left: 5px;
       border: none;
       width: 40px;
       height: 40px;
@@ -890,10 +890,20 @@ export default {
       cursor: pointer;
       display: block;
       transform: translateY(-50%);
-      border: 1px solid $primary;
 
       @media (max-width: $medium) {
-        left: 5px;
+        font-size: 14px;
+
+        .icon {
+          font-size: 14px;
+        }
+      }
+
+      @media (min-width: $medium) {
+        left: 20px;
+        background: $black;
+        color: $white;
+        border: 1px solid $primary;
       }
 
       &:nth-child(3) {
@@ -1091,10 +1101,9 @@ export default {
     &__image-fullscreen {
       position: absolute;
       z-index: 20;
-      top: 20px;
-      right: 20px;
-      background: $black;
-      color: $white;
+      top: 5px;
+      right: 5px;
+      color: $black;
       border: none;
       width: 40px;
       height: 40px;
@@ -1105,8 +1114,21 @@ export default {
       border: 1px solid $primary;
 
       @media (max-width: $medium) {
+        font-size: 14px;
         top: 10px;
         right: 10px;
+
+        .icon {
+          font-size: 14px;
+        }
+      }
+
+      @media (min-width: $medium) {
+        right: 20px;
+        top: 20px;
+        background: $black;
+        color: $white;
+        border: 1px solid $primary;
       }
       
       &:hover {
@@ -1250,6 +1272,7 @@ export default {
       
       @media (max-width: $medium) {
         justify-content: space-around;
+        display: none;
       }
     }
 
