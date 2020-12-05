@@ -53,8 +53,11 @@ export default {
 
 <style lang="scss" scoped>
   .home-grid {
+    max-width: 1980px;
+    margin: 0 auto;
+
     @media (min-width: $medium) {
-      margin: 20px;
+      margin: 20px auto;
     }
 
     @media (min-width: $medium) {
