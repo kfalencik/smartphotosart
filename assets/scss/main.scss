@@ -188,6 +188,20 @@ h5 {
 
 @import './transitions.scss';
 
+.b-sidebar .sidebar-content {
+  width: 280px;
+
+  &.is-right {
+    width: 320px;
+  }
+}
+
+.b-sidebar .sidebar-background {
+  background-color: #e6e6e6;
+  opacity: 0.35;
+  transition: all 0.5s ease;
+}
+
 .page {
 
   main {

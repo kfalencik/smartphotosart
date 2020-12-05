@@ -2,7 +2,7 @@
   <div class="section">
     <div class="container">
       <h2>
-        <router-link to="/shop">Most popular designs</router-link>
+        <router-link to="/shop">Our Favourites</router-link>
       </h2>
 
       <Products :products="products" />

@@ -1,15 +1,10 @@
 <template>
-  <div class="section">
-    <div class="container">
-      <div>
-        <router-link to="/shop">Go back to the shop</router-link>
-      </div>
-      <h2>Cart</h2>
-      <div v-if="loaded">
-        <Cart />
-      </div>
-      <p v-else>There are no items in your cart. Please add some items from <router-link to="/shop">our shop</router-link> first.</p>
+  <div class="cart">
+    <h2>Cart</h2>
+    <div v-if="loaded">
+      <Cart />
     </div>
+    <p v-else>There are no items in your cart. Please add some items from <router-link to="/shop">our shop</router-link> first.</p>
   </div>
 </template>
 

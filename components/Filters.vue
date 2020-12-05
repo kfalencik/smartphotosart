@@ -1,7 +1,7 @@
 <template>
   <div class="filters">
     <div class="filters__item">
-      <h3>Filters</h3>
+      <h2>Filters</h2>
       <b-field grouped label="Categories">
       </b-field>
       <div class="filters__item-field" v-for="category in categories" :key="category.id">

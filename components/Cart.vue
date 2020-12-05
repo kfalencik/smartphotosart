@@ -1,70 +1,29 @@
 <template>
   <div v-if="loaded">
     <div v-if="cart.length > 0">
-      <table class="cart">
-        <tbody>
-          <tr class="cart__item--head">
-            <td></td><td>Product</td><td>Description</td><td>Quantity</td><td>Price</td><td></td>
-          </tr>
+      <CartItem class="cart__item" v-for="(item, index) in cart" :key="'item-' + index" :index="index" :productid="item.product" :quantity="item.quantity" :extras="item.extras" />
 
-          <CartItem class="cart__item" v-for="(item, index) in cart" :key="'item-' + index" :index="index" :productid="item.product" :quantity="item.quantity" :extras="item.extras" />
+      <tr class="cart__item--bold" v-if="discount !== null">
+        <td></td>
+        <td>Discount</td>
+        <td><strong>Description:</strong> {{ discounts[discount].title }}</td>
+        <td></td>
+        <td class="cart-item__price">
+          <strong>-{{ discounts[discount].discount }}%</strong>
+        </td>
+        <td></td>
+      </tr>
 
-          <tr class="cart__item--bold" v-if="discount !== null">
-            <td></td>
-            <td>Discount</td>
-            <td><strong>Description:</strong> {{ discounts[discount].title }}</td>
-            <td></td>
-            <td class="cart-item__price">
-              <strong>-{{ discounts[discount].discount }}%</strong>
-            </td>
-            <td></td>
-          </tr>
+       <b-field>
+        <b-input name="discount" icon="ticket" placeholder="Coupon code" v-model="coupon"></b-input>
+        <div class="control"><button class="button" @click="checkCode">Apply</button></div>
+      </b-field>
 
-          <!-- <tr class="cart__item--bold">
-            <td></td>
-            <td></td>
-            <td></td>
-            <td>Subtotal</td>
-            <td>{{ price(total) }}</td>
-            <td></td>
-          </tr> -->
-          <!-- <tr class="cart__item--bold">
-            <td></td>
-            <td></td>
-            <td></td>
-            <td>Tax</td>
-            <td>{{ price(tax) }}</td>
-            <td></td>
-          </tr> -->
-          <tr class="cart__item--bold">
-            <td></td>
-            <td></td>
-            <td></td>
-            <td><strong>Total</strong></td>
-            <td class="cart-item__price">
-              <strong>{{ price(total) }}</strong>
-            </td>
-            <td></td>
-          </tr>
-        </tbody>
-      </table>
-
-      <div class="columns">
-        <div class="column is-full has-text-right">
-          <img src="/payment-methods.png" width="200" alt="" role="presentation" />
-        </div>
-        <div class="column is-half pay">
-          <b-field>
-            <b-input name="discount" icon="ticket" placeholder="Coupon code" v-model="coupon"></b-input>
-            <div class="control"><button class="button" @click="checkCode">Apply</button></div>
-          </b-field>
-        </div>
-        <div class="column is-half pay">
-          <button class="button is-black" @click="checkout">Checkout</button>
-        </div>
-      </div>
+     
+      <strong>{{ price(total) }}</strong>
+      <img src="/payment-methods.png" width="200" alt="" role="presentation" />
+      <button class="button is-black" @click="checkout">Checkout</button>
     </div>
-
     <p v-else>There are no items in your cart. Please add some items from <router-link to="/shop">our shop</router-link> first.</p>
   </div>
 </template>
@@ -107,6 +66,8 @@ export default {
 
     total () {
       let price = 0;
+
+      console.log(this.cart)
 
       this.cart.forEach(item => {
         let product = this.product(item.product);

@@ -2,8 +2,6 @@
   <div :class="{'page': true, 'page--home': home}">
     <div  v-if="loaded">
     <Header />
-    <Slideshow />
-
     <main keep-alive>
       <div >
         <div class="container">
@@ -26,7 +24,6 @@ import Newsletter from '~/components/Newsletter';
 import Footer from '~/components/Footer';
 import Messages from '~/components/Messages';
 import Loading from '~/components/Loading';
-import Slideshow from '~/components/Slideshow';
 
 export default {
   head() {
@@ -41,8 +38,7 @@ export default {
     Newsletter,
     Footer,
     Messages,
-    Loading,
-    Slideshow
+    Loading
   },
   mounted() {
     this.$store.dispatch('getShopData');

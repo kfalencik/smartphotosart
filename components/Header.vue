@@ -48,10 +48,10 @@
                   </a>
                 </li>
                 <li>
-                  <router-link to="/shop/cart">
+                  <a href="#" @click.prevent.stop="openCart = true">
                     <b-icon icon="cart-outline" custom-size="mdi-24px"></b-icon>
                     <span class="header__notification-indicator">{{ totalCart }} <span class="sr-only">products in cart</span></span>
-                  </router-link>
+                  </a>
                 </li>
               </ul>
             </nav>
@@ -59,17 +59,37 @@
         </div>
       </div>
     </div>
+
+    <b-sidebar
+      :fullheight="true"
+      :right="true"
+      v-model="openCart"
+      :overlay="true"
+    >
+      <div class="p-4">
+        <h2>Cart</h2>
+        <Cart />
+      </div>
+    </b-sidebar>
   </header>
 </template>
 
 <script>
+import Cart from '~/components/Cart';
+
   export default{
     data() {
       return {
         siteName: 'Peter Falencik Photography',
-        navigation: false
+        navigation: false,
+        openCart: false
       }
     },
+
+    components: {
+      Cart
+    },
+
     mounted() {
       const self = this;
 
@@ -77,6 +97,7 @@
         self.navigation = false;
       });
     },
+
     computed: {
       searchKeyword: {
         set (search) {
@@ -102,6 +123,7 @@
         return total;
       }
     },
+
     methods: {
       toggleMenu: function(event) {
         this.navigation = !this.navigation;

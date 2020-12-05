@@ -1,13 +1,16 @@
 <template>
-  <tr class="cart-item">
-    <td class="cart-item__thumbnail">
-      <img :src="product.image1" alt="Canvas" />
-    </td>
-    <td class="cart-item__title">
-      {{ product.title }}<br /> <span class="cart-item__sku">(SKU: {{product.slug}})</span>
-    </td>
+  <div class="cart-item">
+    <div class="columns" v-if="product">
+      <div class="column is-one-third">
+        <img :src="product.image1" alt="Canvas" />
+      </div>
+      <div class="column is-two-thirds">
+        <h5>{{ product.title }}</h5>
+        <span>(SKU: {{product.slug}})</span>
+      </div>
+    </div>
 
-    <td class="cart-item__extras">
+    <!-- <td class="cart-item__extras">
       <strong>Material: </strong> {{ materials[extras.material].title }},
 
       <template v-if="materials[extras.material].finishes">
@@ -42,12 +45,8 @@
 
     <td class="cart-item__price">
       {{ price(total) }}
-    </td>
-
-    <td>
-      <button class="button is-danger" @click="removeFromCart(index)"><b-icon icon="close"></b-icon></button>
-    </td>
-  </tr>
+    </td> -->
+  </div>
 </template>
 
 <script>
@@ -112,17 +111,12 @@ export default {
 
 <style lang="scss" scoped>
   .cart-item {
-    td {
-      padding: 10px;
-      vertical-align: middle;
+    margin: 25px 0;
+    border-bottom: 1px solid $grey;
+    padding-bottom: 25px;
 
-      @media (max-width: $medium) {
-        display: block;
-      }
-
-      .button {
-        font-size: 10px;
-      }
+    h5 {
+      font-family: $fontBody;
     }
 
     &__sku {

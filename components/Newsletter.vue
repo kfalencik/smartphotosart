@@ -18,11 +18,17 @@
             <div :class="{'messages': true, 'error': error}">
               <div v-if="error" v-html="error"></div>
             </div>
-            <div class="form__fields">
-              <label class="sr-only" for="newsletter-email">Email address</label>
-              <input id="newsletter-email" class="input input--secondary input--inline" type="email" v-model="email" @input="setEmail($event.target.value)" placeholder="Your email address" />
-              <button class="button button--secondary" type="submit">Subscribe</button>
-            </div>
+              <b-field position="is-centered">
+                <b-input
+                  placeholder="Your email address"
+                  icon="mail"
+                  id="newsletter-email"
+                  type="email"
+                  v-model="email" @input="setEmail(email)"
+                >
+                </b-input>
+                <button class="button button--secondary" type="submit">Subscribe</button>
+            </b-field>             
           </form>
         </template>
         </mailchimp-subscribe>
@@ -85,14 +91,6 @@ export default {
         color: #fff;
         text-decoration: underline;
       }
-    }
-
-    .form__fields{
-      display: flex;
-      flex-direction: row;
-      width: 340px;
-      margin: 0 auto;
-      max-width: 100%;
     }
   }
 </style>
