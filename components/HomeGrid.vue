@@ -53,10 +53,8 @@ export default {
 
 <style lang="scss" scoped>
   .home-grid {
-    display: none;
     @media (min-width: $medium) {
       margin: 20px;
-      display: block;
     }
 
     @media (min-width: $medium) {
@@ -68,7 +66,7 @@ export default {
     
     &__item {
       position: relative;
-      height: 300px;
+      height: 350px;
       margin-bottom: 3px;
 
       @media (max-width: $medium) {
@@ -103,9 +101,17 @@ export default {
 
     &__item:nth-child(2) { 
       grid-area: 2 / 1 / 3 / 2;
+
+      @media (max-width: $medium) {
+        display: none;
+      }
     }
     &__item:nth-child(3) {
       grid-area: 2 / 2 / 3 / 3;
+
+      @media (max-width: $medium) {
+        display: none;
+      }
 
       img {
         object-position: left;
@@ -118,17 +124,14 @@ export default {
       padding-bottom: 50px;
       left: 50%;
       transform: translateX(-50%);
-      right: 0;
+      right: 15px;
+      bottom: 20px;
       max-width: 500px;
       text-align: center;
-      width: 100%;
+      width: calc(100% - 30px);
       padding: 20px;
-      background: rgba(255,255,255,0.5);
+      background: rgba(255,255,255,0.75);
       border: 1px solid $black;
-
-      @media (min-width: $medium) {
-        bottom: 20px;
-      }
     }
   }
 </style>
