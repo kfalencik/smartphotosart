@@ -71,6 +71,10 @@
       text-align: center;
     }
 
+    h4 {
+      font-weight: bold;
+    }
+
     .container {
       background: $primary;
       padding: 35px;

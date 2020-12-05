@@ -81,19 +81,19 @@ export default {
     }
   },
   computed: {
-    loaded() {
+    loaded () {
       return this.$store.state.localStorage.status
     },
 
-    cart() {
+    cart () {
       return this.$store.state.localStorage.cart
     },
 
-    discount() {
+    discount () {
       return this.$store.state.localStorage.discount;
     },
 
-    discounts() {
+    discounts () {
       return this.$store.state.discounts;
     },
 
@@ -105,7 +105,7 @@ export default {
       return this.$store.state.formats
     },
 
-    total() {
+    total () {
       let price = 0;
 
       this.cart.forEach(item => {
@@ -127,7 +127,7 @@ export default {
         price = price + (productPrice * item.quantity);
       });
 
-      if (this.discount) {
+      if (this.discount !== null) {
         price = price - ((price / 100) * this.discounts[this.discount].discount);
       }
 

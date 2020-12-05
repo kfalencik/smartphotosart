@@ -53,7 +53,7 @@ export default {
         price = price + (productPrice * item.quantity);
       });
 
-      if (this.discount) {
+      if (this.discount !== null) {
         price = price - ((price / 100) * this.discounts[this.discount].discount);
       }
 

@@ -2,24 +2,6 @@
   <header class="header">
     <div class="section">
       <div class="header__wrapper">
-        <div class="header__search" v-if="searchToggle">
-          <form @submit.stop.prevent="search">
-            <label class="sr-only" for="search">Search</label>
-            <b-input 
-              type="search"
-              id="search"
-              icon="magnify"
-              icon-clickable
-              expanded
-              placeholder="Search for..."
-              v-model="searchKeyword"
-              @input="search"
-              >
-            </b-input>
-            <button type="submit" @click.stop.prevent="search" class="button"><span class="sr-only">Search</span><b-icon icon="magnify" custom-size="mdi-24px"></b-icon></button>
-          </form>
-        </div>
-
         <div class="header__left">
           <div class="header__logo">
             <router-link to="/">

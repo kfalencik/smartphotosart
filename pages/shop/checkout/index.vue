@@ -320,7 +320,7 @@ export default {
           price = price + (productPrice * item.quantity);
         });
 
-        if (this.discount) {
+        if (this.discount !== null) {
           price = price - ((price / 100) * this.discounts[this.discount].discount);
         }
 
@@ -348,7 +348,7 @@ export default {
           });
         });
 
-        if (this.discount) {
+        if (this.discount !== null) {
           let totalDiscount = ((cartTotal / 100) * this.discounts[this.discount].discount);
 
           items.push({

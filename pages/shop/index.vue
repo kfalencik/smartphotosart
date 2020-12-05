@@ -79,7 +79,6 @@ export default {
 
   methods: {
     toggleFilters () {
-      console.log('filters')
       this.openFilters = true
     },
 
