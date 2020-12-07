@@ -24,9 +24,15 @@
                 <img :src="product.image9" v-if="image === 5" role="presentation" alt="" />
                 <img v-if="product.panorama && image === 6" :src="require('@/assets/images/comparison_panorama.jpg')" role="presentation" alt="" />
               </template>
-              
 
-              <button @click="overlay = false" title="Close">
+              <button @click.prevent.stop="image === 1 ? image = 7 : image = image - 1" class="product__nav-item" title="Previous">
+                <b-icon icon="arrow-left"></b-icon>
+              </button>
+              <button @click.prevent.stop="image === 7 ? image = 1 : image = image + 1" class="product__nav-item" title="Next">
+                <b-icon icon="arrow-right"></b-icon>
+              </button>
+
+              <button class="close" @click="overlay = false" title="Close">
                 <b-icon icon="close"></b-icon>
               </button>
             </div>
@@ -731,11 +737,12 @@ export default {
 
       this.$store.commit('localStorage/addToCart', [this.product.id, this.productInfo, this.quantity]);
       this.$buefy.snackbar.open({
-        duration: 5000,
+        duration: 1000,
         position: 'is-top',
         message: 'Item has been added to your cart!',
         type: 'is-success',
-        actionText: null
+        actionText: null,
+        onAction: this.$store.commit('openCart', true)
       });
     },
   }
@@ -798,20 +805,27 @@ export default {
         }
       }
 
-      button {
+      button.close {
         background: $black;
         color: $white;
         position: absolute;
-        top: 50px;
-        right: 50px;
+        top: 35px;
+        right: 5px;
         border: none;
         width: 40px;
         height: 40px;
         z-index: 30;
+        font-size: 12px;
         transition: all .5s ease;
         cursor: pointer;
         display: block;
         transform: translateY(-50%);
+
+        @media (min-width: $medium) {
+          top: 50px;
+          right: 50px;
+          background: $black;
+        }
 
         &:hover {
           background: $tertiary;

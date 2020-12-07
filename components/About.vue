@@ -32,7 +32,14 @@ export default {
 <style lang="scss" scoped>
 .section {
   margin-bottom: -102px;
-  padding-top: 0;
+}
+
+h2 {
+  text-align: center;
+
+  @media (min-width: $medium) {
+    text-align: left;
+  }
 }
 
 p {

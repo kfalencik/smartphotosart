@@ -434,10 +434,16 @@ import Cart from '~/components/Cart';
     }
   }
 
+  .mobile {
+    border: none;
+    padding: 0;
+    margin: 0;
+    height: auto;
+  }
+
   @media (min-width: $medium) {
     .mobile {
       display: none;
-      border: none;
     }
   }
 
