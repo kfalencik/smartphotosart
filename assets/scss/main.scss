@@ -188,6 +188,10 @@ h5 {
 
 @import './transitions.scss';
 
+.b-sidebar {
+  position: relative;
+}
+
 .b-sidebar .sidebar-content {
   width: 280px;
   height: 100%;

@@ -69,7 +69,6 @@ export default {
     
     &__item {
       position: relative;
-      height: 350px;
       margin-bottom: 3px;
 
       @media (max-width: $medium) {
@@ -93,8 +92,12 @@ export default {
 
       img {
         width: 100%;
-        height: 100%;
+        height: 150px;
         object-fit: cover;
+
+        @media (min-width: $medium) {
+          height: 100%;
+        }
       }
     }
 
@@ -104,17 +107,9 @@ export default {
 
     &__item:nth-child(2) { 
       grid-area: 2 / 1 / 3 / 2;
-
-      @media (max-width: $medium) {
-        display: none;
-      }
     }
     &__item:nth-child(3) {
       grid-area: 2 / 2 / 3 / 3;
-
-      @media (max-width: $medium) {
-        display: none;
-      }
 
       img {
         object-position: left;
@@ -122,19 +117,24 @@ export default {
     }
 
     &__text {
-      position: absolute;
-      bottom: 0;
-      padding-bottom: 50px;
-      left: 50%;
-      transform: translateX(-50%);
-      right: 15px;
-      bottom: 20px;
-      max-width: 500px;
       text-align: center;
-      width: calc(100% - 30px);
       padding: 20px;
-      background: rgba(255,255,255,0.75);
-      border: 1px solid $black;
+      padding-bottom: 40px;
+      background: $primary;
+
+      @media (min-width: $medium) {
+        position: absolute;
+        bottom: 0;
+        padding-bottom: 50px;
+        left: 50%;
+        transform: translateX(-50%);
+        right: 15px;
+        bottom: 20px;
+        width: calc(100% - 30px);
+        padding: 20px;
+        background: rgba(255,255,255,0.75);
+        border: 1px solid $black;
+      }
     }
   }
 </style>

@@ -9,14 +9,14 @@
           </div>
         </div>
         <div class="cart__pay">
-          <img class="my-2" src="/payment-methods.png" width="200" alt="" role="presentation" />
-          <b-field>
+          <b-field class="cart__pay-discount">
             <b-input name="discount" icon="ticket" placeholder="Coupon code" v-model="coupon"></b-input>
             <div class="control"><button class="button" @click="checkCode">Apply</button></div>
           </b-field>
-          <div class="my-2">
+          <div class="my-2 cart__pay-total">
             Total <strong>{{ price(total) }}</strong>
           </div>
+          <img class="my-2" src="/payment-methods.png" width="200" alt="" role="presentation" />
           <button class="button is-black" @click="checkout">Checkout</button>
         </div>
       </div>
@@ -166,8 +166,21 @@ export default {
     }
 
     &__pay {
-      border-top: 1px solid $grey;
-      padding: 15px 0;
+      padding-bottom: 15px;
+      text-align: center;
+
+      &-discount {
+        border-top: 1px solid $grey;
+        padding: 15px 0;
+      }
+
+      &-total {
+        font-size: 1.2em;
+      }
+
+      button {
+        width: 100%;
+      }
     }
   }
 </style>

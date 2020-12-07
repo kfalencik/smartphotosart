@@ -58,7 +58,13 @@
     }
 
     &__left {
-      text-align: left;
+      text-align: center;
+      margin-bottom: 15px;
+
+      @media (min-width: $medium) {
+        text-align: left;
+        margin-bottom: 0;
+      }
     }
 
     &__right {

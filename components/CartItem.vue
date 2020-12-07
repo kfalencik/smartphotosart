@@ -1,25 +1,27 @@
 <template>
   <div class="cart-item">
-    <div class="columns" v-if="product">
-      <div class="column is-one-third">
-        <img :src="product.image1" alt="Canvas" />
+    <div class="columns is-mobile" v-if="product">
+      <div class="column is-one-third-mobile is-one-third">
+        <div class="cart-item__thumbnail">
+          <img :src="product.image1" alt="Canvas" role="presentation" />
+        </div>
       </div>
-      <div class="column is-two-thirds">
+      <div class="column is-two-thirds is-two-thirds-mobile">
         <h5>{{ product.title }}</h5>
         <span>(SKU: {{product.slug}})</span>
       </div>
     </div>
 
-    <div class="columns" v-if="product">
-      <div class="column is-half">
+    <div class="columns is-mobile" v-if="product">
+      <div class="column is-half cart-item__price">
+        {{ price(total) }}
+      </div>
+      <div class="column is-half cart-item__quantity">
         <b-field>
           <b-button size="is-small" icon-right="minus" @click="changeQuantity(quantity - 1)"></b-button>
           <b-button size="is-small" disabled>{{ quantity }}</b-button>
           <b-button size="is-small" icon-right="plus" @click="changeQuantity(quantity + 1)"></b-button>
         </b-field>
-      </div>
-      <div class="column is-half">
-        {{ price(total) }}
       </div>
     </div>
   </div>
@@ -100,6 +102,7 @@ export default {
 
     h5 {
       font-family: $fontBody;
+      font-weight: bold;
     }
 
     &__sku {
@@ -107,13 +110,26 @@ export default {
       color: $black;
     }
 
+    &__price {
+      display: flex;
+      align-items: center;
+    }
+
+    &__quantity {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
     &__thumbnail {
-      height: 80px;
+      height: 100%;
       width: auto;
+      display: flex;
+      align-items: center;
 
       img {
-        width: 50px;
-        height: 50px;
+        width: 100%;
+        height: 100%;
         object-fit: cover;
       }
     }
