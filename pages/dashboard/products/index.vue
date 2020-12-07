@@ -39,20 +39,20 @@
     </div>
 
     <b-table :data="products" :bordered="true" :striped="true" :narrowed="true" :current-page.sync="currentPage" :paginated="true" :per-page="20">
-      <b-table-column field="id" label="ID" width="40" v-slot="props">
+      <b-table-column field="id" label="ID" width="40" v-slot="props" sortable numeric>
         {{ props.row.slug }}
       </b-table-column>
-      <b-table-column field="title" label="Nazwa produktu" v-slot="props">
+      <b-table-column field="title" label="Nazwa produktu" v-slot="props" sortable>
         {{ props.row.title }}
       </b-table-column>
-      <b-table-column field="price" label="Cena" width="120" v-slot="props">
+      <b-table-column field="price" label="Cena" width="120" v-slot="props" sortable>
         {{ price(props.row.price) }}
       </b-table-column>
-      <b-table-column field="discount" label="Znizka" width="100" v-slot="props">
+      <b-table-column field="discount" label="Znizka" width="100" v-slot="props" sortable>
         <span v-if="props.row.discount > 0">{{ props.row.discount }}%</span>
       </b-table-column>
-      <b-table-column field="bought" label="Ilosc sprzedazy" width="120" v-slot="props">
-        {{ props.row.bought }}
+      <b-table-column field="bought" label="Ilosc sprzedazy" width="120" v-slot="props" numeric sortable>
+        {{ parseInt(props.row.bought) }}
       </b-table-column>
       <b-table-column field="link" label="Akcje" width="120" v-slot="props">
         <router-link :to="props.row.editLink">Edytuj</router-link> | <a @click.stop="removeProduct(props.row.id)">Usun</a>
