@@ -530,41 +530,6 @@ export default {
           sizes: [[65, 85, 180, 290], [90, 110, 180, 350]]
         },
         {
-          title: "Aluminium Slimline - Silver",
-          description: 'Our aluminum Slimline Frame is an all-around fantastic finishing touch for any acrylic glass photo print. The frame’s small width and depth bring out the best in your acrylic glass photo prints, without drawing too much attention to the frame itself.',
-          image: 'frame-slimline.jpg',
-          action: 'lightgrey',
-          sizes: [[20, 35, 45, 60], [50, 80, 100, 150]]
-        },
-        {
-          title: "Aluminium Slimline - Gold",
-          description: 'Our aluminum Slimline Frame is an all-around fantastic finishing touch for any acrylic glass photo print. The frame’s small width and depth bring out the best in your acrylic glass photo prints, without drawing too much attention to the frame itself.',
-          image: 'frame-slimline.jpg',
-          action: '#D4AF37',
-          sizes: [[20, 35, 45, 60], [50, 80, 100, 150]]
-        },
-        {
-          title: "Aluminium Slimline - White",
-          description: 'Our aluminum Slimline Frame is an all-around fantastic finishing touch for any acrylic glass photo print. The frame’s small width and depth bring out the best in your acrylic glass photo prints, without drawing too much attention to the frame itself.',
-          image: 'frame-slimline.jpg',
-          action: 'white',
-          sizes: [[20, 35, 45, 60], [50, 80, 100, 150]]
-        },
-        {
-          title: "Aluminium Slimline - Black",
-          description: 'Our aluminum Slimline Frame is an all-around fantastic finishing touch for any acrylic glass photo print. The frame’s small width and depth bring out the best in your acrylic glass photo prints, without drawing too much attention to the frame itself.',
-          image: 'frame-slimline.jpg',
-          action: 'black',
-          sizes: [[20, 35, 45, 60], [50, 80, 100, 150]]
-        },
-        {
-          title: "Aluminium Slimline - White Maple",
-          description: 'Our aluminum Slimline Frame is an all-around fantastic finishing touch for any acrylic glass photo print. The frame’s small width and depth bring out the best in your acrylic glass photo prints, without drawing too much attention to the frame itself.',
-          image: 'frame-slimline.jpg',
-          action: '#FED821',
-          sizes: [[20, 35, 45, 60], [50, 80, 100, 150]]
-        },
-        {
           title: "Hamburg - Black Oak",
           image: 'frame-hamburg-black.jpg',
           description: 'Gallery frames with great attention to detail and the very best craftsmanship. You can choose the model that best suits your photo and fits your own personal tastes. The frame is a crucial factor in how your image will be perceived.',
