@@ -54,6 +54,170 @@ export default {
 
   pricing: [
     {
+      title: 'Acrylic',
+      description: 'Face mounted acrylics are the standards professionals turn to over other acrylics when it comes to acrylic prints. Your image will be printed on one of our popular photo papers (satin luster or metallic pearl) and face mounted to the back of the ¼” acrylic panels with a polished edge. In addition to the two paper choices you can choose from either a high gloss polished shine (most popular) or a reflection control acrylic. You can also opt to have your acrylic ordered with a dibond backing. Hanging hardware is provided at no additional charge.',
+      image: 'acrylic-matte.jpg',
+      panorama: true,
+      finishes: [
+        {
+          title: 'HD',
+          description: 'When it comes to preventing halftone in your prints, no printing technique is better than classic exposure on light-sensitive photo paper. In order to make the technological improvements of modern cameras visible in your photos, we continued to refine this process until we revolutionized classic photo developing with our first generation of ultraHD Photo Prints. To continue to do your pictures justice, we are now taking the realism to the next level. The experts at Fujifilm conceived a new photo paper finely tuned for our printing process. Fuji Crystal Professional Archive Maxima Paper was made for our ultraHD Photo Prints.',
+          image: 'acrylic-hd.jpg',
+          styles: [
+            {
+              title: 'Borderless',
+              image: 'acrylic-borderless.jpg',
+              sizes: [80, 220, 420, 1100]
+            },
+            {
+              title: 'Border 2"',
+              image: 'acrylic-2-border.jpg',
+              sizes: [150, 300, 500, 1200]
+            },
+            {
+              title: 'Border 5"',
+              image: 'acrylic-5-border.jpg',
+              sizes: [220, 420, 700, 1450]
+            }
+          ],
+          panoramaStyles: [
+            {
+              title: 'Borderless',
+              image: 'acrylic-borderless.jpg',
+              sizes: [60, 120, 320, 1200]
+            },
+            {
+              title: 'Border 2"',
+              image: 'acrylic-2-border.jpg',
+              sizes: [150, 300, 500, 1400]
+            },
+            {
+              title: 'Border 5"',
+              image: 'acrylic-5-border.jpg',
+              sizes: [220, 420, 700, 1550]
+            }
+          ]
+        },
+        {
+          title: 'Matte',
+          description: 'Our original photo print under matte acrylic glass consists of multiple components. Your photo print is mounted under 1/16 in. (2 mm) of matte acrylic glass, [backed with 1/8 in. (3 mm) of aluminum Dibond and sealed with elastic silicone.',
+          image: 'acrylic-matte.jpg',
+          styles: [
+            {
+              title: 'Borderless',
+              image: 'acrylic-borderless.jpg',
+              sizes: [65, 200, 380, 950]
+            },
+            {
+              title: 'Border 2"',
+              image: 'acrylic-2-border.jpg',
+              sizes: [135, 270, 470, 1100]
+            },
+            {
+              title: 'Border 5"',
+              image: 'acrylic-5-border.jpg',
+              sizes: [195, 395, 650, 1400]
+            }
+          ],
+          panoramaStyles: [
+            {
+              title: 'Borderless',
+              image: 'acrylic-borderless.jpg',
+              sizes: [65, 200, 380, 950]
+            },
+            {
+              title: 'Border 2"',
+              mage: 'acrylic-2-border.jpg',
+              sizes: [135, 270, 470, 1100]
+            },
+            {
+              title: 'Border 5"',
+              mage: 'acrylic-5-border.jpg',
+              sizes: [195, 395, 650, 1400]
+            }
+          ]
+        }
+      ],
+      frames: [
+        {
+          title: "None",
+          description: 'No frame',
+          action: 'transparent',
+          sizes: [[0, 0, 0, 0]]
+        },
+        {
+          title: "Artbox - Aluminium Silver",
+          description: 'Elegant aluminum floater frame. The small gap between the picture and the aluminum frame is simple and effective. It makes the image appear to be floating.',
+          image: 'frame-artbox-aluminium-silver.jpg',
+          action: 'lightgrey',
+          sizes: [[65, 85, 180, 290], [90, 110, 180, 350]]
+        },
+        {
+          title: "Artbox - Aluminium black",
+          description: 'Elegant aluminum floater frame. The small gap between the picture and the aluminum frame is simple and effective. It makes the image appear to be floating.',
+          image: 'frame-artbox-aluminium-black.jpg',
+          action: 'black',
+          sizes: [[65, 85, 180, 290], [90, 110, 180, 350]]
+        },
+        {
+          title: "Aluminium Slimline - Silver",
+          description: 'Our aluminum Slimline Frame is an all-around fantastic finishing touch for any acrylic glass photo print. The frame’s small width and depth bring out the best in your acrylic glass photo prints, without drawing too much attention to the frame itself.',
+          image: 'frame-slimline.jpg',
+          action: 'lightgrey',
+          sizes: [[20, 35, 45, 60], [50, 80, 100, 150]]
+        },
+        {
+          title: "Aluminium Slimline - Gold",
+          description: 'Our aluminum Slimline Frame is an all-around fantastic finishing touch for any acrylic glass photo print. The frame’s small width and depth bring out the best in your acrylic glass photo prints, without drawing too much attention to the frame itself.',
+          image: 'frame-slimline.jpg',
+          action: '#D4AF37',
+          sizes: [[20, 35, 45, 60], [50, 80, 100, 150]]
+        },
+        {
+          title: "Aluminium Slimline - White",
+          description: 'Our aluminum Slimline Frame is an all-around fantastic finishing touch for any acrylic glass photo print. The frame’s small width and depth bring out the best in your acrylic glass photo prints, without drawing too much attention to the frame itself.',
+          image: 'frame-slimline.jpg',
+          action: 'white',
+          sizes: [[20, 35, 45, 60], [50, 80, 100, 150]]
+        },
+        {
+          title: "Aluminium Slimline - Black",
+          description: 'Our aluminum Slimline Frame is an all-around fantastic finishing touch for any acrylic glass photo print. The frame’s small width and depth bring out the best in your acrylic glass photo prints, without drawing too much attention to the frame itself.',
+          image: 'frame-slimline.jpg',
+          action: 'black',
+          sizes: [[20, 35, 45, 60], [50, 80, 100, 150]]
+        },
+        {
+          title: "Aluminium Slimline - White Maple",
+          description: 'Our aluminum Slimline Frame is an all-around fantastic finishing touch for any acrylic glass photo print. The frame’s small width and depth bring out the best in your acrylic glass photo prints, without drawing too much attention to the frame itself.',
+          image: 'frame-slimline.jpg',
+          action: '#FED821',
+          sizes: [[20, 35, 45, 60], [50, 80, 100, 150]]
+        },
+        {
+          title: "Hamburg - Black Oak",
+          description: 'Gallery frames with great attention to detail and the very best craftsmanship. You can choose the model that best suits your photo and fits your own personal tastes. The frame is a crucial factor in how your image will be perceived.',
+          image: 'frame-hamburg-black.jpg',
+          action: '#252321',
+          sizes: [[70, 110, 170, 300], [100, 150, 200, 350]]
+        },
+        {
+          title: "Hamburg - Brown Adler",
+          description: 'Gallery frames with great attention to detail and the very best craftsmanship. You can choose the model that best suits your photo and fits your own personal tastes. The frame is a crucial factor in how your image will be perceived.',
+          image: 'frame-hamburg-brown.jpg',
+          action: '#AE8E7F',
+          sizes: [[70, 110, 170, 300], [100, 150, 200, 350]]
+        },
+        {
+          title: "Hamburg - Walnut",
+          description: 'Gallery frames with great attention to detail and the very best craftsmanship. You can choose the model that best suits your photo and fits your own personal tastes. The frame is a crucial factor in how your image will be perceived.',
+          image: 'frame-hamburg-walnut.jpg',
+          action: '#5D432C',
+          sizes: [[70, 110, 170, 300], [100, 150, 200, 350]]
+        }
+      ]
+    },
+    {
       title: 'Fine Art Paper',
       description: 'One of the largest ranges of paper selections, while using the highest level of archival print technology allowing superior detail and color, you can create custom giclee prints of your artwork and photos.',
       image: 'paper-matte.jpg',
@@ -317,170 +481,6 @@ export default {
               sizes: [45, 110, 220, 430]
             },
           ]
-        }
-      ]
-    },
-    {
-      title: 'Acrylic',
-      description: 'Face mounted acrylics are the standards professionals turn to over other acrylics when it comes to acrylic prints. Your image will be printed on one of our popular photo papers (satin luster or metallic pearl) and face mounted to the back of the ¼” acrylic panels with a polished edge. In addition to the two paper choices you can choose from either a high gloss polished shine (most popular) or a reflection control acrylic. You can also opt to have your acrylic ordered with a dibond backing. Hanging hardware is provided at no additional charge.',
-      image: 'acrylic-matte.jpg',
-      panorama: true,
-      finishes: [
-        {
-          title: 'HD',
-          description: 'When it comes to preventing halftone in your prints, no printing technique is better than classic exposure on light-sensitive photo paper. In order to make the technological improvements of modern cameras visible in your photos, we continued to refine this process until we revolutionized classic photo developing with our first generation of ultraHD Photo Prints. To continue to do your pictures justice, we are now taking the realism to the next level. The experts at Fujifilm conceived a new photo paper finely tuned for our printing process. Fuji Crystal Professional Archive Maxima Paper was made for our ultraHD Photo Prints.',
-          image: 'acrylic-hd.jpg',
-          styles: [
-            {
-              title: 'Borderless',
-              image: 'acrylic-borderless.jpg',
-              sizes: [80, 220, 420, 1100]
-            },
-            {
-              title: 'Border 2"',
-              image: 'acrylic-2-border.jpg',
-              sizes: [150, 300, 500, 1200]
-            },
-            {
-              title: 'Border 5"',
-              image: 'acrylic-5-border.jpg',
-              sizes: [220, 420, 700, 1450]
-            }
-          ],
-          panoramaStyles: [
-            {
-              title: 'Borderless',
-              image: 'acrylic-borderless.jpg',
-              sizes: [60, 120, 320, 1200]
-            },
-            {
-              title: 'Border 2"',
-              image: 'acrylic-2-border.jpg',
-              sizes: [150, 300, 500, 1400]
-            },
-            {
-              title: 'Border 5"',
-              image: 'acrylic-5-border.jpg',
-              sizes: [220, 420, 700, 1550]
-            }
-          ]
-        },
-        {
-          title: 'Matte',
-          description: 'Our original photo print under matte acrylic glass consists of multiple components. Your photo print is mounted under 1/16 in. (2 mm) of matte acrylic glass, [backed with 1/8 in. (3 mm) of aluminum Dibond and sealed with elastic silicone.',
-          image: 'acrylic-matte.jpg',
-          styles: [
-            {
-              title: 'Borderless',
-              image: 'acrylic-borderless.jpg',
-              sizes: [65, 200, 380, 950]
-            },
-            {
-              title: 'Border 2"',
-              image: 'acrylic-2-border.jpg',
-              sizes: [135, 270, 470, 1100]
-            },
-            {
-              title: 'Border 5"',
-              image: 'acrylic-5-border.jpg',
-              sizes: [195, 395, 650, 1400]
-            }
-          ],
-          panoramaStyles: [
-            {
-              title: 'Borderless',
-              image: 'acrylic-borderless.jpg',
-              sizes: [65, 200, 380, 950]
-            },
-            {
-              title: 'Border 2"',
-              mage: 'acrylic-2-border.jpg',
-              sizes: [135, 270, 470, 1100]
-            },
-            {
-              title: 'Border 5"',
-              mage: 'acrylic-5-border.jpg',
-              sizes: [195, 395, 650, 1400]
-            }
-          ]
-        }
-      ],
-      frames: [
-        {
-          title: "None",
-          description: 'No frame',
-          action: 'transparent',
-          sizes: [[0, 0, 0, 0]]
-        },
-        {
-          title: "Artbox - Aluminium Silver",
-          description: 'Elegant aluminum floater frame. The small gap between the picture and the aluminum frame is simple and effective. It makes the image appear to be floating.',
-          image: 'frame-artbox-aluminium-silver.jpg',
-          action: 'lightgrey',
-          sizes: [[65, 85, 180, 290], [90, 110, 180, 350]]
-        },
-        {
-          title: "Artbox - Aluminium black",
-          description: 'Elegant aluminum floater frame. The small gap between the picture and the aluminum frame is simple and effective. It makes the image appear to be floating.',
-          image: 'frame-artbox-aluminium-black.jpg',
-          action: 'black',
-          sizes: [[65, 85, 180, 290], [90, 110, 180, 350]]
-        },
-        {
-          title: "Aluminium Slimline - Silver",
-          description: 'Our aluminum Slimline Frame is an all-around fantastic finishing touch for any acrylic glass photo print. The frame’s small width and depth bring out the best in your acrylic glass photo prints, without drawing too much attention to the frame itself.',
-          image: 'frame-slimline.jpg',
-          action: 'lightgrey',
-          sizes: [[20, 35, 45, 60], [50, 80, 100, 150]]
-        },
-        {
-          title: "Aluminium Slimline - Gold",
-          description: 'Our aluminum Slimline Frame is an all-around fantastic finishing touch for any acrylic glass photo print. The frame’s small width and depth bring out the best in your acrylic glass photo prints, without drawing too much attention to the frame itself.',
-          image: 'frame-slimline.jpg',
-          action: '#D4AF37',
-          sizes: [[20, 35, 45, 60], [50, 80, 100, 150]]
-        },
-        {
-          title: "Aluminium Slimline - White",
-          description: 'Our aluminum Slimline Frame is an all-around fantastic finishing touch for any acrylic glass photo print. The frame’s small width and depth bring out the best in your acrylic glass photo prints, without drawing too much attention to the frame itself.',
-          image: 'frame-slimline.jpg',
-          action: 'white',
-          sizes: [[20, 35, 45, 60], [50, 80, 100, 150]]
-        },
-        {
-          title: "Aluminium Slimline - Black",
-          description: 'Our aluminum Slimline Frame is an all-around fantastic finishing touch for any acrylic glass photo print. The frame’s small width and depth bring out the best in your acrylic glass photo prints, without drawing too much attention to the frame itself.',
-          image: 'frame-slimline.jpg',
-          action: 'black',
-          sizes: [[20, 35, 45, 60], [50, 80, 100, 150]]
-        },
-        {
-          title: "Aluminium Slimline - White Maple",
-          description: 'Our aluminum Slimline Frame is an all-around fantastic finishing touch for any acrylic glass photo print. The frame’s small width and depth bring out the best in your acrylic glass photo prints, without drawing too much attention to the frame itself.',
-          image: 'frame-slimline.jpg',
-          action: '#FED821',
-          sizes: [[20, 35, 45, 60], [50, 80, 100, 150]]
-        },
-        {
-          title: "Hamburg - Black Oak",
-          description: 'Gallery frames with great attention to detail and the very best craftsmanship. You can choose the model that best suits your photo and fits your own personal tastes. The frame is a crucial factor in how your image will be perceived.',
-          image: 'frame-hamburg-black.jpg',
-          action: '#252321',
-          sizes: [[70, 110, 170, 300], [100, 150, 200, 350]]
-        },
-        {
-          title: "Hamburg - Brown Adler",
-          description: 'Gallery frames with great attention to detail and the very best craftsmanship. You can choose the model that best suits your photo and fits your own personal tastes. The frame is a crucial factor in how your image will be perceived.',
-          image: 'frame-hamburg-brown.jpg',
-          action: '#AE8E7F',
-          sizes: [[70, 110, 170, 300], [100, 150, 200, 350]]
-        },
-        {
-          title: "Hamburg - Walnut",
-          description: 'Gallery frames with great attention to detail and the very best craftsmanship. You can choose the model that best suits your photo and fits your own personal tastes. The frame is a crucial factor in how your image will be perceived.',
-          image: 'frame-hamburg-walnut.jpg',
-          action: '#5D432C',
-          sizes: [[70, 110, 170, 300], [100, 150, 200, 350]]
         }
       ]
     },

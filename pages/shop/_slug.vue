@@ -2,7 +2,7 @@
   <div>
     <div>
       <div class="section section--page">
-        <div :class="{'product container': true, 'product--landscape': orientation}">
+        <div :class="{'product container': true, 'product--landscape': orientation === 'landscape'}">
 
           <template v-if="overlay && image !== 7">
             <div class="product__overlay" @click="overlay = false">
@@ -12,8 +12,8 @@
                 <img :src="product.image3" v-if="image === 3" role="presentation" alt="" />
                 <img :src="product.image4" v-if="image === 4" role="presentation" alt="" />
                 <img :src="product.image5" v-if="image === 5" role="presentation" alt="" />
-                <img v-if="orientation && image === 6" :src="require('@/assets/images/comparison_landscape.jpg')" role="presentation" alt="" />
-                <img v-if="!orientation && image === 6" :src="require('@/assets/images/comparison_portrait.jpg')" role="presentation" alt="" />
+                <img v-if="orientation === 'landscape' && image === 6" :src="require('@/assets/images/comparison_landscape.jpg')" role="presentation" alt="" />
+                <img v-if="orientation !== 'landscape' && image === 6" :src="require('@/assets/images/comparison_portrait.jpg')" role="presentation" alt="" />
               </template>
 
               <template v-else>
@@ -138,7 +138,7 @@
             <div class="column is-two-thirds">
               <template v-if="image === 7">
                 <div class="product__dynamic-preview" :style="{ 'background-image': 'url(' + require('@/assets/images/product-' + orientation + '-background-' + canvasImage + '.jpg') + ')' }" >
-                  <div class="product__canvas" :style="{ 'background-image': 'url(' + (orientation && productInfo.format === 1 ? product.image10 : product.image1) + ')', 'transform': 'scale(' + formats[productInfo.format].sizes[productInfo.size].action + ')', width: orientation ? productInfo.format === 1 ? '600px' : '480px' : '310px', height: orientation ? productInfo.format === 1 ? '345px' : '310px' : '480px' }">
+                  <div class="product__canvas" :style="{ 'background-image': 'url(' + (orientation === 'landscape' && productInfo.format === 1 ? product.image10 : product.image1) + ')', 'transform': 'scale(' + formats[productInfo.format].sizes[productInfo.size].action + ')', width: orientation === 'landscape' ? productInfo.format === 1 ? '600px' : '480px' : '310px', height: orientation === 'landscape' ? productInfo.format === 1 ? '345px' : '310px' : '480px' }">
                     <div class="product__frame" v-if="materials[productInfo.material].frames && materials[productInfo.material].frames[productInfo.frame].action !== 'transparent'" :style="{'border-color': materials[productInfo.material].frames[productInfo.frame].action}"></div>
                   </div>
 
@@ -153,25 +153,25 @@
 
               <template v-else>
                 <div class="product__image">
-                  <img :src="product.image1" v-if="image === 1" role="presentation" alt="" />
-
                   <template v-if="productInfo.format === 0">
+                    <img :src="product.image1" v-if="image === 1" role="presentation" alt="" />
                     <img :src="product.image2" v-if="image === 2" role="presentation" alt="" />
                     <img :src="product.image3" v-if="image === 3" role="presentation" alt="" />
                     <img :src="product.image4" v-if="image === 4" role="presentation" alt="" />
                     <img :src="product.image5" v-if="image === 5" role="presentation" alt="" />
-                    <img v-if="orientation && image === 6" :src="require('@/assets/images/comparison_landscape.jpg')" role="presentation" alt="" />
+                    <img v-if="orientation === 'landscape' && image === 6" :src="require('@/assets/images/comparison_landscape.jpg')" role="presentation" alt="" />
                   </template>
 
                   <template v-if="productInfo.format === 1">
-                    <img :src="product.image10" v-if="image === 2" role="presentation" alt="" />
+                    <img :src="product.image10" v-if="image === 1" role="presentation" alt="" />
+                    <img :src="product.image6" v-if="image === 2" role="presentation" alt="" />
                     <img :src="product.image7" v-if="image === 3" role="presentation" alt="" />
                     <img :src="product.image8" v-if="image === 4" role="presentation" alt="" />
                     <img :src="product.image9" v-if="image === 5" role="presentation" alt="" />
                     <img v-if="product.panorama && image === 6" :src="require('@/assets/images/comparison_panorama.jpg')" role="presentation" alt="" />
                   </template>
 
-                  <img v-if="!orientation && image === 6" :src="require('@/assets/images/comparison_portrait.jpg')" role="presentation" alt="" />
+                  <img v-if="orientation !== 'landscape' && image === 6" :src="require('@/assets/images/comparison_portrait.jpg')" role="presentation" alt="" />
 
                   <button @click="overlay = true" class="product__image-fullscreen" title="Full screen">
                     <b-icon icon="fullscreen"></b-icon>
@@ -205,7 +205,7 @@
                     <img :src="product.image5" alt="Thumbnail 5" />
                   </div>
                   <div class="product__thumbnails-item" @click="image = 6;" :class="{'product__thumbnails-item--active': image === 6}">
-                    <img v-if="orientation" :src="require('@/assets/images/comparison_landscape.jpg')" role="presentation" alt="Size comparison" />
+                    <img v-if="orientation === 'landscape'" :src="require('@/assets/images/comparison_landscape.jpg')" role="presentation" alt="Size comparison" />
                     <img v-else :src="require('@/assets/images/comparison_portrait.jpg')" alt="Size comparison" />
                   </div>
                 </template>
@@ -295,7 +295,7 @@
                   <h5>Format</h5>
                   <div class="wrap">
                     <b-field>
-                      <b-select placeholder="Select Format" required :value="productInfo.format" ref="format" @input="changeProduct">
+                      <b-select placeholder="Select Format" required :value="productInfo.format" ref="format" @input="changeProduct" :disabled="!panorama">
                         <template v-for="(option, index) in formats">
                           <option
                             v-if="index === 0 || panorama"
