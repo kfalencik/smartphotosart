@@ -5,7 +5,7 @@
       <div class="home-grid__text">
         <h1 class="h2">Beautiful Art Prints</h1>
         <p>Discover our collection of beautiful fine art prints created just for you, offering a wide range of styles and subjects including our popular beach and modern art prints.</p>
-        <b-button to="/shop" tag="router-link" class="is-black"> 
+        <b-button :to="{ name: 'shop', params: { reset: true }}" tag="router-link" class="is-black"> 
           Explore Our Designs
         </b-button>
       </div>
@@ -39,8 +39,7 @@ export default {
 
   methods: {
     newProducts() {
-      this.$store.commit('sortProducts', 'date-az');
-      this.$router.push('/shop')
+      this.$router.push({ name: 'shop', params: { new: true }})
     },
     panoramaProducts() {
       this.$store.commit('orientationProducts', 'panorama');

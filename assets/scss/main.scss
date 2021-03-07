@@ -186,8 +186,6 @@ h5 {
   }
 }
 
-@import './transitions.scss';
-
 .b-sidebar {
   position: relative;
 }
@@ -313,6 +311,10 @@ ul, ol {
 
 .button:focus, .select select:focus, input:focus {
   outline-color: $black;
+}
+
+.dashboard .field {
+  flex-direction: column;
 }
 
 .select select, .field input, .field textarea {

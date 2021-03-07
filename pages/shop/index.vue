@@ -74,7 +74,19 @@ export default {
   },
 
   mounted() {
-    this.$store.commit('sortProducts');
+    if (this.$route.params.reset || this.$route.params.new) {
+      this.$store.commit('setSearchKeyword', '');
+      this.$store.commit('toggleFilterCategory', []);
+      this.$store.commit('orientationProducts', '');
+      this.$store.dispatch('filterProducts');
+      if (this.$route.params.new) {
+        this.$store.commit('sortProducts', 'date-az');
+      } else {
+        this.$store.commit('sortProducts', 'popularity-az');
+      }
+    } else {
+      this.$store.commit('sortProducts');
+    }
   },
 
   methods: {

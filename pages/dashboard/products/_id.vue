@@ -114,6 +114,18 @@
         </b-field>
 
         <template v-if="panorama">
+          <b-field class="form__input file" label="Glowne zdjecie (Panorama)">
+            <b-upload v-model="image10" required>
+              <a class="button is-info">
+                <b-icon icon="upload"></b-icon>
+                <span>Click to upload</span>
+              </a>
+            </b-upload>
+            <span class="file-thumbnail" v-if="image10URL">
+              <img :src="image10URL" />
+            </span>
+          </b-field>
+
           <b-field class="form__input file" label="Zdjecie 3D produktu (Panorama)">
             <b-upload v-model="image6" required>
               <a class="button is-info">
@@ -213,6 +225,7 @@ export default {
       image7: null,
       image8: null,
       image9: null,
+      image10: null,
       image1URL: null,
       image2URL: null,
       image3URL: null,
@@ -221,7 +234,8 @@ export default {
       image6URL: null,
       image7URL: null,
       image8URL: null,
-      image9URL: null
+      image9URL: null,
+      image10URL: null
     }
   },
   layout: 'dashboard',
@@ -253,6 +267,7 @@ export default {
       this.image7URL = product.image7
       this.image8URL = product.image8
       this.image9URL = product.image9
+      this.image10URL = product.image10
 
       return product;
     }
@@ -365,6 +380,18 @@ export default {
         
         this.image9URL = reader.readAsDataURL(o);
       }
+    },
+    image10 (o) {
+      if (!this.image10 || this.image10.type !== 'image/jpeg') {
+        this.$store.commit('addMessage', ['Zly typ pliku. Sprawdz czy zdjecie jest w dobrym formacie.', 'bad']);
+        this.image10 = null
+        this.image10URL = null
+      } else {
+        var reader = new FileReader();
+        reader.onload = e => this.image10URL = e.target.result
+        
+        this.image10URL = reader.readAsDataURL(o);
+      }
     }
   },
   methods: {
@@ -421,6 +448,10 @@ export default {
             {
               id: 9,
               image: this.image9
+            },
+            {
+              id: 10,
+              image: this.image10
             }
           )
         }

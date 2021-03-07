@@ -114,6 +114,18 @@
         </b-field>
 
         <template v-if="panorama">
+          <b-field class="form__input file" label="Glowne zdjecie (Panorama)">
+            <b-upload v-model="image1pano" required>
+              <a class="button is-info">
+                <b-icon icon="upload"></b-icon>
+                <span>Click to upload</span>
+              </a>
+            </b-upload>
+            <span class="file-thumbnail" v-if="image1panoURL">
+              <img :src="image1panoURL" />
+            </span>
+          </b-field>
+
           <b-field class="form__input file" label="Zdjecie 3D produktu (Panorama)">
             <b-upload v-model="image2pano" required>
               <a class="button is-info">
@@ -214,6 +226,8 @@ export default {
       image4URL: null,
       image5: null,
       image5URL: null,
+      image1pano: null,
+      image1panoURL: null,
       image2pano: null,
       image2panoURL: null,
       image3pano: null,
@@ -293,6 +307,18 @@ export default {
         reader.onload = e => this.image5URL = e.target.result
         
         this.image5URL = reader.readAsDataURL(o);
+      }
+    },
+    image1pano (o) {
+      if (!this.image1pano || this.image1pano.type !== 'image/jpeg') {
+        this.$store.commit('addMessage', ['Zly typ pliku. Sprawdz czy zdjecie jest w dobrym formacie.', 'bad']);
+        this.image1pano = null
+        this.image1panoURL = null
+      } else {
+        var reader = new FileReader();
+        reader.onload = e => this.image1panoURL = e.target.result
+        
+        this.image1panoURL = reader.readAsDataURL(o);
       }
     },
     image2pano (o) {
@@ -378,7 +404,7 @@ export default {
         this.latestId = this.latestId + 1;
 
         const uploadImages = [this.image1, this.image2, this.image3, this.image4, this.image5]
-        if (this.panorama) uploadImages.push(this.image2pano, this.image3pano, this.image4pano, this.image5pano)
+        if (this.panorama) uploadImages.push(this.image1pano, this.image2pano, this.image3pano, this.image4pano, this.image5pano)
 
         this.$store.commit('addProduct', [
           {

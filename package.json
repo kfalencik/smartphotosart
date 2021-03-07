@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@nuxtjs/sitemap": "^2.0.1",
+    "axios": "^0.21.1",
     "core-js": "^2.6.11",
     "emailjs-com": "^2.4.1",
     "firebase": "^7.6.1",
@@ -35,6 +36,7 @@
     "imagemin-svgo": "^8.0.0",
     "node-sass": "^4.13.0",
     "prettier": "^1.16.4",
-    "sass-loader": "^8.0.0"
+    "sass": "^1.32.8",
+    "sass-loader": "^10.1.1"
   }
 }

@@ -111,7 +111,7 @@ export const mutations = {
         state.filteredProducts = state.filteredProducts.filter(item => item.panorama === true)
       } else {
         state.filteredProducts = state.filteredProducts.filter(item => {
-          return (item.landscape && state.orientation === 'landscape') || (!item.landscape && state.orientation === 'portrait')
+          return ((item.landscape || item.panorama) && state.orientation === 'landscape') || ((!item.landscape && !item.panorama) && state.orientation === 'portrait')
         })
       }
     }
