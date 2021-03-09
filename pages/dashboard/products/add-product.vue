@@ -404,7 +404,7 @@ export default {
         this.latestId = this.latestId + 1;
 
         const uploadImages = [this.image1, this.image2, this.image3, this.image4, this.image5]
-        if (this.panorama) uploadImages.push(this.image1pano, this.image2pano, this.image3pano, this.image4pano, this.image5pano)
+        if (this.panorama) uploadImages.push(this.image2pano, this.image3pano, this.image4pano, this.image5pano, this.image1pano)
 
         this.$store.commit('addProduct', [
           {
