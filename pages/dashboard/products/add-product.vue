@@ -103,8 +103,22 @@
           <b-input placeholder="Znizka" v-model="discount" required></b-input>
         </b-field>
 
-        <b-field class="form__input" label="Ilosc sprzedazy">
-          <b-input placeholder="Ilosc sprzedazy" v-model="bought" required></b-input>
+        <b-field class="form__input" label="Kolejnosc">
+          <b-input placeholder="Kolejnosc" v-model="bought" required></b-input>
+        </b-field>
+
+        <b-field class="form__input">
+          <label class="checkbox">
+            <input type="checkbox" v-model="limitedEdition"> Limitowana edycja?
+          </label>
+        </b-field>
+
+        <b-field v-if="limitedEdition" class="form__input" label="Ilosc sprzedanych">
+          <b-input placeholder="Ilosc sprzedanych" v-model="sold" required></b-input>
+        </b-field>
+
+        <b-field v-if="limitedEdition" class="form__input" label="Ilosc limitowanych">
+          <b-input placeholder="Ilosc limitowanych" v-model="limitedEditionTotal" required></b-input>
         </b-field>
 
         <b-field class="form__input">
@@ -214,6 +228,9 @@ export default {
       bought: 0,
       panorama: false,
       landscape: "true",
+      limitedEdition: "false",
+      sold: 0,
+      limitedEditionTotal: 0,
       tags: '',
       latestId: 0,
       image1: null,
@@ -419,6 +436,9 @@ export default {
             tags: this.tags.join(", "),
             date: date,
             bought: this.bought,
+            sold: this.sold,
+            limitedEditionTotal: this.limitedEditionTotal,
+            limitedEdition: this.limitedEdition,
             panorama: this.panorama
           },
           uploadImages

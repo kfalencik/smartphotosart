@@ -20,6 +20,10 @@
       </b-select>
     </b-field>
 
+    <b-field class="mt-5" label="Limited Edition">
+      <b-checkbox v-model="limitedEdition" expanded>Limited edition</b-checkbox>
+    </b-field>
+
     <div class="filters__reset">
       <b-button class="is-full is-black" @click="resetFilters">Reset</b-button>
     </div>
@@ -42,6 +46,16 @@ export default {
       },
       get () {
         return this.$store.state.filterCategories;
+      }
+    },
+    limitedEdition: {
+      set () {
+        this.$store.commit('toggleLimitedEdition');
+        this.$store.dispatch('filterProducts');
+        this.$store.commit('sortProducts');
+      },
+      get () {
+        return this.$store.state.limitedEdition;
       }
     },
     orientation: {
@@ -73,7 +87,8 @@ export default {
     resetFilters: function() {
       this.$store.commit('setSearchKeyword', '');
       this.$store.commit('toggleFilterCategory', []);
-      this.$store.commit('orientationProducts', '');
+      this.$store.commit('toggleLimitedEdition', false);
+      this.$store.commit('toggleFilterCategory', []);
       this.$store.commit('sortProducts', 'popularity-az');
       this.filterProducts();
     }

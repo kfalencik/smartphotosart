@@ -119,6 +119,12 @@ export const mutations = {
     emailCart = `${emailCart}<tr><td>Item</td><td>SKU</td><td>Description</td><td>Quantity</td><td>Price</td></tr>`;
 
     state.order.items.forEach(item => {
+      db.collection("products").where("sku", "==", item.sku).get()
+      .then(function(querySnapshot) {
+        querySnapshot.forEach(function(doc) {
+          db.collection("products").doc(doc.id).update({ sold: doc.sold ? doc.sold + item.quantity : item.quantity })
+        })
+      });
       emailCart = `${emailCart}<tr><td>${item.name}</td><td>${item.sku}</td><td>${item.description}</td><td>${item.quantity}</td><td>$${item.price}</td></tr>`;
     });
 

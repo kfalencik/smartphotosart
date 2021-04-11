@@ -103,8 +103,22 @@
           <b-input placeholder="Znizka" v-model="discount" required></b-input>
         </b-field>
 
-        <b-field class="form__input" label="Ilosc sprzedazy">
-          <b-input placeholder="Ilosc sprzedazy" v-model="bought" required></b-input>
+        <b-field class="form__input" label="Kolejnosc">
+          <b-input placeholder="Kolejnosc" v-model="bought" required></b-input>
+        </b-field>
+
+        <b-field class="form__input">
+          <label class="checkbox">
+            <input type="checkbox" v-model="limitedEdition"> Limitowana edycja?
+          </label>
+        </b-field>
+
+        <b-field v-if="limitedEdition" class="form__input" label="Ilosc sprzedanych">
+          <b-input placeholder="Ilosc sprzedanych" v-model="sold" required></b-input>
+        </b-field>
+
+        <b-field v-if="limitedEdition" class="form__input" label="Ilosc limitowanych">
+          <b-input placeholder="Ilosc limitowanych" v-model="limitedEditionTotal" required></b-input>
         </b-field>
 
         <b-field class="form__input">
@@ -211,8 +225,11 @@ export default {
       price: 0,
       discount: 0,
       bought: 0,
+      sold: 0,
       panorama: true,
       landscape: "false",
+      limitedEdition: "false",
+      limitedEditionTotal: 0,
       tags: [],
       latestId: 0,
       file: null,
@@ -253,6 +270,9 @@ export default {
       this.price = product.price;
       this.discount = product.discount;
       this.bought = product.bought;
+      this.sold = product.sold;
+      this.limitedEdition = product.limitedEdition ? product.limitedEdition : false;
+      this.limitedEditionTotal = product.limitedEditionTotal ? product.limitedEditionTotal : 0;
       this.panorama = product.panorama ? product.panorama : false
       this.landscape = product.panorama ? true : product.landscape.toString();
       this.tags = product.tags ? product.tags.split(',') : [];
@@ -465,7 +485,11 @@ export default {
             price: this.price,
             discount: this.discount,
             bought: this.bought,
+            sold: this.sold,
+            limitedEdition: this.limitedEdition,
             panorama: this.panorama,
+            limitedEdition: this.limitedEdition,
+            limitedEditionTotal: this.limitedEditionTotal,
             categories: this.categories.map(item => item.slug).join(", "),
             landscape: this.landscape === 'true' ? true : false,
             tags: this.tags.join(", ")

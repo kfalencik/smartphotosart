@@ -8,6 +8,9 @@
         <div class="product__image">
           <img :src="product.image2" :alt="product.title" loading="lazy" />
         </div>
+        <div v-if="product.limitedEdition" class="product__limited-edition">
+          <img :src="require('@/assets/images/icons/icon-limited-edition.png')" width="80" alt="" role="presentation" />
+        </div>
         <div class="product__title">
           {{ product.title }}
         </div>
@@ -74,6 +77,14 @@ export default {
       font-size: 1.6em;
       padding: 10px;
       color: $white;
+      z-index: 10;
+    }
+
+    &__limited-edition {
+      position: absolute;
+      top: 140px;
+      left: calc(50% - 100px);
+      transform: translateX(-50%);
       z-index: 10;
     }
 

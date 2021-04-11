@@ -120,7 +120,7 @@
             <Stars :product="product.id" link="true" />
             <p v-if="product.description" v-html="product.description"></p>
             <p v-else>All of our prints are high-resolution images, printed with acid-free ink on best quality canvas. Please use the widget below to customize canvas size, edge colour, frame and more.</p>
-            <div class="product__sku">SKU: {{product.slug}}</div>
+            <div class="product__sku"><strong>SKU</strong>: {{product.slug}} <span v-if="product.limitedEdition">, <strong>Limited edition</strong>: {{ product.sold || 0 }}/{{ product.limitedEditionTotal || 0 }}</span></div>
           </div>
 
           <div class="columns is-4">
@@ -182,6 +182,9 @@
                   <button @click="image === 1 ? image = 7 : image = image - 1" class="product__nav-item" title="Previous">
                     <b-icon icon="arrow-left"></b-icon>
                   </button>
+                </div>
+                <div v-if="product.limitedEdition" class="product__limited-edition">
+                  <img :src="require('@/assets/images/icons/icon-limited-edition.png')" width="90" alt="" role="presentation" />
                 </div>
               </template>
 
@@ -877,6 +880,13 @@ export default {
           color: $white;
         }
       }
+    }
+
+    &__limited-edition {
+      position: absolute;
+      bottom: 160px;
+      left: 20px;
+      z-index: 10;
     }
 
     &__information-overlay-wrapper {

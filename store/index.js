@@ -34,6 +34,7 @@ export const state = () => ({
   filterPrice: [0, 999],
   filterTags: [],
   orientation: '',
+  limitedEdition: false,
   sorter: 'popularity-az',
   pricing: data.pricing,
   prices: data.prices,
@@ -87,6 +88,9 @@ export const mutations = {
   toggleFilterCategory (state, category) {
     state.filterCategories = category;
   },
+  toggleLimitedEdition (state, limitedEdition = '') {
+    state.limitedEdition = limitedEdition !== '' ? limitedEdition : !state.limitedEdition
+  },
   filterProducts (state) {
     state.filteredProducts = state.products;
 
@@ -108,12 +112,16 @@ export const mutations = {
 
     if(state.orientation !== '') {
       if (state.orientation === 'panorama') {
-        state.filteredProducts = state.filteredProducts.filter(item => item.panorama === true)
+        state.filteredProducts = state.filteredProducts.filter(item => item.panorama)
       } else {
         state.filteredProducts = state.filteredProducts.filter(item => {
           return ((item.landscape || item.panorama) && state.orientation === 'landscape') || ((!item.landscape && !item.panorama) && state.orientation === 'portrait')
         })
       }
+    }
+
+    if (state.limitedEdition) {
+      state.filteredProducts = state.filteredProducts.filter(item => item.limitedEdition)
     }
 
     if (state.searchKeyword !== '') {

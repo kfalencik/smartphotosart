@@ -51,7 +51,7 @@
       <b-table-column field="discount" label="Znizka" width="100" v-slot="props" sortable>
         <span v-if="props.row.discount > 0">{{ props.row.discount }}%</span>
       </b-table-column>
-      <b-table-column field="bought" label="Ilosc sprzedazy" width="120" v-slot="props" numeric sortable>
+      <b-table-column field="bought" label="Kolejnosc" width="120" v-slot="props" numeric sortable>
         {{ parseInt(props.row.bought) }}
       </b-table-column>
       <b-table-column field="link" label="Akcje" width="120" v-slot="props">
