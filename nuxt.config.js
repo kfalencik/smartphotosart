@@ -69,7 +69,7 @@ export default async function() {
       PP_CID: process.env.PP_CID || 'AVW9mgQzfnpBUadBxQzNesRvzoMrb3YrnVZtwmaAgSUkdJHHY_uxRkfeMvZXeFrZYKXXUF1eop7pocXY',
       PP_CIDD: process.env.PP_CIDD || 'AVW9mgQzfnpBUadBxQzNesRvzoMrb3YrnVZtwmaAgSUkdJHHY_uxRkfeMvZXeFrZYKXXUF1eop7pocXY',
       EMAIL_SERVICE: process.env.EMAIL_SERVICE || 'default_service',
-      EMAIL_USER: process.env.EMAIL_USER || 'user_10niH9eYCXacdIs7NmDIs',
+      EMAIL_USER: process.env.EMAIL_USER || '',
       MAILCHIMP_API: process.env.MAILCHIMP_API || 'default',
       MAILCHIMP_UID: process.env.MAILCHIMP_UID || 'default',
       MAILCHIMP_LIST: process.env.MAILCHIMP_LIST || 'default',

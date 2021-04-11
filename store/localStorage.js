@@ -36,8 +36,6 @@ export const mutations = {
     let found = null;
     let i = 0;
 
-    console.log(data)
-
     // Check if item already exists in cart
     state.cart.forEach(item => {
       if (item.product == cartItem.product
@@ -99,19 +97,21 @@ export const mutations = {
     if (state.discount) {
       state.order.items.pop();
     }
-
-    db.collection("orders").add({
-      details: data[0],
-      paypal: data[1],
-      items: data[2],
-      subtotal: data[3],
-      total: data[4],
-      tax: data[5],
-      status: data[6],
-      date: date,
-      timestamp: `${yyyy}${mm}${dd}${timeReversed}`,
-      discount: state.discount
-    });
+    
+    if (process.env.NODE_ENV === 'production') {
+      db.collection("orders").add({
+        details: data[0],
+        paypal: data[1],
+        items: data[2],
+        subtotal: data[3],
+        total: data[4],
+        tax: data[5],
+        status: data[6],
+        date: date,
+        timestamp: `${yyyy}${mm}${dd}${timeReversed}`,
+        discount: state.discount
+      });
+    }
     state.cart = [];
     state.discount = null;
 
@@ -119,10 +119,14 @@ export const mutations = {
     emailCart = `${emailCart}<tr><td>Item</td><td>SKU</td><td>Description</td><td>Quantity</td><td>Price</td></tr>`;
 
     state.order.items.forEach(item => {
-      db.collection("products").where("sku", "==", item.sku).get()
+      db.collection("products").where("slug", "==", item.sku).get()
       .then(function(querySnapshot) {
         querySnapshot.forEach(function(doc) {
-          db.collection("products").doc(doc.id).update({ sold: doc.sold ? doc.sold + item.quantity : item.quantity })
+          const product = doc.data()
+          const update = {
+            sold: product.sold ? parseInt(product.sold) + item.quantity : item.quantity
+          }
+          db.collection("products").doc(doc.id).update(update)
         })
       });
       emailCart = `${emailCart}<tr><td>${item.name}</td><td>${item.sku}</td><td>${item.description}</td><td>${item.quantity}</td><td>$${item.price}</td></tr>`;
