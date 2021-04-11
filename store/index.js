@@ -77,6 +77,7 @@ export const state = () => ({
 
 export const mutations = {
   setField (state, data) {
+    console.log(data)
     state[data[0]] = state[data[1]];
   },
   setSearchKeyword (state, keyword) {

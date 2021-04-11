@@ -2,7 +2,7 @@
   <div class="section section--page">
     <div class="container">
       <div class="page-header">
-        <h2>Shop</h2>
+        <h2>Shop {{ orientation === 'panorama' ? 'panoramas' : null }}</h2>
         <p>Discover our collection of beautiful fine art prints created just for you, offering a wide range of styles and subjects including our popular abstract and modern art prints.</p>
       </div>
       <div class="filters">
@@ -61,6 +61,10 @@ export default {
   computed: {
     products() {
       return this.$store.state.filteredProducts;
+    },
+
+    orientation () {
+      return this.$store.state.orientation;
     },
 
     sorter: {

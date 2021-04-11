@@ -6,7 +6,7 @@
           -{{ product.discount }}%
         </div>
         <div class="product__image">
-          <img :src="product.image2" :alt="product.title" loading="lazy" />
+          <img :src="orientation !== 'panorama' ? product.image2 : product.image6" :alt="product.title" loading="lazy" />
         </div>
         <div v-if="product.limitedEdition" class="product__limited-edition">
           <img :src="require('@/assets/images/icons/icon-limited-edition.png')" width="80" alt="" role="presentation" />
@@ -42,6 +42,9 @@ export default {
     },
     materials () {
       return this.$store.state.pricing
+    },
+    orientation () {
+      return this.$store.state.orientation
     }
   },
   methods: {

@@ -120,7 +120,7 @@
             <Stars :product="product.id" link="true" />
             <p v-if="product.description" v-html="product.description"></p>
             <p v-else>All of our prints are high-resolution images, printed with acid-free ink on best quality canvas. Please use the widget below to customize canvas size, edge colour, frame and more.</p>
-            <div class="product__sku"><strong>SKU</strong>: {{product.slug}} <span v-if="product.limitedEdition">, <strong>Limited edition</strong>: {{ product.sold || 0 }}/{{ product.limitedEditionTotal || 0 }}</span></div>
+            <div class="product__sku"><strong>SKU</strong>: {{product.slug}}<span v-if="product.limitedEdition">, <strong>Limited edition</strong>: {{ product.sold || 0 }}/{{ product.limitedEditionTotal || 0 }}</span></div>
           </div>
 
           <div class="columns is-4">
@@ -520,6 +520,9 @@ export default {
 
   mounted () {
     this.productInfo.size = this.sizes.length - 1
+    if (this.$store.state.orientation === 'panorama') {
+      this.productInfo.format = 1
+    }
   },
 
   computed: {

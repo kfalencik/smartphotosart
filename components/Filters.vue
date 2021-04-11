@@ -87,8 +87,8 @@ export default {
     resetFilters: function() {
       this.$store.commit('setSearchKeyword', '');
       this.$store.commit('toggleFilterCategory', []);
+      this.$store.commit('orientationProducts', '');
       this.$store.commit('toggleLimitedEdition', false);
-      this.$store.commit('toggleFilterCategory', []);
       this.$store.commit('sortProducts', 'popularity-az');
       this.filterProducts();
     }
