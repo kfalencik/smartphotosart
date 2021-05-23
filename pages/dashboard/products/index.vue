@@ -50,9 +50,14 @@
       </b-table-column>
       <b-table-column field="discount" label="Znizka" width="100" v-slot="props" sortable>
         <span v-if="props.row.discount > 0">{{ props.row.discount }}%</span>
+        <span v-else>-</span>
       </b-table-column>
       <b-table-column field="bought" label="Kolejnosc" width="120" v-slot="props" numeric sortable>
         {{ parseInt(props.row.bought) }}
+      </b-table-column>
+      <b-table-column label="Limitowana edycja" width="180" v-slot="props" field="limitedEdition" sortable>
+        <span v-if="props.row.limitedEdition">{{ props.row.sold || 0 }}/{{ props.row.limitedEditionTotal || 0 }}</span>
+        <span v-else>-</span>
       </b-table-column>
       <b-table-column field="link" label="Akcje" width="120" v-slot="props">
         <router-link :to="props.row.editLink">Edytuj</router-link> | <a @click.stop="removeProduct(props.row.id)">Usun</a>
