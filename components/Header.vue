@@ -24,6 +24,9 @@
                 <li>
                   <a @click="goToShop">Shop</a>
                 </li>
+                <li>
+                  <a @click="goToPanoramas">Panoramas</a>
+                </li>
                 <!-- <li>
                   <a href="https://etsy.com" target="_blank" rel="noopener">Etsy shop</a>
                 </li> -->
@@ -161,8 +164,18 @@ import Cart from '~/components/Cart';
         this.$store.dispatch('filterProducts');
         this.$store.commit('sortProducts');
         this.$router.push('/shop')
+      },
+      goToPanoramas () {
+        this.$store.commit('setSearchKeyword', '');
+        this.$store.commit('toggleFilterCategory', []);
+        this.$store.commit('orientationProducts', 'panorama');
+        this.$store.commit('toggleLimitedEdition', false);
+        this.$store.commit('sortProducts', 'popularity-az');
+        this.$store.dispatch('filterProducts');
+        this.$store.commit('sortProducts');
+        this.$router.push('/shop')
       }
-    },
+    }
   }
 </script>
 

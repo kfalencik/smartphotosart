@@ -36,6 +36,9 @@ export default {
     'id'
   ],
   computed: {
+    formats () {
+      return this.$store.state.formats
+    },
     product() {
       const product = this.$store.state.products.filter(product => product.id === this.id);
       return product[0];
@@ -45,6 +48,9 @@ export default {
     },
     orientation () {
       return this.$store.state.orientation
+    },
+    panorama () {
+      this.product.panorama
     }
   },
   methods: {
@@ -54,7 +60,7 @@ export default {
       return price;
     },
     price: function(price) {
-      price = parseFloat(price) + this.materials[0].finishes[0].styles[0].sizes[0]
+      price = parseFloat(price) + this.materials[0].finishes[0].styles[0].sizes[this.product.customSize ? this.product.customSizeTemplate : 0] + (parseFloat(price) * this.formats[this.panorama ? 1 : 0].sizes[this.product.customSize ? this.product.customSizeTemplate : 0].price) - parseFloat(price)
       return '$' + (Math.floor(price * 100) / 100).toFixed(2)
     }
   }

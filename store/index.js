@@ -113,10 +113,10 @@ export const mutations = {
 
     if(state.orientation !== '') {
       if (state.orientation === 'panorama') {
-        state.filteredProducts = state.filteredProducts.filter(item => item.panorama)
+        state.filteredProducts = state.filteredProducts.filter(item => item.panorama || (item.customSize && item.customSizePanorama))
       } else {
         state.filteredProducts = state.filteredProducts.filter(item => {
-          return ((item.landscape || item.panorama) && state.orientation === 'landscape') || ((!item.landscape && !item.panorama) && state.orientation === 'portrait')
+          return ((item.landscape || item.panorama || item.customSize) && state.orientation === 'landscape') || ((!item.landscape && !item.panorama || item.customSize) && state.orientation === 'portrait')
         })
       }
     }

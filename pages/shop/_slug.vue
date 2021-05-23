@@ -4,16 +4,16 @@
       <div class="section section--page">
         <div :class="{'product container': true, 'product--landscape': orientation === 'landscape'}">
 
-          <template v-if="overlay && image !== 7">
+          <template v-if="overlay && image !== galleryMax">
             <div class="product__overlay" @click="overlay = false">
-              <template v-if="productInfo.format === 0">
+              <template v-if="productInfo.format === 0 || product.customSize">
                 <img :src="product.image1" v-if="image === 1" role="presentation" alt="" />
                 <img :src="product.image2" v-if="image === 2" role="presentation" alt="" />
                 <img :src="product.image3" v-if="image === 3" role="presentation" alt="" />
                 <img :src="product.image4" v-if="image === 4" role="presentation" alt="" />
                 <img :src="product.image5" v-if="image === 5" role="presentation" alt="" />
-                <img v-if="orientation === 'landscape' && image === 6" :src="require('@/assets/images/comparison_landscape.jpg')" role="presentation" alt="" />
-                <img v-if="orientation !== 'landscape' && image === 6" :src="require('@/assets/images/comparison_portrait.jpg')" role="presentation" alt="" />
+                <img v-if="orientation === 'landscape' && image === 6 && !product.customSize" :src="require('@/assets/images/comparison_landscape.jpg')" role="presentation" alt="" />
+                <img v-if="orientation !== 'landscape' && image === 6 && !product.customSize" :src="require('@/assets/images/comparison_portrait.jpg')" role="presentation" alt="" />
               </template>
 
               <template v-else>
@@ -25,10 +25,10 @@
                 <img v-if="product.panorama && image === 6" :src="require('@/assets/images/comparison_panorama.jpg')" role="presentation" alt="" />
               </template>
 
-              <button @click.prevent.stop="image === 1 ? image = 7 : image = image - 1" class="product__nav-item" title="Previous">
+              <button @click.prevent.stop="image === 1 ? image = galleryMax : image = image - 1" class="product__nav-item" title="Previous">
                 <b-icon icon="arrow-left"></b-icon>
               </button>
-              <button @click.prevent.stop="image === 7 ? image = 1 : image = image + 1" class="product__nav-item" title="Next">
+              <button @click.prevent.stop="image === galleryMax ? image = 1 : image = image + 1" class="product__nav-item" title="Next">
                 <b-icon icon="arrow-right"></b-icon>
               </button>
 
@@ -136,16 +136,16 @@
           
           <div class="columns is-4">
             <div class="column is-two-thirds">
-              <template v-if="image === 7">
+              <template v-if="image === galleryMax && !product.customSize">
                 <div class="product__dynamic-preview" :style="{ 'background-image': 'url(' + require('@/assets/images/product-' + orientation + '-background-' + canvasImage + '.jpg') + ')' }" >
                   <div class="product__canvas" :style="{ 'background-image': 'url(' + (orientation === 'landscape' && productInfo.format === 1 ? product.image10 : product.image1) + ')', 'transform': 'scale(' + formats[productInfo.format].sizes[productInfo.size].action + ')', width: orientation === 'landscape' ? productInfo.format === 1 ? '600px' : '480px' : '310px', height: orientation === 'landscape' ? productInfo.format === 1 ? '345px' : '310px' : '480px' }">
                     <div class="product__frame" v-if="materials[productInfo.material].frames && materials[productInfo.material].frames[productInfo.frame].action !== 'transparent'" :style="{'border-color': materials[productInfo.material].frames[productInfo.frame].action}"></div>
                   </div>
 
-                  <button @click="image === 1 ? image = 7 : image = image - 1" class="product__nav-item" title="Previous">
+                  <button @click="image === 1 ? image = galleryMax : image = image - 1" class="product__nav-item" title="Previous">
                     <b-icon icon="arrow-left"></b-icon>
                   </button>
-                  <button @click="image === 7 ? image = 1 : image = image + 1" class="product__nav-item" title="Next">
+                  <button @click="image === galleryMax ? image = 1 : image = image + 1" class="product__nav-item" title="Next">
                     <b-icon icon="arrow-right"></b-icon>
                   </button>
                 </div>
@@ -153,16 +153,16 @@
 
               <template v-else>
                 <div class="product__image">
-                  <template v-if="productInfo.format === 0">
+                  <template v-if="productInfo.format === 0 || product.customSize">
                     <img :src="product.image1" v-if="image === 1" role="presentation" alt="" />
                     <img :src="product.image2" v-if="image === 2" role="presentation" alt="" />
                     <img :src="product.image3" v-if="image === 3" role="presentation" alt="" />
                     <img :src="product.image4" v-if="image === 4" role="presentation" alt="" />
                     <img :src="product.image5" v-if="image === 5" role="presentation" alt="" />
-                    <img v-if="orientation === 'landscape' && image === 6" :src="require('@/assets/images/comparison_landscape.jpg')" role="presentation" alt="" />
+                    <img v-if="orientation === 'landscape' && image === 6 && !product.customSize" :src="require('@/assets/images/comparison_landscape.jpg')" role="presentation" alt="" />
                   </template>
 
-                  <template v-if="productInfo.format === 1">
+                  <template v-if="productInfo.format === 1 && !product.customSize">
                     <img :src="product.image10" v-if="image === 1" role="presentation" alt="" />
                     <img :src="product.image6" v-if="image === 2" role="presentation" alt="" />
                     <img :src="product.image7" v-if="image === 3" role="presentation" alt="" />
@@ -171,15 +171,15 @@
                     <img v-if="product.panorama && image === 6" :src="require('@/assets/images/comparison_panorama.jpg')" role="presentation" alt="" />
                   </template>
 
-                  <img v-if="orientation !== 'landscape' && image === 6" :src="require('@/assets/images/comparison_portrait.jpg')" role="presentation" alt="" />
+                  <img v-if="orientation !== 'landscape' && image === 6 && !product.customSize" :src="require('@/assets/images/comparison_portrait.jpg')" role="presentation" alt="" />
 
                   <button @click="overlay = true" class="product__image-fullscreen" title="Full screen">
                     <b-icon icon="fullscreen"></b-icon>
                   </button>
-                  <button @click="image === 7 ? image = 1 : image = image + 1" class="product__nav-item" title="Next">
+                  <button @click="image === galleryMax ? image = 1 : image = image + 1" class="product__nav-item" title="Next">
                     <b-icon icon="arrow-right"></b-icon>
                   </button>
-                  <button @click="image === 1 ? image = 7 : image = image - 1" class="product__nav-item" title="Previous">
+                  <button @click="image === 1 ? image = galleryMax : image = image - 1" class="product__nav-item" title="Previous">
                     <b-icon icon="arrow-left"></b-icon>
                   </button>
                 </div>
@@ -191,7 +191,7 @@
               <p class="small">Please note the preview above is just for demonstration purpouses. The actual size and colours might be slightly different.</p>
 
               <div class="product__thumbnails"> 
-                <template v-if="productInfo.format === 0">
+                <template v-if="productInfo.format === 0 || product.customSize">
                   <div class="product__thumbnails-item" @click="image = 1;" :class="{'product__thumbnails-item--active': image === 1}">
                     <img :src="product.image1" alt="Thumbnail 1" />
                   </div>
@@ -207,13 +207,13 @@
                   <div class="product__thumbnails-item" @click="image = 5;" :class="{'product__thumbnails-item--active': image === 5}">
                     <img :src="product.image5" alt="Thumbnail 5" />
                   </div>
-                  <div class="product__thumbnails-item" @click="image = 6;" :class="{'product__thumbnails-item--active': image === 6}">
+                  <div v-if="!product.customSize" class="product__thumbnails-item" @click="image = 6;" :class="{'product__thumbnails-item--active': image === 6}">
                     <img v-if="orientation === 'landscape'" :src="require('@/assets/images/comparison_landscape.jpg')" role="presentation" alt="Size comparison" />
                     <img v-else :src="require('@/assets/images/comparison_portrait.jpg')" alt="Size comparison" />
                   </div>
                 </template>
 
-                <template v-if="productInfo.format === 1">
+                <template v-if="productInfo.format === 1 && ! product.customSize">
                   <div class="product__thumbnails-item" @click="image = 1;" :class="{'product__thumbnails-item--active': image === 1}">
                     <img :src="product.image10" alt="Thumbnail 1" />
                   </div>
@@ -234,7 +234,7 @@
                   </div>
                 </template>
 
-                <div class="product__thumbnails-item product__thumbnails-item--preview" :class="{'product__thumbnails-item--active': image === 7}" aria-label="Dynamic preview" @click="image = 7;">
+                <div v-if="!product.customSize" class="product__thumbnails-item product__thumbnails-item--preview" :class="{'product__thumbnails-item--active': image === galleryMax}" aria-label="Dynamic preview" @click="image = galleryMax;">
                   <b-icon icon="image-area"></b-icon>
                   Dynamic preview
                 </div>
@@ -294,7 +294,7 @@
                   </div>
                 </div>
 
-                <div class="product__option" v-if="product.panorama">
+                <div class="product__option" v-if="product.panorama || !product.customSize">
                   <h5>Format</h5>
                   <div class="wrap">
                     <b-field>
@@ -314,7 +314,7 @@
 
                 <div class="product__option product__option--with-guide">
                   <h5 @click="information('size', 'size')">Size <span class="guide"><b-icon icon="information-outline" custom-size="mdi-18" /> Can't find the perfect size?</span></h5>
-                  <div class="wrap" v-if="sizes">
+                  <div class="wrap" v-if="sizes && !product.customSize">
                     <b-field>
                       <b-select placeholder="Select Size" required :value="productInfo.size" ref="size" @input="changeProduct">
                         <template v-for="(option, index) in sizes">
@@ -326,6 +326,16 @@
                         </template>
                       </b-select>
                     </b-field>
+                  </div>
+
+                  <div class="wrap" v-else>
+                    <b-select placeholder="Select Size" required disabled :value="1" ref="size">
+                      <option
+                        :value="1"
+                        :key="'size-1'">
+                        {{ product.customSizeName }}
+                      </option>
+                    </b-select>
                   </div>
                 </div>
 
@@ -392,7 +402,8 @@
                   <table border="1">
                     <tbody>
                     <tr><td>Finish</td><td>{{materials[productInfo.material].title}} / {{materials[productInfo.material].finishes[productInfo.finish].title}} / {{materials[productInfo.material].finishes[productInfo.finish][productInfo.format === 0 ? 'styles' : 'panoramaStyles'][productInfo.style].title}}</td><td>{{ priceDisplay(materials[productInfo.material].finishes[productInfo.finish][productInfo.format === 0 ? 'styles' : 'panoramaStyles'][productInfo.style].sizes[productInfo.size])}}</td></tr>
-                    <tr><td>Size</td><td>{{formats[productInfo.format].title}} / {{formats[productInfo.format].sizes[productInfo.size].title}}</td><td>{{ priceDisplay((productTotal * formats[productInfo.format].sizes[productInfo.size].price) - productTotal)}}</td></tr>
+                    <tr v-if="!product.customSize"><td>Size</td><td>{{formats[productInfo.format].title}} / {{formats[productInfo.format].sizes[productInfo.size].title}}</td><td>{{ priceDisplay((productTotal * formats[productInfo.format].sizes[productInfo.size].price) - productTotal) }}</td></tr>
+                    <tr v-else><td>Size</td><td>{{ product.customSizePanorama ? 'Panorama' : 'Standard' }} / {{ product.customSizeName }}</td><td>{{ priceDisplay((productTotal * formats[productInfo.format].sizes[productInfo.size].price) - productTotal) }}</td></tr>
                     <tr v-if="productInfo.frame"><td>Frame</td><td>{{materials[productInfo.material].frames[productInfo.frame].title}}</td><td>{{ priceDisplay(materials[productInfo.material].frames[productInfo.frame].sizes[productInfo.format][productInfo.size])}}</td></tr>
                     <tr v-if="productInfo.glass"><td>Glass</td><td>{{materials[productInfo.material].glass[productInfo.glass].title}}</td><td>{{ priceDisplay(materials[productInfo.material].glass[productInfo.glass].sizes[productInfo.format][productInfo.size])}}</td></tr>
                     <tr><td><strong>Extras total</strong></td><td></td><td><strong>{{ priceDisplay(extrasTotal) }}</strong></td></tr>
@@ -404,8 +415,7 @@
                     <tbody>
                     <tr><td>Product</td><td>{{ priceDisplay(productTotal)}}</td></tr>
                     <tr><td>Extras</td><td>{{ priceDisplay(extrasTotal) }}</td></tr>
-                    <tr><td>Product with extras</td><td>{{ priceDisplay(productTotal + extrasTotal) }}</td></tr>
-                    <tr><td>Quantity</td><td>x{{quantity}}</td></tr>
+                    <!-- <tr><td>Product with extras</td><td>{{ priceDisplay(productTotal + extrasTotal) }}</td></tr> -->
                     <tr><td><strong>Total</strong></td><td><strong>{{ priceDisplay(price * quantity) }}</strong></td></tr>
                     </tbody>
                   </table>
@@ -523,9 +533,16 @@ export default {
     if (this.$store.state.orientation === 'panorama') {
       this.productInfo.format = 1
     }
+    if (this.product.customSize) {
+      this.productInfo.size = this.product.customSizeTemplate
+    }
   },
 
   computed: {
+    galleryMax () {
+      return this.product.customSize ? 5 : 7
+    },
+
     slug () {
       return this.$route.params.slug;
     },
@@ -585,19 +602,7 @@ export default {
     },
 
     price () {
-      let price = this.productTotal * this.formats[this.productInfo.format].sizes[this.productInfo.size].price
-
-      price = price + this.materials[this.productInfo.material].finishes[this.productInfo.finish][this.productInfo.format === 0 ? 'styles' : 'panoramaStyles'][this.productInfo.style].sizes[this.productInfo.size]
-
-      if (frames && this.productInfo.frame) {
-        price = price + this.materials[this.productInfo.material].frames[this.productInfo.frame].sizes[this.productInfo.format][this.productInfo.size]
-      }
-
-      if (this.glass && this.productInfo.frame && this.productInfo.glass) {
-        price = price + this.materials[this.productInfo.material].glass[this.productInfo.glass].sizes[this.productInfo.format][this.productInfo.size]
-      }
-
-      return price
+      return this.productTotal + this.extrasTotal
     },
 
     productTotal () {
@@ -612,7 +617,11 @@ export default {
       // style
       let price = this.materials[this.productInfo.material].finishes[this.productInfo.finish][this.productInfo.format === 0 ? 'styles' : 'panoramaStyles'][this.productInfo.style].sizes[this.productInfo.size]
       // size
-      price = price + (this.productTotal * this.formats[this.productInfo.format].sizes[this.productInfo.size].price) - this.productTotal
+      price = price + ((this.productTotal * this.formats[this.productInfo.format].sizes[this.productInfo.size].price) - this.productTotal)
+      // Custom size price
+      if (this.product.customSize) {
+        price + parseFloat(this.product.customSizePrice)
+      }
       // frame
       if (this.productInfo.frame) {
         price = price + this.materials[this.productInfo.material].frames[this.productInfo.frame].sizes[this.productInfo.format][this.productInfo.size]

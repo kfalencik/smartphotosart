@@ -113,21 +113,54 @@
           </label>
         </b-field>
 
-        <b-field v-if="limitedEdition" class="form__input" label="Ilosc sprzedanych">
-          <b-input placeholder="Ilosc sprzedanych" v-model="sold" required></b-input>
-        </b-field>
+        <div v-if="limitedEdition" class="ml-5 my-2">
+          <b-field class="form__input" label="Ilosc sprzedanych">
+            <b-input placeholder="Ilosc sprzedanych" v-model="sold" required></b-input>
+          </b-field>
 
-        <b-field v-if="limitedEdition" class="form__input" label="Ilosc limitowanych">
-          <b-input placeholder="Ilosc limitowanych" v-model="limitedEditionTotal" required></b-input>
-        </b-field>
+          <b-field class="form__input" label="Ilosc limitowanych">
+            <b-input placeholder="Ilosc limitowanych" v-model="limitedEditionTotal" required></b-input>
+          </b-field>
+        </div>
 
         <b-field class="form__input">
+          <label class="checkbox">
+            <input type="checkbox" v-model="customSize"> Niestandardowy rozmiar?
+          </label>
+        </b-field>
+
+        <div class="ml-5 my-2" v-if="customSize">
+          <b-field class="form__input">
+            <label class="checkbox">
+              <input type="checkbox" v-model="customSizePanorama"> Niestandardowa panorama
+            </label>
+          </b-field>
+
+          <b-field label="Podobne do" message="Ktory rozmiar jest najbardziej podobny">
+            <b-select placeholder="Wybierz rozmiar" v-model="customSizeTemplate" required>
+              <option :value="0">8 x 12"</option>
+              <option :value="1">16 x 24"</option>
+              <option :value="2">24 x 36"</option>
+              <option :value="3">40 x 60"</option>
+            </b-select>
+          </b-field>
+
+          <b-field class="form__input" label="Nazwa rozmiaru">
+            <b-input placeholder="Nazwa rozmiaru" v-model="customSizeName" required></b-input>
+          </b-field>
+
+          <b-field message='Ta cena zostanie dodana do glownej ceny. W dolarach np. "49.99"' class="form__input" label="Cena rozmiaru">
+            <b-input placeholder="Cena rozmiaru" v-model="customSizePrice" required></b-input>
+          </b-field>
+        </div>
+
+        <b-field class="form__input" v-if="!customSize">
           <label class="checkbox">
             <input type="checkbox" v-model="panorama"> Panoarama?
           </label>
         </b-field>
 
-        <template v-if="panorama">
+        <template v-if="panorama && !customSize">
           <b-field class="form__input file" label="Glowne zdjecie (Panorama)">
             <b-upload v-model="image10" required>
               <a class="button is-info">
@@ -189,7 +222,7 @@
           </b-field>
         </template>
 
-        <b-field label="Orientacja" v-if="!panorama">
+        <b-field label="Orientacja" v-if="!panorama && !customSize">
           <b-select placeholder="Wybierz orientacje" v-model="landscape" required>
             <option value="true">Pozioma</option>
             <option value="false">Pionowa</option>
@@ -222,6 +255,11 @@ export default {
       slug: '',
       categories: [],
       categoriesSelect: [],
+      customSize: false,
+      customSizeName: '',
+      customSizePrice: 0,
+      customSizeTemplate: 0,
+      customSizePanorama: '',
       price: 0,
       discount: 0,
       bought: 0,
@@ -261,22 +299,27 @@ export default {
       return this.$route.params.id;
     },
     product() {
-      let product = this.$store.state.products.filter(product => product.id === parseInt(this.id));
-      product = product[0];
-      this.title = product.title;
-      this.description = product.description;
-      this.slug = product.slug;
+      let product = this.$store.state.products.filter(product => product.id === parseInt(this.id))
+      product = product[0]
+      this.title = product.title
+      this.description = product.description
+      this.slug = product.slug
       this.categoriesSelect = this.$store.state.categories
-      this.price = product.price;
-      this.discount = product.discount;
-      this.bought = product.bought;
-      this.sold = product.sold;
-      this.limitedEdition = product.limitedEdition ? product.limitedEdition : false;
-      this.limitedEditionTotal = product.limitedEditionTotal ? product.limitedEditionTotal : 0;
+      this.price = product.price
+      this.customSize = product.customSize ? product.customSize : false
+      this.customSizeName = product.customSizeName ? product.customSizeName : ''
+      this.customSizePrice = product.customSizePrice ? product.customSizePrice : 0
+      this.customSizeTemplate = product.customSizeTemplate ? product.customSizeTemplate : 0
+      this.customSizePanorama = product.customSizePanorama ? product.customSizePanorama : false
+      this.discount = product.discount
+      this.bought = product.bought
+      this.sold = product.sold
+      this.limitedEdition = product.limitedEdition ? product.limitedEdition : false
+      this.limitedEditionTotal = product.limitedEditionTotal ? product.limitedEditionTotal : 0
       this.panorama = product.panorama ? product.panorama : false
-      this.landscape = product.panorama ? true : product.landscape.toString();
-      this.tags = product.tags ? product.tags.split(',') : [];
-      this.categories = product.categories ? product.categories.split(', ').map(item => this.categoriesSelect.filter(category => category.slug === item)[0]) : [];
+      this.landscape = product.panorama ? true : product.landscape.toString()
+      this.tags = product.tags ? product.tags.split(',') : []
+      this.categories = product.categories ? product.categories.split(', ').map(item => this.categoriesSelect.filter(category => category.slug === item)[0]) : []
       
       this.image1URL = product.image1
       this.image2URL = product.image2
@@ -483,6 +526,11 @@ export default {
             slug: this.slug,
             description: this.description,
             price: this.price,
+            customSize: this.customSize,
+            customSizeName: this.customSizeName,
+            customSizePrice: this.customSizePrice,
+            customSizeTemplate: this.customSizeTemplate,
+            customSizePanorama: this.customSizePanorama,
             discount: this.discount,
             bought: this.bought,
             sold: this.sold,

@@ -70,12 +70,15 @@ export default {
         let discount = (productPrice / 100) * product.discount;
         productPrice = productPrice - discount;
 
+        console.log(productPrice, product.customSizePrice)
         productPrice = productPrice + this.materials[item.extras.material].finishes[item.extras.finish][item.extras.format === 0 ? 'styles' : 'panoramaStyles'][item.extras.style].sizes[item.extras.size]
 
+        if (product.customSize) {
+          productPrice + parseFloat(product.customSizePrice)
+        }
         if (item.extras.frame) {
           productPrice = productPrice + this.materials[item.extras.material].frames[item.extras.frame].sizes[item.extras.format][item.extras.size]
         }
-
         if (item.extras.frame && item.extras.glass) {
           productPrice = productPrice + this.materials[item.extras.material].glass[item.extras.glass].sizes[item.extras.format][item.extras.size]
         }

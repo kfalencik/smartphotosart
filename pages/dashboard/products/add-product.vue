@@ -113,21 +113,54 @@
           </label>
         </b-field>
 
-        <b-field v-if="limitedEdition" class="form__input" label="Ilosc sprzedanych">
-          <b-input placeholder="Ilosc sprzedanych" v-model="sold" required></b-input>
-        </b-field>
+        <div v-if="limitedEdition" class="ml-5 my-2">
+          <b-field class="form__input" label="Ilosc sprzedanych">
+            <b-input placeholder="Ilosc sprzedanych" v-model="sold" required></b-input>
+          </b-field>
 
-        <b-field v-if="limitedEdition" class="form__input" label="Ilosc limitowanych">
-          <b-input placeholder="Ilosc limitowanych" v-model="limitedEditionTotal" required></b-input>
-        </b-field>
+          <b-field class="form__input" label="Ilosc limitowanych">
+            <b-input placeholder="Ilosc limitowanych" v-model="limitedEditionTotal" required></b-input>
+          </b-field>
+        </div>
 
         <b-field class="form__input">
+          <label class="checkbox">
+            <input type="checkbox" v-model="customSize"> Niestandardowy rozmiar?
+          </label>
+        </b-field>
+
+        <div class="ml-5 my-2" v-if="customSize">
+          <b-field class="form__input">
+            <label class="checkbox">
+              <input type="checkbox" v-model="customSizePanorama"> Niestandardowa panorama
+            </label>
+          </b-field>
+
+          <b-field label="Podobne do" message="Ktory rozmiar jest najbardziej podobny">
+            <b-select placeholder="Wybierz rozmiar" v-model="customSizeTemplate" required>
+              <option :value="0">8 x 12"</option>
+              <option :value="1">16 x 24"</option>
+              <option :value="2">24 x 36"</option>
+              <option :value="3">40 x 60"</option>
+            </b-select>
+          </b-field>
+
+          <b-field class="form__input" label="Nazwa rozmiaru">
+            <b-input placeholder="Nazwa rozmiaru" v-model="customSizeName" required></b-input>
+          </b-field>
+
+          <b-field message='Ta cena zostanie dodana do glownej ceny. W dolarach np. "49.99"' class="form__input" label="Cena rozmiaru">
+            <b-input placeholder="Cena rozmiaru" v-model="customSizePrice" required></b-input>
+          </b-field>
+        </div>
+
+        <b-field class="form__input" v-if="!customSize">
           <label class="checkbox">
             <input type="checkbox" v-model="panorama"> Panoarama?
           </label>
         </b-field>
 
-        <template v-if="panorama">
+        <template v-if="panorama && !customSize">
           <b-field class="form__input file" label="Glowne zdjecie (Panorama)">
             <b-upload v-model="image1pano" required>
               <a class="button is-info">
@@ -189,7 +222,7 @@
           </b-field>
         </template>
 
-        <b-field label="Orientacja" v-if="!panorama">
+        <b-field label="Orientacja" v-if="!panorama && !customSize">
           <b-select placeholder="Wybierz orientacje" v-model="landscape" required>
             <option value="true">Pozioma</option>
             <option value="false">Pionowa</option>
@@ -224,11 +257,16 @@ export default {
       slug: '',
       categories: [],
       price: 0,
+      customSize: false,
+      customSizeName: '',
+      customSizePrice: 0,
+      customSizeTemplate: 0,
+      customSizePanorama: false,
       discount: 0,
       bought: 0,
       panorama: false,
-      landscape: "true",
-      limitedEdition: "false",
+      landscape: true,
+      limitedEdition: false,
       sold: 0,
       limitedEditionTotal: 0,
       tags: '',
@@ -431,6 +469,11 @@ export default {
             slug: this.slug,
             categories: this.categories.map(item => item.slug).join(", "),
             price: this.price,
+            customSize: this.customSize,
+            customSizeName: this.customSizeName,
+            customSizePrice: this.customSizePrice,
+            customSizeTemplate: this.customSizeTemplate,
+            customSizePanorama: this.customSizePanorama,
             discount: parseInt(this.discount),
             landscape: this.panorama ? true : this.landscape === 'true' ? true : false,
             tags: this.tags.join(", "),

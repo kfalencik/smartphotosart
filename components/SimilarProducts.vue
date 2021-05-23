@@ -18,7 +18,7 @@ export default {
   props: ['number'],
   computed: {
     products() {
-      const productsArray = [...this.$store.state.products];
+      const productsArray = [...this.$store.state.filteredProducts];
       let productsFound = [];
 
       const slug = this.$route.params.slug;
