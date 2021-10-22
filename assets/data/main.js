@@ -6,22 +6,22 @@ export default {
         {
           title: '8 x 12"',
           action: 0.2,
-          price: 1
+          price: 0.6
         },
         {
           title: '16 x 24"',
           action: 0.4,
-          price: 1.2
+          price: 0.8
         },
         {
           title: '24 x 36"',
           action: 0.6,
-          price: 2
+          price: 1.2
         },
         {
           title: '40 x 60"',
           action: 1,
-          price: 3
+          price: 1.4
         }
       ]
     },
@@ -31,22 +31,22 @@ export default {
         {
           title: '9 x 16"',
           action: 0.2,
-          price: 1
+          price: 0.6
         },
         {
           title: '18 x 32"',
           action: 0.4,
-          price: 1.2
+          price: 0.8
         },
         {
           title: '36 x 64"',
           action: 0.6,
-          price: 2
+          price: 1.2
         },
         {
           title: '40 x 70"',
           action: 1,
-          price: 3
+          price: 1.4
         }
       ]
     }
