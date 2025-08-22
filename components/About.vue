@@ -7,11 +7,11 @@
             <h2>{{section.title}}</h2>
             <div v-html="section.description"></div>
             <q>{{section.quote}}</q>
-            <img :src="'/assets' + section.signature" width="200" alt="Peter Falencik" />
+            <img src="~/assets/images/signature.png" width="200" alt="Peter Falencik" />
           </div>
 
           <div class="column has-text-centered is-half">
-            <img src="/assets/images/peterfalencik.jpg" width="680" alt="Peter Falencik" />
+            <img src="~/assets/images/peterfalencik.png" width="680" alt="Peter Falencik" />
           </div>
         </div>
       </div>
