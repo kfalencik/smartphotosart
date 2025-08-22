@@ -22,6 +22,7 @@
     "nuxt-compress": "^1.0.2",
     "nuxt-jsonld": "^1.4.5",
     "nuxt-vuex-localstorage": "^1.2.6",
+    "sharp": "^0.34.3",
     "vue-fb-customer-chat": "^0.2.0",
     "vue-mailchimp-subscribe": "^1.1.0",
     "vue-paypal-checkout": "^3.2.0"
