@@ -23,7 +23,7 @@
 
           <div class="column is-half-tablet is-one-third-desktop">
             <div class="key-points__item">
-              <img :src="require('@/assets/images/icons/icon-unique.png')" width="100" alt="" role="presentation" />
+              <img src="/assets/images/icons/icon-unique.png" width="100" alt="" role="presentation" />
               <h4>Unique</h4>
               <p>“You don’t take the photograph. You make it.”- Abel Adams The artwork we present is unique and it’s created for You</p>
             </div>
@@ -31,7 +31,7 @@
 
           <div class="column is-half-tablet is-one-third-desktop">
             <div class="key-points__item">
-              <img :src="require('@/assets/images/icons/icon-limited-edition.png')" width="100" alt="" role="presentation" />
+              <img src="/assets/images/icons/icon-limited-edition.png" width="100" alt="" role="presentation" />
               <h4>Limited Editions</h4>
               <p>We share our unique, valuable concepts with only exceptional, small number of customers.</p>
             </div>
@@ -39,7 +39,7 @@
 
           <div class="column is-half-tablet is-one-third-desktop">
             <div class="key-points__item">
-              <img :src="require('@/assets/images/icons/icon-your-space.png')" width="100" alt="" role="presentation" />
+              <img src="/assets/images/icons/icon-your-space.png" width="100" alt="" role="presentation" />
               <h4>Creative</h4>
               <p>The artistic photography we offer is a reason to create and change your space.</p>
             </div>
@@ -47,7 +47,7 @@
 
           <div class="column is-half-tablet is-one-third-desktop">
             <div class="key-points__item">
-              <img :src="require('@/assets/images/icons/icon-hd.png')" width="100" alt="" role="presentation" />
+              <img src="/assets/images/icons/icon-hd.png" width="100" alt="" role="presentation" />
               <h4>High Quality</h4>
               <p>Our product is always printed on the finest quality materials so you can enjoy them for decades. We are Eco too!</p>
             </div>

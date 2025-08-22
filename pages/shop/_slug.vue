@@ -12,8 +12,8 @@
                 <img :src="product.image3" v-if="image === 3" role="presentation" alt="" />
                 <img :src="product.image4" v-if="image === 4" role="presentation" alt="" />
                 <img :src="product.image5" v-if="image === 5" role="presentation" alt="" />
-                <img v-if="orientation === 'landscape' && image === 6 && !product.customSize" :src="require('@/assets/images/comparison_landscape.jpg')" role="presentation" alt="" />
-                <img v-if="orientation !== 'landscape' && image === 6 && !product.customSize" :src="require('@/assets/images/comparison_portrait.jpg')" role="presentation" alt="" />
+                <img v-if="orientation === 'landscape' && image === 6 && !product.customSize" src="/assets/images/comparison_landscape.jpg" role="presentation" alt="" />
+                <img v-if="orientation !== 'landscape' && image === 6 && !product.customSize" src="/assets/images/comparison_portrait.jpg" role="presentation" alt="" />
               </template>
 
               <template v-else>
@@ -22,7 +22,7 @@
                 <img :src="product.image7" v-if="image === 3" role="presentation" alt="" />
                 <img :src="product.image8" v-if="image === 4" role="presentation" alt="" />
                 <img :src="product.image9" v-if="image === 5" role="presentation" alt="" />
-                <img v-if="product.panorama && image === 6" :src="require('@/assets/images/comparison_panorama.jpg')" role="presentation" alt="" />
+                <img v-if="product.panorama && image === 6" src="/assets/images/comparison_panorama.jpg" role="presentation" alt="" />
               </template>
 
               <button @click.prevent.stop="image === 1 ? image = galleryMax : image = image - 1" class="product__nav-item" title="Previous">
@@ -208,8 +208,8 @@
                     <img :src="product.image5" alt="Thumbnail 5" />
                   </div>
                   <div v-if="!product.customSize" class="product__thumbnails-item" @click="image = 6;" :class="{'product__thumbnails-item--active': image === 6}">
-                    <img v-if="orientation === 'landscape'" :src="require('@/assets/images/comparison_landscape.jpg')" role="presentation" alt="Size comparison" />
-                    <img v-else :src="require('@/assets/images/comparison_portrait.jpg')" alt="Size comparison" />
+                    <img v-if="orientation === 'landscape'" src="/assets/images/comparison_landscape.jpg" role="presentation" alt="Size comparison" />
+                    <img v-else src="/assets/images/comparison_portrait.jpg" alt="Size comparison" />
                   </div>
                 </template>
 
@@ -230,7 +230,7 @@
                     <img :src="product.image9" alt="Thumbnail 5" />
                   </div>
                   <div v-if="product.panorama" class="product__thumbnails-item" @click="image = 6;" :class="{'product__thumbnails-item--active': image === 6}">
-                    <img :src="require('@/assets/images/comparison_panorama.jpg')" role="presentation" alt="Size comparison" />
+                    <img src="/assets/images/comparison_panorama.jpg" role="presentation" alt="Size comparison" />
                   </div>
                 </template>
 
